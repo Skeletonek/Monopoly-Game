@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Monopoly (Prototype1)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
-        <Menu Height="22" VerticalAlignment="Top" Width="1092">
+        <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
             <MenuItem Header="Status: "/>
             <MenuItem x:Name="ConnectionStatus"/>
@@ -20,6 +20,14 @@
             </Canvas.Background>
             <Image x:Name="Player1" Height="15" Canvas.Left="566" Canvas.Top="582" Width="15" Source="pack://siteoforigin:,,,/Resources/hellhound_sjpg.jpg"/>
         </Canvas>
+        <GroupBox Header="Kostki do gry" HorizontalAlignment="Left" Height="186" Margin="10,27,0,0" VerticalAlignment="Top" Width="198">
+            <Grid HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="188" Margin="0,0,-2,0">
+                <Label x:Name="Dice1" Content="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Dice2" Content="1" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                <Button Content="Rzuć kośćmi!" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="112" Height="35" Click="Button_Click"/>
+                <Label x:Name="DiceScore" Content="2" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="38"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>

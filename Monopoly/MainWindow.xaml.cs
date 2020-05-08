@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading;
 
 namespace Monopoly
 {
@@ -24,13 +25,15 @@ namespace Monopoly
     {
         private StreamReader clientStreamReader;
         private StreamWriter clientStreamWriter;
+        Random rng = new Random();
         public class Game
         {
-            public byte player1location;
-            public byte player2location;
-            public byte player3location;
-            public byte player4location;
-
+            public byte player1location=0;
+            public byte player2location=0;
+            public byte player3location=0;
+            public byte player4location=0;
+            public byte dice1;
+            public byte dice2;
         }
 
         BoardLocations boardLocations = new BoardLocations();
@@ -98,8 +101,20 @@ namespace Monopoly
             }
         }
 
-
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            game.dice1 = Convert.ToByte(rng.Next(1, 7));
+            game.dice2 = Convert.ToByte(rng.Next(1, 7));
+            Dice1.Content = game.dice1;
+            Dice2.Content = game.dice2;
+            DiceScore.Content = game.dice1 + game.dice2;
+            for (int i = 0; i < game.dice1 + game.dice2; i++)
+            {
+                game.player1location++;
+                if (game.player1location >= 40) { game.player1location = 0; }
+                Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.player1location));
+                Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.player1location));
+            }
+        }
     }
 }
