@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Monopoly (Prototype1)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
-        <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="1092">
+        <Menu Height="22" VerticalAlignment="Top" Width="1092">
             <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
             <MenuItem Header="Status: "/>
             <MenuItem x:Name="ConnectionStatus"/>
             <Separator Width="30" Background="#FFD7D7D7" Height="14"/>
             <MenuItem Header="0$"/>
         </Menu>
-        <Canvas Height="640" Margin="226,22,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="640" Margin="226,22,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
