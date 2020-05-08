@@ -11,3 +11,17 @@ C:\Users\skele\source\repos\Monopoly\Monopoly Server\obj\Debug\Monopoly_Server.P
 C:\Users\skele\source\repos\Monopoly\Monopoly Server\obj\Debug\Monopoly Server.csproj.GenerateResource.cache
 C:\Users\skele\source\repos\Monopoly\Monopoly Server\obj\Debug\Monopoly Server.exe
 C:\Users\skele\source\repos\Monopoly\Monopoly Server\obj\Debug\Monopoly Server.pdb
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe.config
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.pdb
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csprojAssemblyReference.cache
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\MainWindow.g.cs
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\App.g.cs
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.cache
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.lref
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\MainWindow.baml
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.g.resources
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly_Server.Properties.Resources.resources
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.GenerateResource.cache
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb
