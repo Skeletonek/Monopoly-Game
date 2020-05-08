@@ -1,0 +1,25 @@
+﻿<Window x:Class="Monopoly.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly"
+        mc:Ignorable="d"
+        Title="Monopoly (Prototype1)" Height="700" Width="1100" KeyDown="Window_KeyDown">
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="1092">
+            <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
+            <MenuItem Header="Status: "/>
+            <MenuItem x:Name="ConnectionStatus"/>
+            <Separator Width="30" Background="#FFD7D7D7" Height="14"/>
+            <MenuItem Header="0$"/>
+        </Menu>
+        <Canvas Height="640" Margin="226,22,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Canvas.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
+            </Canvas.Background>
+            <Image x:Name="Player1" Height="15" Canvas.Left="566" Canvas.Top="582" Width="15" Source="pack://siteoforigin:,,,/Resources/hellhound_sjpg.jpg"/>
+        </Canvas>
+
+    </Grid>
+</Window>

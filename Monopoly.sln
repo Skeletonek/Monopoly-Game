@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly", "Monopoly\Monopoly.csproj", "{90D35427-AC07-44EC-BFE6-FD35F8204FD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly Server", "Monopoly Server\Monopoly Server.csproj", "{5F204B7A-5DFE-465B-BBA5-028DA8E49B76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BE2B04A-22DD-4056-B3FF-D81E9846A92C}"
+	ProjectSection(SolutionItems) = preProject
+		changelog.txt = changelog.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90D35427-AC07-44EC-BFE6-FD35F8204FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D35427-AC07-44EC-BFE6-FD35F8204FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D35427-AC07-44EC-BFE6-FD35F8204FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D35427-AC07-44EC-BFE6-FD35F8204FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F204B7A-5DFE-465B-BBA5-028DA8E49B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F204B7A-5DFE-465B-BBA5-028DA8E49B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F204B7A-5DFE-465B-BBA5-028DA8E49B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F204B7A-5DFE-465B-BBA5-028DA8E49B76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFFEC04E-4874-4FB1-9CDA-DC711F288C15}
+	EndGlobalSection
+EndGlobal
