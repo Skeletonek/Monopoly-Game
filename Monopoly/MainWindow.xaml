@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Prototype2)" Height="700" Width="1100" KeyDown="Window_KeyDown">
+        Title="Monopoly (Alpha 0.1)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
@@ -19,6 +19,7 @@
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
             <Image x:Name="Player1" Height="15" Canvas.Left="566" Canvas.Top="582" Width="15" Source="pack://siteoforigin:,,,/Resources/hellhound_sjpg.jpg"/>
+            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" MouseEnter="Field1_MouseEnter" Source="pack://siteoforigin:,,,/Resources/FieldStart.jpg" OpacityMask="#00000000"/>
         </Canvas>
         <GroupBox Header="Kostki do gry" HorizontalAlignment="Left" Height="186" Margin="10,22,0,0" VerticalAlignment="Top" Width="198">
             <Grid Margin="0">
@@ -35,14 +36,14 @@
         </GroupBox>
         <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="369" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198">
             <Grid Margin="0">
-                <Image HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="104" Source="pack://siteoforigin:,,,/Resources/jasnoniebieski1.jpg"/>
-                <Label Content="Oriental Avenue" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
+                <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="pack://siteoforigin:,,,/Resources/FieldLightblue1.jpg"/>
+                <Label x:Name="Overview_Name" Content="Oriental Avenue" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
                 <Label Content="Koszt: " HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top"/>
                 <Label Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
                 <Label Content="Właściciel: " HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top"/>
-                <Label Content="100 $" HorizontalAlignment="Right" Margin="0,209,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right"/>
-                <Label Content="0" HorizontalAlignment="Right" Margin="0,240,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
-                <Label Content="Nikt" HorizontalAlignment="Right" Margin="0,271,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Label x:Name="Overview_Price" Content="100 $" HorizontalAlignment="Right" Margin="0,209,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right"/>
+                <Label x:Name="Overview_Houses" Content="0" HorizontalAlignment="Right" Margin="0,240,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Label x:Name="Overview_Owner" Content="Nikt" HorizontalAlignment="Right" Margin="0,271,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211">

@@ -2,3 +2,10 @@ Prototype 1
 - Mo¿liwoœæ po³¹czenia z serwerem (obecnie tylko z serwerem na tej samej maszynie co klient)
 - Dodanie planszy
 - Dodanie ruszaj¹cego siê pionka gracza pierwszego
+
+Prototype 2
+- Dodanie pe³nego interfejsu
+- Zmodyfikowanie serwera TCP
+
+Alpha 0.1
+- Najechanie kursorem na pole wyœwielta szczegó³y w polu podgl¹du

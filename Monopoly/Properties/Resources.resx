@@ -118,8 +118,47 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="jasnoniebieski1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jasnoniebieski1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FieldBronze1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldBronze1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldBronze2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldBronze2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldChance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldChance.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldCommChest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldCommChest.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldElectric" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldElectric.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldLightblue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldLightblue1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldLightblue2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldLightblue2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldMagenta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldMagenta1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldMagenta2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldMagenta2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldMagenta3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldMagenta3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldPrison" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldPrison.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldRailroad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldRailroad1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldStart.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldTax1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldTax1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="monopolyboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monopolyboard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
