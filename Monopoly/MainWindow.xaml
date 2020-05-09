@@ -8,15 +8,39 @@
         Title="Monopoly (Alpha 0.1)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
-            <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
-            <MenuItem Header="Gra jednoosobowa"/>
-            <MenuItem Header="Gra wieloosobowa"/>
-            <MenuItem Header="Opcje"/>
-            <MenuItem Header="Pomoc"/>
-            <Separator Width="300" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
+            <MenuItem Header="Gra jednoosobowa">
+                <MenuItem Header="Nowa gra"/>
+                <MenuItem Header="Zapisz grę"/>
+                <MenuItem Header="Wczytaj grę"/>
+                <MenuItem Header="Przerwij grę"/>
+            </MenuItem>
+            <MenuItem Header="Gra wieloosobowa" Click="MenuItem_Click">
+                <MenuItem Header="Połącz"/>
+            </MenuItem>
+            <MenuItem Header="Opcje">
+                <MenuItem Header="Dźwięk"/>
+                <MenuItem Header="Głośność">
+                    <MenuItem Header="100%"/>
+                    <MenuItem Header="90%"/>
+                    <MenuItem Header="80%"/>
+                    <MenuItem Header="70%"/>
+                    <MenuItem Header="60%"/>
+                    <MenuItem Header="50%"/>
+                    <MenuItem Header="40%"/>
+                    <MenuItem Header="30%"/>
+                    <MenuItem Header="20%"/>
+                    <MenuItem Header="10%"/>
+                </MenuItem>
+                <MenuItem Header="Powiększ planszę"/>
+            </MenuItem>
+            <MenuItem Header="Pomoc">
+                <MenuItem Header="Pomoc"/>
+                <MenuItem Header="O aplikacji"/>
+            </MenuItem>
+            <Separator Width="100" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
             <MenuItem Header="Status: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" HorizontalAlignment="Right"/>
-            <Separator Width="30" Background="#FFD7D7D7" HorizontalAlignment="Right"/>
+            <Separator Width="450" Background="{x:Null}" BorderBrush="{x:Null}"/>
             <MenuItem Header="0$" HorizontalAlignment="Right"/>
         </Menu>
         <Canvas Height="640" Margin="226,22,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">

@@ -230,5 +230,10 @@ namespace Monopoly
             game.selectedField = 2;
             OverviewRefresh();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

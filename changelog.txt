@@ -8,4 +8,7 @@ Prototype 2
 - Zmodyfikowanie serwera TCP
 
 Alpha 0.1
-- Najechanie kursorem na pole wyœwielta szczegó³y w polu podgl¹du
+- Najechanie kursorem na pole wyœwielta szczegó³y w polu podgl¹du (Dla pierwszych 3-ech pól)
+- Rozbudowanie interfejsu gry
+- Dodanie animacji ruchu
+- Dodanie przeciwnika (AI)
