@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Alpha 0.1)" Height="700" Width="1100" KeyDown="Window_KeyDown">
+        Title="Monopoly (Alpha 0.2)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Gra jednoosobowa">
@@ -37,11 +37,10 @@
                 <MenuItem Header="Pomoc"/>
                 <MenuItem Header="O aplikacji"/>
             </MenuItem>
-            <Separator Width="100" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
-            <MenuItem Header="Status: " HorizontalAlignment="Right"/>
-            <MenuItem x:Name="ConnectionStatus" HorizontalAlignment="Right"/>
-            <Separator Width="450" Background="{x:Null}" BorderBrush="{x:Null}"/>
-            <MenuItem Header="0$" HorizontalAlignment="Right"/>
+            <Separator Width="50" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
+            <MenuItem Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
+            <MenuItem x:Name="ConnectionStatus" Width="409"/>
+            <MenuItem Header="0$" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Width="78"/>
         </Menu>
         <Canvas Height="640" Margin="226,22,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
@@ -62,33 +61,39 @@
                 <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="95,115,0,0" VerticalAlignment="Top" Width="83" Height="35" Click="EndTurn_Click" IsEnabled="False"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Dev" HorizontalAlignment="Left" Height="67" Margin="10,218,0,0" VerticalAlignment="Top" Width="198">
+        <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="449" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198">
             <Grid Margin="0">
-                <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnSendMessage_Click"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="369" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198">
-            <Grid Margin="0">
-                <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="pack://siteoforigin:,,,/Resources/FieldLightblue1.jpg"/>
-                <Label x:Name="Overview_Name" Content="Oriental Avenue" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
-                <Label Content="Koszt: " HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top"/>
-                <Label Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
-                <Label Content="Właściciel: " HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Overview_Price" Content="100 $" HorizontalAlignment="Right" Margin="0,209,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right"/>
-                <Label x:Name="Overview_Houses" Content="0" HorizontalAlignment="Right" Margin="0,240,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
-                <Label x:Name="Overview_Owner" Content="Nikt" HorizontalAlignment="Right" Margin="0,271,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="Resources/FieldStart.jpg"/>
+                <Label x:Name="Overview_Name" Content="Pole startu" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
+                <Label Content="Koszt: " HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
+                <Label Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top"/>
+                <Label Content="Właściciel: " HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Overview_Price" Content="0 $" HorizontalAlignment="Right" Margin="0,204,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right"/>
+                <Label x:Name="Overview_Houses" Content="0" HorizontalAlignment="Right" Margin="0,230,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Label x:Name="Overview_Owner" Content="Mr. Nobody" HorizontalAlignment="Right" Margin="0,253,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Label Content="1 dom:" HorizontalAlignment="Left" Margin="10,291,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label Content="2 domy:" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label Content="3 domy:" HorizontalAlignment="Left" Margin="10,341,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label Content="4 domy:" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label Content="Hotel:" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Overview_1Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,291,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_2Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,316,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_3Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,341,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_4Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,366,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_HRent" Content="0 $" HorizontalAlignment="Right" Margin="0,391,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label Content="Czynsz" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211">
             <Grid Margin="0">
-                <Label Content="Gracz 1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Gracz 1 (To ty!)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <Label Content="Gracz 2" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
                 <Label Content="Gracz 3" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
                 <Label Content="Gracz 4" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211">

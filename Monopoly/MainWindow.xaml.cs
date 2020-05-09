@@ -209,9 +209,14 @@ namespace Monopoly
         {
             Overview_Picture.Source = boardData.fieldIcon[game.selectedField];
             Overview_Name.Content = boardData.fieldName[game.selectedField];
-            Overview_Price.Content = boardData.fieldPrice[game.selectedField];
+            Overview_Price.Content = boardData.fieldPrice[game.selectedField] + " $";
             Overview_Houses.Content = game.fieldHouse[game.selectedField];
             Overview_Owner.Content = game.fieldOwner[game.selectedField];
+            Overview_1Rent.Content = boardData.field1Rent[game.selectedField] + " $";
+            Overview_2Rent.Content = boardData.field2Rent[game.selectedField] + " $";
+            Overview_3Rent.Content = boardData.field3Rent[game.selectedField] + " $";
+            Overview_4Rent.Content = boardData.field4Rent[game.selectedField] + " $";
+            Overview_HRent.Content = boardData.fieldHRent[game.selectedField] + " $";
         }
         private void Field1_MouseEnter(object sender, MouseEventArgs e)
         {
