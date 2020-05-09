@@ -236,9 +236,226 @@ namespace Monopoly
             OverviewRefresh();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Field4_MouseEnter(object sender, MouseEventArgs e)
         {
+            game.selectedField = 3;
+            OverviewRefresh();
+        }
 
+        private void Field5_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 4;
+            OverviewRefresh();
+        }
+
+        private void Field6_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 5;
+            OverviewRefresh();
+        }
+
+        private void Field7_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 6;
+            OverviewRefresh();
+        }
+
+        private void Field8_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 7;
+            OverviewRefresh();
+        }
+
+        private void Field9_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 8;
+            OverviewRefresh();
+        }
+
+        private void Field10_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 9;
+            OverviewRefresh();
+        }
+
+        private void Field11_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 10;
+            OverviewRefresh();
+        }
+
+        private void Field12_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 11;
+            OverviewRefresh();
+        }
+
+        private void Field13_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 12;
+            OverviewRefresh();
+        }
+
+        private void Field14_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 13;
+            OverviewRefresh();
+        }
+
+        private void Field15_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 14;
+            OverviewRefresh();
+        }
+
+        private void Field16_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 15;
+            OverviewRefresh();
+        }
+
+        private void Field17_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 16;
+            OverviewRefresh();
+        }
+
+        private void Field18_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 17;
+            OverviewRefresh();
+        }
+
+        private void Field19_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 18;
+            OverviewRefresh();
+        }
+
+        private void Field20_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 19;
+            OverviewRefresh();
+        }
+
+        private void Field21_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 20;
+            OverviewRefresh();
+        }
+
+        private void Field22_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 21;
+            OverviewRefresh();
+        }
+
+        private void Field23_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 22;
+            OverviewRefresh();
+        }
+
+        private void Field24_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 23;
+            OverviewRefresh();
+        }
+
+        private void Field25_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 24;
+            OverviewRefresh();
+        }
+
+        private void Field26_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 25;
+            OverviewRefresh();
+        }
+
+        private void Field27_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 26;
+            OverviewRefresh();
+        }
+
+        private void Field28_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 27;
+            OverviewRefresh();
+        }
+
+        private void Field29_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 28;
+            OverviewRefresh();
+        }
+
+        private void Field30_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 29;
+            OverviewRefresh();
+        }
+
+        private void Field31_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 30;
+            OverviewRefresh();
+        }
+
+        private void Field32_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 31;
+            OverviewRefresh();
+        }
+
+        private void Field33_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 32;
+            OverviewRefresh();
+        }
+
+        private void Field34_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 33;
+            OverviewRefresh();
+        }
+
+        private void Field35_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 34;
+            OverviewRefresh();
+        }
+
+        private void Field36_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 35;
+            OverviewRefresh();
+        }
+
+        private void Field37_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 36;
+            OverviewRefresh();
+        }
+
+        private void Field38_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 37;
+            OverviewRefresh();
+        }
+
+        private void Field39_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 38;
+            OverviewRefresh();
+        }
+
+        private void Field40_MouseEnter(object sender, MouseEventArgs e)
+        {
+            game.selectedField = 39;
+            OverviewRefresh();
         }
     }
 }
