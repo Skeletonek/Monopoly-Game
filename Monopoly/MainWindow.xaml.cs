@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Net.Sockets;
 using System.IO;
 using System.Threading;
+using SimpleTCP;
 
 namespace Monopoly
 {
@@ -23,8 +24,7 @@ namespace Monopoly
     /// </summary>
     public partial class MainWindow : Window
     {
-        private StreamReader clientStreamReader;
-        private StreamWriter clientStreamWriter;
+        SimpleTcpClient client;
         Random rng = new Random();
         public class Game
         {
@@ -40,52 +40,27 @@ namespace Monopoly
         Game game = new Game();
         public MainWindow()
         {
+            client = new SimpleTcpClient();
+            client.StringEncoder = Encoding.UTF8;
+            client.DataReceived += Client_DataReceived;
             InitializeComponent();
         }
 
         // SERVER CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        private bool ConnectToServer()
+        private void Client_DataReceived(object sender, Message e)
         {
-            //connect to server at given port
-            try
-            {
-                TcpClient tcpClient = new TcpClient("localhost", 4444);
-                ConnectionStatus.Header = "Connected";
-                //get a network stream from server
-                NetworkStream clientSockStream = tcpClient.GetStream();
-                clientStreamReader = new StreamReader(clientSockStream);
-                clientStreamWriter = new StreamWriter(clientSockStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                return false;
-            }
-
-            return true;
+            ConnectionStatus.Header = e.MessageString;
         }
 
         private void btnConnectToServer_Click(object sender, RoutedEventArgs e)
         {
-            //connect to server
-            if (!ConnectToServer())
-                ConnectionStatus.Header = "Unable to connect to server";
+            client.Connect("127.0.0.1", 4444);
         }
 
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                //send message to server
-                clientStreamWriter.WriteLine("Hello!");
-                clientStreamWriter.Flush();
-                ConnectionStatus.Header = "SERVER: " + clientStreamReader.ReadLine();
-            }
-            catch (Exception se)
-            {
-                ConnectionStatus.Header = se.StackTrace;
-            }
+            //client.
         }
 
         // GAME CODE
@@ -115,6 +90,7 @@ namespace Monopoly
                 Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.player1location));
                 Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.player1location));
             }
+            client.WriteLineAndGetReply("Test", TimeSpan.FromSeconds(3));
         }
     }
 }
