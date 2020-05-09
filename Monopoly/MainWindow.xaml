@@ -9,10 +9,15 @@
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
-            <MenuItem Header="Status: "/>
-            <MenuItem x:Name="ConnectionStatus"/>
-            <Separator Width="30" Background="#FFD7D7D7" Height="14"/>
-            <MenuItem Header="0$"/>
+            <MenuItem Header="Gra jednoosobowa"/>
+            <MenuItem Header="Gra wieloosobowa"/>
+            <MenuItem Header="Opcje"/>
+            <MenuItem Header="Pomoc"/>
+            <Separator Width="300" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
+            <MenuItem Header="Status: " HorizontalAlignment="Right"/>
+            <MenuItem x:Name="ConnectionStatus" HorizontalAlignment="Right"/>
+            <Separator Width="30" Background="#FFD7D7D7" HorizontalAlignment="Right"/>
+            <MenuItem Header="0$" HorizontalAlignment="Right"/>
         </Menu>
         <Canvas Height="640" Margin="226,22,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
