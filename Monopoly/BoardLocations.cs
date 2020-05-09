@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Monopoly
 {
@@ -107,5 +108,105 @@ namespace Monopoly
             }
         }
         
+    }
+
+    class BoardData
+    {
+        public string[] fieldName = new string[40];
+        public BitmapImage[] fieldIcon = new BitmapImage[40];
+        public int[] fieldPrice = new int[40];
+        public int[] fieldNoSetRent = new int[40];
+        public int[] field1Rent = new int[40];
+        public int[] field2Rent = new int[40];
+        public int[] field3Rent = new int[40];
+        public int[] field4Rent = new int[40];
+        public int[] fieldHRent = new int[40];
+        public byte[] fieldSet1 = new byte[40];
+        public byte[] fieldSet2 = new byte[40];
+        public bool[] fieldChance = new bool[40];
+        public bool[] fieldCommChest = new bool[40];
+        public bool[] fieldTax = new bool[40];
+        public int[] fieldTaxCost = new int[40];
+
+        public void gameDataWriter()
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                switch(i)
+                {
+                    case 0:
+                        fieldName[i] = "Pole startu";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldStart.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 1:
+                        fieldName[i] = "Mediterranean Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBronze1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 60;
+                        fieldNoSetRent[i] = 2;
+                        field1Rent[i] = 10;
+                        field2Rent[i] = 30;
+                        field3Rent[i] = 90;
+                        field4Rent[i] = 160;
+                        fieldHRent[i] = 250;
+                        fieldSet1[i] = 3;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 2:
+                        fieldName[i] = "Kasa społeczna";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldCommChest.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = true;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 3:
+                        fieldName[i] = "Baltic Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBronze2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 60;
+                        fieldNoSetRent[i] = 4;
+                        field1Rent[i] = 20;
+                        field2Rent[i] = 60;
+                        field3Rent[i] = 180;
+                        field4Rent[i] = 320;
+                        fieldHRent[i] = 450;
+                        fieldSet1[i] = 1;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+                }
+            }
+        }
     }
 }

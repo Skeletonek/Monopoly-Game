@@ -18,15 +18,19 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
-            <Image x:Name="Player1" Height="15" Canvas.Left="566" Canvas.Top="582" Width="15" Source="pack://siteoforigin:,,,/Resources/hellhound_sjpg.jpg"/>
             <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" MouseEnter="Field1_MouseEnter" Source="pack://siteoforigin:,,,/Resources/FieldStart.jpg" OpacityMask="#00000000"/>
+            <Image x:Name="Field2" Height="84" Canvas.Left="504" Canvas.Top="556" Width="52" MouseEnter="Field2_MouseEnter" Source="Resources/FieldStart.jpg" OpacityMask="#00000000"/>
+            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="Resources/FieldStart.jpg" OpacityMask="#00000000"/>
+            <Image x:Name="Player1" Height="20" Canvas.Left="566" Canvas.Top="582" Width="20" Source="pack://siteoforigin:,,,/Resources/BluePlayer.png"/>
+            <Image x:Name="Player2" Height="20" Width="20" Source="Resources/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582"/>
         </Canvas>
         <GroupBox Header="Kostki do gry" HorizontalAlignment="Left" Height="186" Margin="10,22,0,0" VerticalAlignment="Top" Width="198">
             <Grid Margin="0">
                 <Label x:Name="Dice1" Content="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="Dice2" Content="1" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-                <Button Content="Rzuć kośćmi!" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="112" Height="35" Click="Button_Click"/>
+                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi!" HorizontalAlignment="Left" Margin="9,115,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click"/>
                 <Label x:Name="DiceScore" Content="2" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="38"/>
+                <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="95,115,0,0" VerticalAlignment="Top" Width="83" Height="35" Click="EndTurn_Click" IsEnabled="False"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Dev" HorizontalAlignment="Left" Height="67" Margin="10,218,0,0" VerticalAlignment="Top" Width="198">
