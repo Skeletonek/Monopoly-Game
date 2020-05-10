@@ -372,6 +372,106 @@ namespace Monopoly
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
+
+                    case 11:
+                        fieldName[i] = "St. Charles Place";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldMagenta1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 140;
+                        fieldNoSetRent[i] = 10;
+                        field1Rent[i] = 50;
+                        field2Rent[i] = 150;
+                        field3Rent[i] = 450;
+                        field4Rent[i] = 625;
+                        fieldHRent[i] = 750;
+                        fieldSet1[i] = 13;
+                        fieldSet2[i] = 14;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 12:
+                        fieldName[i] = "Elektrownia";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldElectric.jpg", UriKind.Relative));
+                        fieldPrice[i] = 150;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 29;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = true;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 13:
+                        fieldName[i] = "States Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldMagenta2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 140;
+                        fieldNoSetRent[i] = 10;
+                        field1Rent[i] = 50;
+                        field2Rent[i] = 150;
+                        field3Rent[i] = 450;
+                        field4Rent[i] = 625;
+                        fieldHRent[i] = 750;
+                        fieldSet1[i] = 11;
+                        fieldSet2[i] = 14;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 14:
+                        fieldName[i] = "Virginia Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldMagenta3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 160;
+                        fieldNoSetRent[i] = 12;
+                        field1Rent[i] = 60;
+                        field2Rent[i] = 180;
+                        field3Rent[i] = 500;
+                        field4Rent[i] = 700;
+                        fieldHRent[i] = 900;
+                        fieldSet1[i] = 11;
+                        fieldSet2[i] = 13;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 15:
+                        fieldName[i] = "Dworzec Pennsylvania";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 200;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 25;
+                        field2Rent[i] = 50;
+                        field3Rent[i] = 100;
+                        field4Rent[i] = 200;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
                 }
             }
 

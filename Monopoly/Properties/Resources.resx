@@ -145,6 +145,9 @@
   <data name="FieldLightblue2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldLightblue2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FieldLightblue3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldLightblue3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FieldMagenta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldMagenta1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,11 +157,26 @@
   <data name="FieldMagenta3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldMagenta3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FieldOrange1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldOrange1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldOrange2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldOrange2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldOrange3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldOrange3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldParkingLot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldParkingLot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FieldPrison" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldPrison.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FieldRailroad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldRailroad1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldRailroad2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldRailroad2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FieldStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldStart.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

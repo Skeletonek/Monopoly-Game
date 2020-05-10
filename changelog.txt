@@ -1,9 +1,12 @@
 Alpha 0.2
 - Dodano informacje o czynszu
-- W pe³ni zaprogramowano obs³ugê wszystkich 40 pól na planszy
+- W pe³ni zaprogramowano obs³ugê wszystkich 40 pól na planszy przez klienta
 - Zaprogramowano kupowanie dzielnic
-- Czêœciowo zaprogramowano koniecznoœæ zap³aty czynszu
+- Zaprogramowano koniecznoœæ zap³aty czynszu
 - Zaprogramowano pierwsze wiadomoœci w GameLog'u
+- Zaprogramowano dworce kolejowe
+- Zaprogramowano system podatków
+- Wpisano 15 pól do bazy danych gry
 
 Alpha 0.1
 - Najechanie kursorem na pole wyœwietla szczegó³y w polu podgl¹du (Dla pierwszych 3-ech pól)

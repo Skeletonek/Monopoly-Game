@@ -36,6 +36,7 @@ namespace Monopoly
             public string[] playername = new string[5] { "Gracz 1", "Gracz 2", "Gracz 3", "Gracz 4", "Mr. Nobody"};
             public byte[] playerlocation = new byte[4] { 0, 0, 0, 0 };
             public int[] playercash = new int[4] { 1500, 1500, 1500, 1500 };
+            public byte[] playerRailroadOwned = new byte[4] { 0, 0, 0, 0 };
             public byte clientplayer = 0;
             public byte turn = 0;
             public byte dice1;

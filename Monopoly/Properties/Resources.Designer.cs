@@ -153,6 +153,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FieldLightblue3 {
+            get {
+                object obj = ResourceManager.GetObject("FieldLightblue3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FieldMagenta1 {
             get {
                 object obj = ResourceManager.GetObject("FieldMagenta1", resourceCulture);
@@ -183,6 +193,46 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FieldOrange1 {
+            get {
+                object obj = ResourceManager.GetObject("FieldOrange1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FieldOrange2 {
+            get {
+                object obj = ResourceManager.GetObject("FieldOrange2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FieldOrange3 {
+            get {
+                object obj = ResourceManager.GetObject("FieldOrange3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FieldParkingLot {
+            get {
+                object obj = ResourceManager.GetObject("FieldParkingLot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FieldPrison {
             get {
                 object obj = ResourceManager.GetObject("FieldPrison", resourceCulture);
@@ -196,6 +246,16 @@ namespace Monopoly.Properties {
         internal static System.Drawing.Bitmap FieldRailroad1 {
             get {
                 object obj = ResourceManager.GetObject("FieldRailroad1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FieldRailroad2 {
+            get {
+                object obj = ResourceManager.GetObject("FieldRailroad2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
