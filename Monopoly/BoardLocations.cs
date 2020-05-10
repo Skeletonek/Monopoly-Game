@@ -129,6 +129,23 @@ namespace Monopoly
         public bool[] fieldExtra = new bool[40];
         public bool[] fieldTax = new bool[40];
         public int[] fieldTaxCost = new int[40];
+        public string[] chanceText = new string[10];
+        public byte[] chanceAction = new byte[10];
+        public int[] chanceXValue = new int[10];
+        public string[] commChestText = new string[10];
+        public byte[] commChestAction = new byte[10];
+        public int[] commChestXValue = new int[10];
+
+        // chanceAction
+        // 0 - Player earns x money from bank
+        // 1 - Player have to pay x money to bank
+        // 2 - Player have to move to the exact field
+        // 3 - Player have to move x fields
+        // 4 - Player earns x money from other players
+        // 5 - Player have to renovate his buildings
+        // 6 - Player is arrested 
+        // 7 - Player have to pay x or choose other card
+        // 8 - Player have a free exit-prison card
 
         public void gameDataWriter()
         {
@@ -310,13 +327,61 @@ namespace Monopoly
                         fieldSet2[i] = 9;
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
-                        fieldRailroad[i] = true;
+                        fieldRailroad[i] = false;
                         fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 9:
+                        fieldName[i] = "Connecticut Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldLightblue3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 120;
+                        fieldNoSetRent[i] = 8;
+                        field1Rent[i] = 40;
+                        field2Rent[i] = 100;
+                        field3Rent[i] = 300;
+                        field4Rent[i] = 450;
+                        fieldHRent[i] = 600;
+                        fieldSet1[i] = 8;
+                        fieldSet2[i] = 9;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 10:
+                        fieldName[i] = "Więzienie";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldPrison.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = true;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
                 }
             }
+
+            chanceText[0] = "Zapłać 50 zł";
+            chanceAction[0] = 1;
+            chanceXValue[0] = 50;
+
+            commChestText[0] = "Pobierz 50 zł";
+            commChestAction[0] = 0;
+            commChestXValue[0] = 50;
         }
     }
 }

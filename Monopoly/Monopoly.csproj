@@ -117,6 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\alpha.png" />
     <Content Include="Resources\BluePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

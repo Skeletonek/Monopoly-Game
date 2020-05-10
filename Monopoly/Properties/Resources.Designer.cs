@@ -63,6 +63,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alpha {
+            get {
+                object obj = ResourceManager.GetObject("alpha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BluePlayer {
             get {
                 object obj = ResourceManager.GetObject("BluePlayer", resourceCulture);

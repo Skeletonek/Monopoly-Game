@@ -45,6 +45,7 @@ namespace Monopoly
             public bool currentFieldForSale = false;
             public byte[] fieldHouse = new byte[40];
             public byte[] fieldOwner = new byte[40];
+            public int taxmoney = 0;
         }
 
         BoardLocations boardLocations = new BoardLocations();
@@ -155,85 +156,222 @@ namespace Monopoly
         private void FieldCheck()
         {
             byte currentPlayerLocation = game.playerlocation[game.turn];
-            int currentPlayerBalance = game.playercash[game.turn];
-            switch(currentPlayerLocation)
+            if (boardData.fieldChance[currentPlayerLocation] == true)
             {
-                default:
-                    if (game.fieldOwner[currentPlayerLocation] == 4)
-                    {
-                       if(game.turn == game.clientplayer)
-                        {
-                            MessageBoxResult result = MessageBox.Show("Czy chcesz kupić dzielnicę " + boardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                            switch(result)
-                            {
-                                case MessageBoxResult.Yes:
-                                    if (currentPlayerBalance >= boardData.fieldPrice[currentPlayerLocation])
-                                    {
-                                        currentPlayerBalance = currentPlayerBalance - boardData.fieldPrice[currentPlayerLocation];
-                                        game.fieldOwner[currentPlayerLocation] = game.turn;
-                                        GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Nie stać Cię na tą dzielnicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    }
-                                    break;
 
-                                case MessageBoxResult.No:
-                                    break;
-                            }
-                        }
-                       else
+            }
+            else if (boardData.fieldCommChest[currentPlayerLocation] == true)
+            {
+
+            }
+            else if (boardData.fieldRailroad[currentPlayerLocation] == true)
+            {
+                if (game.fieldOwner[currentPlayerLocation] == 4)
+                {
+                    if (game.turn == game.clientplayer)
+                    {
+                        MessageBoxResult result = MessageBox.Show("Czy chcesz kupić " + boardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        switch (result)
                         {
-                            if (!game.multiplayer)
-                            {
-                                if (currentPlayerBalance >= boardData.fieldPrice[currentPlayerLocation])
+                            case MessageBoxResult.Yes:
+                                if (!buyField(currentPlayerLocation))
                                 {
-                                    currentPlayerBalance = currentPlayerBalance - boardData.fieldPrice[currentPlayerLocation];
-                                    game.fieldOwner[currentPlayerLocation] = game.turn;
+                                    MessageBox.Show("Nie stać Cię na ten dworzec!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                                else
+                                {
                                     GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
                                 }
-                            }
+                                break;
+
+                            case MessageBoxResult.No:
+                                break;
                         }
                     }
                     else
                     {
-                        if (game.turn == game.clientplayer)
+                        if (!game.multiplayer)
                         {
-                            MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + boardData.fieldNoSetRent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                                if (currentPlayerBalance >= boardData.fieldNoSetRent[currentPlayerLocation])
-                                {
-                                currentPlayerBalance = currentPlayerBalance - boardData.fieldNoSetRent[currentPlayerLocation];
-                                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.fieldNoSetRent[currentPlayerLocation];
-                                }
-                                else
-                                {
-                                MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                this.Close();
-                                }
-                        }
-                        else
-                        {
-                            if (!game.multiplayer)
+                            if (buyField(currentPlayerLocation))
                             {
-                                if (currentPlayerBalance >= boardData.fieldNoSetRent[currentPlayerLocation])
-                                {
-                                    currentPlayerBalance = currentPlayerBalance - boardData.fieldNoSetRent[currentPlayerLocation];
-                                    game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.fieldNoSetRent[currentPlayerLocation];
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    this.Close();
-                                }
+                                GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
                             }
                         }
                     }
-                    break;
+                }
+                else if (game.fieldOwner[currentPlayerLocation] != game.clientplayer)
+                {
+                    if (game.turn == game.clientplayer)
+                    {
+                        MessageBox.Show("Stanąłeś na dworcu gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + boardData.field1Rent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        if (!payRailroadRent(currentPlayerLocation))
+                        {
+                            MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        if (!game.multiplayer)
+                        {
+                            if (!payRailroadRent(currentPlayerLocation))
+                            {
+                                MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                this.Close();
+                            }
+                        }
+                    }
+                }
+            }
+            else if (boardData.fieldTax[currentPlayerLocation] == true)
+            {
+                if (game.turn == game.clientplayer)
+                {
+                    MessageBox.Show("Musisz zapłacić podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "$.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    if (!payTax(currentPlayerLocation))
+                    {
+                        MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        this.Close();
+                    }
+                    else
+                    {
+                        GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine;
+                    }
+                }
+                else
+                {
+                    if (!game.multiplayer)
+                    {
+                        if (payTax(currentPlayerLocation))
+                        {
+                            GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            this.Close();
+                        }
+                    }
+                }
+            }
+            else if (boardData.fieldExtra[currentPlayerLocation] == true)
+            {
 
             }
-            game.playercash[game.turn] = currentPlayerBalance;
+            else
+            {
+                if (game.fieldOwner[currentPlayerLocation] == 4)
+                {
+                    if (game.turn == game.clientplayer)
+                    {
+                        MessageBoxResult result = MessageBox.Show("Czy chcesz kupić dzielnicę " + boardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        switch (result)
+                        {
+                            case MessageBoxResult.Yes:
+                                if (!buyField(currentPlayerLocation))
+                                {
+                                    MessageBox.Show("Nie stać Cię na tą dzielnicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                                else
+                                {
+                                    GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                }
+                                break;
+
+                            case MessageBoxResult.No:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        if (!game.multiplayer)
+                        {
+                            if(buyField(currentPlayerLocation))
+                            {
+                                GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                            }
+                        }
+                    }
+                }
+                else if (game.fieldOwner[currentPlayerLocation] != game.clientplayer)
+                {
+                    if (game.turn == game.clientplayer)
+                    {
+                        MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + boardData.fieldNoSetRent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        if(!payRent(currentPlayerLocation))
+                        {
+                            MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        if (!game.multiplayer)
+                        {
+                            if (!payRent(currentPlayerLocation))
+                            {
+                                MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                this.Close();
+                            }
+                        }
+                    }
+                }
+            }
             PlayerStatusRefresh();
+        }
+        private bool buyField(byte currentPlayerLocation)
+        {
+            if (game.playercash[game.turn] >= boardData.fieldPrice[currentPlayerLocation])
+            {
+                game.playercash[game.turn] = game.playercash[game.turn] - boardData.fieldPrice[currentPlayerLocation];
+                game.fieldOwner[currentPlayerLocation] = game.turn;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool payRent(byte currentPlayerLocation)
+        {
+            if (game.playercash[game.turn] >= boardData.fieldNoSetRent[currentPlayerLocation])
+            {
+                game.playercash[game.turn] = game.playercash[game.turn] - boardData.fieldNoSetRent[currentPlayerLocation];
+                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.fieldNoSetRent[currentPlayerLocation];
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+         }
+
+        private bool payRailroadRent(byte currentPlayerLocation)
+        {
+            if (game.playercash[game.turn] >= boardData.field1Rent[currentPlayerLocation])
+            {
+                game.playercash[game.turn] = game.playercash[game.turn] - boardData.field1Rent[currentPlayerLocation];
+                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.field1Rent[currentPlayerLocation];
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool payTax(byte currentPlayerLocation)
+        {
+            if (game.playercash[game.turn] >= boardData.fieldTaxCost[currentPlayerLocation])
+            {
+                game.playercash[game.turn] = game.playercash[game.turn] - boardData.fieldTaxCost[currentPlayerLocation];
+                game.taxmoney = game.taxmoney + boardData.fieldTaxCost[currentPlayerLocation];
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         // UI Programming
