@@ -125,6 +125,8 @@ namespace Monopoly
         public byte[] fieldSet2 = new byte[40];
         public bool[] fieldChance = new bool[40];
         public bool[] fieldCommChest = new bool[40];
+        public bool[] fieldRailroad = new bool[40];
+        public bool[] fieldExtra = new bool[40];
         public bool[] fieldTax = new bool[40];
         public int[] fieldTaxCost = new int[40];
 
@@ -148,6 +150,8 @@ namespace Monopoly
                         fieldSet2[i] = 0;
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = true;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
@@ -166,6 +170,8 @@ namespace Monopoly
                         fieldSet2[i] = 0;
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
@@ -184,6 +190,8 @@ namespace Monopoly
                         fieldSet2[i] = 0;
                         fieldChance[i] = false;
                         fieldCommChest[i] = true;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
@@ -202,6 +210,8 @@ namespace Monopoly
                         fieldSet2[i] = 0;
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
@@ -220,8 +230,90 @@ namespace Monopoly
                         fieldSet2[i] = 0;
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
                         fieldTax[i] = true;
                         fieldTaxCost[i] = 200;
+                        break;
+
+                    case 5:
+                        fieldName[i] = "Dworzec Reading";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 200;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 25;
+                        field2Rent[i] = 50;
+                        field3Rent[i] = 100;
+                        field4Rent[i] = 200;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = true;
+                        fieldTaxCost[i] = 200;
+                        break;
+
+                    case 6:
+                        fieldName[i] = "Oriental Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldLightblue1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 100;
+                        fieldNoSetRent[i] = 6;
+                        field1Rent[i] = 30;
+                        field2Rent[i] = 90;
+                        field3Rent[i] = 270;
+                        field4Rent[i] = 400;
+                        fieldHRent[i] = 550;
+                        fieldSet1[i] = 8;
+                        fieldSet2[i] = 9;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 7:
+                        fieldName[i] = "Szansa";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldChance.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = true;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 8:
+                        fieldName[i] = "Vermont Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldLightblue2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 100;
+                        fieldNoSetRent[i] = 6;
+                        field1Rent[i] = 30;
+                        field2Rent[i] = 90;
+                        field3Rent[i] = 270;
+                        field4Rent[i] = 400;
+                        fieldHRent[i] = 550;
+                        fieldSet1[i] = 6;
+                        fieldSet2[i] = 9;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
                         break;
                 }
             }
