@@ -205,6 +205,24 @@ namespace Monopoly
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;
                         break;
+
+                    case 4:
+                        fieldName[i] = "Podatek dochodowy";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldTax1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 200;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldTax[i] = true;
+                        fieldTaxCost[i] = 200;
+                        break;
                 }
             }
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Alpha 0.2)" Height="700" Width="1100" KeyDown="Window_KeyDown">
+        Title="Monopoly (Alpha 0.2)" Height="700" Width="1100">
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Gra jednoosobowa">
@@ -127,15 +127,15 @@
                 <Label Content="Gracz 2" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
                 <Label Content="Gracz 3" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
                 <Label Content="Gracz 4" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Label Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label x:Name="Label_Player1Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label x:Name="Label_Player2Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label x:Name="Label_Player3Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Label x:Name="Label_Player4Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211">
             <Grid Margin="0">
-                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="418" Width="179"><Run Text="Gracz 4 banrkutuje!"/><LineBreak/><Run/><LineBreak/><Run Text="Gracz 3 otrzymuje kartę bezpłatnego wyjścia z więzienia!"/></TextBlock>
+                <TextBlock x:Name="GameLog" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="418" Width="179"/>
             </Grid>
         </GroupBox>
 

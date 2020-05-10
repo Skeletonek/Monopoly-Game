@@ -32,15 +32,11 @@ namespace Monopoly
         byte diceScore;
         public class Game
         {
-            public byte player1location = 0;
-            public byte player2location = 0;
-            public byte player3location = 0;
-            public byte player4location = 0;
-            public int player1cash = 1500;
-            public int player2cash = 1500;
-            public int player3cash = 1500;
-            public int player4cash = 1500;
-            public byte clientplayer = 1;
+            public bool multiplayer = false;
+            public string[] playername = new string[5] { "Gracz 1", "Gracz 2", "Gracz 3", "Gracz 4", "Mr. Nobody"};
+            public byte[] playerlocation = new byte[4] { 0, 0, 0, 0 };
+            public int[] playercash = new int[4] { 1500, 1500, 1500, 1500 };
+            public byte clientplayer = 0;
             public byte turn = 0;
             public byte dice1;
             public byte dice2;
@@ -48,7 +44,7 @@ namespace Monopoly
             public int currentFieldPrice = 0;
             public bool currentFieldForSale = false;
             public byte[] fieldHouse = new byte[40];
-            public string[] fieldOwner = new string[40];
+            public byte[] fieldOwner = new byte[40];
         }
 
         BoardLocations boardLocations = new BoardLocations();
@@ -58,7 +54,7 @@ namespace Monopoly
         {
             for(int i = 0; i<40; i++)
             {
-                game.fieldOwner[i] = "Mr. Nobody";
+                game.fieldOwner[i] = 4;
                 game.fieldHouse[i] = 0;
             }
             boardData.gameDataWriter();
@@ -66,7 +62,7 @@ namespace Monopoly
             client.StringEncoder = Encoding.UTF8;
             client.DataReceived += Client_DataReceived;
             wait.Interval = TimeSpan.FromMilliseconds(300);
-            wait.Tick += Wait_Tick;
+            wait.Tick += JumpingAnimation_Tick;
             InitializeComponent();
         }
 
@@ -90,26 +86,6 @@ namespace Monopoly
 
         // GAME CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.Key == Key.Space)
-            {
-                Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.player1location));
-                Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.player1location));
-                game.player1location++;
-                if (game.player1location >= 40) { game.player1location = 0; }
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button_ThrowDice.IsEnabled = false;
-            ThrowDiceAndMove();
-            // Connection Test
-            if (connectedToServer == true)
-            { client.WriteLineAndGetReply("Test", TimeSpan.FromSeconds(3)); }
-        }
-
         private void EndTurn_Click(object sender, RoutedEventArgs e)
         {
             EndTurn();
@@ -140,26 +116,23 @@ namespace Monopoly
             wait.Start();
         }
 
-        private void Wait_Tick(object sender, EventArgs e)
+        private void JumpingAnimation_Tick(object sender, EventArgs e)
         {
             if (diceScore > 0)
             {
+                game.playerlocation[game.turn]++;
+                if (game.playerlocation[game.turn] >= 40)
+                { game.playerlocation[game.turn] = 0; }
                 switch (game.turn)
                 {
                     case 0:
-                        game.player1location++;
-                        if (game.player1location >= 40)
-                        { game.player1location = 0; }
-                        Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.player1location));
-                        Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.player1location));
+                        Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
+                        Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
                         break;
 
                     case 1:
-                        game.player2location++;
-                        if (game.player2location >= 40)
-                        { game.player2location = 0; }
-                        Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.player2location));
-                        Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.player2location));
+                        Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
+                        Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
                         break;
                 }
                 diceScore--;
@@ -167,6 +140,7 @@ namespace Monopoly
             else
             {
                 wait.Stop();
+                FieldCheck();
                 if(game.turn != 0)
                 {
                     EndTurn();
@@ -180,19 +154,12 @@ namespace Monopoly
 
         private void FieldCheck()
         {
-            byte currentPlayerLocation = 0;
-            int currentPlayerBalance = 0;
-            if(game.turn == 0)
-            { currentPlayerLocation = game.player1location; }
-            else if (game.turn == 1)
-            { currentPlayerLocation = game.player2location; }
+            byte currentPlayerLocation = game.playerlocation[game.turn];
+            int currentPlayerBalance = game.playercash[game.turn];
             switch(currentPlayerLocation)
             {
-                case 0:
-                    currentPlayerBalance += 200;
-                    break;
                 default:
-                    if (game.fieldOwner[currentPlayerLocation] == "Mr. Nobody")
+                    if (game.fieldOwner[currentPlayerLocation] == 4)
                     {
                        if(game.turn == game.clientplayer)
                         {
@@ -200,8 +167,16 @@ namespace Monopoly
                             switch(result)
                             {
                                 case MessageBoxResult.Yes:
-                                    game.player1cash = game.player1cash - boardData.fieldPrice[currentPlayerLocation];
-                                    game.fieldOwner[currentPlayerLocation] = "Gracz 1";
+                                    if (currentPlayerBalance >= boardData.fieldPrice[currentPlayerLocation])
+                                    {
+                                        currentPlayerBalance = currentPlayerBalance - boardData.fieldPrice[currentPlayerLocation];
+                                        game.fieldOwner[currentPlayerLocation] = game.turn;
+                                        GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Nie stać Cię na tą dzielnicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    }
                                     break;
 
                                 case MessageBoxResult.No:
@@ -210,29 +185,87 @@ namespace Monopoly
                         }
                        else
                         {
-
+                            if (!game.multiplayer)
+                            {
+                                if (currentPlayerBalance >= boardData.fieldPrice[currentPlayerLocation])
+                                {
+                                    currentPlayerBalance = currentPlayerBalance - boardData.fieldPrice[currentPlayerLocation];
+                                    game.fieldOwner[currentPlayerLocation] = game.turn;
+                                    GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                }
+                            }
                         }
                     }
                     else
                     {
-
+                        if (game.turn == game.clientplayer)
+                        {
+                            MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + boardData.fieldNoSetRent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                if (currentPlayerBalance >= boardData.fieldNoSetRent[currentPlayerLocation])
+                                {
+                                currentPlayerBalance = currentPlayerBalance - boardData.fieldNoSetRent[currentPlayerLocation];
+                                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.fieldNoSetRent[currentPlayerLocation];
+                                }
+                                else
+                                {
+                                MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                this.Close();
+                                }
+                        }
+                        else
+                        {
+                            if (!game.multiplayer)
+                            {
+                                if (currentPlayerBalance >= boardData.fieldNoSetRent[currentPlayerLocation])
+                                {
+                                    currentPlayerBalance = currentPlayerBalance - boardData.fieldNoSetRent[currentPlayerLocation];
+                                    game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.fieldNoSetRent[currentPlayerLocation];
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    this.Close();
+                                }
+                            }
+                        }
                     }
                     break;
 
             }
+            game.playercash[game.turn] = currentPlayerBalance;
+            PlayerStatusRefresh();
         }
+
+        // UI Programming
+        // //////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button_ThrowDice.IsEnabled = false;
+            ThrowDiceAndMove();
+            // Connection Test
+            if (connectedToServer == true)
+            { client.WriteLineAndGetReply("Test", TimeSpan.FromSeconds(3)); }
+        }
+
         private void OverviewRefresh()
         {
             Overview_Picture.Source = boardData.fieldIcon[game.selectedField];
             Overview_Name.Content = boardData.fieldName[game.selectedField];
             Overview_Price.Content = boardData.fieldPrice[game.selectedField] + " $";
             Overview_Houses.Content = game.fieldHouse[game.selectedField];
-            Overview_Owner.Content = game.fieldOwner[game.selectedField];
+            Overview_Owner.Content = game.playername[game.fieldOwner[game.selectedField]];
             Overview_1Rent.Content = boardData.field1Rent[game.selectedField] + " $";
             Overview_2Rent.Content = boardData.field2Rent[game.selectedField] + " $";
             Overview_3Rent.Content = boardData.field3Rent[game.selectedField] + " $";
             Overview_4Rent.Content = boardData.field4Rent[game.selectedField] + " $";
             Overview_HRent.Content = boardData.fieldHRent[game.selectedField] + " $";
+        }
+        private void PlayerStatusRefresh()
+        {
+            Label_Player1Cash.Content = game.playercash[0] + "$";
+            Label_Player2Cash.Content = game.playercash[1] + "$";
+            Label_Player3Cash.Content = game.playercash[2] + "$";
+            Label_Player4Cash.Content = game.playercash[3] + "$";
         }
         private void Field1_MouseEnter(object sender, MouseEventArgs e)
         {
