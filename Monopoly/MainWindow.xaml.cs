@@ -191,11 +191,27 @@ namespace Monopoly
                 case 0:
                     currentPlayerBalance += 200;
                     break;
-                case 1:
+                default:
                     if (game.fieldOwner[currentPlayerLocation] == "Mr. Nobody")
                     {
-                        game.currentFieldForSale = true;
-                        game.currentFieldPrice = 60;
+                       if(game.turn == game.clientplayer)
+                        {
+                            MessageBoxResult result = MessageBox.Show("Czy chcesz kupić dzielnicę " + boardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            switch(result)
+                            {
+                                case MessageBoxResult.Yes:
+                                    game.player1cash = game.player1cash - boardData.fieldPrice[currentPlayerLocation];
+                                    game.fieldOwner[currentPlayerLocation] = "Gracz 1";
+                                    break;
+
+                                case MessageBoxResult.No:
+                                    break;
+                            }
+                        }
+                       else
+                        {
+
+                        }
                     }
                     else
                     {
