@@ -1,5 +1,11 @@
 Alpha 0.3
 - Dodano brakuj¹ce informacje o czynszu za teren niezabudowany
+- Dodano w³aœciwoœci wszystkich dzielnic
+- Zaprogramowano elektrowniê i wodoci¹gi
+- Zaprogramowano wiêzienie
+- Zaprogramowano bezp³atny parking
+- Zaprogramowano przejœcie przez start
+- Zmodyfikowano kod sieciowy
 
 Alpha 0.2
 - Dodano informacje o czynszu

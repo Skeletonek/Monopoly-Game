@@ -51,18 +51,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EO.Base, Version=20.1.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.20.1.31\lib\EO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="EO.WebBrowser, Version=20.1.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.20.1.31\lib\EO.WebBrowser.dll</HintPath>
-    </Reference>
-    <Reference Include="EO.WebBrowser.Wpf, Version=20.1.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.Wpf.20.1.31\lib\EO.WebBrowser.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="EO.WebEngine, Version=20.1.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
-      <HintPath>..\packages\EO.WebBrowser.20.1.31\lib\EO.WebEngine.dll</HintPath>
-    </Reference>
     <Reference Include="NetComm">
       <HintPath>.\NetComm.dll</HintPath>
     </Reference>
@@ -133,7 +121,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
