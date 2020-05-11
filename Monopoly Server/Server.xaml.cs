@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Sockets;
 using System.IO;
-using SimpleTCP;
+using NetComm;
 
 namespace Monopoly_Server
 {
@@ -23,27 +23,39 @@ namespace Monopoly_Server
     /// </summary>
     public partial class MainWindow : Window
     {
-        SimpleTcpServer server;
-        string response;
+        Host Server;
         public MainWindow()
         {
-            server = new SimpleTcpServer();
-            server.Delimiter = 0x13;
-            server.StringEncoder = Encoding.UTF8;
-            server.DataReceived += Server_DataReceived;
+            Server = new NetComm.Host(2020);    
+             		
+            InitializeComponent();
         }
-        
-        private void Server_DataReceived(object sender, SimpleTCP.Message e)
-        {
-            response = e.MessageString;
-            label.Content = response;
-            e.ReplyLine(response);
-        }
-
         private void btnStartServer_Click(object sender, RoutedEventArgs e)
         {
-            System.Net.IPAddress ip = System.Net.IPAddress.Parse("127.0.0.1");
-            server.Start(ip, 4444);
+            Server.StartConnection();
+            Server.onConnection += new NetComm.Host.onConnectionEventHandler(Server_onConnection);
+            //Server.lostConnection += new NetComm.Host.lostConnectionEventHandler(Server_lostConnection);
+            Server.DataReceived += new NetComm.Host.DataReceivedEventHandler(Server_DataReceived);
+            Server.SendBufferSize = 400;
+            Server.ReceiveBufferSize = 50;
+            Server.NoDelay = true;
+        }
+
+        void Server_onConnection(string id)
+        {
+            label.Content=id + " connected!" + Environment.NewLine; //Updates the log textbox when new user joined
+        }
+
+        void Server_lostConnection(string id)
+        {
+            //Log.AppendText(id + " disconnected" +
+            //Environment.NewLine); //Updates the log textbox when user leaves the room
+        }
+
+        void Server_DataReceived(string ID, byte[] Data)
+        {
+            label.Content = ASCIIEncoding.ASCII.GetString(Data);
+            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("Thank you"));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Monopoly
 {
     class BoardLocations
     {
-        int[] playerLocationX_DB = new int[40]
+        int[] playerLocationX_DB = new int[41]
             {
             562,
             510,
@@ -21,7 +21,7 @@ namespace Monopoly
             198,
             146,
             94,
-            42,
+            0,
             42,
             42,
             42,
@@ -51,8 +51,9 @@ namespace Monopoly
             562,
             562,
             562,
+            30
             };
-        int[] playerLocationY_DB = new int[40]
+        int[] playerLocationY_DB = new int[41]
         {
             583,
             583,
@@ -94,6 +95,7 @@ namespace Monopoly
             407,
             459,
             511,
+            561
         };
 
         public int playerlocation(bool x, int pos)
@@ -468,6 +470,486 @@ namespace Monopoly
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
                         fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 16:
+                        fieldName[i] = "St. James Place";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldOrange1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 180;
+                        fieldNoSetRent[i] = 14;
+                        field1Rent[i] = 70;
+                        field2Rent[i] = 200;
+                        field3Rent[i] = 550;
+                        field4Rent[i] = 750;
+                        fieldHRent[i] = 950;
+                        fieldSet1[i] = 18;
+                        fieldSet2[i] = 19;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 17:
+                        fieldName[i] = "Kasa społeczna";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldCommChest.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = true;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 18:
+                        fieldName[i] = "Tennesse Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldOrange2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 180;
+                        fieldNoSetRent[i] = 14;
+                        field1Rent[i] = 70;
+                        field2Rent[i] = 200;
+                        field3Rent[i] = 550;
+                        field4Rent[i] = 750;
+                        fieldHRent[i] = 950;
+                        fieldSet1[i] = 16;
+                        fieldSet2[i] = 19;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 19:
+                        fieldName[i] = "New York Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldOrange3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 200;
+                        fieldNoSetRent[i] = 16;
+                        field1Rent[i] = 80;
+                        field2Rent[i] = 220;
+                        field3Rent[i] = 600;
+                        field4Rent[i] = 800;
+                        fieldHRent[i] = 1000;
+                        fieldSet1[i] = 16;
+                        fieldSet2[i] = 18;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 20:
+                        fieldName[i] = "Bezpłatny parking";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldParkingLot.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = true;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 21:
+                        fieldName[i] = "Kentucky Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRed1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 220;
+                        fieldNoSetRent[i] = 18;
+                        field1Rent[i] = 90;
+                        field2Rent[i] = 250;
+                        field3Rent[i] = 700;
+                        field4Rent[i] = 875;
+                        fieldHRent[i] = 1050;
+                        fieldSet1[i] = 23;
+                        fieldSet2[i] = 24;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 22:
+                        fieldName[i] = "Szansa";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldChance.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = true;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 23:
+                        fieldName[i] = "Indiana Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRed2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 220;
+                        fieldNoSetRent[i] = 18;
+                        field1Rent[i] = 90;
+                        field2Rent[i] = 250;
+                        field3Rent[i] = 700;
+                        field4Rent[i] = 875;
+                        fieldHRent[i] = 1050;
+                        fieldSet1[i] = 21;
+                        fieldSet2[i] = 24;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 24:
+                        fieldName[i] = "Illinois Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRed3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 240;
+                        fieldNoSetRent[i] = 20;
+                        field1Rent[i] = 100;
+                        field2Rent[i] = 300;
+                        field3Rent[i] = 750;
+                        field4Rent[i] = 925;
+                        fieldHRent[i] = 1100;
+                        fieldSet1[i] = 21;
+                        fieldSet2[i] = 23;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 25:
+                        fieldName[i] = "Dworzec B. & O.";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 200;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 25;
+                        field2Rent[i] = 50;
+                        field3Rent[i] = 100;
+                        field4Rent[i] = 200;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 26:
+                        fieldName[i] = "Atlantic Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldYellow1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 260;
+                        fieldNoSetRent[i] = 22;
+                        field1Rent[i] = 110;
+                        field2Rent[i] = 330;
+                        field3Rent[i] = 800;
+                        field4Rent[i] = 975;
+                        fieldHRent[i] = 1150;
+                        fieldSet1[i] = 27;
+                        fieldSet2[i] = 29;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 27:
+                        fieldName[i] = "Ventnor Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldYellow2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 260;
+                        fieldNoSetRent[i] = 22;
+                        field1Rent[i] = 110;
+                        field2Rent[i] = 330;
+                        field3Rent[i] = 800;
+                        field4Rent[i] = 975;
+                        fieldHRent[i] = 1150;
+                        fieldSet1[i] = 26;
+                        fieldSet2[i] = 29;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 28:
+                        fieldName[i] = "Wodociągi";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldWaterworks.jpg", UriKind.Relative));
+                        fieldPrice[i] = 150;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 12;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = true;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 29:
+                        fieldName[i] = "Marvin Gardens";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldYellow3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 280;
+                        fieldNoSetRent[i] = 24;
+                        field1Rent[i] = 120;
+                        field2Rent[i] = 360;
+                        field3Rent[i] = 850;
+                        field4Rent[i] = 1025;
+                        fieldHRent[i] = 1200;
+                        fieldSet1[i] = 26;
+                        fieldSet2[i] = 27;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 30:
+                        fieldName[i] = "Idź do więzienia!";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGoToJail.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = true;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 31:
+                        fieldName[i] = "Pacific Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGreen1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 300;
+                        fieldNoSetRent[i] = 26;
+                        field1Rent[i] = 130;
+                        field2Rent[i] = 390;
+                        field3Rent[i] = 900;
+                        field4Rent[i] = 1100;
+                        fieldHRent[i] = 1275;
+                        fieldSet1[i] = 32;
+                        fieldSet2[i] = 34;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 32:
+                        fieldName[i] = "North Carolina Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGreen2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 300;
+                        fieldNoSetRent[i] = 26;
+                        field1Rent[i] = 130;
+                        field2Rent[i] = 390;
+                        field3Rent[i] = 900;
+                        field4Rent[i] = 1100;
+                        fieldHRent[i] = 1275;
+                        fieldSet1[i] = 31;
+                        fieldSet2[i] = 34;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 33:
+                        fieldName[i] = "Kasa społeczna";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldCommChest.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = true;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 34:
+                        fieldName[i] = "Pennsylvania Avenue";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGreen3.jpg", UriKind.Relative));
+                        fieldPrice[i] = 320;
+                        fieldNoSetRent[i] = 28;
+                        field1Rent[i] = 150;
+                        field2Rent[i] = 450;
+                        field3Rent[i] = 1000;
+                        field4Rent[i] = 1200;
+                        fieldHRent[i] = 1400;
+                        fieldSet1[i] = 31;
+                        fieldSet2[i] = 32;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 35:
+                        fieldName[i] = "Dworzec ShortLine";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad4.jpg", UriKind.Relative));
+                        fieldPrice[i] = 200;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 25;
+                        field2Rent[i] = 50;
+                        field3Rent[i] = 100;
+                        field4Rent[i] = 200;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = true;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 36:
+                        fieldName[i] = "Szansa";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldChance.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = true;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 37:
+                        fieldName[i] = "Park Place";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBlue1.jpg", UriKind.Relative));
+                        fieldPrice[i] = 350;
+                        fieldNoSetRent[i] = 35;
+                        field1Rent[i] = 175;
+                        field2Rent[i] = 500;
+                        field3Rent[i] = 1100;
+                        field4Rent[i] = 1300;
+                        fieldHRent[i] = 1500;
+                        fieldSet1[i] = 39;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = false;
+                        fieldTaxCost[i] = 0;
+                        break;
+
+                    case 38:
+                        fieldName[i] = "Podatek luksusowy";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldTax2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 0;
+                        fieldNoSetRent[i] = 0;
+                        field1Rent[i] = 0;
+                        field2Rent[i] = 0;
+                        field3Rent[i] = 0;
+                        field4Rent[i] = 0;
+                        fieldHRent[i] = 0;
+                        fieldSet1[i] = 0;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
+                        fieldExtra[i] = false;
+                        fieldTax[i] = true;
+                        fieldTaxCost[i] = 100;
+                        break;
+
+                    case 39:
+                        fieldName[i] = "Boardwalk";
+                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBlue2.jpg", UriKind.Relative));
+                        fieldPrice[i] = 400;
+                        fieldNoSetRent[i] = 50;
+                        field1Rent[i] = 200;
+                        field2Rent[i] = 600;
+                        field3Rent[i] = 1400;
+                        field4Rent[i] = 1700;
+                        fieldHRent[i] = 2000;
+                        fieldSet1[i] = 37;
+                        fieldSet2[i] = 0;
+                        fieldChance[i] = false;
+                        fieldCommChest[i] = false;
+                        fieldRailroad[i] = false;
                         fieldExtra[i] = false;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;

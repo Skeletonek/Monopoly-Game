@@ -1,3 +1,6 @@
+Alpha 0.3
+- Dodano brakuj¹ce informacje o czynszu za teren niezabudowany
+
 Alpha 0.2
 - Dodano informacje o czynszu
 - W pe³ni zaprogramowano obs³ugê wszystkich 40 pól na planszy przez klienta
