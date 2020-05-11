@@ -129,7 +129,7 @@
     <Content Include="Resources\BluePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldBlue.jpg">
+    <Content Include="Resources\FieldBlue1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\FieldBlue2.jpg">

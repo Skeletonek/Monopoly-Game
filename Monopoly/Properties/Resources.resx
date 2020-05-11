@@ -124,8 +124,8 @@
   <data name="BluePlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BluePlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FieldBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FieldBlue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FieldBlue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FieldBlue1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FieldBlue2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FieldBlue2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

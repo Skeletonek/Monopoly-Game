@@ -83,9 +83,9 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FieldBlue {
+        internal static System.Drawing.Bitmap FieldBlue1 {
             get {
-                object obj = ResourceManager.GetObject("FieldBlue", resourceCulture);
+                object obj = ResourceManager.GetObject("FieldBlue1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

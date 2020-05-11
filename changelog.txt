@@ -7,6 +7,8 @@ Alpha 0.3
 - Zaprogramowano przejœcie przez start
 - Zmodyfikowano kod sieciowy
 - Dodano okno cheatów
+- Poprawiono b³¹d w którym pionki siê stackowa³y
+- Poprawiono wspó³rzêdne lokalizacji pól
 
 Alpha 0.2
 - Dodano informacje o czynszu

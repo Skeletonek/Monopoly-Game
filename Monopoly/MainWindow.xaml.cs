@@ -208,6 +208,7 @@ namespace Monopoly
         private void FieldCheck()
         {
             byte currentPlayerLocation = game.playerlocation[game.turn];
+            int rent = boardData.fieldNoSetRent[currentPlayerLocation];
             if (boardData.fieldChance[currentPlayerLocation] == true)
             {
                 byte chanceCard = Convert.ToByte(rng.Next(0, 1));
@@ -308,7 +309,7 @@ namespace Monopoly
                         }
                     }
                 }
-                else if (game.fieldOwner[currentPlayerLocation] != game.clientplayer)
+                else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                 {
                     if (game.turn == game.clientplayer)
                     {
@@ -368,7 +369,7 @@ namespace Monopoly
                 switch (currentPlayerLocation)
                 {
                     case 10:
-                        GameLog.Text += game.playername[game.turn] + " odwiezda więźniów! Jaki miły z niego człowiek!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " odwiedza więźniów! Jaki miły z niego człowiek!" + Environment.NewLine;
                         break;
 
                     case 20:
@@ -427,7 +428,7 @@ namespace Monopoly
                                 }
                             }
                         }
-                        else if (game.fieldOwner[currentPlayerLocation] != game.clientplayer)
+                        else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                         {
                             int calculatedMoney = calculateExtraFieldMultiplier(currentPlayerLocation);
                             if (game.turn == game.clientplayer)
@@ -487,7 +488,7 @@ namespace Monopoly
                                 }
                             }
                         }
-                        else if (game.fieldOwner[currentPlayerLocation] != game.clientplayer)
+                        else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                         {
                             int calculatedMoney = calculateExtraFieldMultiplier(currentPlayerLocation);
                             if (game.turn == game.clientplayer)
@@ -514,7 +515,7 @@ namespace Monopoly
                         break;
                 }
             }
-            else
+            else // For normal estates
             {
                 if (game.fieldOwner[currentPlayerLocation] == 4)
                 {
@@ -549,12 +550,16 @@ namespace Monopoly
                         }
                     }
                 }
-                else if (game.fieldOwner[currentPlayerLocation] != game.clientplayer)
+                else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                 {
+                    if(game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]] || boardData.fieldSet2[currentPlayerLocation] == 0)
+                    {
+                        rent = boardData.fieldNoSetRent[currentPlayerLocation] * 2;
+                    }
                     if (game.turn == game.clientplayer)
                     {
-                        MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.playername[game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + boardData.fieldNoSetRent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        if (!payRent(currentPlayerLocation))
+                        MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.playername[game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        if (!payRent(currentPlayerLocation, rent))
                         {
                             MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             this.Close();
@@ -564,7 +569,7 @@ namespace Monopoly
                     {
                         if (!game.multiplayer)
                         {
-                            if (!payRent(currentPlayerLocation))
+                            if (!payRent(currentPlayerLocation, rent))
                             {
                                 MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                 this.Close();
@@ -589,12 +594,12 @@ namespace Monopoly
             }
         }
 
-        private bool payRent(byte currentPlayerLocation)
+        private bool payRent(byte currentPlayerLocation, int rent)
         {
-            if (game.playercash[game.turn] >= boardData.fieldNoSetRent[currentPlayerLocation])
+            if (game.playercash[game.turn] >= rent)
             {
-                game.playercash[game.turn] = game.playercash[game.turn] - boardData.fieldNoSetRent[currentPlayerLocation];
-                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.fieldNoSetRent[currentPlayerLocation];
+                game.playercash[game.turn] = game.playercash[game.turn] - rent;
+                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + rent;
                 return true;
             }
             else
