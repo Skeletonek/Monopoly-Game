@@ -71,7 +71,7 @@ namespace Monopoly
             InitializeComponent();
             sfx.Open(new Uri(sfxfile, UriKind.Relative));
             sfx.Volume = 0.5;
-            //sfx.Play();
+            sfx.Play();
         }
 
         // SERVER CODE
@@ -118,6 +118,22 @@ namespace Monopoly
                 EnableMove();
             }
             else if (game.turn == 1 && game.playerArrestedTurns[game.turn] != 0)
+            {
+                DisableMove();
+            }
+            if (game.turn == 2 && game.playerArrestedTurns[game.turn] == 0)
+            {
+                EnableMove();
+            }
+            else if (game.turn == 2 && game.playerArrestedTurns[game.turn] != 0)
+            {
+                DisableMove();
+            }
+            if (game.turn == 3 && game.playerArrestedTurns[game.turn] == 0)
+            {
+                EnableMove();
+            }
+            else if (game.turn == 3 && game.playerArrestedTurns[game.turn] != 0)
             {
                 DisableMove();
             }
@@ -192,7 +208,7 @@ namespace Monopoly
                 if (game.turn != 0)
                 {
                     game.turn++;
-                    if(game.turn > 1)
+                    if(game.turn > 3)
                     {
                         game.turn = 0;
                     }
@@ -744,32 +760,48 @@ namespace Monopoly
         }
         private void Jump()
         {
+            int xcord = 0;
+            int ycord = 0;
+            if(game.fieldPlayers[game.playerlocation[game.turn]] <= 1)
+            {
+                xcord = boardLocations.playerlocation(true, game.playerlocation[game.turn]);
+                ycord = boardLocations.playerlocation(false, game.playerlocation[game.turn]);
+            }
+            else if (game.fieldPlayers[game.playerlocation[game.turn]] == 2)
+            {
+                xcord = boardLocations.playerlocation(true, game.playerlocation[game.turn]) + 22;
+                ycord = boardLocations.playerlocation(false, game.playerlocation[game.turn]);
+            }
+            else if (game.fieldPlayers[game.playerlocation[game.turn]] == 3)
+            {
+                xcord = boardLocations.playerlocation(true, game.playerlocation[game.turn]);
+                ycord = boardLocations.playerlocation(false, game.playerlocation[game.turn]) + 22;
+            }
+            else if(game.fieldPlayers[game.playerlocation[game.turn]] >= 4)
+            {
+                xcord = boardLocations.playerlocation(true, game.playerlocation[game.turn]) + 22;
+                ycord = boardLocations.playerlocation(false, game.playerlocation[game.turn]) + 22;
+            }
             switch (game.turn)
             {
                 case 0:
-                    if (game.fieldPlayers[game.playerlocation[game.turn]] <= 1)
-                    {
-                        Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
-                        Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
-                    }
-                    else if (game.fieldPlayers[game.playerlocation[game.turn]] == 2)
-                    {
-                        Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.playerlocation[game.turn])+22);
-                        Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
-                    }
-                    break;
+                    Canvas.SetLeft(Player1, xcord);
+                    Canvas.SetTop(Player1, ycord);
+                break;
 
                 case 1:
-                    if (game.fieldPlayers[game.playerlocation[game.turn]] <= 1)
-                    {
-                        Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
-                        Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
-                    }
-                    else if(game.fieldPlayers[game.playerlocation[game.turn]] == 2)
-                    {
-                        Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.playerlocation[game.turn])+22);
-                        Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
-                    }
+                    Canvas.SetLeft(Player2, xcord);
+                    Canvas.SetTop(Player2, ycord);
+                break;
+
+                case 2:
+                    Canvas.SetLeft(Player3, xcord);
+                    Canvas.SetTop(Player3, ycord);
+                    break;
+
+                case 3:
+                    Canvas.SetLeft(Player4, xcord);
+                    Canvas.SetTop(Player4, ycord);
                     break;
             }
         }

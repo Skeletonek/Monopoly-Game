@@ -9,6 +9,7 @@ Alpha 0.3
 - Dodano okno cheatów
 - Poprawiono b³¹d w którym pionki siê stackowa³y
 - Poprawiono wspó³rzêdne lokalizacji pól
+- Dodano obs³ugê 4 graczy w jednej grze
 
 Alpha 0.2
 - Dodano informacje o czynszu

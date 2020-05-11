@@ -238,4 +238,10 @@
   <data name="monopolyboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monopolyboard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RedPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RedPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YellowPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

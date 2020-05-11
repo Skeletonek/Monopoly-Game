@@ -90,7 +90,6 @@ C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldOran
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldOrange3.jpg
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldParkingLot.jpg
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldRailroad2.jpg
-C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldBlue.jpg
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldBlue2.jpg
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldGoToJail.jpg
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldGreen1.jpg
@@ -109,3 +108,6 @@ C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldYell
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\obj\Debug\CheatWindow.g.cs
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\obj\Debug\CheatWindow.baml
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\NetComm.dll
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldBlue1.jpg
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\YellowPlayer.png
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\RedPlayer.png

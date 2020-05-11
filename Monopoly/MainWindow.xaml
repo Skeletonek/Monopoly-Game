@@ -89,6 +89,8 @@
             <Image x:Name="Field40" Height="52" Canvas.Left="556" Canvas.Top="504" Width="84" MouseEnter="Field40_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
             <Image x:Name="Player1" Height="20" Canvas.Left="566" Canvas.Top="582" Width="20" Source="pack://siteoforigin:,,,/Resources/BluePlayer.png"/>
             <Image x:Name="Player2" Height="20" Width="20" Source="Resources/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582"/>
+            <Image x:Name="Player3" Height="20" Canvas.Left="566" Canvas.Top="607" Width="20" Source="Resources/YellowPlayer.png"/>
+            <Image x:Name="Player4" Height="20" Width="20" Source="Resources/RedPlayer.png" Canvas.Left="591" Canvas.Top="607"/>
         </Canvas>
         <GroupBox Header="Kostki do gry" HorizontalAlignment="Left" Height="152" Margin="10,22,0,0" VerticalAlignment="Top" Width="198">
             <Grid Margin="0">
@@ -126,14 +128,18 @@
         </GroupBox>
         <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211">
             <Grid Margin="0">
-                <Label Content="Gracz 1 (To ty!)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <Label Content="Gracz 2" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="Gracz 3" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-                <Label Content="Gracz 4" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                <Label Content="Gracz 1 (To ty!)" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top"/>
+                <Label Content="Gracz 3" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top"/>
+                <Label Content="Gracz 4" HorizontalAlignment="Left" Margin="43,103,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="Label_Player1Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
                 <Label x:Name="Label_Player2Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
                 <Label x:Name="Label_Player3Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
                 <Label x:Name="Label_Player4Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
+                <Image x:Name="Player1_Copy" Source="Resources/BluePlayer.png" Margin="17,10,162,116"/>
+                <Image x:Name="Player1_Copy1" Source="Resources/GreenPlayer.png" Margin="17,41,162,85"/>
+                <Image x:Name="Player1_Copy2" Source="Resources/YellowPlayer.png" Margin="17,72,162,54"/>
+                <Image x:Name="Player1_Copy3" Source="Resources/RedPlayer.png" Margin="17,103,162,23"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211">
