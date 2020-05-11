@@ -49,6 +49,7 @@ namespace Monopoly
             public bool currentFieldForSale = false;
             public byte[] fieldHouse = new byte[40];
             public byte[] fieldOwner = new byte[40];
+            public byte[] fieldPlayers = new byte[41];
             public int taxmoney = 0;
         }
 
@@ -61,14 +62,16 @@ namespace Monopoly
             {
                 game.fieldOwner[i] = 4;
                 game.fieldHouse[i] = 0;
+                game.fieldPlayers[i] = 0;
             }
+            game.fieldPlayers[0] = 4;
             boardData.gameDataWriter();
             wait.Interval = TimeSpan.FromMilliseconds(300);
             wait.Tick += JumpingAnimation_Tick;
             InitializeComponent();
             sfx.Open(new Uri(sfxfile, UriKind.Relative));
             sfx.Volume = 0.5;
-            sfx.Play();
+            //sfx.Play();
         }
 
         // SERVER CODE
@@ -166,8 +169,12 @@ namespace Monopoly
             if (diceScore > 0)
             {
                 game.playerlocation[game.turn]++;
+                game.fieldPlayers[game.playerlocation[game.turn] - 1]--;
+                game.fieldPlayers[game.playerlocation[game.turn]]++;
                 if (game.playerlocation[game.turn] >= 40)
-                { 
+                {
+                    game.fieldPlayers[40]--;
+                    game.fieldPlayers[0]++;
                     game.playerlocation[game.turn] = 0;
                     game.playercash[game.turn] = game.playercash[game.turn] + 200;
                     GameLog.Text += game.playername[game.turn] + " otrzymuje 200$ za przejście przez start!";
@@ -546,7 +553,7 @@ namespace Monopoly
                 {
                     if (game.turn == game.clientplayer)
                     {
-                        MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + boardData.fieldNoSetRent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.playername[game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + boardData.fieldNoSetRent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                         if (!payRent(currentPlayerLocation))
                         {
                             MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -735,13 +742,29 @@ namespace Monopoly
             switch (game.turn)
             {
                 case 0:
-                    Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
-                    Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
+                    if (game.fieldPlayers[game.playerlocation[game.turn]] <= 1)
+                    {
+                        Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
+                        Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
+                    }
+                    else if (game.fieldPlayers[game.playerlocation[game.turn]] == 2)
+                    {
+                        Canvas.SetLeft(Player1, boardLocations.playerlocation(true, game.playerlocation[game.turn])+22);
+                        Canvas.SetTop(Player1, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
+                    }
                     break;
 
                 case 1:
-                    Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
-                    Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
+                    if (game.fieldPlayers[game.playerlocation[game.turn]] <= 1)
+                    {
+                        Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.playerlocation[game.turn]));
+                        Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
+                    }
+                    else if(game.fieldPlayers[game.playerlocation[game.turn]] == 2)
+                    {
+                        Canvas.SetLeft(Player2, boardLocations.playerlocation(true, game.playerlocation[game.turn])+22);
+                        Canvas.SetTop(Player2, boardLocations.playerlocation(false, game.playerlocation[game.turn]));
+                    }
                     break;
             }
         }

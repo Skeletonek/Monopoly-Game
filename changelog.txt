@@ -6,6 +6,7 @@ Alpha 0.3
 - Zaprogramowano bezp³atny parking
 - Zaprogramowano przejœcie przez start
 - Zmodyfikowano kod sieciowy
+- Dodano okno cheatów
 
 Alpha 0.2
 - Dodano informacje o czynszu
