@@ -105,6 +105,10 @@ namespace Monopoly
         private void EndTurn()
         {
             Button_EndTurn.IsEnabled = false;
+            if (game.turn > 3)
+            {
+                game.turn = 0;
+            }
             if (game.turn == 0 && game.playerArrestedTurns[game.turn] == 0)
             {
                 EnableMove();
@@ -193,7 +197,7 @@ namespace Monopoly
                     game.fieldPlayers[0]++;
                     game.playerlocation[game.turn] = 0;
                     game.playercash[game.turn] = game.playercash[game.turn] + 200;
-                    GameLog.Text += game.playername[game.turn] + " otrzymuje 200$ za przejście przez start!";
+                    GameLog.Text += game.playername[game.turn] + " otrzymuje 200$ za przejście przez start!" + Environment.NewLine;
                     PlayerStatusRefresh();
                 }
                 Jump();
@@ -306,6 +310,7 @@ namespace Monopoly
                                 }
                                 else
                                 {
+                                    game.playerRailroadOwned[game.turn]++;
                                     GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
                                 }
                                 break;
@@ -320,6 +325,7 @@ namespace Monopoly
                         {
                             if (buyField(currentPlayerLocation))
                             {
+                                game.playerRailroadOwned[game.turn]++;
                                 GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
                             }
                         }
@@ -327,10 +333,26 @@ namespace Monopoly
                 }
                 else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                 {
+                        if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 1)
+                        {
+                            rent = boardData.field1Rent[currentPlayerLocation];
+                        }
+                        else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 2)
+                        {
+                            rent = boardData.field2Rent[currentPlayerLocation];
+                        }
+                        else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 3)
+                        {
+                            rent = boardData.field3Rent[currentPlayerLocation];
+                        }
+                        else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] >= 4)
+                        {
+                            rent = boardData.field4Rent[currentPlayerLocation];
+                        }
                     if (game.turn == game.clientplayer)
                     {
-                        MessageBox.Show("Stanąłeś na dworcu gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + boardData.field1Rent[currentPlayerLocation], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        if (!payRailroadRent(currentPlayerLocation))
+                        MessageBox.Show("Stanąłeś na dworcu gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        if (!payRent(currentPlayerLocation, rent))
                         {
                             MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             this.Close();
@@ -340,7 +362,7 @@ namespace Monopoly
                     {
                         if (!game.multiplayer)
                         {
-                            if (!payRailroadRent(currentPlayerLocation))
+                            if (!payRent(currentPlayerLocation, rent))
                             {
                                 MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                 this.Close();
@@ -571,6 +593,26 @@ namespace Monopoly
                     if(game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]] || boardData.fieldSet2[currentPlayerLocation] == 0)
                     {
                         rent = boardData.fieldNoSetRent[currentPlayerLocation] * 2;
+                        if(game.fieldHouse[currentPlayerLocation] == 1)
+                        {
+                            rent = boardData.field1Rent[currentPlayerLocation];
+                        }
+                        else if(game.fieldHouse[currentPlayerLocation] == 2)
+                        {
+                            rent = boardData.field2Rent[currentPlayerLocation];
+                        }
+                        else if(game.fieldHouse[currentPlayerLocation] == 3)
+                        {
+                            rent = boardData.field3Rent[currentPlayerLocation];
+                        }
+                        else if(game.fieldHouse[currentPlayerLocation] == 4)
+                        {
+                            rent = boardData.field4Rent[currentPlayerLocation];
+                        }
+                        else if(game.fieldHouse[currentPlayerLocation] >= 5)
+                        {
+                            rent = boardData.fieldHRent[currentPlayerLocation];
+                        }
                     }
                     if (game.turn == game.clientplayer)
                     {
@@ -616,20 +658,6 @@ namespace Monopoly
             {
                 game.playercash[game.turn] = game.playercash[game.turn] - rent;
                 game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + rent;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private bool payRailroadRent(byte currentPlayerLocation)
-        {
-            if (game.playercash[game.turn] >= boardData.field1Rent[currentPlayerLocation])
-            {
-                game.playercash[game.turn] = game.playercash[game.turn] - boardData.field1Rent[currentPlayerLocation];
-                game.playercash[game.fieldOwner[currentPlayerLocation]] = game.playercash[game.fieldOwner[currentPlayerLocation]] + boardData.field1Rent[currentPlayerLocation];
                 return true;
             }
             else
@@ -726,6 +754,70 @@ namespace Monopoly
             {
                 return false;
             }
+        }
+        private bool buyHouse(byte selectedField)
+        {
+            if (game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]] || boardData.fieldSet2[selectedField] == 0)
+            {
+                if(selectedField > 0 && selectedField < 9)
+                {
+                    if (game.fieldHouse[selectedField] < 6)
+                    {
+                        if (game.playercash[game.turn] >= 50)
+                        {
+                            game.playercash[game.turn] = game.playercash[game.turn] - 50;
+                            game.fieldHouse[selectedField]++;
+                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+                else if(selectedField > 10 && selectedField < 20)
+                {
+                    if (game.fieldHouse[selectedField] < 6)
+                    {
+                        if (game.playercash[game.turn] >= 100)
+                        {
+                            game.playercash[game.turn] = game.playercash[game.turn] - 100;
+                            game.fieldHouse[selectedField]++;
+                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+                else if(selectedField > 20 && selectedField < 30)
+                {
+                    if (game.fieldHouse[selectedField] < 6)
+                    {
+                        if (game.playercash[game.turn] >= 150)
+                        {
+                            game.playercash[game.turn] = game.playercash[game.turn] - 150;
+                            game.fieldHouse[selectedField]++;
+                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+                else if(selectedField > 30 && selectedField < 40)
+                {
+                    if (game.fieldHouse[selectedField] < 6)
+                    {
+                        if (game.playercash[game.turn] >= 200)
+                        {
+                            game.playercash[game.turn] = game.playercash[game.turn] - 200;
+                            game.fieldHouse[selectedField]++;
+                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
 
         // UI Programming
@@ -1059,6 +1151,208 @@ namespace Monopoly
         {
             //Spotify spotify = new Spotify();
             //spotify.Show();
+        }
+
+        private void Field1_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field2_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if(game.turn == game.clientplayer)
+            {
+                buyHouse(1);
+            }
+        }
+
+        private void Field3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field4_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field5_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field6_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field7_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field8_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field9_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field10_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field11_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field14_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field15_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field16_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field17_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field18_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field19_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field20_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void Field21_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field22_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field23_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field24_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field25_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field26_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field27_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field28_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field29_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field30_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field31_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void Field32_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field33_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field34_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field35_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field36_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field37_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field38_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field39_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Field40_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

@@ -453,6 +453,16 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap House {
+            get {
+                object obj = ResourceManager.GetObject("House", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap monopolyboard {
             get {
                 object obj = ResourceManager.GetObject("monopolyboard", resourceCulture);
@@ -466,6 +476,16 @@ namespace Monopoly.Properties {
         internal static System.Drawing.Bitmap RedPlayer {
             get {
                 object obj = ResourceManager.GetObject("RedPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Trivago {
+            get {
+                object obj = ResourceManager.GetObject("Trivago", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

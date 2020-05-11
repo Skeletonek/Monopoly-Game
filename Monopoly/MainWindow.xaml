@@ -43,50 +43,50 @@
             <MenuItem x:Name="ConnectionStatus" Width="409"/>
             <MenuItem Header="0$" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Width="78"/>
         </Menu>
-        <Canvas Height="640" Margin="226,25,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="GameCanvas" Height="640" Margin="226,25,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
-            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" MouseEnter="Field1_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field2" Height="84" Canvas.Left="504" Canvas.Top="556" Width="52" MouseEnter="Field2_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field4" Height="84" Canvas.Left="399" Canvas.Top="556" Width="52" MouseEnter="Field4_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field5" Height="84" Canvas.Left="346" Canvas.Top="556" Width="52" MouseEnter="Field5_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field6" Height="84" Canvas.Left="294" Canvas.Top="556" Width="52" MouseEnter="Field6_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field7" Height="84" Canvas.Left="242" Canvas.Top="556" Width="52" MouseEnter="Field7_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field8" Height="84" Canvas.Left="190" Canvas.Top="556" Width="52" MouseEnter="Field8_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field9" Height="84" Canvas.Left="137" Canvas.Top="556" Width="53" MouseEnter="Field9_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field10" Height="84" Canvas.Left="85" Canvas.Top="556" Width="53" MouseEnter="Field10_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field11" Height="84" Canvas.Top="556" Width="84" MouseEnter="Field11_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field12" Height="52" Canvas.Top="504" Width="84" MouseEnter="Field12_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field13" Height="52" Canvas.Top="452" Width="84" MouseEnter="Field13_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field14" Height="53" Canvas.Top="399" Width="84" MouseEnter="Field14_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field15" Height="52" Canvas.Top="347" Width="84" MouseEnter="Field15_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field16" Height="53" Canvas.Top="294" Width="84" MouseEnter="Field16_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field17" Height="53" Canvas.Top="241" Width="84" MouseEnter="Field17_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field18" Height="52" Canvas.Top="189" Width="84" MouseEnter="Field18_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field19" Height="52" Canvas.Top="137" Width="84" MouseEnter="Field19_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field20" Height="53" Canvas.Top="84" Width="84" MouseEnter="Field20_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field21" Height="84" Width="84" MouseEnter="Field21_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field22" Height="84" Canvas.Left="85" Width="52" MouseEnter="Field22_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field23" Height="84" Canvas.Left="137" Width="52" MouseEnter="Field23_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field24" Height="84" Canvas.Left="189" Width="52" MouseEnter="Field24_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field25" Height="84" Canvas.Left="241" Width="52" MouseEnter="Field25_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field26" Height="84" Canvas.Left="293" Width="52" MouseEnter="Field26_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field27" Height="84" Canvas.Left="346" Width="52" MouseEnter="Field27_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field28" Height="84" Canvas.Left="399" Width="52" MouseEnter="Field28_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field29" Height="84" Canvas.Left="452" Width="52" MouseEnter="Field29_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field30" Height="84" Canvas.Left="504" Width="52" MouseEnter="Field30_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field31" Height="84" Canvas.Left="556" Width="84" MouseEnter="Field31_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field32" Height="53" Canvas.Left="556" Canvas.Top="84" Width="84" MouseEnter="Field32_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field33" Height="52" Canvas.Left="556" Canvas.Top="137" Width="84" MouseEnter="Field33_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field34" Height="52" Canvas.Left="556" Canvas.Top="189" Width="84" MouseEnter="Field34_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field35" Height="53" Canvas.Left="556" Canvas.Top="241" Width="84" MouseEnter="Field35_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field36" Height="53" Canvas.Left="556" Canvas.Top="294" Width="84" MouseEnter="Field36_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field37" Height="52" Canvas.Left="556" Canvas.Top="347" Width="84" MouseEnter="Field37_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field38" Height="53" Canvas.Left="556" Canvas.Top="399" Width="84" MouseEnter="Field38_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field39" Height="52" Canvas.Left="556" Canvas.Top="452" Width="84" MouseEnter="Field39_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
-            <Image x:Name="Field40" Height="52" Canvas.Left="556" Canvas.Top="504" Width="84" MouseEnter="Field40_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000"/>
+            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field1_MouseUp" MouseLeftButtonUp="Field1_MouseEnter"/>
+            <Image x:Name="Field2" Height="84" Canvas.Left="504" Canvas.Top="556" Width="52" MouseEnter="Field2_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field2_MouseUp"/>
+            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field3_MouseUp"/>
+            <Image x:Name="Field4" Height="84" Canvas.Left="399" Canvas.Top="556" Width="52" MouseEnter="Field4_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field4_MouseUp"/>
+            <Image x:Name="Field5" Height="84" Canvas.Left="346" Canvas.Top="556" Width="52" MouseEnter="Field5_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field5_MouseUp"/>
+            <Image x:Name="Field6" Height="84" Canvas.Left="294" Canvas.Top="556" Width="52" MouseEnter="Field6_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field6_MouseUp"/>
+            <Image x:Name="Field7" Height="84" Canvas.Left="242" Canvas.Top="556" Width="52" MouseEnter="Field7_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field7_MouseUp"/>
+            <Image x:Name="Field8" Height="84" Canvas.Left="190" Canvas.Top="556" Width="52" MouseEnter="Field8_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field8_MouseUp"/>
+            <Image x:Name="Field9" Height="84" Canvas.Left="137" Canvas.Top="556" Width="53" MouseEnter="Field9_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field9_MouseUp"/>
+            <Image x:Name="Field10" Height="84" Canvas.Left="85" Canvas.Top="556" Width="53" MouseEnter="Field10_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field10_MouseUp"/>
+            <Image x:Name="Field11" Height="84" Canvas.Top="556" Width="84" MouseEnter="Field11_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field11_MouseUp"/>
+            <Image x:Name="Field12" Height="52" Canvas.Top="504" Width="84" MouseEnter="Field12_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field12_MouseUp"/>
+            <Image x:Name="Field13" Height="52" Canvas.Top="452" Width="84" MouseEnter="Field13_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field13_MouseUp"/>
+            <Image x:Name="Field14" Height="53" Canvas.Top="399" Width="84" MouseEnter="Field14_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field14_MouseUp"/>
+            <Image x:Name="Field15" Height="52" Canvas.Top="347" Width="84" MouseEnter="Field15_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field15_MouseUp"/>
+            <Image x:Name="Field16" Height="53" Canvas.Top="294" Width="84" MouseEnter="Field16_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field16_MouseUp"/>
+            <Image x:Name="Field17" Height="53" Canvas.Top="241" Width="84" MouseEnter="Field17_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field17_MouseUp"/>
+            <Image x:Name="Field18" Height="52" Canvas.Top="189" Width="84" MouseEnter="Field18_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field18_MouseUp"/>
+            <Image x:Name="Field19" Height="52" Canvas.Top="137" Width="84" MouseEnter="Field19_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field19_MouseUp"/>
+            <Image x:Name="Field20" Height="53" Canvas.Top="84" Width="84" MouseEnter="Field20_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field20_MouseUp"/>
+            <Image x:Name="Field21" Height="84" Width="84" MouseEnter="Field21_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field21_MouseUp"/>
+            <Image x:Name="Field22" Height="84" Canvas.Left="85" Width="52" MouseEnter="Field22_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field22_MouseUp"/>
+            <Image x:Name="Field23" Height="84" Canvas.Left="137" Width="52" MouseEnter="Field23_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field23_MouseUp"/>
+            <Image x:Name="Field24" Height="84" Canvas.Left="189" Width="52" MouseEnter="Field24_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field24_MouseUp"/>
+            <Image x:Name="Field25" Height="84" Canvas.Left="241" Width="52" MouseEnter="Field25_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field25_MouseUp"/>
+            <Image x:Name="Field26" Height="84" Canvas.Left="293" Width="52" MouseEnter="Field26_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field26_MouseUp"/>
+            <Image x:Name="Field27" Height="84" Canvas.Left="346" Width="52" MouseEnter="Field27_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field27_MouseUp"/>
+            <Image x:Name="Field28" Height="84" Canvas.Left="399" Width="52" MouseEnter="Field28_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field28_MouseUp"/>
+            <Image x:Name="Field29" Height="84" Canvas.Left="452" Width="52" MouseEnter="Field29_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field29_MouseUp"/>
+            <Image x:Name="Field30" Height="84" Canvas.Left="504" Width="52" MouseEnter="Field30_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field30_MouseUp"/>
+            <Image x:Name="Field31" Height="84" Canvas.Left="556" Width="84" MouseEnter="Field31_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field31_MouseUp"/>
+            <Image x:Name="Field32" Height="53" Canvas.Left="556" Canvas.Top="84" Width="84" MouseEnter="Field32_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field32_MouseUp"/>
+            <Image x:Name="Field33" Height="52" Canvas.Left="556" Canvas.Top="137" Width="84" MouseEnter="Field33_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field33_MouseUp"/>
+            <Image x:Name="Field34" Height="52" Canvas.Left="556" Canvas.Top="189" Width="84" MouseEnter="Field34_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field34_MouseUp"/>
+            <Image x:Name="Field35" Height="53" Canvas.Left="556" Canvas.Top="241" Width="84" MouseEnter="Field35_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field35_MouseUp"/>
+            <Image x:Name="Field36" Height="53" Canvas.Left="556" Canvas.Top="294" Width="84" MouseEnter="Field36_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field36_MouseUp"/>
+            <Image x:Name="Field37" Height="52" Canvas.Left="556" Canvas.Top="347" Width="84" MouseEnter="Field37_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field37_MouseUp"/>
+            <Image x:Name="Field38" Height="53" Canvas.Left="556" Canvas.Top="399" Width="84" MouseEnter="Field38_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field38_MouseUp"/>
+            <Image x:Name="Field39" Height="52" Canvas.Left="556" Canvas.Top="452" Width="84" MouseEnter="Field39_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field39_MouseUp"/>
+            <Image x:Name="Field40" Height="52" Canvas.Left="556" Canvas.Top="504" Width="84" MouseEnter="Field40_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field40_MouseUp"/>
             <Image x:Name="Player1" Height="20" Canvas.Left="566" Canvas.Top="582" Width="20" Source="pack://siteoforigin:,,,/Resources/BluePlayer.png"/>
             <Image x:Name="Player2" Height="20" Width="20" Source="Resources/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582"/>
             <Image x:Name="Player3" Height="20" Canvas.Left="566" Canvas.Top="607" Width="20" Source="Resources/YellowPlayer.png"/>
@@ -144,7 +144,9 @@
         </GroupBox>
         <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211">
             <Grid Margin="0">
-                <TextBlock x:Name="GameLog" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="418" Width="179"/>
+                <ScrollViewer HorizontalAlignment="Left" Height="424" Margin="7,4,0,0" VerticalAlignment="Top" Width="182" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                    <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                </ScrollViewer>
             </Grid>
         </GroupBox>
 

@@ -111,3 +111,5 @@ C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\NetComm.dll
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldBlue1.jpg
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\YellowPlayer.png
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\RedPlayer.png
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\House.png
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\Trivago.png
