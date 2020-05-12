@@ -1,3 +1,18 @@
+Alpha 0.4
+- Usprawniono interfejs
+- Dodano kupowanie budynków
+- Dodano sprzedawanie budynków
+- Dodano sprzedawanie dzia³ek
+- Mo¿liwoœæ nazwania graczy
+- Mo¿liwoœæ rozpoczêcia gry z ró¿n¹ liczb¹ graczy
+- Gra wymaga rozpoczêcia nowej gry z nowego menu
+- Poprawiono b³êdy
+- Dodano strefê zagro¿enia
+- Usprawniono system bankructwa
+- Gra nie wy³¹cza siê po zbankrutowaniu gracza
+- Usprawniono wiadomoœci gry
+- Usprawniono ekran statystyk
+
 Alpha 0.3
 - Dodano brakuj¹ce informacje o czynszu za teren niezabudowany
 - Dodano w³aœciwoœci wszystkich dzielnic
