@@ -239,20 +239,48 @@ namespace Monopoly
         {
             GameLog.Text = game.playername[game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
             game.playerBankrupt[game.turn] = true;
+            game.fieldPlayers[game.playerlocation[game.turn]]--;
+            switch(game.turn)
+            {
+                case 0:
+                    Player1.Visibility = Visibility.Hidden;
+                    Player1_Icon.Visibility = Visibility.Hidden;
+                    break;
+
+                case 1:
+                    Player2.Visibility = Visibility.Hidden;
+                    Player2_Icon.Visibility = Visibility.Hidden;
+                    break;
+
+                case 2:
+                    Player3.Visibility = Visibility.Hidden;
+                    Player3_Icon.Visibility = Visibility.Hidden;
+                    break;
+
+                case 3:
+                    Player4.Visibility = Visibility.Hidden;
+                    Player4_Icon.Visibility = Visibility.Hidden;
+                    break;
+            }
+            LeaveDangerZone();
+            EndTurn();
         }
         private void DangerZone()
         {
-            if(game.turn == game.clientplayer)
-            MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
             SolidColorBrush brush = new SolidColorBrush();
             brush.Color = Color.FromArgb(255, 255, 100, 100);
             this.Background = brush;
             Button_EndTurn.Background = brush;
             Button_EndTurn.Content = "Zapłać";
+            Button_EndTurn.IsEnabled = true;
             Button_ThrowDice.Background = brush;
             Button_ThrowDice.Content = "Ogłoś bankructwo";
+            Button_ThrowDice.IsEnabled = true;
             game.sellmode = true;
             Button_MouseMode.Content = "Tryb sprzedawania ulic";
+            if (game.turn == game.clientplayer)
+                MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+
         }
         private void LeaveDangerZone()
         {
@@ -260,8 +288,10 @@ namespace Monopoly
             brush.Color = Color.FromArgb(255, 221, 221, 221);
             Button_EndTurn.Background = brush;
             Button_EndTurn.Content = "Zakończ turę";
+            Button_EndTurn.IsEnabled = true;
             Button_ThrowDice.Background = brush;
             Button_ThrowDice.Content = "Rzuć koścmi";
+            Button_ThrowDice.IsEnabled = true;
             brush.Color = Color.FromArgb(255, 255, 255, 255);
             this.Background = brush;
             game.sellmode = false;
@@ -271,6 +301,8 @@ namespace Monopoly
         {
             if (game.clientplayer == game.turn)
             {
+                game.sellmode = false;
+                Button_MouseMode.Content = "Tryb budowania domów";
                 Button_ThrowDice.IsEnabled = true;
                 MessageBox.Show("Twoja tura!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -364,8 +396,9 @@ namespace Monopoly
                     MessageBox.Show(boardData.chanceText[chanceCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!doChanceCard(chanceCard))
                     {
-                        MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                        this.Close();
+                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        game.dangerzone = true;
+                        DangerZone();
                     }
                     else
                     {
@@ -382,8 +415,8 @@ namespace Monopoly
                         }
                         else
                         {
-                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                            this.Close();
+                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                            bankrupt();
                         }
                     }
                 }
@@ -397,8 +430,9 @@ namespace Monopoly
                     MessageBox.Show(boardData.commChestText[commChestCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!doCommChestCard(commChestCard))
                     {
-                        MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                        this.Close();
+                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        game.dangerzone = true;
+                        DangerZone();
                     }
                     else
                     {
@@ -415,8 +449,8 @@ namespace Monopoly
                         }
                         else
                         {
-                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                            this.Close();
+                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                            bankrupt();
                         }
                     }
                 }
@@ -481,8 +515,9 @@ namespace Monopoly
                         MessageBox.Show("Stanąłeś na dworcu gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                         if (!payRent(currentPlayerLocation, rent))
                         {
-                            MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                            this.Close();
+                            MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            game.dangerzone = true;
+                            DangerZone();
                         }
                         else
                         {
@@ -495,8 +530,8 @@ namespace Monopoly
                         {
                             if (!payRent(currentPlayerLocation, rent))
                             {
-                                MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                this.Close();
+                                MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                                bankrupt();
                             }
                             else
                             {
@@ -513,8 +548,9 @@ namespace Monopoly
                     MessageBox.Show("Musisz zapłacić podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "$.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     if (!payTax(currentPlayerLocation))
                     {
-                        MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                        this.Close();
+                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        game.dangerzone = true;
+                        DangerZone();
                     }
                     else
                     {
@@ -531,8 +567,8 @@ namespace Monopoly
                         }
                         else
                         {
-                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                            this.Close();
+                            MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                            bankrupt();
                         }
                     }
                 }
@@ -541,11 +577,11 @@ namespace Monopoly
             {
                 switch (currentPlayerLocation)
                 {
-                    case 10:
+                    case 10: //Prison
                         GameLog.Text += game.playername[game.turn] + " odwiedza więźniów! Jaki miły z niego człowiek!" + Environment.NewLine + Environment.NewLine;
                         break;
 
-                    case 20:
+                    case 20: //Parking Lot
                         game.playercash[game.turn] = game.playercash[game.turn] + game.taxmoney;
                         PlayerStatusRefresh();
                         GameLog.Text += game.playername[game.turn] + " zdobywa " + game.taxmoney + "$!" + Environment.NewLine + Environment.NewLine;
@@ -609,8 +645,9 @@ namespace Monopoly
                                 MessageBox.Show("Stanąłeś na elektrowni gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + calculatedMoney, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                                 {
-                                    MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    this.Close();
+                                    MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    game.dangerzone = true;
+                                    DangerZone();
                                 }
                                 else
                                 {
@@ -623,8 +660,8 @@ namespace Monopoly
                                 {
                                     if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                                     {
-                                        MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                        this.Close();
+                                        MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        bankrupt();
                                     }
                                     else
                                     {
@@ -677,8 +714,9 @@ namespace Monopoly
                                 MessageBox.Show("Stanąłeś na wodociągach gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + calculatedMoney, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                                 {
-                                    MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    this.Close();
+                                    MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    game.dangerzone = true;
+                                    DangerZone();
                                 }
                                 else
                                 {
@@ -691,8 +729,8 @@ namespace Monopoly
                                 {
                                     if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                                     {
-                                        MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                        this.Close();
+                                        MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        bankrupt();
                                     }
                                     else
                                     {
@@ -745,13 +783,29 @@ namespace Monopoly
                 }
                 else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                 {
-                    if (game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]] || boardData.fieldSet2[currentPlayerLocation] == 0)
+                    bool hasSet = false;
+                    if (boardData.fieldSet2[currentPlayerLocation] == 0)
+                    {
+                        if (game.fieldOwner[currentPlayerLocation] == game.turn && game.fieldOwner[currentPlayerLocation] != 4 && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]])
+                        {
+                            hasSet = true;
+                        }
+                    }
+                    else
+                    {
+                        if (game.fieldOwner[currentPlayerLocation] == game.turn && game.fieldOwner[currentPlayerLocation] != 4 && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]])
+                        {
+                            hasSet = true;
+                        }
+                    }
+                    if (hasSet)
                     {
                         rent = boardData.fieldNoSetRent[currentPlayerLocation] * 2;
-                        if (game.fieldHouse[currentPlayerLocation] == 1)
-                        {
+                    }
+                    if (game.fieldHouse[currentPlayerLocation] == 1)
+                    {
                             rent = boardData.field1Rent[currentPlayerLocation];
-                        }
+                    }
                         else if (game.fieldHouse[currentPlayerLocation] == 2)
                         {
                             rent = boardData.field2Rent[currentPlayerLocation];
@@ -768,13 +822,12 @@ namespace Monopoly
                         {
                             rent = boardData.fieldHRent[currentPlayerLocation];
                         }
-                    }
                     if (game.turn == game.clientplayer)
                     {
                         MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.playername[game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                         if (!payRent(currentPlayerLocation, rent))
                         {
-                            MessageBox.Show("Nie stać Cię na czynsz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             game.dangerzone = true;
                             DangerZone();
                         }
@@ -793,8 +846,8 @@ namespace Monopoly
                         {
                             if (!payRent(currentPlayerLocation, rent))
                             {
-                                MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                this.Close();
+                                MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                                bankrupt();
                             }
                             else
                             {
@@ -2353,7 +2406,296 @@ namespace Monopoly
 
         private void Field1_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+        private void Field2_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(1))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field3_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field4_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(3))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field5_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field6_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field7_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(6))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field8_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field9_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(8))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field10_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(9))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field11_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field12_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(11))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field13_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field14_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(13))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field15_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(14))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field16_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field17_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(16))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field18_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field19_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(18))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field20_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(19))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field21_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field22_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(21))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field23_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field24_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(23))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field25_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(24))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field26_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field27_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(26))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field28_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(27))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field29_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field30_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(29))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field31_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field32_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(31))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field33_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(32))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field34_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field35_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(34))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field36_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field37_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field38_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(37))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void Field39_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void Field40_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (game.turn == game.clientplayer)
+            {
+                if (!sellHouse(39))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
     }
 }
