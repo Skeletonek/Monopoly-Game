@@ -97,6 +97,94 @@ namespace Monopoly
             506,
             561
         };
+        int[] houseLocationX_DB = new int[41]
+            {
+            559,
+            507,
+            455,
+            403,
+            351,
+            299,
+            247,
+            195,
+            143,
+            91,
+            2,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            91,
+            143,
+            195,
+            247,
+            299,
+            351,
+            403,
+            455,
+            507,
+            580,
+            580,
+            580,
+            580,
+            580,
+            580,
+            580,
+            580,
+            580,
+            580,
+            30
+            };
+        int[] houseLocationY_DB = new int[41]
+        {
+            560,
+            560,
+            583,
+            583,
+            583,
+            583,
+            583,
+            583,
+            583,
+            583,
+            560,
+            511,
+            459,
+            407,
+            355,
+            303,
+            251,
+            199,
+            147,
+            95,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            90,
+            142,
+            194,
+            246,
+            298,
+            350,
+            402,
+            454,
+            506,
+            561
+        };
 
         public int playerlocation(bool x, int pos)
         {
@@ -109,7 +197,19 @@ namespace Monopoly
                 return playerLocationY_DB[pos];
             }
         }
-        
+
+        public int houselocation(bool x, int pos)
+        {
+            if (x == true)
+            {
+                return houseLocationX_DB[pos];
+            }
+            else
+            {
+                return houseLocationY_DB[pos];
+            }
+        }
+
     }
 
     class BoardData

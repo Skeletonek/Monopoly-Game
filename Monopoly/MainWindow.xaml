@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Alpha 0.3)" Height="700" Width="1100" KeyDown="Window_KeyDown">
+        Title="Monopoly (Alpha 0.4)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Gra jednoosobowa">
-                <MenuItem Header="Nowa gra"/>
+                <MenuItem Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
                 <MenuItem Header="Zapisz grę"/>
                 <MenuItem Header="Wczytaj grę"/>
                 <MenuItem Header="Przerwij grę"/>
@@ -41,63 +41,305 @@
             <Separator Width="50" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
             <MenuItem Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" Width="409"/>
-            <MenuItem Header="0$" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Width="78"/>
         </Menu>
         <Canvas x:Name="GameCanvas" Height="640" Margin="226,25,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
-            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field1_MouseUp" MouseLeftButtonUp="Field1_MouseEnter"/>
-            <Image x:Name="Field2" Height="84" Canvas.Left="504" Canvas.Top="556" Width="52" MouseEnter="Field2_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field2_MouseUp"/>
-            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field3_MouseUp"/>
-            <Image x:Name="Field4" Height="84" Canvas.Left="399" Canvas.Top="556" Width="52" MouseEnter="Field4_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field4_MouseUp"/>
-            <Image x:Name="Field5" Height="84" Canvas.Left="346" Canvas.Top="556" Width="52" MouseEnter="Field5_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field5_MouseUp"/>
-            <Image x:Name="Field6" Height="84" Canvas.Left="294" Canvas.Top="556" Width="52" MouseEnter="Field6_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field6_MouseUp"/>
-            <Image x:Name="Field7" Height="84" Canvas.Left="242" Canvas.Top="556" Width="52" MouseEnter="Field7_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field7_MouseUp"/>
-            <Image x:Name="Field8" Height="84" Canvas.Left="190" Canvas.Top="556" Width="52" MouseEnter="Field8_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field8_MouseUp"/>
-            <Image x:Name="Field9" Height="84" Canvas.Left="137" Canvas.Top="556" Width="53" MouseEnter="Field9_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field9_MouseUp"/>
-            <Image x:Name="Field10" Height="84" Canvas.Left="85" Canvas.Top="556" Width="53" MouseEnter="Field10_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field10_MouseUp"/>
-            <Image x:Name="Field11" Height="84" Canvas.Top="556" Width="84" MouseEnter="Field11_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field11_MouseUp"/>
-            <Image x:Name="Field12" Height="52" Canvas.Top="504" Width="84" MouseEnter="Field12_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field12_MouseUp"/>
-            <Image x:Name="Field13" Height="52" Canvas.Top="452" Width="84" MouseEnter="Field13_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field13_MouseUp"/>
-            <Image x:Name="Field14" Height="53" Canvas.Top="399" Width="84" MouseEnter="Field14_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field14_MouseUp"/>
-            <Image x:Name="Field15" Height="52" Canvas.Top="347" Width="84" MouseEnter="Field15_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field15_MouseUp"/>
-            <Image x:Name="Field16" Height="53" Canvas.Top="294" Width="84" MouseEnter="Field16_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field16_MouseUp"/>
-            <Image x:Name="Field17" Height="53" Canvas.Top="241" Width="84" MouseEnter="Field17_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field17_MouseUp"/>
-            <Image x:Name="Field18" Height="52" Canvas.Top="189" Width="84" MouseEnter="Field18_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field18_MouseUp"/>
-            <Image x:Name="Field19" Height="52" Canvas.Top="137" Width="84" MouseEnter="Field19_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field19_MouseUp"/>
-            <Image x:Name="Field20" Height="53" Canvas.Top="84" Width="84" MouseEnter="Field20_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field20_MouseUp"/>
-            <Image x:Name="Field21" Height="84" Width="84" MouseEnter="Field21_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field21_MouseUp"/>
-            <Image x:Name="Field22" Height="84" Canvas.Left="85" Width="52" MouseEnter="Field22_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field22_MouseUp"/>
-            <Image x:Name="Field23" Height="84" Canvas.Left="137" Width="52" MouseEnter="Field23_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field23_MouseUp"/>
-            <Image x:Name="Field24" Height="84" Canvas.Left="189" Width="52" MouseEnter="Field24_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field24_MouseUp"/>
-            <Image x:Name="Field25" Height="84" Canvas.Left="241" Width="52" MouseEnter="Field25_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field25_MouseUp"/>
-            <Image x:Name="Field26" Height="84" Canvas.Left="293" Width="52" MouseEnter="Field26_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field26_MouseUp"/>
-            <Image x:Name="Field27" Height="84" Canvas.Left="346" Width="52" MouseEnter="Field27_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field27_MouseUp"/>
-            <Image x:Name="Field28" Height="84" Canvas.Left="399" Width="52" MouseEnter="Field28_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field28_MouseUp"/>
-            <Image x:Name="Field29" Height="84" Canvas.Left="452" Width="52" MouseEnter="Field29_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field29_MouseUp"/>
-            <Image x:Name="Field30" Height="84" Canvas.Left="504" Width="52" MouseEnter="Field30_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field30_MouseUp"/>
-            <Image x:Name="Field31" Height="84" Canvas.Left="556" Width="84" MouseEnter="Field31_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field31_MouseUp"/>
-            <Image x:Name="Field32" Height="53" Canvas.Left="556" Canvas.Top="84" Width="84" MouseEnter="Field32_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field32_MouseUp"/>
-            <Image x:Name="Field33" Height="52" Canvas.Left="556" Canvas.Top="137" Width="84" MouseEnter="Field33_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field33_MouseUp"/>
-            <Image x:Name="Field34" Height="52" Canvas.Left="556" Canvas.Top="189" Width="84" MouseEnter="Field34_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field34_MouseUp"/>
-            <Image x:Name="Field35" Height="53" Canvas.Left="556" Canvas.Top="241" Width="84" MouseEnter="Field35_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field35_MouseUp"/>
-            <Image x:Name="Field36" Height="53" Canvas.Left="556" Canvas.Top="294" Width="84" MouseEnter="Field36_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field36_MouseUp"/>
-            <Image x:Name="Field37" Height="52" Canvas.Left="556" Canvas.Top="347" Width="84" MouseEnter="Field37_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field37_MouseUp"/>
-            <Image x:Name="Field38" Height="53" Canvas.Left="556" Canvas.Top="399" Width="84" MouseEnter="Field38_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field38_MouseUp"/>
-            <Image x:Name="Field39" Height="52" Canvas.Left="556" Canvas.Top="452" Width="84" MouseEnter="Field39_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field39_MouseUp"/>
-            <Image x:Name="Field40" Height="52" Canvas.Left="556" Canvas.Top="504" Width="84" MouseEnter="Field40_MouseEnter" Source="pack://siteoforigin:,,,/Resources/alpha.png" OpacityMask="#00000000" MouseUp="Field40_MouseUp"/>
-            <Image x:Name="Player1" Height="20" Canvas.Left="566" Canvas.Top="582" Width="20" Source="pack://siteoforigin:,,,/Resources/BluePlayer.png"/>
-            <Image x:Name="Player2" Height="20" Width="20" Source="Resources/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582"/>
-            <Image x:Name="Player3" Height="20" Canvas.Left="566" Canvas.Top="607" Width="20" Source="Resources/YellowPlayer.png"/>
-            <Image x:Name="Player4" Height="20" Width="20" Source="Resources/RedPlayer.png" Canvas.Left="591" Canvas.Top="607"/>
+            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" MouseEnter="Field1_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field1_MouseUp" MouseLeftButtonUp="Field1_MouseEnter" Stretch="Fill"/>
+            <Image x:Name="Field2" Height="84" Canvas.Left="504" Canvas.Top="556" Width="52" MouseEnter="Field2_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field2_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field3_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field4" Height="84" Canvas.Left="399" Canvas.Top="556" Width="52" MouseEnter="Field4_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field4_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field5" Height="84" Canvas.Left="346" Canvas.Top="556" Width="52" MouseEnter="Field5_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field5_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field6" Height="84" Canvas.Left="294" Canvas.Top="556" Width="52" MouseEnter="Field6_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field6_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field7" Height="84" Canvas.Left="242" Canvas.Top="556" Width="52" MouseEnter="Field7_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field7_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field8" Height="84" Canvas.Left="190" Canvas.Top="556" Width="52" MouseEnter="Field8_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field8_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field9" Height="84" Canvas.Left="137" Canvas.Top="556" Width="52" MouseEnter="Field9_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field9_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field10" Height="84" Canvas.Left="85" Canvas.Top="556" Width="52" MouseEnter="Field10_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field10_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field11" Height="84" Canvas.Top="556" Width="84" MouseEnter="Field11_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field11_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field12" Height="84" Canvas.Top="488" Width="52" MouseEnter="Field12_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field12_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field13" Height="84" Canvas.Top="436" Width="52" MouseEnter="Field13_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field13_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field14" Height="84" Canvas.Top="383" Width="52" MouseEnter="Field14_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field14_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field15" Height="84" Canvas.Top="331" Width="52" MouseEnter="Field15_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field15_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field16" Height="84" Canvas.Top="278" Width="52" MouseEnter="Field16_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field16_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field17" Height="84" Canvas.Top="225" Width="52" MouseEnter="Field17_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field17_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field18" Height="84" Canvas.Top="173" Width="52" MouseEnter="Field18_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field18_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field19" Height="84" Canvas.Top="121" Width="52" MouseEnter="Field19_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field19_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field20" Height="84" Canvas.Top="68" Width="52" MouseEnter="Field20_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field20_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field21" Height="84" Width="84" MouseEnter="Field21_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field21_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field22" Height="84" Canvas.Left="85" Width="52" MouseEnter="Field22_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field22_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field23" Height="84" Canvas.Left="137" Width="52" MouseEnter="Field23_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field23_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field24" Height="84" Canvas.Left="189" Width="52" MouseEnter="Field24_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field24_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field25" Height="84" Canvas.Left="241" Width="52" MouseEnter="Field25_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field25_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field26" Height="84" Canvas.Left="293" Width="52" MouseEnter="Field26_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field26_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field27" Height="84" Canvas.Left="346" Width="52" MouseEnter="Field27_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field27_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field28" Height="84" Canvas.Left="399" Width="52" MouseEnter="Field28_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field28_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field29" Height="84" Canvas.Left="452" Width="52" MouseEnter="Field29_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field29_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field30" Height="84" Canvas.Left="504" Width="52" MouseEnter="Field30_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field30_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field31" Height="84" Canvas.Left="556" Width="84" MouseEnter="Field31_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field31_MouseUp" Stretch="Fill"/>
+            <Image x:Name="Field32" Height="84" Canvas.Left="573" Canvas.Top="68" Width="52" MouseEnter="Field32_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field32_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field33" Height="84" Canvas.Left="573" Canvas.Top="121" Width="52" MouseEnter="Field33_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field33_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field34" Height="84" Canvas.Left="573" Canvas.Top="173" Width="52" MouseEnter="Field34_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field34_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field35" Height="84" Canvas.Left="573" Canvas.Top="225" Width="52" MouseEnter="Field35_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field35_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field36" Height="84" Canvas.Left="573" Canvas.Top="278" Width="52" MouseEnter="Field36_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field36_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field37" Height="84" Canvas.Left="573" Canvas.Top="331" Width="52" MouseEnter="Field37_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field37_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field38" Height="84" Canvas.Left="573" Canvas.Top="383" Width="52" MouseEnter="Field38_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field38_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field39" Height="84" Canvas.Left="573" Canvas.Top="436" Width="52" MouseEnter="Field39_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field39_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field40" Height="84" Canvas.Left="573" Canvas.Top="488" Width="52" MouseEnter="Field40_MouseEnter" Source="Resources/NoAlpha.png" MouseUp="Field40_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Player1" Height="20" Canvas.Left="566" Canvas.Top="582" Width="20" Source="pack://siteoforigin:,,,/Resources/BluePlayer.png" Visibility="Hidden"/>
+            <Image x:Name="Player2" Height="20" Width="20" Source="Resources/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582" Visibility="Hidden"/>
+            <Image x:Name="Player3" Height="20" Canvas.Left="566" Canvas.Top="607" Width="20" Source="Resources/YellowPlayer.png" Visibility="Hidden"/>
+            <Image x:Name="Player4" Height="20" Width="20" Source="Resources/RedPlayer.png" Canvas.Left="591" Canvas.Top="607" Visibility="Hidden"/>
         </Canvas>
         <GroupBox Header="Kostki do gry" HorizontalAlignment="Left" Height="152" Margin="10,22,0,0" VerticalAlignment="Top" Width="198">
             <Grid Margin="0">
-                <Label x:Name="Dice1" Content="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Dice2" Content="1" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi!" HorizontalAlignment="Left" Margin="8,88,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click"/>
-                <Label x:Name="DiceScore" Content="2" HorizontalAlignment="Left" Margin="72,56,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="38" HorizontalContentAlignment="Center"/>
+                <Label x:Name="Dice1" Content="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Dice2" Content="0" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi!" HorizontalAlignment="Left" Margin="8,88,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
+                <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="72,56,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="38" HorizontalContentAlignment="Center"/>
                 <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,88,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
             </Grid>
         </GroupBox>
@@ -128,18 +370,18 @@
         </GroupBox>
         <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211">
             <Grid Margin="0">
-                <Label Content="Gracz 1 (To ty!)" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <Label Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="Gracz 3" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top"/>
-                <Label Content="Gracz 4" HorizontalAlignment="Left" Margin="43,103,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Label_Player1Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Label x:Name="Label_Player2Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Label x:Name="Label_Player3Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Label x:Name="Label_Player4Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79"/>
-                <Image x:Name="Player1_Copy" Source="Resources/BluePlayer.png" Margin="17,10,162,116"/>
-                <Image x:Name="Player1_Copy1" Source="Resources/GreenPlayer.png" Margin="17,41,162,85"/>
-                <Image x:Name="Player1_Copy2" Source="Resources/YellowPlayer.png" Margin="17,72,162,54"/>
-                <Image x:Name="Player1_Copy3" Source="Resources/RedPlayer.png" Margin="17,103,162,23"/>
+                <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
+                <Label x:Name="Label_Player2Name" Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                <Label x:Name="Label_Player3Name" Content="Gracz 3" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                <Label x:Name="Label_Player4Name" Content="Gracz 4" HorizontalAlignment="Left" Margin="43,103,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+                <Label x:Name="Label_Player1Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79" Visibility="Hidden"/>
+                <Label x:Name="Label_Player2Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79" Visibility="Hidden"/>
+                <Label x:Name="Label_Player3Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79" Visibility="Hidden"/>
+                <Label x:Name="Label_Player4Cash" Content="1500$" HorizontalAlignment="Right" Margin="0,103,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="79" Visibility="Hidden"/>
+                <Image x:Name="Player1_Icon" Source="Resources/BluePlayer.png" Margin="17,10,162,116" Visibility="Hidden"/>
+                <Image x:Name="Player2_Icon" Source="Resources/GreenPlayer.png" Margin="17,41,162,85" Visibility="Hidden"/>
+                <Image x:Name="Player3_Icon" Source="Resources/YellowPlayer.png" Margin="17,72,162,54" Visibility="Hidden"/>
+                <Image x:Name="Player4_Icon" Source="Resources/RedPlayer.png" Margin="17,103,162,23" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211">

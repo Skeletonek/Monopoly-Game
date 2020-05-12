@@ -235,11 +235,23 @@
   <data name="GreenPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GreenPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="House" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\House.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="House1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\House1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="House2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\House2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="House3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\House3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="House4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\House4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="monopolyboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monopolyboard.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoAlpha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NoAlpha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RedPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RedPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

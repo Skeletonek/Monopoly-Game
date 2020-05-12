@@ -453,9 +453,39 @@ namespace Monopoly.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap House {
+        internal static System.Drawing.Bitmap House1 {
             get {
-                object obj = ResourceManager.GetObject("House", resourceCulture);
+                object obj = ResourceManager.GetObject("House1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap House2 {
+            get {
+                object obj = ResourceManager.GetObject("House2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap House3 {
+            get {
+                object obj = ResourceManager.GetObject("House3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap House4 {
+            get {
+                object obj = ResourceManager.GetObject("House4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +496,16 @@ namespace Monopoly.Properties {
         internal static System.Drawing.Bitmap monopolyboard {
             get {
                 object obj = ResourceManager.GetObject("monopolyboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NoAlpha {
+            get {
+                object obj = ResourceManager.GetObject("NoAlpha", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

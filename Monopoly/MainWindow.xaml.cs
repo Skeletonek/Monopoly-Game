@@ -24,9 +24,9 @@ namespace Monopoly
     /// </summary>
     public partial class MainWindow : Window
     {
-        Client client;
+        public static Client client;
         Random rng = new Random();
-        bool connectedToServer = false;
+        public static bool connectedToServer = false;
         DispatcherTimer wait = new DispatcherTimer();
         public static int cheat = 0;
         byte diceScore;
@@ -40,6 +40,7 @@ namespace Monopoly
             public int[] playercash = new int[4] { 1500, 1500, 1500, 1500 };
             public byte[] playerRailroadOwned = new byte[4] { 0, 0, 0, 0 };
             public byte[] playerArrestedTurns = new byte[4] { 0, 0, 0, 0 };
+            public bool[] playerAvailable = new bool[4] { false, false, false, false };
             public byte clientplayer = 0;
             public byte turn = 0;
             public byte dice1;
@@ -71,7 +72,13 @@ namespace Monopoly
             InitializeComponent();
             sfx.Open(new Uri(sfxfile, UriKind.Relative));
             sfx.Volume = 0.5;
-            sfx.Play();
+            //sfx.Play();
+            sfx.MediaEnded += Sfx_MediaEnded;
+        }
+
+        private void Sfx_MediaEnded(object sender, EventArgs e)
+        {
+            //sfx.Play();
         }
 
         // SERVER CODE
@@ -84,10 +91,9 @@ namespace Monopoly
 
         private void btnConnectToServer_Click(object sender, RoutedEventArgs e)
         {
-            client = new NetComm.Client();
-            client.Connect("localhost", 2020, "Test");
+            ConnectionToServer connectionToServer = new ConnectionToServer();
+            connectionToServer.ShowDialog();
             client.DataReceived += new Client.DataReceivedEventHandler(client_DataReceived);
-            connectedToServer = true;
         }
 
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
@@ -97,6 +103,66 @@ namespace Monopoly
 
         // GAME CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void StartNewGame()
+        {
+            if (game.playerAvailable[0])
+            {
+                Player1.Visibility = Visibility.Visible;
+                Player1_Icon.Visibility = Visibility.Visible;
+                Label_Player1Cash.Visibility = Visibility.Visible;
+                Label_Player1Name.Visibility = Visibility.Visible;
+                Label_Player1Name.Content = game.playername[0];
+            }
+            if (game.playerAvailable[1])
+            {
+                Player2.Visibility = Visibility.Visible;
+                Player2_Icon.Visibility = Visibility.Visible;
+                Label_Player2Cash.Visibility = Visibility.Visible;
+                Label_Player2Name.Visibility = Visibility.Visible;
+                Label_Player2Name.Content = game.playername[1];
+            }
+            if (game.playerAvailable[2])
+            {
+                Player3.Visibility = Visibility.Visible;
+                Player3_Icon.Visibility = Visibility.Visible;
+                Label_Player3Cash.Visibility = Visibility.Visible;
+                Label_Player3Name.Visibility = Visibility.Visible;
+                Label_Player3Name.Content = game.playername[2];
+            }
+            if (game.playerAvailable[3])
+            {
+                Player4.Visibility = Visibility.Visible;
+                Player4_Icon.Visibility = Visibility.Visible;
+                Label_Player4Cash.Visibility = Visibility.Visible;
+                Label_Player4Name.Visibility = Visibility.Visible;
+                Label_Player4Name.Content = game.playername[3];
+            }
+            if (!connectedToServer)
+            {
+                game.clientplayer = 0;
+                Label_Player1Name.Content += " (To ty!)";
+                Label_Player1Name.FontWeight = FontWeights.Bold;
+                Button_ThrowDice.IsEnabled = true;
+            }
+            game.playercash[0] = 1500;
+            game.playercash[1] = 1500;
+            game.playercash[2] = 1500;
+            game.playercash[3] = 1500;
+            game.playerlocation[0] = 0;
+            game.playerlocation[1] = 0;
+            game.playerlocation[2] = 0;
+            game.playerlocation[3] = 0;
+            for (int i = 0; i < 40; i++)
+            {
+                game.fieldOwner[i] = 4;
+                game.fieldHouse[i] = 0;
+                game.fieldPlayers[i] = 0;
+            }
+            game.fieldPlayers[0] = 4;
+            boardData.gameDataWriter();
+            GameCanvas.Children.RemoveRange(44, 100);
+            GameLog.Text = "";
+        }
         private void EndTurn_Click(object sender, RoutedEventArgs e)
         {
             game.turn++;
@@ -105,9 +171,26 @@ namespace Monopoly
         private void EndTurn()
         {
             Button_EndTurn.IsEnabled = false;
-            if (game.turn > 3)
+            if (game.playerAvailable[3])
             {
-                game.turn = 0;
+                if (game.turn > 3)
+                {
+                    game.turn = 0;
+                }
+            }
+            else if (game.playerAvailable[2])
+            {
+                if (game.turn > 2)
+                {
+                    game.turn = 0;
+                }
+            }
+            else
+            {
+                if (game.turn > 1)
+                {
+                    game.turn = 0;
+                }
             }
             if (game.turn == 0 && game.playerArrestedTurns[game.turn] == 0)
             {
@@ -157,7 +240,7 @@ namespace Monopoly
             if (game.clientplayer == game.turn)
             {
                 Button_EndTurn.IsEnabled = true;
-                if(game.playerArrestedTurns[game.turn] == 0)
+                if (game.playerArrestedTurns[game.turn] == 0)
                 {
                     game.playerlocation[game.turn] = 10;
                 }
@@ -212,7 +295,7 @@ namespace Monopoly
                 if (game.turn != 0)
                 {
                     game.turn++;
-                    if(game.turn > 3)
+                    if (game.turn > 3)
                     {
                         game.turn = 0;
                     }
@@ -333,22 +416,22 @@ namespace Monopoly
                 }
                 else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                 {
-                        if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 1)
-                        {
-                            rent = boardData.field1Rent[currentPlayerLocation];
-                        }
-                        else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 2)
-                        {
-                            rent = boardData.field2Rent[currentPlayerLocation];
-                        }
-                        else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 3)
-                        {
-                            rent = boardData.field3Rent[currentPlayerLocation];
-                        }
-                        else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] >= 4)
-                        {
-                            rent = boardData.field4Rent[currentPlayerLocation];
-                        }
+                    if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 1)
+                    {
+                        rent = boardData.field1Rent[currentPlayerLocation];
+                    }
+                    else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 2)
+                    {
+                        rent = boardData.field2Rent[currentPlayerLocation];
+                    }
+                    else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] == 3)
+                    {
+                        rent = boardData.field3Rent[currentPlayerLocation];
+                    }
+                    else if (game.playerRailroadOwned[game.fieldOwner[currentPlayerLocation]] >= 4)
+                    {
+                        rent = boardData.field4Rent[currentPlayerLocation];
+                    }
                     if (game.turn == game.clientplayer)
                     {
                         MessageBox.Show("Stanąłeś na dworcu gracza " + game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -590,26 +673,26 @@ namespace Monopoly
                 }
                 else if (game.fieldOwner[currentPlayerLocation] != game.turn)
                 {
-                    if(game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]] || boardData.fieldSet2[currentPlayerLocation] == 0)
+                    if (game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]] || boardData.fieldSet2[currentPlayerLocation] == 0)
                     {
                         rent = boardData.fieldNoSetRent[currentPlayerLocation] * 2;
-                        if(game.fieldHouse[currentPlayerLocation] == 1)
+                        if (game.fieldHouse[currentPlayerLocation] == 1)
                         {
                             rent = boardData.field1Rent[currentPlayerLocation];
                         }
-                        else if(game.fieldHouse[currentPlayerLocation] == 2)
+                        else if (game.fieldHouse[currentPlayerLocation] == 2)
                         {
                             rent = boardData.field2Rent[currentPlayerLocation];
                         }
-                        else if(game.fieldHouse[currentPlayerLocation] == 3)
+                        else if (game.fieldHouse[currentPlayerLocation] == 3)
                         {
                             rent = boardData.field3Rent[currentPlayerLocation];
                         }
-                        else if(game.fieldHouse[currentPlayerLocation] == 4)
+                        else if (game.fieldHouse[currentPlayerLocation] == 4)
                         {
                             rent = boardData.field4Rent[currentPlayerLocation];
                         }
-                        else if(game.fieldHouse[currentPlayerLocation] >= 5)
+                        else if (game.fieldHouse[currentPlayerLocation] >= 5)
                         {
                             rent = boardData.fieldHRent[currentPlayerLocation];
                         }
@@ -757,67 +840,178 @@ namespace Monopoly
         }
         private bool buyHouse(byte selectedField)
         {
-            if (game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]] || boardData.fieldSet2[selectedField] == 0)
+            if (game.fieldOwner[selectedField] == 4 && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]] || boardData.fieldSet2[selectedField] == 0)
             {
-                if(selectedField > 0 && selectedField < 9)
+                if (selectedField > 0 && selectedField < 9)
                 {
-                    if (game.fieldHouse[selectedField] < 6)
+                    if (game.fieldHouse[selectedField] < 5)
                     {
                         if (game.playercash[game.turn] >= 50)
                         {
                             game.playercash[game.turn] = game.playercash[game.turn] - 50;
-                            game.fieldHouse[selectedField]++;
-                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            buyHouse2(selectedField);
                             return true;
                         }
                         return false;
                     }
+                    return false;
                 }
-                else if(selectedField > 10 && selectedField < 20)
+                else if (selectedField > 10 && selectedField < 20)
                 {
-                    if (game.fieldHouse[selectedField] < 6)
+                    if (game.fieldHouse[selectedField] < 5)
                     {
                         if (game.playercash[game.turn] >= 100)
                         {
                             game.playercash[game.turn] = game.playercash[game.turn] - 100;
-                            game.fieldHouse[selectedField]++;
-                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            buyHouse2(selectedField);
                             return true;
                         }
                         return false;
                     }
+                    return false;
                 }
-                else if(selectedField > 20 && selectedField < 30)
+                else if (selectedField > 20 && selectedField < 30)
                 {
-                    if (game.fieldHouse[selectedField] < 6)
+                    if (game.fieldHouse[selectedField] < 5)
                     {
                         if (game.playercash[game.turn] >= 150)
                         {
                             game.playercash[game.turn] = game.playercash[game.turn] - 150;
-                            game.fieldHouse[selectedField]++;
-                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            buyHouse2(selectedField);
                             return true;
                         }
                         return false;
                     }
+                    return false;
                 }
-                else if(selectedField > 30 && selectedField < 40)
+                else if (selectedField > 30 && selectedField < 40)
                 {
-                    if (game.fieldHouse[selectedField] < 6)
+                    if (game.fieldHouse[selectedField] < 5)
                     {
                         if (game.playercash[game.turn] >= 200)
                         {
                             game.playercash[game.turn] = game.playercash[game.turn] - 200;
-                            game.fieldHouse[selectedField]++;
-                            GameLog.Text += game.playername[game.clientplayer] + "kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField];
+                            buyHouse2(selectedField);
                             return true;
                         }
                         return false;
                     }
+                    return false;
                 }
                 return false;
             }
             return false;
+        }
+        private void buyHouse2(byte selectedField)
+        {
+            game.fieldHouse[selectedField]++;
+            GameLog.Text += game.playername[game.clientplayer] + " kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField] + Environment.NewLine;
+            switch (game.fieldHouse[selectedField])
+            {
+                case 1:
+                    DrawHouses(selectedField, 1);
+                    break;
+
+                case 2:
+                    DrawHouses(selectedField, 2);
+                    break;
+
+                case 3:
+                    DrawHouses(selectedField, 3);
+                    break;
+
+                case 4:
+                    DrawHouses(selectedField, 4);
+                    break;
+
+                case 5:
+                    DrawHouses(selectedField, 5);
+                    break;
+
+                default:
+                    MessageBox.Show("Wystąpił błąd podczas wywołania instrukcji DrawHouses!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
+                    throw new InvalidOperationException("Wystąpił błąd podczas wywołania instrukcji DrawHouses!");
+            }
+        }
+        private bool sellHouse(byte selectedField)
+        {
+            if (game.fieldOwner[selectedField] == game.turn && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]] || boardData.fieldSet2[selectedField] == 0)
+            {
+                if (selectedField > 0 && selectedField < 9)
+                {
+                    if (game.fieldHouse[selectedField] > 0)
+                    {
+                        game.playercash[game.turn] = game.playercash[game.turn] + 25;
+                        sellHouse2(selectedField);
+                        return true;
+                    }
+                    return false;
+                }
+                else if (selectedField > 10 && selectedField < 20)
+                {
+                    if (game.fieldHouse[selectedField] > 0)
+                    {
+                        game.playercash[game.turn] = game.playercash[game.turn] + 50;
+                        sellHouse2(selectedField);
+                        return true;
+                    }
+                    return false;
+                }
+                else if (selectedField > 20 && selectedField < 30)
+                {
+                    if (game.fieldHouse[selectedField] > 0)
+                    {
+                        game.playercash[game.turn] = game.playercash[game.turn] + 75;
+                        sellHouse2(selectedField);
+                        return true;
+                    }
+                    return false;
+                }
+                else if (selectedField > 30 && selectedField < 40)
+                {
+                    if (game.fieldHouse[selectedField] > 0)
+                    {
+                        game.playercash[game.turn] = game.playercash[game.turn] + 100;
+                        sellHouse2(selectedField);
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        private void sellHouse2(byte selectedField)
+        {
+            game.fieldHouse[selectedField]--;
+            GameLog.Text += game.playername[game.clientplayer] + " sprzedaje budynek w dzielnicy " + boardData.fieldName[game.selectedField] + Environment.NewLine;
+            switch (game.fieldHouse[selectedField])
+            {
+                case 0:
+                    DrawHouses(selectedField, 0);
+                    break;
+
+                case 1:
+                    DrawHouses(selectedField, 1);
+                    break;
+
+                case 2:
+                    DrawHouses(selectedField, 2);
+                    break;
+
+                case 3:
+                    DrawHouses(selectedField, 3);
+                    break;
+
+                case 4:
+                    DrawHouses(selectedField, 4);
+                    break;
+
+                default:
+                    MessageBox.Show("Wystąpił błąd podczas wywołania instrukcji DrawHouses!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
+                    throw new InvalidOperationException("Wystąpił błąd podczas wywołania instrukcji DrawHouses!");
+            }
         }
 
         // UI Programming
@@ -895,6 +1089,118 @@ namespace Monopoly
                     Canvas.SetLeft(Player4, xcord);
                     Canvas.SetTop(Player4, ycord);
                     break;
+            }
+        }
+
+        private void DrawHouses(byte field, byte status)
+        {
+            switch(field)
+            {
+                case 1:
+                    if (status == 0)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    break;
+
+                case 3:
+                    if (status == 0)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    break;
+
+                case 6:
+                    break;
+
+                case 8:
+                    break;
+
+                case 9:
+                    break;
+
+                case 11:
+                    if (status == 0)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    break;
+
+                case 13:
+                    break;
+
+                case 14:
+                    break;
+
+                case 16:
+                    break;
+
+                case 18:
+                    break;
+
+                case 19:
+                    break;
+
+                case 21:
+                    break;
+
+                case 23:
+                    break;
+
+                case 24:
+                    break;
+
+                case 26:
+                    break;
+
+                case 27:
+                    break;
+
+                case 29:
+                    break;
+
+                case 31:
+                    break;
+
+                case 32:
+                    break;
+
+                case 34:
+                    break;
+
+                case 37:
+                    break;
+
+                case 39:
+                    break;
+
+                default:
+                    MessageBox.Show("Wystąpił błąd podczas renderowania domów!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
+                    throw new InvalidOperationException("Wystąpił błąd podczas renderowania domów!");
             }
         }
         private void Field1_MouseEnter(object sender, MouseEventArgs e)
@@ -1213,7 +1519,10 @@ namespace Monopoly
 
         private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer)
+            {
+                buyHouse(11);
+            }
         }
 
         private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1353,6 +1662,22 @@ namespace Monopoly
         private void Field40_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
+        {
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame();
+            newSingleplayerGame.ShowDialog();
+            game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
+            game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
+            game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
+            game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
+            game.playerAvailable[0] = true;
+            game.playerAvailable[1] = true;
+            game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
+            game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
+            //game.playboardTheme = newSinglePlayerGame.ListBox_PlayboardTheme.SelectedIndex;
+            StartNewGame();
         }
     }
 }

@@ -24,6 +24,10 @@ namespace Monopoly_Server
     public partial class MainWindow : Window
     {
         Host Server;
+        string player1;
+        string player2;
+        string player3;
+        string player4;
         public MainWindow()
         {
             Server = new NetComm.Host(2020);    
@@ -43,7 +47,15 @@ namespace Monopoly_Server
 
         void Server_onConnection(string id)
         {
+            List<string> usersList = Server.Users;
+            var users = usersList;
+            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("NewData"));
+            foreach (string user in users)
+            {
+                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(user));
+            }
             label.Content=id + " connected!" + Environment.NewLine; //Updates the log textbox when new user joined
+            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("EndCommunication"));
         }
 
         void Server_lostConnection(string id)
@@ -56,6 +68,11 @@ namespace Monopoly_Server
         {
             label.Content = ASCIIEncoding.ASCII.GetString(Data);
             Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("Thank you"));
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Server.CloseConnection();
         }
     }
 }
