@@ -389,7 +389,7 @@ namespace Monopoly
                         fieldSet2[i] = 9;
                         fieldChance[i] = false;
                         fieldCommChest[i] = false;
-                        fieldRailroad[i] = true;
+                        fieldRailroad[i] = false;
                         fieldExtra[i] = false;
                         fieldTax[i] = false;
                         fieldTaxCost[i] = 0;

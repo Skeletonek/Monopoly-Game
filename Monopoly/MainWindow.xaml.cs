@@ -52,6 +52,7 @@ namespace Monopoly
             public byte[] fieldOwner = new byte[40];
             public byte[] fieldPlayers = new byte[41];
             public int taxmoney = 0;
+            public bool sellmode = false;
         }
 
         BoardLocations boardLocations = new BoardLocations();
@@ -140,7 +141,6 @@ namespace Monopoly
             if (!connectedToServer)
             {
                 game.clientplayer = 0;
-                Label_Player1Name.Content += " (To ty!)";
                 Label_Player1Name.FontWeight = FontWeights.Bold;
                 Button_ThrowDice.IsEnabled = true;
             }
@@ -229,7 +229,10 @@ namespace Monopoly
         private void EnableMove()
         {
             if (game.clientplayer == game.turn)
+            {
                 Button_ThrowDice.IsEnabled = true;
+                MessageBox.Show("Twoja tura!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             else
                 ThrowDiceAndMove();
         }
@@ -280,7 +283,7 @@ namespace Monopoly
                     game.fieldPlayers[0]++;
                     game.playerlocation[game.turn] = 0;
                     game.playercash[game.turn] = game.playercash[game.turn] + 200;
-                    GameLog.Text += game.playername[game.turn] + " otrzymuje 200$ za przejście przez start!" + Environment.NewLine;
+                    GameLog.Text += game.playername[game.turn] + " otrzymuje 200$ za przejście przez start!" + Environment.NewLine + Environment.NewLine;
                     PlayerStatusRefresh();
                 }
                 Jump();
@@ -325,7 +328,7 @@ namespace Monopoly
                     }
                     else
                     {
-                        GameLog.Text += game.playername[game.turn] + " otrzymuje kartę szansy: " + boardData.chanceText[chanceCard] + "!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " otrzymuje kartę szansy: " + boardData.chanceText[chanceCard] + "!" + Environment.NewLine + Environment.NewLine;
                     }
                 }
                 else
@@ -334,7 +337,7 @@ namespace Monopoly
                     {
                         if (doChanceCard(chanceCard))
                         {
-                            GameLog.Text += game.playername[game.turn] + " otrzymuje kartę szansy: " + boardData.chanceText[chanceCard] + "!" + Environment.NewLine;
+                            GameLog.Text += game.playername[game.turn] + " otrzymuje kartę szansy: " + boardData.chanceText[chanceCard] + "!" + Environment.NewLine + Environment.NewLine;
                         }
                         else
                         {
@@ -358,7 +361,7 @@ namespace Monopoly
                     }
                     else
                     {
-                        GameLog.Text += game.playername[game.turn] + " otrzymuje kartę kasy społecznej: " + boardData.commChestText[commChestCard] + "!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " otrzymuje kartę kasy społecznej: " + boardData.commChestText[commChestCard] + "!" + Environment.NewLine + Environment.NewLine;
                     }
                 }
                 else
@@ -367,7 +370,7 @@ namespace Monopoly
                     {
                         if (doCommChestCard(commChestCard))
                         {
-                            GameLog.Text += game.playername[game.turn] + " otrzymuje kartę kasy społecznej: " + boardData.commChestText[commChestCard] + "!" + Environment.NewLine;
+                            GameLog.Text += game.playername[game.turn] + " otrzymuje kartę kasy społecznej: " + boardData.commChestText[commChestCard] + "!" + Environment.NewLine + Environment.NewLine;
                         }
                         else
                         {
@@ -394,7 +397,7 @@ namespace Monopoly
                                 else
                                 {
                                     game.playerRailroadOwned[game.turn]++;
-                                    GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                    GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                                 }
                                 break;
 
@@ -409,7 +412,7 @@ namespace Monopoly
                             if (buyField(currentPlayerLocation))
                             {
                                 game.playerRailroadOwned[game.turn]++;
-                                GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                             }
                         }
                     }
@@ -440,6 +443,10 @@ namespace Monopoly
                             MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             this.Close();
                         }
+                        else
+                        {
+                            GameLog.Text += game.playername[game.turn] + " płaci " + rent + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
+                        }
                     }
                     else
                     {
@@ -449,6 +456,10 @@ namespace Monopoly
                             {
                                 MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                 this.Close();
+                            }
+                            else
+                            {
+                                GameLog.Text += game.playername[game.turn] + " płaci " + rent + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                             }
                         }
                     }
@@ -466,7 +477,7 @@ namespace Monopoly
                     }
                     else
                     {
-                        GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                     }
                 }
                 else
@@ -475,7 +486,7 @@ namespace Monopoly
                     {
                         if (payTax(currentPlayerLocation))
                         {
-                            GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine;
+                            GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                         }
                         else
                         {
@@ -490,13 +501,13 @@ namespace Monopoly
                 switch (currentPlayerLocation)
                 {
                     case 10:
-                        GameLog.Text += game.playername[game.turn] + " odwiedza więźniów! Jaki miły z niego człowiek!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " odwiedza więźniów! Jaki miły z niego człowiek!" + Environment.NewLine + Environment.NewLine;
                         break;
 
                     case 20:
                         game.playercash[game.turn] = game.playercash[game.turn] + game.taxmoney;
                         PlayerStatusRefresh();
-                        GameLog.Text += game.playername[game.turn] + " zdobywa " + game.taxmoney + "$!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " zdobywa " + game.taxmoney + "$!" + Environment.NewLine + Environment.NewLine;
                         if (game.turn == game.clientplayer)
                         {
                             MessageBox.Show("Zdobywasz " + game.taxmoney + "$!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -512,7 +523,7 @@ namespace Monopoly
                         game.playerlocation[game.turn] = 40;
                         game.playerArrestedTurns[game.turn] = 2;
                         Jump();
-                        GameLog.Text += game.playername[game.turn] + " zostaje aresztowany!" + Environment.NewLine;
+                        GameLog.Text += game.playername[game.turn] + " zostaje aresztowany!" + Environment.NewLine + Environment.NewLine;
                         break;
 
                     case 12: //Electric Company
@@ -530,7 +541,7 @@ namespace Monopoly
                                         }
                                         else
                                         {
-                                            GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                            GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                                         }
                                         break;
 
@@ -544,7 +555,7 @@ namespace Monopoly
                                 {
                                     if (buyField(currentPlayerLocation))
                                     {
-                                        GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                        GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                                     }
                                 }
                             }
@@ -560,6 +571,10 @@ namespace Monopoly
                                     MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                     this.Close();
                                 }
+                                else
+                                {
+                                    GameLog.Text += game.playername[game.turn] + " płaci " + calculatedMoney + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
+                                }
                             }
                             else
                             {
@@ -569,6 +584,10 @@ namespace Monopoly
                                     {
                                         MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                         this.Close();
+                                    }
+                                    else
+                                    {
+                                        GameLog.Text += game.playername[game.turn] + " płaci " + calculatedMoney + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                                     }
                                 }
                             }
@@ -590,7 +609,7 @@ namespace Monopoly
                                         }
                                         else
                                         {
-                                            GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                            GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                                         }
                                         break;
 
@@ -604,7 +623,7 @@ namespace Monopoly
                                 {
                                     if (buyField(currentPlayerLocation))
                                     {
-                                        GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                        GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                                     }
                                 }
                             }
@@ -620,6 +639,10 @@ namespace Monopoly
                                     MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                     this.Close();
                                 }
+                                else
+                                {
+                                    GameLog.Text += game.playername[game.turn] + " płaci " + calculatedMoney + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
+                                }
                             }
                             else
                             {
@@ -629,6 +652,10 @@ namespace Monopoly
                                     {
                                         MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                         this.Close();
+                                    }
+                                    else
+                                    {
+                                        GameLog.Text += game.playername[game.turn] + " płaci " + calculatedMoney + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                                     }
                                 }
                             }
@@ -642,17 +669,21 @@ namespace Monopoly
                 {
                     if (game.turn == game.clientplayer)
                     {
-                        MessageBoxResult result = MessageBox.Show("Czy chcesz kupić dzielnicę " + boardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        MessageBoxResult result = MessageBox.Show("Czy chcesz kupić ulicę " + boardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         switch (result)
                         {
                             case MessageBoxResult.Yes:
                                 if (!buyField(currentPlayerLocation))
                                 {
-                                    MessageBox.Show("Nie stać Cię na tą dzielnicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    MessageBox.Show("Nie stać Cię na tą ulicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                                 else
                                 {
-                                    GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                    GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
+                                    if (game.fieldOwner[currentPlayerLocation] != 4 && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet1[currentPlayerLocation]] && game.fieldOwner[currentPlayerLocation] == game.fieldOwner[boardData.fieldSet2[currentPlayerLocation]] || boardData.fieldSet2[currentPlayerLocation] == 0)
+                                    {
+                                        MessageBox.Show("Od teraz możesz kupować domy w tej dzielnicy! Aby kupić, kliknij na dane pole lewym przyciskiem myszy przed zakończeniem tury", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                                    }
                                 }
                                 break;
 
@@ -666,7 +697,7 @@ namespace Monopoly
                         {
                             if (buyField(currentPlayerLocation))
                             {
-                                GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine;
+                                GameLog.Text += game.playername[game.turn] + " kupuje " + boardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                             }
                         }
                     }
@@ -705,6 +736,10 @@ namespace Monopoly
                             MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             this.Close();
                         }
+                        else
+                        {
+                            GameLog.Text += game.playername[game.turn] + " płaci " + rent + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
+                        }
                     }
                     else
                     {
@@ -714,6 +749,10 @@ namespace Monopoly
                             {
                                 MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                                 this.Close();
+                            }
+                            else
+                            {
+                                GameLog.Text += game.playername[game.turn] + " płaci " + rent + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                             }
                         }
                     }
@@ -840,7 +879,22 @@ namespace Monopoly
         }
         private bool buyHouse(byte selectedField)
         {
-            if (game.fieldOwner[selectedField] == 4 && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]] || boardData.fieldSet2[selectedField] == 0)
+            bool hasSet = false;
+            if (boardData.fieldSet2[selectedField] == 0)
+            {
+                if (game.fieldOwner[selectedField] == game.turn && game.fieldOwner[selectedField] != 4 && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]])
+                {
+                    hasSet = true;
+                }
+            }
+            else
+            {
+                if (game.fieldOwner[selectedField] == game.turn && game.fieldOwner[selectedField] != 4 && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]])
+                {
+                    hasSet = true;
+                }
+            }
+            if (hasSet == true)
             {
                 if (selectedField > 0 && selectedField < 9)
                 {
@@ -905,7 +959,7 @@ namespace Monopoly
         private void buyHouse2(byte selectedField)
         {
             game.fieldHouse[selectedField]++;
-            GameLog.Text += game.playername[game.clientplayer] + " kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField] + Environment.NewLine;
+            GameLog.Text += game.playername[game.clientplayer] + " kupuje budynek w dzielnicy " + boardData.fieldName[game.selectedField] + Environment.NewLine + Environment.NewLine;
             switch (game.fieldHouse[selectedField])
             {
                 case 1:
@@ -932,10 +986,27 @@ namespace Monopoly
                     MessageBox.Show("Wystąpił błąd podczas wywołania instrukcji DrawHouses!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
                     throw new InvalidOperationException("Wystąpił błąd podczas wywołania instrukcji DrawHouses!");
             }
+            OverviewRefresh();
+            PlayerStatusRefresh();
         }
         private bool sellHouse(byte selectedField)
         {
-            if (game.fieldOwner[selectedField] == game.turn && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]] || boardData.fieldSet2[selectedField] == 0)
+            bool hasSet = false;
+            if (boardData.fieldSet2[selectedField] == 0)
+            {
+                if (game.fieldOwner[selectedField] == game.turn && game.fieldOwner[selectedField] != 4 && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]])
+                {
+                    hasSet = true;
+                }
+            }
+            else
+            {
+                if (game.fieldOwner[selectedField] == game.turn && game.fieldOwner[selectedField] != 4 && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet1[selectedField]] && game.fieldOwner[selectedField] == game.fieldOwner[boardData.fieldSet2[selectedField]])
+                {
+                    hasSet = true;
+                }
+            }
+            if (hasSet == true)
             {
                 if (selectedField > 0 && selectedField < 9)
                 {
@@ -985,7 +1056,7 @@ namespace Monopoly
         private void sellHouse2(byte selectedField)
         {
             game.fieldHouse[selectedField]--;
-            GameLog.Text += game.playername[game.clientplayer] + " sprzedaje budynek w dzielnicy " + boardData.fieldName[game.selectedField] + Environment.NewLine;
+            GameLog.Text += game.playername[game.clientplayer] + " sprzedaje budynek w dzielnicy " + boardData.fieldName[game.selectedField] + Environment.NewLine + Environment.NewLine;
             switch (game.fieldHouse[selectedField])
             {
                 case 0:
@@ -1012,6 +1083,20 @@ namespace Monopoly
                     MessageBox.Show("Wystąpił błąd podczas wywołania instrukcji DrawHouses!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
                     throw new InvalidOperationException("Wystąpił błąd podczas wywołania instrukcji DrawHouses!");
             }
+            OverviewRefresh();
+            PlayerStatusRefresh();
+        }
+        private bool sellField(byte selectedField)
+        {
+            if(game.fieldHouse[selectedField] == 0 && game.fieldOwner[selectedField] == game.turn)
+            {
+                game.playercash[game.fieldOwner[selectedField]] = game.playercash[game.fieldOwner[selectedField]] + (boardData.fieldPrice[selectedField] / 2);
+                game.fieldOwner[selectedField] = 4;
+                OverviewRefresh();
+                PlayerStatusRefresh();
+                return true;
+            }
+            return false;
         }
 
         // UI Programming
@@ -1127,12 +1212,48 @@ namespace Monopoly
                     break;
 
                 case 6:
+                    if (status == 0)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 8:
+                    if (status == 0)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 9:
+                    if (status == 0)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 11:
@@ -1151,51 +1272,243 @@ namespace Monopoly
                     break;
 
                 case 13:
+                    if (status == 0)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 14:
+                    if (status == 0)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 16:
+                    if (status == 0)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 18:
+                    if (status == 0)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 19:
+                    if (status == 0)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 21:
+                    if (status == 0)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 23:
+                    if (status == 0)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 24:
+                    if (status == 0)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 26:
+                    if (status == 0)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 27:
+                    if (status == 0)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 29:
+                    if (status == 0)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 31:
+                    if (status == 0)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 32:
+                    if (status == 0)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 34:
+                    if (status == 0)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 37:
+                    if (status == 0)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 case 39:
+                    if (status == 0)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    if (status == 5)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
                     break;
 
                 default:
@@ -1466,9 +1779,19 @@ namespace Monopoly
 
         private void Field2_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if(game.turn == game.clientplayer)
+            if(game.turn == game.clientplayer && !game.sellmode)
             {
-                buyHouse(1);
+                if(!buyHouse(1))
+                {
+                    MessageBox.Show("Nie można kupić budynku!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if(game.turn == game.clientplayer && game.sellmode)
+            {
+                if(!sellField(1))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -1479,7 +1802,20 @@ namespace Monopoly
 
         private void Field4_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(3))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(3))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field5_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1494,7 +1830,20 @@ namespace Monopoly
 
         private void Field7_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(6))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(6))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field8_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1504,12 +1853,38 @@ namespace Monopoly
 
         private void Field9_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(8))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(8))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field10_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(9))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(9))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field11_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1519,50 +1894,83 @@ namespace Monopoly
 
         private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer)
+            if (game.turn == game.clientplayer && !game.sellmode)
             {
-                buyHouse(11);
+                if (!buyHouse(11))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
         private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field14_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(13))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field15_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(14))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field16_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field17_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(16))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field18_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field19_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(18))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field20_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(19))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
         private void Field21_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -1571,47 +1979,83 @@ namespace Monopoly
 
         private void Field22_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(21))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field23_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field24_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(23))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field25_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(24))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field26_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field27_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(26))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field28_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(27))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field29_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field30_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(29))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field31_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1621,47 +2065,77 @@ namespace Monopoly
 
         private void Field32_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(31))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field33_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(32))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field34_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field35_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(34))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field36_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field37_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field38_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(37))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field39_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Field40_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                if (!buyHouse(39))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
@@ -1678,6 +2152,24 @@ namespace Monopoly
             game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
             //game.playboardTheme = newSinglePlayerGame.ListBox_PlayboardTheme.SelectedIndex;
             StartNewGame();
+        }
+        private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
+        {
+            if(!game.sellmode)
+            {
+                game.sellmode = true;
+                Button_MouseMode.Content = "Tryb sprzedawania ulic";
+            }
+            else
+            {
+                game.sellmode = false;
+                Button_MouseMode.Content = "Tryb budowania domów";
+            }
+        }
+
+        private void Field1_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
