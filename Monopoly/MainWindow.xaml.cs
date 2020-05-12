@@ -41,6 +41,7 @@ namespace Monopoly
             public byte[] playerRailroadOwned = new byte[4] { 0, 0, 0, 0 };
             public byte[] playerArrestedTurns = new byte[4] { 0, 0, 0, 0 };
             public bool[] playerAvailable = new bool[4] { false, false, false, false };
+            public bool[] playerBankrupt = new bool[4] { false, false, false, false };
             public byte clientplayer = 0;
             public byte turn = 0;
             public byte dice1;
@@ -53,6 +54,7 @@ namespace Monopoly
             public byte[] fieldPlayers = new byte[41];
             public int taxmoney = 0;
             public bool sellmode = false;
+            public bool dangerzone = false;
         }
 
         BoardLocations boardLocations = new BoardLocations();
@@ -163,11 +165,6 @@ namespace Monopoly
             GameCanvas.Children.RemoveRange(44, 100);
             GameLog.Text = "";
         }
-        private void EndTurn_Click(object sender, RoutedEventArgs e)
-        {
-            game.turn++;
-            EndTurn();
-        }
         private void EndTurn()
         {
             Button_EndTurn.IsEnabled = false;
@@ -194,7 +191,10 @@ namespace Monopoly
             }
             if (game.turn == 0 && game.playerArrestedTurns[game.turn] == 0)
             {
-                EnableMove();
+                if (game.playerBankrupt[game.turn] == false)
+                    EnableMove();
+                else
+                    game.turn++;
             }
             else if (game.turn == 0 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -202,7 +202,10 @@ namespace Monopoly
             }
             if (game.turn == 1 && game.playerArrestedTurns[game.turn] == 0)
             {
-                EnableMove();
+                if (game.playerBankrupt[game.turn] == false)
+                    EnableMove();
+                else
+                    game.turn++;
             }
             else if (game.turn == 1 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -210,7 +213,10 @@ namespace Monopoly
             }
             if (game.turn == 2 && game.playerArrestedTurns[game.turn] == 0)
             {
-                EnableMove();
+                if (game.playerBankrupt[game.turn] == false)
+                    EnableMove();
+                else
+                    game.turn++;
             }
             else if (game.turn == 2 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -218,7 +224,10 @@ namespace Monopoly
             }
             if (game.turn == 3 && game.playerArrestedTurns[game.turn] == 0)
             {
-                EnableMove();
+                if (game.playerBankrupt[game.turn] == false)
+                    EnableMove();
+                else
+                    game.turn=0;
             }
             else if (game.turn == 3 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -226,6 +235,38 @@ namespace Monopoly
             }
         }
 
+        private void bankrupt()
+        {
+            GameLog.Text = game.playername[game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
+            game.playerBankrupt[game.turn] = true;
+        }
+        private void DangerZone()
+        {
+            if(game.turn == game.clientplayer)
+            MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromArgb(255, 255, 100, 100);
+            this.Background = brush;
+            Button_EndTurn.Background = brush;
+            Button_EndTurn.Content = "Zapłać";
+            Button_ThrowDice.Background = brush;
+            Button_ThrowDice.Content = "Ogłoś bankructwo";
+            game.sellmode = true;
+            Button_MouseMode.Content = "Tryb sprzedawania ulic";
+        }
+        private void LeaveDangerZone()
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromArgb(255, 221, 221, 221);
+            Button_EndTurn.Background = brush;
+            Button_EndTurn.Content = "Zakończ turę";
+            Button_ThrowDice.Background = brush;
+            Button_ThrowDice.Content = "Rzuć koścmi";
+            brush.Color = Color.FromArgb(255, 255, 255, 255);
+            this.Background = brush;
+            game.sellmode = false;
+            Button_MouseMode.Content = "Tryb budowania domów";
+        }
         private void EnableMove()
         {
             if (game.clientplayer == game.turn)
@@ -733,11 +774,16 @@ namespace Monopoly
                         MessageBox.Show("Stanąłeś na dzielnicy gracz " + game.playername[game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                         if (!payRent(currentPlayerLocation, rent))
                         {
-                            MessageBox.Show("Bankrutujesz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                            this.Close();
+                            MessageBox.Show("Nie stać Cię na czynsz!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            game.dangerzone = true;
+                            DangerZone();
                         }
                         else
                         {
+                            if(game.dangerzone == true)
+                            {
+                                LeaveDangerZone();
+                            }
                             GameLog.Text += game.playername[game.turn] + " płaci " + rent + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                         }
                     }
@@ -1103,9 +1149,28 @@ namespace Monopoly
         // //////////////////////////////////////////////////////////////////////////////////////////////////////
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button_ThrowDice.IsEnabled = false;
-            ThrowDiceAndMove();
-            // Connection Test
+            if (!game.dangerzone)
+            {
+                Button_ThrowDice.IsEnabled = false;
+                ThrowDiceAndMove();
+            }
+            else
+            {
+                bankrupt();
+            }
+        }
+
+        private void EndTurn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!game.dangerzone)
+            {
+                game.turn++;
+                EndTurn();
+            }
+            else
+            {
+                FieldCheck();
+            }
         }
 
         private void OverviewRefresh()
@@ -1901,6 +1966,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(11))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1917,6 +1989,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(13))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field15_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1926,6 +2005,13 @@ namespace Monopoly
                 if (!buyHouse(14))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(14))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -1944,6 +2030,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(16))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field18_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1960,6 +2053,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(18))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field20_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1969,6 +2069,13 @@ namespace Monopoly
                 if (!buyHouse(19))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(19))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -1984,6 +2091,13 @@ namespace Monopoly
                 if (!buyHouse(21))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(21))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -2002,6 +2116,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(23))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field25_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2011,6 +2132,13 @@ namespace Monopoly
                 if (!buyHouse(24))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(24))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -2029,6 +2157,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(26))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field28_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2038,6 +2173,13 @@ namespace Monopoly
                 if (!buyHouse(27))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(27))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -2056,6 +2198,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(29))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field31_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2072,6 +2221,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(31))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field33_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2081,6 +2237,13 @@ namespace Monopoly
                 if (!buyHouse(32))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(32))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -2097,6 +2260,13 @@ namespace Monopoly
                 if (!buyHouse(34))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(34))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -2120,6 +2290,13 @@ namespace Monopoly
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(37))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field39_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2134,6 +2311,13 @@ namespace Monopoly
                 if (!buyHouse(39))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(39))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

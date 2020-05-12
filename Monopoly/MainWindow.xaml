@@ -339,7 +339,7 @@
             <Grid Margin="0">
                 <Label x:Name="Dice1" Content="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="Dice2" Content="0" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi!" HorizontalAlignment="Left" Margin="8,88,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
+                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" HorizontalAlignment="Left" Margin="8,88,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
                 <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="72,56,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="38" HorizontalContentAlignment="Center"/>
                 <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,88,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
             </Grid>
