@@ -371,7 +371,7 @@
         </GroupBox>
         <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211">
             <Grid Margin="0">
-                <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Visibility="Hidden"/>
+                <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player2Name" Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player3Name" Content="Gracz 3" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player4Name" Content="Gracz 4" HorizontalAlignment="Left" Margin="43,103,0,0" VerticalAlignment="Top" Visibility="Hidden"/>

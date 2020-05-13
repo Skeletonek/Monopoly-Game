@@ -25,6 +25,7 @@ namespace Monopoly
     public partial class MainWindow : Window
     {
         public static Client client;
+        public static string clientname;
         Random rng = new Random();
         public static bool connectedToServer = false;
         DispatcherTimer wait = new DispatcherTimer();
@@ -88,8 +89,67 @@ namespace Monopoly
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         void client_DataReceived(byte[] Data, string ID)
         {
-            ConnectionStatus.Header = ASCIIEncoding.ASCII.GetString(Data);
-            sfx.Stop();
+            string serverResponse = ASCIIEncoding.ASCII.GetString(Data);
+            char serverResponseID = serverResponse.ToCharArray().ElementAt(0);
+            string serverResponseContext = serverResponse.Substring(1);
+            switch (serverResponseID)
+            {
+                case '0':
+                    game.playerAvailable[0] = true;
+                    game.playername[0] = serverResponseContext;
+                    if(game.playername[0] == clientname)
+                    {
+                        game.clientplayer = 0;
+                        Label_Player1Name.FontWeight = FontWeights.Bold;
+                        Button_ThrowDice.IsEnabled = true;
+                    }
+                    break;
+
+                case '1':
+                    game.playerAvailable[1] = true;
+                    game.playername[1] = serverResponseContext;
+                    if (game.playername[1] == clientname)
+                    {
+                        game.clientplayer = 1;
+                        Label_Player2Name.FontWeight = FontWeights.Bold;
+                    }
+                    break;
+
+                case '2':
+                    game.playerAvailable[2] = true;
+                    game.playername[2] = serverResponseContext;
+                    if (game.playername[2] == clientname)
+                    {
+                        game.clientplayer = 2;
+                        Label_Player3Name.FontWeight = FontWeights.Bold;
+                    }
+                    break;
+
+                case '3':
+                    game.playerAvailable[3] = true;
+                    game.playername[3] = serverResponseContext;
+                    if (game.playername[3] == clientname)
+                    {
+                        game.clientplayer = 3;
+                        Label_Player4Name.FontWeight = FontWeights.Bold;
+                    }
+                    break;
+
+                case '+':
+                    game.multiplayer = true;
+                    StartNewGame();
+                    break;
+            }
+        }
+
+        private void client_Connected()
+        {
+            //pause the game
+        }
+
+        private void client_Disconnected()
+        {
+            ///unpause the game
         }
 
         private void btnConnectToServer_Click(object sender, RoutedEventArgs e)
@@ -97,6 +157,8 @@ namespace Monopoly
             ConnectionToServer connectionToServer = new ConnectionToServer();
             connectionToServer.ShowDialog();
             client.DataReceived += new Client.DataReceivedEventHandler(client_DataReceived);
+            client.Connected += new NetComm.Client.ConnectedEventHandler(client_Connected);
+            client.Disconnected += new Client.DisconnectedEventHandler(client_Disconnected);
         }
 
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
@@ -165,9 +227,8 @@ namespace Monopoly
             GameCanvas.Children.RemoveRange(44, 100);
             GameLog.Text = "";
         }
-        private void EndTurn()
+        private void TurnCheck()
         {
-            Button_EndTurn.IsEnabled = false;
             if (game.playerAvailable[3])
             {
                 if (game.turn > 3)
@@ -189,6 +250,12 @@ namespace Monopoly
                     game.turn = 0;
                 }
             }
+        }
+
+        private void EndTurn()
+        {
+            Button_EndTurn.IsEnabled = false;
+            TurnCheck();
             if (game.turn == 0 && game.playerArrestedTurns[game.turn] == 0)
             {
                 if (game.playerBankrupt[game.turn] == false)
@@ -205,7 +272,10 @@ namespace Monopoly
                 if (game.playerBankrupt[game.turn] == false)
                     EnableMove();
                 else
+                {
                     game.turn++;
+                    TurnCheck();
+                }
             }
             else if (game.turn == 1 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -216,7 +286,10 @@ namespace Monopoly
                 if (game.playerBankrupt[game.turn] == false)
                     EnableMove();
                 else
+                {
                     game.turn++;
+                    TurnCheck();
+                }
             }
             else if (game.turn == 2 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -227,7 +300,10 @@ namespace Monopoly
                 if (game.playerBankrupt[game.turn] == false)
                     EnableMove();
                 else
-                    game.turn=0;
+                {
+                    game.turn++;
+                    TurnCheck();
+                }
             }
             else if (game.turn == 3 && game.playerArrestedTurns[game.turn] != 0)
             {
@@ -307,7 +383,12 @@ namespace Monopoly
                 MessageBox.Show("Twoja tura!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                ThrowDiceAndMove();
+            {
+                if (!game.multiplayer)
+                {
+                    ThrowDiceAndMove();
+                }
+            }
         }
 
         private void DisableMove()
@@ -323,12 +404,15 @@ namespace Monopoly
             }
             else
             {
-                if (game.playerArrestedTurns[game.turn] == 0)
+                if (!game.multiplayer)
                 {
-                    game.playerlocation[game.turn] = 10;
+                    if (game.playerArrestedTurns[game.turn] == 0)
+                    {
+                        game.playerlocation[game.turn] = 10;
+                    }
+                    game.turn++;
+                    EndTurn();
                 }
-                game.turn++;
-                EndTurn();
             }
         }
 
@@ -2387,6 +2471,7 @@ namespace Monopoly
             game.playerAvailable[1] = true;
             game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
             game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
+            game.multiplayer = false;
             //game.playboardTheme = newSinglePlayerGame.ListBox_PlayboardTheme.SelectedIndex;
             StartNewGame();
         }

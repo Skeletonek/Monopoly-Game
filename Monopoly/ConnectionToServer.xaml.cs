@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Monopoly
 {
@@ -19,11 +20,22 @@ namespace Monopoly
     /// </summary>
     public partial class ConnectionToServer : Window
     {
+        DispatcherTimer timeout = new DispatcherTimer();
+        bool startgame = false;
         public ConnectionToServer()
         {
             InitializeComponent();
             Warning1.Visibility = Visibility.Hidden;
             Warning2.Visibility = Visibility.Hidden;
+            timeout.Interval = TimeSpan.FromSeconds(5);
+            timeout.Tick += Timeout_Tick;
+        }
+
+        private void Timeout_Tick(object sender, EventArgs e)
+        {
+            Label_ConnectionStatus.Content = "Nie połączono";
+            Button_Connect.IsEnabled = true;
+            timeout.Stop();
         }
 
         private void Button_Connect_Click(object sender, RoutedEventArgs e)
@@ -33,9 +45,13 @@ namespace Monopoly
             MainWindow.client.Connected += new NetComm.Client.ConnectedEventHandler(client_Connected);
             MainWindow.client.DataReceived += new NetComm.Client.DataReceivedEventHandler(client_DataReceived);
             Button_Connect.IsEnabled = false;
+            Label_ConnectionStatus.Content = "Łączenie...";
+            timeout.Start();
         }
         private void client_Connected()
         {
+            MainWindow.clientname = TextBox_Nickname.Text;
+            timeout.Stop();
             MainWindow.connectedToServer = true;
             Label_ConnectionStatus.Content = "Połączono";
             Warning1.Visibility = Visibility.Visible;
@@ -48,7 +64,17 @@ namespace Monopoly
                 ListBox_PlayersConnected.Items.Clear();
             if (ASCIIEncoding.ASCII.GetString(Data) != "EndCommunication" && ASCIIEncoding.ASCII.GetString(Data) != "NewData")
                 ListBox_PlayersConnected.Items.Add(ASCIIEncoding.ASCII.GetString(Data));
+            if (ASCIIEncoding.ASCII.GetString(Data) == "Start the party!")
+            {
+                startgame = true;
+                this.Close();
+            }
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!startgame)
+            { MainWindow.client.Disconnect(); }
+        }
     }
 }

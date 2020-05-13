@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly_Server"
         mc:Ignorable="d"
-        Title="MonopolyServer (V.11052020)" Height="245" Width="275" Closed="Window_Closed">
+        Title="MonopolyServer (V.13052020)" Height="300" Width="400" Closed="Window_Closed">
     <Grid Margin="0,0,2,2">
-        <Button Content="Uruchom server" Margin="60,10,60,178" Width="120" Click="btnStartServer_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Height="24"/>
-        <Label x:Name="label" Content="" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Width="220" Height="68" FontSize="10"/>
-        <ListBox x:Name="IP" HorizontalAlignment="Center" Height="100" Margin="0,112,0,0" VerticalAlignment="Top" Width="220"/>
+        <Button x:Name="Button_StartServer" Content="Uruchom server" Margin="10,10,0,0" Width="120" Click="btnStartServer_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24"/>
+        <Label x:Name="Label_ServerStatus" Content="" HorizontalAlignment="Center" Margin="144,10,10,0" VerticalAlignment="Top" Width="236" Height="24" FontSize="10"/>
+        <ListBox x:Name="ListBox_Players" HorizontalAlignment="Center" Height="218" Margin="10,39,260,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="ListBox_PlayboardTheme" HorizontalAlignment="Center" Height="193" Margin="144,39,10,0" VerticalAlignment="Top" Width="236" ScrollViewer.VerticalScrollBarVisibility="Visible" IsEnabled="False">
+            <ListBoxItem Content="Monopoly Standard"/>
+        </ListBox>
+        <Button x:Name="Button_StartGame" Content="Start" HorizontalAlignment="Left" Margin="305,237,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Button_StartGame_Click"/>
 
     </Grid>
 </Window>
