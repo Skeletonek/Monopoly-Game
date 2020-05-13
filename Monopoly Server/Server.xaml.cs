@@ -45,9 +45,9 @@ namespace Monopoly_Server
             Server.onConnection += new NetComm.Host.onConnectionEventHandler(Server_onConnection);
             Server.lostConnection += new NetComm.Host.lostConnectionEventHandler(Server_lostConnection);
             Server.DataReceived += new NetComm.Host.DataReceivedEventHandler(Server_DataReceived);
-            Server.SendBufferSize = 400;
-            Server.ReceiveBufferSize = 50;
-            Server.NoDelay = true;
+            Server.SendBufferSize = 500;
+            Server.ReceiveBufferSize = 200;
+            Server.NoDelay = false;
             Label_ServerStatus.Content = "Uruchomiono server";
             ListBox_PlayboardTheme.IsEnabled = true;
         }
@@ -78,19 +78,22 @@ namespace Monopoly_Server
 
         void Server_lostConnection(string id)
         {
-            ListBox_Players.Items.Remove(id);
-            if (ListBox_Players.Items.Count < 2)
+            if (!GameStarted)
             {
-                Button_StartGame.IsEnabled = false;
+                ListBox_Players.Items.Remove(id);
+                if (ListBox_Players.Items.Count < 2)
+                {
+                    Button_StartGame.IsEnabled = false;
+                }
+                List<string> usersList = Server.Users;
+                var users = usersList;
+                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("NewData"));
+                foreach (string user in users)
+                {
+                    Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(user));
+                }
+                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("EndCommunication"));
             }
-            List<string> usersList = Server.Users;
-            var users = usersList;
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("NewData"));
-            foreach (string user in users)
-            {
-                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(user));
-            }
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("EndCommunication"));
         }
 
         void Server_DataReceived(string ID, byte[] Data)
