@@ -75,6 +75,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Reconnecting.xaml.cs">
+      <DependentUpon>Reconnecting.xaml</DependentUpon>
+    </Compile>
     <Page Include="CheatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewSingleplayerGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reconnecting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

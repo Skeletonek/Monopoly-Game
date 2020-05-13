@@ -24,6 +24,7 @@ namespace Monopoly_Server
     public partial class MainWindow : Window
     {
         Host Server;
+        bool GameStarted;
         public MainWindow()
         {
             Server = new NetComm.Host(2020);    
@@ -53,18 +54,25 @@ namespace Monopoly_Server
 
         void Server_onConnection(string id)
         {
-            List<string> usersList = Server.Users;
-            var users = usersList;
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("NewData"));
-            foreach (string user in users)
+            if (!GameStarted)
             {
-                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(user));
+                List<string> usersList = Server.Users;
+                var users = usersList;
+                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("NewData"));
+                foreach (string user in users)
+                {
+                    Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(user));
+                }
+                ListBox_Players.Items.Add(id);
+                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("EndCommunication"));
+                if (ListBox_Players.Items.Count >= 2)
+                {
+                    Button_StartGame.IsEnabled = true;
+                }
             }
-            ListBox_Players.Items.Add(id);
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("EndCommunication"));
-            if(ListBox_Players.Items.Count >= 2)
+            else
             {
-                Button_StartGame.IsEnabled = true;
+                //Server.SendData
             }
         }
 
@@ -105,17 +113,18 @@ namespace Monopoly_Server
 
         private void Button_StartGame_Click(object sender, RoutedEventArgs e)
         {
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("Start the party!"));
+            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("Start the party!-0-0"));
             List<string> usersList = Server.Users;
             var users = usersList;
             byte playernumber = 0;
             foreach (string user in users)
             {
                 string playerNumber = Convert.ToString(playernumber);
-                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(playerNumber + " " +user));
+                Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(playerNumber + "-" + "0-" +user));
                 playernumber++;
             }
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("+" + " " + " "));
+            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("+-" + "0" + "-" + "0"));
+            GameStarted = true;
         }
     }
 }

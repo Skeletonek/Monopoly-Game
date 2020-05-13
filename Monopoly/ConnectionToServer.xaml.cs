@@ -51,6 +51,7 @@ namespace Monopoly
         private void client_Connected()
         {
             MainWindow.clientname = TextBox_Nickname.Text;
+            MainWindow.ip = TextBox_IP.Text;
             timeout.Stop();
             MainWindow.connectedToServer = true;
             Label_ConnectionStatus.Content = "Połączono";
@@ -64,7 +65,7 @@ namespace Monopoly
                 ListBox_PlayersConnected.Items.Clear();
             if (ASCIIEncoding.ASCII.GetString(Data) != "EndCommunication" && ASCIIEncoding.ASCII.GetString(Data) != "NewData")
                 ListBox_PlayersConnected.Items.Add(ASCIIEncoding.ASCII.GetString(Data));
-            if (ASCIIEncoding.ASCII.GetString(Data) == "Start the party!")
+            if (ASCIIEncoding.ASCII.GetString(Data) == "Start the party!-0-0")
             {
                 startgame = true;
                 this.Close();
