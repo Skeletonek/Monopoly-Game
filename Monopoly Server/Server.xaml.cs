@@ -87,8 +87,15 @@ namespace Monopoly_Server
 
         void Server_DataReceived(string ID, byte[] Data)
         {
-            string broadcast = Convert.ToString(Data);
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(broadcast));
+            List<string> usersList = Server.Users;
+            var users = usersList;
+            string broadcast = ASCIIEncoding.ASCII.GetString(Data);
+            ServerLog.Text += broadcast + Environment.NewLine;
+            foreach (string user in users)
+            {
+                if(user != ID)
+                Server.SendData(user, ASCIIEncoding.ASCII.GetBytes(broadcast));
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -108,7 +115,7 @@ namespace Monopoly_Server
                 Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(playerNumber + " " +user));
                 playernumber++;
             }
-            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("+"));
+            Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("+" + " " + " "));
         }
     }
 }

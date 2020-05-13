@@ -5,15 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly_Server"
         mc:Ignorable="d"
-        Title="MonopolyServer (V.13052020)" Height="300" Width="400" Closed="Window_Closed">
+        Title="MonopolyServer (V.13052020)" Height="300" Width="674" Closed="Window_Closed">
     <Grid Margin="0,0,2,2">
         <Button x:Name="Button_StartServer" Content="Uruchom server" Margin="10,10,0,0" Width="120" Click="btnStartServer_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24"/>
         <Label x:Name="Label_ServerStatus" Content="" HorizontalAlignment="Center" Margin="144,10,10,0" VerticalAlignment="Top" Width="236" Height="24" FontSize="10"/>
-        <ListBox x:Name="ListBox_Players" HorizontalAlignment="Center" Height="218" Margin="10,39,260,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="ListBox_PlayboardTheme" HorizontalAlignment="Center" Height="193" Margin="144,39,10,0" VerticalAlignment="Top" Width="236" ScrollViewer.VerticalScrollBarVisibility="Visible" IsEnabled="False">
+        <ListBox x:Name="ListBox_Players" HorizontalAlignment="Left" Height="218" Margin="10,39,260,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="ListBox_PlayboardTheme" HorizontalAlignment="Left" Height="193" Margin="144,39,10,0" VerticalAlignment="Top" Width="236" ScrollViewer.VerticalScrollBarVisibility="Visible" IsEnabled="False">
             <ListBoxItem Content="Monopoly Standard"/>
         </ListBox>
-        <Button x:Name="Button_StartGame" Content="Start" HorizontalAlignment="Left" Margin="305,237,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Button_StartGame_Click"/>
+        <Button x:Name="Button_StartGame" Content="Start" HorizontalAlignment="Right" Margin="0,237,10,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Button_StartGame_Click"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="193" Margin="385,39,0,0" VerticalAlignment="Top" Width="269" CanContentScroll="True">
+            <TextBlock x:Name="ServerLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" ScrollViewer.CanContentScroll="True"/>
+        </ScrollViewer>
 
     </Grid>
 </Window>

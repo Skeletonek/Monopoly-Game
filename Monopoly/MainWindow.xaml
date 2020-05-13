@@ -16,7 +16,7 @@
             </MenuItem>
             <MenuItem Header="Gra wieloosobowa">
                 <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
-                <MenuItem Header="Test" Click="btnSendMessage_Click"/>
+                <MenuItem Header="Rozłącz" Click="btnSendMessage_Click"/>
             </MenuItem>
             <MenuItem Header="Opcje">
                 <MenuItem Header="Dźwięk" Click="MenuItem_Click"/>
@@ -41,7 +41,7 @@
             <Button x:Name="Button_MouseMode" Content="Tryb budowania domów" Click="Button_MouseMode_Click"/>
             <Separator Width="50" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
             <MenuItem Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
-            <MenuItem x:Name="ConnectionStatus" Width="409"/>
+            <MenuItem x:Name="ConnectionStatus" Width="386"/>
         </Menu>
         <Canvas x:Name="GameCanvas" Height="640" Margin="226,25,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
