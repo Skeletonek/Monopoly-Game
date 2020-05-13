@@ -91,7 +91,8 @@ namespace Monopoly
         {
             string serverResponse = ASCIIEncoding.ASCII.GetString(Data);
             char serverResponseID = serverResponse.ToCharArray().ElementAt(0);
-            string serverResponseContext = serverResponse.Substring(1);
+            char serverResponsePlayer = serverResponse.ToCharArray().ElementAt(1);
+            string serverResponseContext = serverResponse.Substring(2);
             switch (serverResponseID)
             {
                 case '0':
@@ -138,6 +139,10 @@ namespace Monopoly
                 case '+':
                     game.multiplayer = true;
                     StartNewGame();
+                    break;
+
+                case 'a':
+
                     break;
             }
         }
