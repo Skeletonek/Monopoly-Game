@@ -1,3 +1,8 @@
+Beta 0.5
+- Dodano tryb multiplayer
+- Poprawa b³êdów
+- Usprawniono serwer gry
+
 Alpha 0.4
 - Usprawniono interfejs
 - Dodano kupowanie budynków

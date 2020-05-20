@@ -45,7 +45,7 @@ namespace Monopoly
             MainWindow.client.Connected += new NetComm.Client.ConnectedEventHandler(client_Connected);
             MainWindow.client.DataReceived += new NetComm.Client.DataReceivedEventHandler(client_DataReceived);
             MainWindow.client.SendBufferSize = 500;
-            MainWindow.client.ReceiveBufferSize = 200;
+            MainWindow.client.ReceiveBufferSize = 300;
             MainWindow.client.NoDelay = false;
             Button_Connect.IsEnabled = false;
             Label_ConnectionStatus.Content = "Łączenie...";

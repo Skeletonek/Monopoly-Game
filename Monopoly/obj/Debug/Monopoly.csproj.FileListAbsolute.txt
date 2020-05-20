@@ -123,3 +123,9 @@ C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\Trivago.p
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\NoAlpha.png
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\obj\Debug\Reconnecting.g.cs
 C:\Users\skele\source\repos\Monopoly-Game\Monopoly\obj\Debug\Reconnecting.baml
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Monopoly.exe.manifest
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Monopoly.application
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\obj\Debug\Monopoly.exe.manifest
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\obj\Debug\Monopoly.application
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\music.mp3
+C:\Users\skele\source\repos\Monopoly-Game\Monopoly\bin\Debug\Resources\music_wait.mp3

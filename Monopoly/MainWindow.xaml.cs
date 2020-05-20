@@ -33,7 +33,8 @@ namespace Monopoly
         public static int cheat = 0;
         byte diceScore;
         MediaPlayer sfx = new MediaPlayer();
-        string sfxfile = @"Resources\music.wav";
+        string sfxfile = @"Resources\music.mp3";
+        DispatcherTimer reload = new DispatcherTimer();
         public class Game
         {
             public bool multiplayer = false;
@@ -44,6 +45,7 @@ namespace Monopoly
             public byte[] playerArrestedTurns = new byte[4] { 0, 0, 0, 0 };
             public bool[] playerAvailable = new bool[4] { false, false, false, false };
             public bool[] playerBankrupt = new bool[4] { false, false, false, false };
+            public byte playerBankruptNeededToWin = 0;
             public byte clientplayer = 0;
             public byte turn = 0;
             public byte dice1;
@@ -74,11 +76,19 @@ namespace Monopoly
             boardData.gameDataWriter();
             wait.Interval = TimeSpan.FromMilliseconds(300);
             wait.Tick += JumpingAnimation_Tick;
+            reload.Interval = TimeSpan.FromSeconds(5);
+            reload.Tick += Reload_Tick;
             InitializeComponent();
+            sfxfile = @"Resources\music_wait.mp3";
             sfx.Open(new Uri(sfxfile, UriKind.Relative));
             sfx.Volume = 0.5;
-            //sfx.Play();
+            sfx.Play();
             sfx.MediaEnded += Sfx_MediaEnded;
+        }
+
+        private void Reload_Tick(object sender, EventArgs e)
+        {
+            SendData();
         }
 
         private void Sfx_MediaEnded(object sender, EventArgs e)
@@ -90,221 +100,221 @@ namespace Monopoly
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         void client_DataReceived(byte[] Data, string ID)
         {
-            string response = ASCIIEncoding.ASCII.GetString(Data);
-            string[] serverResponse = response.Split(new char[] { '-' });
-            switch (serverResponse[0])
-            {
-                case "0":
-                    game.playerAvailable[0] = true;
-                    game.playername[0] = serverResponse[2];
-                    if(game.playername[0] == clientname)
-                    {
-                        game.clientplayer = 0;
-                        Label_Player1Name.FontWeight = FontWeights.Bold;
-                        Button_ThrowDice.IsEnabled = true;
-                    }
-                    break;
-
-                case "1":
-                    game.playerAvailable[1] = true;
-                    game.playername[1] = serverResponse[2];
-                    if (game.playername[1] == clientname)
-                    {
-                        game.clientplayer = 1;
-                        Label_Player2Name.FontWeight = FontWeights.Bold;
-                    }
-                    break;
-
-                case "2":
-                    game.playerAvailable[2] = true;
-                    game.playername[2] = serverResponse[2];
-                    if (game.playername[2] == clientname)
-                    {
-                        game.clientplayer = 2;
-                        Label_Player3Name.FontWeight = FontWeights.Bold;
-                    }
-                    break;
-
-                case "3":
-                    game.playerAvailable[3] = true;
-                    game.playername[3] = serverResponse[2];
-                    if (game.playername[3] == clientname)
-                    {
-                        game.clientplayer = 3;
-                        Label_Player4Name.FontWeight = FontWeights.Bold;
-                    }
-                    break;
-
-                case "+":
-                    game.multiplayer = true;
-                    StartNewGame();
-                    break;
-
-                case "a":
-                    try
-                    {
-                    byte dice1 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(0)));
-                    byte dice2 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(1)));
-                    Dice1.Content = Convert.ToString(dice1);
-                    Dice2.Content = Convert.ToString(dice2);
-                    diceScore = Convert.ToByte(dice1+dice2);
-                    DiceScore.Content = Convert.ToString(diceScore);
-                    }
-                    catch
-                    {
-
-                    }
-                    break;
-
-                case "b":
-                    try
-                    {
-                        game.turn = byte.Parse(serverResponse[2]);
-                        if (game.turn == game.clientplayer && game.playerArrestedTurns[game.clientplayer] == 0)
+                string response = ASCIIEncoding.ASCII.GetString(Data);
+                string[] serverResponse = response.Split(new char[] { '-' });
+                switch (serverResponse[0])
+                {
+                    case "0":
+                        game.playerAvailable[0] = true;
+                        game.playername[0] = serverResponse[2];
+                        if (game.playername[0] == clientname)
                         {
-                            if (game.playerBankrupt[game.turn] == false)
-                                EnableMove();
-                            else
+                            game.clientplayer = 0;
+                            Label_Player1Name.FontWeight = FontWeights.Bold;
+                            Button_ThrowDice.IsEnabled = true;
+                        }
+                        break;
+
+                    case "1":
+                        game.playerAvailable[1] = true;
+                        game.playername[1] = serverResponse[2];
+                        if (game.playername[1] == clientname)
+                        {
+                            game.clientplayer = 1;
+                            Label_Player2Name.FontWeight = FontWeights.Bold;
+                        }
+                        break;
+
+                    case "2":
+                        game.playerAvailable[2] = true;
+                        game.playername[2] = serverResponse[2];
+                        if (game.playername[2] == clientname)
+                        {
+                            game.clientplayer = 2;
+                            Label_Player3Name.FontWeight = FontWeights.Bold;
+                        }
+                        break;
+
+                    case "3":
+                        game.playerAvailable[3] = true;
+                        game.playername[3] = serverResponse[2];
+                        if (game.playername[3] == clientname)
+                        {
+                            game.clientplayer = 3;
+                            Label_Player4Name.FontWeight = FontWeights.Bold;
+                        }
+                        break;
+
+                    case "+":
+                        game.multiplayer = true;
+                        StartNewGame();
+                        break;
+
+                    case "a":
+                        try
+                        {
+                            byte dice1 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(0)));
+                            byte dice2 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(1)));
+                            Dice1.Content = Convert.ToString(dice1);
+                            Dice2.Content = Convert.ToString(dice2);
+                            diceScore = Convert.ToByte(dice1 + dice2);
+                            DiceScore.Content = Convert.ToString(diceScore);
+                        }
+                        catch
+                        {
+
+                        }
+                        break;
+
+                    case "b":
+                        try
+                        {
+                            game.turn = byte.Parse(serverResponse[2]);
+                            if (game.turn == game.clientplayer && game.playerArrestedTurns[game.clientplayer] == 0)
                             {
-                                game.turn++;
-                                SendData();
+                                if (game.playerBankrupt[game.turn] == false)
+                                    EnableMove();
+                                else
+                                {
+                                    game.turn++;
+                                    SendData();
+                                }
+                            }
+                            else if (game.turn == game.clientplayer && game.playerArrestedTurns[game.turn] != 0)
+                            {
+                                DisableMove();
                             }
                         }
-                        else if (game.turn == game.clientplayer && game.playerArrestedTurns[game.turn] != 0)
+                        catch
                         {
-                            DisableMove();
+
                         }
-                    }
-                    catch
-                    {
+                        break;
 
-                    }
-                    break;
+                    case "c":
+                        try
+                        {
+                            game.selectedField = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "c":
-                    try
-                    {
-                        game.selectedField = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "d":
+                        try
+                        {
+                            game.taxmoney = int.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "d":
-                    try
-                    {
-                        game.taxmoney = int.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "e":
+                        try
+                        {
+                            game.playerlocation[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "e":
-                    try
-                    {
-                        game.playerlocation[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        Jump();
+                        break;
 
-                    }
-                    Jump();
-                    break;
+                    case "f":
+                        try
+                        {
+                            game.playercash[byte.Parse(serverResponse[1])] = int.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "f":
-                    try
-                    {
-                        game.playercash[byte.Parse(serverResponse[1])] = int.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        PlayerStatusRefresh();
+                        break;
 
-                    }
-                    PlayerStatusRefresh();
-                    break;
+                    case "g":
+                        try
+                        {
+                            game.playerRailroadOwned[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "g":
-                    try
-                    {
-                        game.playerRailroadOwned[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "h":
+                        try
+                        {
+                            game.playerArrestedTurns[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "h":
-                    try
-                    {
-                        game.playerArrestedTurns[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "j":
+                        try
+                        {
+                            game.playerBankrupt[byte.Parse(serverResponse[1])] = bool.Parse(serverResponse[2]);
+                            PlayerStatusRefresh();
+                        }
+                        catch
+                        {
 
-                case "j":
-                    try
-                    {
-                        game.playerBankrupt[byte.Parse(serverResponse[1])] = bool.Parse(serverResponse[2]);
-                    PlayerStatusRefresh();
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "k":
+                        try
+                        {
+                            game.fieldHouse[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "k":
-                    try
-                    {
-                        game.fieldHouse[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "l":
+                        try
+                        {
+                            game.fieldOwner[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "l":
-                    try
-                    {
-                        game.fieldOwner[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "m":
+                        try
+                        {
+                            game.fieldPlayers[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        }
+                        catch
+                        {
 
-                case "m":
-                    try
-                    {
-                        game.fieldPlayers[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
-                    }
-                    catch
-                    {
+                        }
+                        break;
 
-                    }
-                    break;
+                    case "z":
+                        try
+                        {
+                            GameLog.Text += serverResponse[2];
+                        }
+                        catch
+                        {
 
-                case "z":
-                    try
-                    {
-                        GameLog.Text += serverResponse[2];
-                    }
-                    catch
-                    {
-
-                    }
-                    break;
-            }
+                        }
+                        break;
+                }
         }
         private void SendData()
         {
@@ -386,6 +396,7 @@ namespace Monopoly
                 Label_Player1Cash.Visibility = Visibility.Visible;
                 Label_Player1Name.Visibility = Visibility.Visible;
                 Label_Player1Name.Content = game.playername[0];
+                game.playerBankruptNeededToWin++;
             }
             if (game.playerAvailable[1])
             {
@@ -394,6 +405,7 @@ namespace Monopoly
                 Label_Player2Cash.Visibility = Visibility.Visible;
                 Label_Player2Name.Visibility = Visibility.Visible;
                 Label_Player2Name.Content = game.playername[1];
+                game.playerBankruptNeededToWin++;
             }
             if (game.playerAvailable[2])
             {
@@ -402,6 +414,7 @@ namespace Monopoly
                 Label_Player3Cash.Visibility = Visibility.Visible;
                 Label_Player3Name.Visibility = Visibility.Visible;
                 Label_Player3Name.Content = game.playername[2];
+                game.playerBankruptNeededToWin++;
             }
             if (game.playerAvailable[3])
             {
@@ -410,6 +423,7 @@ namespace Monopoly
                 Label_Player4Cash.Visibility = Visibility.Visible;
                 Label_Player4Name.Visibility = Visibility.Visible;
                 Label_Player4Name.Content = game.playername[3];
+                game.playerBankruptNeededToWin++;
             }
             if (!connectedToServer)
             {
@@ -435,6 +449,7 @@ namespace Monopoly
             boardData.gameDataWriter();
             GameCanvas.Children.RemoveRange(44, 100);
             GameLog.Text = "";
+            sfx.Stop();
         }
         private void TurnCheck()
         {
@@ -512,6 +527,7 @@ namespace Monopoly
                 {
                     game.turn++;
                     TurnCheck();
+                    EndTurn();
                 }
             }
             else if (game.turn == 3 && game.playerArrestedTurns[game.turn] != 0)
@@ -522,7 +538,7 @@ namespace Monopoly
 
         private void bankrupt()
         {
-            GameLog.Text = game.playername[game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
+            GameLog.Text += game.playername[game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
             if(game.multiplayer)
             {
                 SendGameLog(game.playername[game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine);
@@ -551,8 +567,19 @@ namespace Monopoly
                     Player4_Icon.Visibility = Visibility.Hidden;
                     break;
             }
+            game.playerBankruptNeededToWin--;
             LeaveDangerZone();
+            if(game.playerBankruptNeededToWin <= 1)
+            {
+                MessageBox.Show("Wygrałeś", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                if(game.multiplayer)
+                {
+                    client.Disconnect();
+                }
+                this.Close();
+            }
             EndTurn();
+            
         }
         private void DangerZone()
         {
@@ -593,7 +620,8 @@ namespace Monopoly
                 game.sellmode = false;
                 Button_MouseMode.Content = "Tryb budowania domów";
                 Button_ThrowDice.IsEnabled = true;
-                MessageBox.Show("Twoja tura!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                DiceScore.Content = "Twoja tura!";
+                
             }
             else
             {
@@ -602,6 +630,7 @@ namespace Monopoly
                     ThrowDiceAndMove();
                 }
             }
+            if(game.multiplayer)
             SendData();
         }
 
@@ -644,6 +673,7 @@ namespace Monopoly
             {
                 SendData();
             }
+            sfx.Play();
             wait.Start();
         }
 
@@ -675,6 +705,7 @@ namespace Monopoly
             else
             {
                 wait.Stop();
+                sfx.Stop();
                 game.selectedField = game.playerlocation[game.turn];
                 OverviewRefresh();
                 FieldCheck();
@@ -1227,6 +1258,7 @@ namespace Monopoly
                 }
             }
             PlayerStatusRefresh();
+            if(game.multiplayer)
             SendData();
         }
         private bool buyField(byte currentPlayerLocation)
@@ -2260,6 +2292,7 @@ namespace Monopoly
             diceScore = Convert.ToByte(cheat);
             DiceScore.Content = diceScore;
             wait.Start();
+            sfx.Play();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
