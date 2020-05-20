@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="6934952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="8567208">
       <assemblyIdentity name="Monopoly" version="0.5.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/o8enOsTaB2aSRgUCasG7SPspYmqhpMPak1wweJqkpI=</dsig:DigestValue>
+        <dsig:DigestValue>nXG5XX/RWTjbuwtteNzuRhqoCXJFSbl2ikoqnPmJxwk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,6 +91,33 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>/nNBGm5r0DUpVtPAXxbS03UM++AMzFyFFcBQMjv83YE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\build.wav" size="142646">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2UiKB4rBrtd4AhHRZpbMphV0sZJBjG6qwEUfooJjteM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\correct.wav" size="163910">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>r3/bJsPxjjJCAnpBt71QfPSuC9elJtD43i4HFr0o1L8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\destroy.wav" size="720490">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bOchnAOL7kjjr+LpyyuLBj1EOumt42lxTxK2GyJYQQA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\FieldBlue1.jpg" size="6441">
@@ -469,6 +496,42 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>tfdhq3OQKDHg0mJ7h06Tk+uHmuPz5BcehmQv/pk5nWc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\incorrect.wav" size="198492">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QO1cPc8M55Cy9szCX7E5h+5U4YPAhZmUIPYWMQJJiLw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\mcoof.wav" size="102444">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Qb0U8iRWDAzxfaeotwE7L1NcBXEJ0TwF/vc9mADvoig=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\mcwhirl.wav" size="219180">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wwGmCi6DWpBO66FIdjCsF5w11ot+Vh1jH7r6mGa/2II=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\money.wav" size="83664">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nXptse8vnqCP1i2pz7By8wKmT3TCe8ZpIyrUNJrlwhU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\monopolyboard.jpg" size="259039">

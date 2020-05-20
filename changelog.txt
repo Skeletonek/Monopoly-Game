@@ -1,3 +1,10 @@
+Beta 0.5.1
+- Dodano ikonê
+- Usuniêto Pop-Up informuj¹cy o nowej turze
+- Zmieniono nazwê sekcji "Kostki do gry" na "Koœci do gry"
+- Dodano efekt dŸwiêkowy i napis w sekcji "Koœci do gry" informuj¹cy o turze gracza
+- Usprawniono logikê gry, gdy jeden z graczy zbankrutuje
+
 Beta 0.5
 - Dodano tryb multiplayer
 - Poprawa b³êdów

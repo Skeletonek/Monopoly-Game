@@ -76,7 +76,7 @@ namespace Monopoly
             boardData.gameDataWriter();
             wait.Interval = TimeSpan.FromMilliseconds(300);
             wait.Tick += JumpingAnimation_Tick;
-            reload.Interval = TimeSpan.FromSeconds(5);
+            reload.Interval = TimeSpan.FromSeconds(10);
             reload.Tick += Reload_Tick;
             InitializeComponent();
             sfxfile = @"Resources\music_wait.mp3";
@@ -86,11 +86,6 @@ namespace Monopoly
             sfx.MediaEnded += Sfx_MediaEnded;
         }
 
-        private void Reload_Tick(object sender, EventArgs e)
-        {
-            SendData();
-        }
-
         private void Sfx_MediaEnded(object sender, EventArgs e)
         {
             //sfx.Play();
@@ -98,6 +93,10 @@ namespace Monopoly
 
         // SERVER CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void Reload_Tick(object sender, EventArgs e)
+        {
+            SendData();
+        }
         void client_DataReceived(byte[] Data, string ID)
         {
                 string response = ASCIIEncoding.ASCII.GetString(Data);
@@ -621,7 +620,8 @@ namespace Monopoly
                 Button_MouseMode.Content = "Tryb budowania domów";
                 Button_ThrowDice.IsEnabled = true;
                 DiceScore.Content = "Twoja tura!";
-                
+                sfx.Open(new Uri(@"Resources\correct.wav", UriKind.Relative));
+                sfx.Play();
             }
             else
             {
@@ -673,7 +673,6 @@ namespace Monopoly
             {
                 SendData();
             }
-            sfx.Play();
             wait.Start();
         }
 
@@ -705,7 +704,6 @@ namespace Monopoly
             else
             {
                 wait.Stop();
-                sfx.Stop();
                 game.selectedField = game.playerlocation[game.turn];
                 OverviewRefresh();
                 FieldCheck();
@@ -2292,7 +2290,6 @@ namespace Monopoly
             diceScore = Convert.ToByte(cheat);
             DiceScore.Content = diceScore;
             wait.Start();
-            sfx.Play();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
