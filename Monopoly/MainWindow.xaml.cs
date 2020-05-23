@@ -743,6 +743,10 @@ namespace Monopoly
                     }
                     else
                     {
+                        if (game.dangerzone == true)
+                        {
+                            LeaveDangerZone();
+                        }
                         GameLog.Text += game.playername[game.turn] + " otrzymuje kartę szansy: " + boardData.chanceText[chanceCard] + "!" + Environment.NewLine + Environment.NewLine;
                         if (game.multiplayer)
                         {
@@ -781,6 +785,10 @@ namespace Monopoly
                     }
                     else
                     {
+                        if (game.dangerzone == true)
+                        {
+                            LeaveDangerZone();
+                        }
                         GameLog.Text += game.playername[game.turn] + " otrzymuje kartę kasy społecznej: " + boardData.commChestText[commChestCard] + "!" + Environment.NewLine + Environment.NewLine;
                         if (game.multiplayer)
                         {
@@ -875,6 +883,10 @@ namespace Monopoly
                         }
                         else
                         {
+                            if (game.dangerzone == true)
+                            {
+                                LeaveDangerZone();
+                            }
                             GameLog.Text += game.playername[game.turn] + " płaci " + rent + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                             if (game.multiplayer)
                             {
@@ -912,6 +924,10 @@ namespace Monopoly
                     }
                     else
                     {
+                        if (game.dangerzone == true)
+                        {
+                            LeaveDangerZone();
+                        }
                         GameLog.Text += game.playername[game.turn] + " płaci podatek w wysokości " + boardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
                         if (game.multiplayer)
                         {
@@ -1029,6 +1045,10 @@ namespace Monopoly
                                 }
                                 else
                                 {
+                                    if (game.dangerzone == true)
+                                    {
+                                        LeaveDangerZone();
+                                    }
                                     GameLog.Text += game.playername[game.turn] + " płaci " + calculatedMoney + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                                     if (game.multiplayer)
                                     {
@@ -1106,6 +1126,10 @@ namespace Monopoly
                                 }
                                 else
                                 {
+                                    if (game.dangerzone == true)
+                                    {
+                                        LeaveDangerZone();
+                                    }
                                     GameLog.Text += game.playername[game.turn] + " płaci " + calculatedMoney + "$ graczowi " + game.playername[game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
                                     if (game.multiplayer)
                                     {

@@ -1,3 +1,6 @@
+Beta 0.5.2
+- Naprawiono b³¹d "Strefa zagro¿enia nie wy³¹cza siê po zap³aceniu na polach innych ni¿ dzielnice"
+
 Beta 0.5.1
 - Dodano ikonê
 - Usuniêto Pop-Up informuj¹cy o nowej turze
