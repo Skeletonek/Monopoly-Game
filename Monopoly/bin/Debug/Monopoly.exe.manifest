@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cann0vRCrZH/IB9b37hpp9BOJbWBGWLe9hJHN7d6nYE=</dsig:DigestValue>
+        <dsig:DigestValue>k29sYhJ35Acn1nW7fauimQ3rzPPDG+oj/ApZisECUGc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,13 +66,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Monopoly.exe.config" size="184">
+  <file name="Monopoly.exe.config" size="186">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
+      <dsig:DigestValue>eSEJjkfolEEv39DK/g+IzGhJd0CZjqwXxowAEpBp2AM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Monopoly.pdb" size="212480">
@@ -81,7 +81,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>t7hf/xbu9Xw2Icf+htU8ywV8hGZUZI6JU/izbaZWbX4=</dsig:DigestValue>
+      <dsig:DigestValue>yW9jUL6PR0B4U/X3rRDmHZbiKONqUxZEAk9v3a8bSbQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\alpha.png" size="623">

@@ -4,7 +4,7 @@
   <description asmv2:publisher="Skeletonek" co.v1:suiteName="Monopoly" asmv2:product="Monopoly" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" co.v1:createDesktopShortcut="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="Monopoly.exe.manifest" size="29120">
@@ -14,7 +14,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IDSE6TQElsjWo0aTUWU6iTogaoyAqnQfaED7rwNCs60=</dsig:DigestValue>
+        <dsig:DigestValue>ly03VeJcoRRpVYzO6Pdd1apuPtB5PaL9jYI7Vb3pvOM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
