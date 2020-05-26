@@ -2324,7 +2324,14 @@ namespace Monopoly
 
         private void Field1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field2_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2347,7 +2354,14 @@ namespace Monopoly
 
         private void Field3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field4_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2370,12 +2384,29 @@ namespace Monopoly
 
         private void Field5_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field6_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(5))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field7_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2398,7 +2429,14 @@ namespace Monopoly
 
         private void Field8_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field9_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2439,7 +2477,14 @@ namespace Monopoly
 
         private void Field11_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2462,7 +2507,17 @@ namespace Monopoly
 
         private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(12))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field14_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2503,7 +2558,17 @@ namespace Monopoly
 
         private void Field16_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(15))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field17_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2526,7 +2591,14 @@ namespace Monopoly
 
         private void Field18_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field19_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2566,7 +2638,14 @@ namespace Monopoly
         }
         private void Field21_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field22_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2589,7 +2668,14 @@ namespace Monopoly
 
         private void Field23_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field24_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2630,7 +2716,17 @@ namespace Monopoly
 
         private void Field26_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(25))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field27_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2671,7 +2767,17 @@ namespace Monopoly
 
         private void Field29_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(28))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field30_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2694,7 +2800,14 @@ namespace Monopoly
 
         private void Field31_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field32_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2735,7 +2848,14 @@ namespace Monopoly
 
         private void Field34_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field35_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2758,12 +2878,29 @@ namespace Monopoly
 
         private void Field36_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                if (!sellField(35))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Field37_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field38_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2786,7 +2923,14 @@ namespace Monopoly
 
         private void Field39_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Field40_MouseUp(object sender, MouseButtonEventArgs e)

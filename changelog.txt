@@ -1,5 +1,7 @@
 Beta 0.5.2
 - Naprawiono b³¹d "Strefa zagro¿enia nie wy³¹cza siê po zap³aceniu na polach innych ni¿ dzielnice"
+- Naprawiono b³¹d "Nie mo¿na sprzedawaæ pól innych ni¿ ulice"
+- Usprawniono niektóre komunikaty
 
 Beta 0.5.1
 - Dodano ikonê
