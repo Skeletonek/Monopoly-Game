@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Monopoly.exe.manifest" size="29120">
+    <dependentAssembly dependencyType="install" codebase="Monopoly.exe.manifest" size="28728">
       <assemblyIdentity name="Monopoly.exe" version="0.5.2.7" publicKeyToken="0000000000000000" language="pl-PL" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ly03VeJcoRRpVYzO6Pdd1apuPtB5PaL9jYI7Vb3pvOM=</dsig:DigestValue>
+        <dsig:DigestValue>4wYGJMGc8t97Bhvat1h+TPBJJEESnR+xlPbvXohzUUI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

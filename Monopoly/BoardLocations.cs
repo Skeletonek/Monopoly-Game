@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 namespace Monopoly
@@ -188,7 +184,7 @@ namespace Monopoly
 
         public int playerlocation(bool x, int pos)
         {
-            if(x==true)
+            if (x == true)
             {
                 return playerLocationX_DB[pos];
             }
@@ -242,7 +238,7 @@ namespace Monopoly
         {
             for (int i = 0; i < 40; i++)
             {
-                switch(i)
+                switch (i)
                 {
                     case 0:
                         fieldName[i] = "Pole startu";
