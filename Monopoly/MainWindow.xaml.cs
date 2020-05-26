@@ -731,7 +731,7 @@ namespace Monopoly
             int rent = boardData.fieldNoSetRent[currentPlayerLocation];
             if (boardData.fieldChance[currentPlayerLocation] == true)
             {
-                byte chanceCard = Convert.ToByte(rng.Next(0, 1));
+                byte chanceCard = Convert.ToByte(rng.Next(0, 5));
                 if (game.turn == game.clientplayer)
                 {
                     MessageBox.Show(boardData.chanceText[chanceCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -773,7 +773,7 @@ namespace Monopoly
             }
             else if (boardData.fieldCommChest[currentPlayerLocation] == true)
             {
-                byte commChestCard = Convert.ToByte(rng.Next(0, 1));
+                byte commChestCard = Convert.ToByte(rng.Next(0, 11));
                 if (game.turn == game.clientplayer)
                 {
                     MessageBox.Show(boardData.commChestText[commChestCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);

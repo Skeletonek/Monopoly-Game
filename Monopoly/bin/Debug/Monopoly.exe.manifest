@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="8569768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="8571304">
       <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3IIm3Y7FEarZnQGJT7AMvojqGFLxzg8xLd864aphDxM=</dsig:DigestValue>
+        <dsig:DigestValue>cann0vRCrZH/IB9b37hpp9BOJbWBGWLe9hJHN7d6nYE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -75,13 +75,13 @@
       <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Monopoly.pdb" size="210432">
+  <file name="Monopoly.pdb" size="212480">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>wjURE6BDxshSe6S20EDpnqZOuw23N3AEl2QNdJW0+kM=</dsig:DigestValue>
+      <dsig:DigestValue>t7hf/xbu9Xw2Icf+htU8ywV8hGZUZI6JU/izbaZWbX4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\alpha.png" size="623">

@@ -234,20 +234,9 @@ namespace Monopoly
         public string[] chanceText = new string[10];
         public byte[] chanceAction = new byte[10];
         public int[] chanceXValue = new int[10];
-        public string[] commChestText = new string[10];
-        public byte[] commChestAction = new byte[10];
-        public int[] commChestXValue = new int[10];
-
-        // chanceAction
-        // 0 - Player earns x money from bank
-        // 1 - Player have to pay x money to bank
-        // 2 - Player have to move to the exact field
-        // 3 - Player have to move x fields
-        // 4 - Player earns x money from other players
-        // 5 - Player have to renovate his buildings
-        // 6 - Player is arrested 
-        // 7 - Player have to pay x or choose other card
-        // 8 - Player have a free exit-prison card
+        public string[] commChestText = new string[11];
+        public byte[] commChestAction = new byte[11];
+        public int[] commChestXValue = new int[11];
 
         public void gameDataWriter()
         {
@@ -1057,13 +1046,76 @@ namespace Monopoly
                 }
             }
 
-            chanceText[0] = "Zapłać 50 zł";
-            chanceAction[0] = 1;
-            chanceXValue[0] = 50;
+            // chanceAction
+            // 0 - Player earns x money from bank
+            // 1 - Player have to pay x money to bank
+            // 2 - Player have to move to the exact field
+            // 3 - Player have to move x fields
+            // 4 - Player earns x money from other players
+            // 5 - Player have to renovate his buildings
+            // 6 - Player is arrested 
+            // 7 - Player have to pay x or choose other card
+            // 8 - Player have a free exit-prison card
 
-            commChestText[0] = "Pobierz 50 zł";
-            commChestAction[0] = 0;
+            chanceText[0] = "Otrzymałeś kredyt budowlany. Pobierz 150 zł.";
+            chanceAction[0] = 0;
+            chanceXValue[0] = 150;
+
+            chanceText[1] = "Mandat za przekroczenie prędkości. Zapłać 15 zł.";
+            chanceAction[1] = 1;
+            chanceXValue[1] = 15;
+
+            chanceText[2] = "Grzywna. Zapłać 20 zł.";
+            chanceAction[2] = 1;
+            chanceXValue[2] = 20;
+
+            chanceText[3] = "Wygrałeś konkurs krzyżówkowy. Pobierz 100 zł.";
+            chanceAction[3] = 0;
+            chanceXValue[3] = 100;
+
+            chanceText[4] = "Zapłać za szkołę. 150 zł.";
+            chanceAction[4] = 1;
+            chanceXValue[4] = 150;
+
+            commChestText[0] = "Honorarium lekarza. Zapłać 50 zł.";
+            commChestAction[0] = 1;
             commChestXValue[0] = 50;
+
+            commChestText[2] = "Otrzymujesz zwrot podatku dochodowego. Pobierz 20 zł.";
+            commChestAction[2] = 0;
+            commChestXValue[2] = 20;
+
+            commChestText[3] = "Otrzymujesz odsetki od lokaty terminowej. Pobierz 25 zł.";
+            commChestAction[3] = 0;
+            commChestXValue[3] = 25;
+
+            commChestText[4] = "Sprzedałeś obligacje. Pobierz 100 zł.";
+            commChestAction[4] = 0;
+            commChestXValue[4] = 100;
+
+            commChestText[5] = "Zapłać rachunek za szpital 100 zł.";
+            commChestAction[5] = 1;
+            commChestXValue[5] = 100;
+
+            commChestText[6] = "Otrzymujesz 50 zł za sprzedane obligacje.";
+            commChestAction[6] = 0;
+            commChestXValue[6] = 50;
+
+            commChestText[7] = "Odziedziczyłeś w spadku 100 zł.";
+            commChestAction[7] = 0;
+            commChestXValue[7] = 100;
+
+            commChestText[8] = "Wygrana druga nagroda w konkusie piękności. Pobierz 10 zł.";
+            commChestAction[8] = 0;
+            commChestXValue[8] = 10;
+
+            commChestText[9] = "Zapłać składkę ubezpieczeniową 50 zł.";
+            commChestAction[9] = 1;
+            commChestXValue[9] = 50;
+
+            commChestText[10] = "Błąd bankowy na twoją korzyść. Pobierz 200 zł.";
+            commChestAction[10] = 0;
+            commChestXValue[10] = 200;
         }
     }
 }
