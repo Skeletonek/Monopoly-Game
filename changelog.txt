@@ -1,9 +1,13 @@
+Beta 0.6
+- Dodano ikony w³aœciciela przy ulicach, które s¹ jego w³asnoœci¹
+
 Beta 0.5.2
 - Naprawiono b³¹d "Strefa zagro¿enia nie wy³¹cza siê po zap³aceniu na polach innych ni¿ dzielnice"
 - Naprawiono b³¹d "Nie mo¿na sprzedawaæ pól innych ni¿ ulice"
 - Usprawniono niektóre komunikaty
 - Usuniêto poprzednie karty szansy i kasy spo³ecznej
 - Dodano 5 nowych kart szansy i 11 kart kasy spo³ecznej
+- Zmodyfikowano obs³ugê zasobów
 
 Beta 0.5.1
 - Dodano ikonê

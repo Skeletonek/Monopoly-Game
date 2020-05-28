@@ -1719,6 +1719,302 @@ namespace Monopoly
             }
         }
 
+        private void DrawOwner(byte field, byte status)
+        {
+            switch (field)
+            {
+                case 1:
+                    if (status == 0)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\BluePlayer.png", UriKind.Relative));
+                    if (status == 1)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\GreenPlayer.png", UriKind.Relative));
+                    if (status == 2)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\YellowPlayer.png", UriKind.Relative));
+                    if (status == 3)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\RedPlayer.png", UriKind.Relative));
+                    if (status == 4)
+                        Field2.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    break;
+
+                case 3:
+                    if (status == 0)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field4.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 6:
+                    if (status == 0)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field7.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 8:
+                    if (status == 0)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field9.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 9:
+                    if (status == 0)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field10.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 11:
+                    if (status == 0)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field12.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 13:
+                    if (status == 0)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field14.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 14:
+                    if (status == 0)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field15.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 16:
+                    if (status == 0)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field17.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 18:
+                    if (status == 0)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field19.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 19:
+                    if (status == 0)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field20.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 21:
+                    if (status == 0)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field22.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 23:
+                    if (status == 0)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field24.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 24:
+                    if (status == 0)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field25.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 26:
+                    if (status == 0)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field27.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 27:
+                    if (status == 0)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field28.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 29:
+                    if (status == 0)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field30.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 31:
+                    if (status == 0)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field32.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 32:
+                    if (status == 0)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field33.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 34:
+                    if (status == 0)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field35.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 37:
+                    if (status == 0)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field38.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                case 39:
+                    if (status == 0)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    if (status == 1)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    if (status == 2)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    if (status == 3)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    if (status == 4)
+                        Field40.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    break;
+
+                default:
+                    MessageBox.Show("Wystąpił błąd podczas renderowania informacji o właścicielu pola!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
+                    throw new InvalidOperationException("Wystąpił błąd podczas renderowania informacji o właścicielu pola!");
+            }
+        }
+
         private void DrawHouses(byte field, byte status)
         {
             switch (field)

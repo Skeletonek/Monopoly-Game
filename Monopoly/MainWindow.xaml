@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Beta 0.5.2)" Height="700" Width="1100" KeyDown="Window_KeyDown">
+        Title="Monopoly (Beta 0.6)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
         <Menu Height="22" VerticalAlignment="Top">
             <MenuItem Header="Gra jednoosobowa">
@@ -334,6 +334,160 @@
             <Image x:Name="Player2" Height="20" Width="20" Source="Resources/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582" Visibility="Hidden"/>
             <Image x:Name="Player3" Height="20" Canvas.Left="566" Canvas.Top="607" Width="20" Source="Resources/YellowPlayer.png" Visibility="Hidden"/>
             <Image x:Name="Player4" Height="20" Width="20" Source="Resources/RedPlayer.png" Canvas.Left="591" Canvas.Top="607" Visibility="Hidden"/>
+            <Image x:Name="Field2Owner" Height="13" Canvas.Left="531" Canvas.Top="543" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field4Owner" Height="13" Canvas.Left="426" Canvas.Top="543" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field6Owner" Height="13" Canvas.Left="321" Canvas.Top="543" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field7Owner" Height="13" Canvas.Left="269" Canvas.Top="543" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field9Owner" Height="13" Canvas.Left="164" Canvas.Top="543" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field10Owner" Height="13" Canvas.Left="112" Canvas.Top="543" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field12Owner" Height="14" Canvas.Left="79" Canvas.Top="536" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy24" Height="14" Canvas.Left="79" Canvas.Top="482" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy6" Height="14" Canvas.Left="79" Canvas.Top="430" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy7" Height="14" Canvas.Left="79" Canvas.Top="378" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy23" Height="14" Canvas.Left="79" Canvas.Top="325" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy8" Height="14" Canvas.Left="79" Canvas.Top="272" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy9" Height="14" Canvas.Left="79" Canvas.Top="168" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy10" Height="14" Canvas.Left="79" Canvas.Top="115" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy11" Height="14" Canvas.Left="85" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field2_Copy12" Height="14" Canvas.Left="190" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field2_Copy13" Height="14" Canvas.Left="242" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field2_Copy26" Height="13" Canvas.Left="294" Canvas.Top="85" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field2_Copy14" Height="14" Canvas.Left="346" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field2_Copy15" Height="14" Canvas.Left="399" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field2_Copy27" Height="13" Canvas.Left="452" Canvas.Top="85" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field2_Copy16" Height="14" Canvas.Left="504" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field2_Copy17" Height="14" Canvas.Left="535" Canvas.Top="91" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy18" Height="14" Canvas.Left="536" Canvas.Top="143" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy19" Height="14" Canvas.Left="535" Canvas.Top="248" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy22" Height="14" Canvas.Left="535" Canvas.Top="301" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy20" Height="14" Canvas.Left="535" Canvas.Top="406" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Field2_Copy21" Height="14" Canvas.Left="536" Canvas.Top="510" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
         </Canvas>
         <GroupBox Header="Kości do gry" HorizontalAlignment="Left" Height="152" Margin="10,22,0,0" VerticalAlignment="Top" Width="198">
             <Grid Margin="0">
