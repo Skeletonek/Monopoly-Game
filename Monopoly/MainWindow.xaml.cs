@@ -534,6 +534,11 @@ namespace Monopoly
             {
                 SendGameLog(game.playername[game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine);
             }
+            if (game.turn == game.clientplayer)
+            {
+                Button_ThrowDice.IsEnabled = false;
+                Button_EndTurn.IsEnabled = false;
+            }
             game.playerBankrupt[game.turn] = true;
             game.fieldPlayers[game.playerlocation[game.turn]]--;
             switch (game.turn)
@@ -562,7 +567,7 @@ namespace Monopoly
             LeaveDangerZone();
             if (game.playerBankruptNeededToWin <= 1)
             {
-                MessageBox.Show("Wygrałeś", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Koniec gry!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                 if (game.multiplayer)
                 {
                     client.Disconnect();
@@ -587,6 +592,7 @@ namespace Monopoly
             Button_MouseMode.Content = "Tryb sprzedawania ulic";
             if (game.turn == game.clientplayer)
                 MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            game.dangerzone = true;
 
         }
         private void LeaveDangerZone()
@@ -598,11 +604,12 @@ namespace Monopoly
             Button_EndTurn.IsEnabled = true;
             Button_ThrowDice.Background = brush;
             Button_ThrowDice.Content = "Rzuć koścmi";
-            Button_ThrowDice.IsEnabled = true;
+            Button_ThrowDice.IsEnabled = false;
             brush.Color = Color.FromArgb(255, 255, 255, 255);
             this.Background = brush;
             game.sellmode = false;
             Button_MouseMode.Content = "Tryb budowania domów";
+            game.dangerzone = false;
         }
         private void EnableMove()
         {

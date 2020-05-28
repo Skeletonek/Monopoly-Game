@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7985064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7997352">
       <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DL64Fe1dJQhE7Km6cVOZIXEHFQxC9zLyIBsLp8J0OW0=</dsig:DigestValue>
+        <dsig:DigestValue>vThptYwBbNdgcWkLXoPQV5pc3a6NNe0R61ofSvbv9uU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -82,6 +82,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Vbl1ae+xXg04Fauaag7GqmloSCQSvWkiKz0XY4UySbg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\BlueField.png" size="604">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>L97zTbDd1CqbExbuq1zTKQZHgx9nVfwC7rg1lfXcgy4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\BluePlayer.png" size="1113">
@@ -444,6 +453,15 @@
       <dsig:DigestValue>1SPOFCdt0LA4YTkXnT4PsYfegX3ueeF0G4fH60k6mR4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\GreenField.png" size="605">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1KSqVw2fygekAQRO96qYqlEJhOadbDtr3mkf1qw93T4=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\GreenPlayer.png" size="1136">
     <hash>
       <dsig:Transforms>
@@ -570,6 +588,15 @@
       <dsig:DigestValue>X6RIWGZ9pl3W5m8GBpQsME10IxpchO3Np++6S9uZyuU=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\RedField.png" size="603">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>AJOCBBZjybQJKy2AprWHlXKhZwR9dSKX1P1GEWZ+EYQ=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\RedPlayer.png" size="1928">
     <hash>
       <dsig:Transforms>
@@ -586,6 +613,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>rkaI8UCNlh0v7RVuDM51WgWRv80vQLKd3zA+ic3uzUU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\YellowField.png" size="601">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iSGr1cqRsmKho/R9cPWN2/KUlgDkOuYdUUzruGPykrI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\YellowPlayer.png" size="1819">
