@@ -438,7 +438,7 @@ namespace Monopoly
             }
             game.fieldPlayers[0] = 4;
             boardData.gameDataWriter();
-            GameCanvas.Children.RemoveRange(44, 100);
+            //GameCanvas.Children.RemoveRange(44, 100);
             GameLog.Text = "";
             sfx.Stop();
         }
@@ -1288,6 +1288,7 @@ namespace Monopoly
             {
                 game.playercash[game.turn] = game.playercash[game.turn] - boardData.fieldPrice[currentPlayerLocation];
                 game.fieldOwner[currentPlayerLocation] = game.turn;
+                DrawOwner(currentPlayerLocation, game.turn);
                 return true;
             }
             else
@@ -1624,6 +1625,7 @@ namespace Monopoly
                 game.fieldOwner[selectedField] = 4;
                 OverviewRefresh();
                 PlayerStatusRefresh();
+                DrawOwner(selectedField, game.turn);
                 return true;
             }
             return false;
@@ -1731,289 +1733,92 @@ namespace Monopoly
             switch (field)
             {
                 case 1:
-                    if (status == 0)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\BluePlayer.png", UriKind.Relative));
-                    if (status == 1)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\GreenPlayer.png", UriKind.Relative));
-                    if (status == 2)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\YellowPlayer.png", UriKind.Relative));
-                    if (status == 3)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\RedPlayer.png", UriKind.Relative));
-                    if (status == 4)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    Field2Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 3:
-                    if (status == 0)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field4Owner.Source = OwnerStatusCheck(status);
+                    Field4Owner.Source = new BitmapImage(new Uri(@"Resources\BlueField.png", UriKind.Relative));
                     break;
 
                 case 6:
-                    if (status == 0)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field7Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 8:
-                    if (status == 0)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field9Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 9:
-                    if (status == 0)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field10Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 11:
-                    if (status == 0)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field12Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 13:
-                    if (status == 0)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field14Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 14:
-                    if (status == 0)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field15Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 16:
-                    if (status == 0)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field17Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 18:
-                    if (status == 0)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field19Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 19:
-                    if (status == 0)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field20Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 21:
-                    if (status == 0)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field22Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 23:
-                    if (status == 0)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field24Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 24:
-                    if (status == 0)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field25Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 26:
-                    if (status == 0)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field27Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 27:
-                    if (status == 0)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field28Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 29:
-                    if (status == 0)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field30Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 31:
-                    if (status == 0)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field32Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 32:
-                    if (status == 0)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field33Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 34:
-                    if (status == 0)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field35Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 37:
-                    if (status == 0)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field38Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 39:
-                    if (status == 0)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    Field40Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 default:
@@ -2022,344 +1827,144 @@ namespace Monopoly
             }
         }
 
+        private BitmapImage OwnerStatusCheck(byte status)
+        {
+            switch (status)
+            {
+                case 0:
+                    return new BitmapImage(new Uri(@"Resources\BlueField.png", UriKind.Relative));
+
+                case 1:
+                    return new BitmapImage(new Uri(@"Resources\GreenField.png", UriKind.Relative));
+
+                case 2:
+                    return new BitmapImage(new Uri(@"Resources\YellowField.png", UriKind.Relative));
+
+                case 3:
+                    return new BitmapImage(new Uri(@"Resources\RedField.png", UriKind.Relative));
+
+                case 4:
+                    return new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+            }
+            return null;
+        }
+
         private void DrawHouses(byte field, byte status)
         {
             switch (field)
             {
                 case 1:
-                    if (status == 0)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field2.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field2.Source = HousesStatusCheck(status);
                     break;
 
                 case 3:
-                    if (status == 0)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field4.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field4.Source = HousesStatusCheck(status);
                     break;
 
                 case 6:
-                    if (status == 0)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field7.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field7.Source = HousesStatusCheck(status);
                     break;
 
                 case 8:
-                    if (status == 0)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field9.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field9.Source = HousesStatusCheck(status);
                     break;
 
                 case 9:
-                    if (status == 0)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field10.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field10.Source = HousesStatusCheck(status);
                     break;
 
                 case 11:
-                    if (status == 0)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field12.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field12.Source = HousesStatusCheck(status);
                     break;
 
                 case 13:
-                    if (status == 0)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field14.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field14.Source = HousesStatusCheck(status);
                     break;
 
                 case 14:
-                    if (status == 0)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field15.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field15.Source = HousesStatusCheck(status);
                     break;
 
                 case 16:
-                    if (status == 0)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field17.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field17.Source = HousesStatusCheck(status);
                     break;
 
                 case 18:
-                    if (status == 0)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field19.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field19.Source = HousesStatusCheck(status);
                     break;
 
                 case 19:
-                    if (status == 0)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field20.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field20.Source = HousesStatusCheck(status);
                     break;
 
                 case 21:
-                    if (status == 0)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field22.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field22.Source = HousesStatusCheck(status);
                     break;
 
                 case 23:
-                    if (status == 0)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field24.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field24.Source = HousesStatusCheck(status);
                     break;
 
                 case 24:
-                    if (status == 0)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field25.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field25.Source = HousesStatusCheck(status);
                     break;
 
                 case 26:
-                    if (status == 0)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field27.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field27.Source = HousesStatusCheck(status);
                     break;
 
                 case 27:
-                    if (status == 0)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field28.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field28.Source = HousesStatusCheck(status);
                     break;
 
                 case 29:
-                    if (status == 0)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field30.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field30.Source = HousesStatusCheck(status);
                     break;
 
                 case 31:
-                    if (status == 0)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field32.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field32.Source = HousesStatusCheck(status);
                     break;
 
                 case 32:
-                    if (status == 0)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field33.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field33.Source = HousesStatusCheck(status);
                     break;
 
                 case 34:
-                    if (status == 0)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field35.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field35.Source = HousesStatusCheck(status);
                     break;
 
                 case 37:
-                    if (status == 0)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field38.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field38.Source = HousesStatusCheck(status);
                     break;
 
                 case 39:
-                    if (status == 0)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
-                    if (status == 1)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
-                    if (status == 2)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
-                    if (status == 3)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
-                    if (status == 4)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
-                    if (status == 5)
-                        Field40.Source = new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    Field40.Source = HousesStatusCheck(status);
                     break;
 
                 default:
                     MessageBox.Show("Wystąpił błąd podczas renderowania domów!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
                     throw new InvalidOperationException("Wystąpił błąd podczas renderowania domów!");
             }
+        }
+
+        private BitmapImage HousesStatusCheck(byte status)
+        {
+            switch (status)
+            {
+                case 0:
+                    return new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                case 1:
+                    return new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                case 2:
+                    return new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                case 3:
+                    return new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                case 4:
+                    return new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                case 5:
+                    return new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+            }
+            return null;
         }
         private void Field1_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -2619,14 +2224,7 @@ namespace Monopoly
 
         private void Field1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field2_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2649,14 +2247,7 @@ namespace Monopoly
 
         private void Field3_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field4_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2679,14 +2270,7 @@ namespace Monopoly
 
         private void Field5_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field6_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2724,14 +2308,7 @@ namespace Monopoly
 
         private void Field8_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field9_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2772,14 +2349,7 @@ namespace Monopoly
 
         private void Field11_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2886,14 +2456,7 @@ namespace Monopoly
 
         private void Field18_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field19_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2933,14 +2496,7 @@ namespace Monopoly
         }
         private void Field21_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field22_MouseUp(object sender, MouseButtonEventArgs e)
@@ -2963,14 +2519,7 @@ namespace Monopoly
 
         private void Field23_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field24_MouseUp(object sender, MouseButtonEventArgs e)
@@ -3095,14 +2644,7 @@ namespace Monopoly
 
         private void Field31_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field32_MouseUp(object sender, MouseButtonEventArgs e)
@@ -3143,14 +2685,7 @@ namespace Monopoly
 
         private void Field34_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field35_MouseUp(object sender, MouseButtonEventArgs e)
@@ -3188,14 +2723,7 @@ namespace Monopoly
 
         private void Field37_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field38_MouseUp(object sender, MouseButtonEventArgs e)
@@ -3218,14 +2746,7 @@ namespace Monopoly
 
         private void Field39_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (game.turn == game.clientplayer && !game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (game.turn == game.clientplayer && game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            CantBuyHouseNorSellThisField();
         }
 
         private void Field40_MouseUp(object sender, MouseButtonEventArgs e)
@@ -3243,6 +2764,18 @@ namespace Monopoly
                 {
                     MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
+        }
+
+        private void CantBuyHouseNorSellThisField()
+        {
+            if (game.turn == game.clientplayer && !game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (game.turn == game.clientplayer && game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

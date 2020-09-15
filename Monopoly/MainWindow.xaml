@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="Monopoly (Beta 0.6)" Height="700" Width="1100" KeyDown="Window_KeyDown">
     <Grid>
-        <Menu Height="22" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="154*"/>
+            <RowDefinition Height="181*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="123*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Gra jednoosobowa">
                 <MenuItem Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
                 <MenuItem Header="Zapisz grę"/>
@@ -43,7 +51,7 @@
             <MenuItem Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" Width="386"/>
         </Menu>
-        <Canvas x:Name="GameCanvas" Height="640" Margin="226,25,226,7" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="GameCanvas" Height="640" Margin="226,24,226,5" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
@@ -350,7 +358,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy24" Height="14" Canvas.Left="79" Canvas.Top="482" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field13Owner" Height="14" Canvas.Left="79" Canvas.Top="482" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -360,7 +368,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy6" Height="14" Canvas.Left="79" Canvas.Top="430" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field14Owner" Height="14" Canvas.Left="79" Canvas.Top="430" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -370,7 +378,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy7" Height="14" Canvas.Left="79" Canvas.Top="378" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field15Owner" Height="14" Canvas.Left="79" Canvas.Top="378" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -380,7 +388,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy23" Height="14" Canvas.Left="79" Canvas.Top="325" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field16Owner" Height="14" Canvas.Left="79" Canvas.Top="325" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -390,7 +398,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy8" Height="14" Canvas.Left="79" Canvas.Top="272" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field17Owner" Height="14" Canvas.Left="79" Canvas.Top="272" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -400,7 +408,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy9" Height="14" Canvas.Left="79" Canvas.Top="168" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field19Owner" Height="14" Canvas.Left="79" Canvas.Top="168" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -410,7 +418,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy10" Height="14" Canvas.Left="79" Canvas.Top="115" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field20Owner" Height="14" Canvas.Left="79" Canvas.Top="115" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -420,15 +428,15 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy11" Height="14" Canvas.Left="85" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field2_Copy12" Height="14" Canvas.Left="190" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field2_Copy13" Height="14" Canvas.Left="242" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field2_Copy26" Height="13" Canvas.Left="294" Canvas.Top="85" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field2_Copy14" Height="14" Canvas.Left="346" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field2_Copy15" Height="14" Canvas.Left="399" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field2_Copy27" Height="13" Canvas.Left="452" Canvas.Top="85" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field2_Copy16" Height="14" Canvas.Left="504" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field2_Copy17" Height="14" Canvas.Left="535" Canvas.Top="91" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field22Owner" Height="14" Canvas.Left="85" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field24Owner" Height="14" Canvas.Left="190" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field25Owner" Height="14" Canvas.Left="242" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field26Owner" Height="13" Canvas.Left="294" Canvas.Top="85" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field27Owner" Height="14" Canvas.Left="346" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field28Owner" Height="14" Canvas.Left="399" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field29Owner" Height="13" Canvas.Left="452" Canvas.Top="85" Width="25"  Source="Resources/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field30Owner" Height="14" Canvas.Left="504" Canvas.Top="84" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field32Owner" Height="14" Canvas.Left="535" Canvas.Top="91" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -438,7 +446,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy18" Height="14" Canvas.Left="536" Canvas.Top="143" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field33Owner" Height="14" Canvas.Left="536" Canvas.Top="143" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -448,7 +456,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy19" Height="14" Canvas.Left="535" Canvas.Top="248" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field35Owner" Height="14" Canvas.Left="535" Canvas.Top="248" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -458,7 +466,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy22" Height="14" Canvas.Left="535" Canvas.Top="301" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field36Owner" Height="14" Canvas.Left="535" Canvas.Top="301" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -468,7 +476,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy20" Height="14" Canvas.Left="535" Canvas.Top="406" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field38Owner" Height="14" Canvas.Left="535" Canvas.Top="406" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -478,7 +486,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field2_Copy21" Height="14" Canvas.Left="536" Canvas.Top="510" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field40Owner" Height="14" Canvas.Left="536" Canvas.Top="510" Width="26"  Source="Resources/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -498,7 +506,7 @@
                 <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,88,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="483" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198">
+        <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="483" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198" Grid.RowSpan="2">
             <Grid Margin="0">
                 <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="Resources/FieldStart.jpg"/>
                 <Label x:Name="Overview_Name" Content="Pole startu" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
@@ -523,7 +531,7 @@
                 <Label x:Name="Overview_NoSetRent" Content="0 $" HorizontalAlignment="Right" Margin="0,303,10,0" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Right" FontSize="11"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211">
+        <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211" Grid.Column="1">
             <Grid Margin="0">
                 <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player2Name" Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -539,7 +547,7 @@
                 <Image x:Name="Player4_Icon" Source="Resources/RedPlayer.png" Margin="17,103,162,23" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211">
+        <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211" Grid.Column="1" Grid.RowSpan="2">
             <Grid Margin="0">
                 <ScrollViewer HorizontalAlignment="Left" Height="424" Margin="7,4,0,0" VerticalAlignment="Top" Width="182" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                     <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
