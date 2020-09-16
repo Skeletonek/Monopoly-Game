@@ -2,7 +2,8 @@ Beta 0.6
 - Dodano ikony w³aœciciela przy ulicach, które s¹ jego w³asnoœci¹
 - Naprawiono b³¹d "Strefa zagro¿enia wymaga wykonanie akcji dwukrotnie aby mo¿na by³o kontynuowaæ grê"
 - Naprawiono b³¹d "Gracz który zbankrutowa³, mo¿e og³osiæ bankructwo innych graczy"
-- Poprawa innych mniejszych b³êdów
+- Poprawa b³êdów
+- Optymalizacja kodu gry
 
 Beta 0.5.2
 - Naprawiono b³¹d "Strefa zagro¿enia nie wy³¹cza siê po zap³aceniu na polach innych ni¿ dzielnice"

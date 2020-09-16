@@ -1738,7 +1738,10 @@ namespace Monopoly
 
                 case 3:
                     Field4Owner.Source = OwnerStatusCheck(status);
-                    Field4Owner.Source = new BitmapImage(new Uri(@"Resources\BlueField.png", UriKind.Relative));
+                    break;
+
+                case 4:
+                    Field5Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 6:
