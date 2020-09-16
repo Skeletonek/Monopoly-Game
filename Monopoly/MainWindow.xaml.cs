@@ -1740,8 +1740,8 @@ namespace Monopoly
                     Field4Owner.Source = OwnerStatusCheck(status);
                     break;
 
-                case 4:
-                    Field5Owner.Source = OwnerStatusCheck(status);
+                case 5:
+                    Field6Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 6:
@@ -1760,12 +1760,20 @@ namespace Monopoly
                     Field12Owner.Source = OwnerStatusCheck(status);
                     break;
 
+                case 12:
+                    Field13Owner.Source = OwnerStatusCheck(status);
+                    break;
+
                 case 13:
                     Field14Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 14:
                     Field15Owner.Source = OwnerStatusCheck(status);
+                    break;
+
+                case 15:
+                    Field16Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 16:
@@ -1792,12 +1800,20 @@ namespace Monopoly
                     Field25Owner.Source = OwnerStatusCheck(status);
                     break;
 
+                case 25:
+                    Field26Owner.Source = OwnerStatusCheck(status);
+                    break;
+
                 case 26:
                     Field27Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 27:
                     Field28Owner.Source = OwnerStatusCheck(status);
+                    break;
+
+                case 28:
+                    Field29Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 29:
@@ -1814,6 +1830,10 @@ namespace Monopoly
 
                 case 34:
                     Field35Owner.Source = OwnerStatusCheck(status);
+                    break;
+
+                case 35:
+                    Field36Owner.Source = OwnerStatusCheck(status);
                     break;
 
                 case 37:
