@@ -118,6 +118,9 @@ namespace Monopoly_Server
         {
             var users = usersList;
             string broadcast = ASCIIEncoding.ASCII.GetString(Data);
+            string[] serverResponse = broadcast.Split(new char[] { '-' });
+            if (serverResponse[0] == "a")
+                ServerLog.Text = "";
             ServerLog.Text += broadcast + Environment.NewLine;
             foreach (string user in users)
             {
