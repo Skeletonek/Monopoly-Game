@@ -141,7 +141,7 @@ namespace Monopoly
                     StartNewGame();
                     break;
 
-                case "a":
+                case "a": //Dice
                     try
                     {
                         byte dice1 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(0)));
@@ -157,7 +157,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "b":
+                case "b": // Which player turn
                     try
                     {
                         game.turn = byte.Parse(serverResponse[2]);
@@ -182,7 +182,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "c":
+                case "c": //Chosen field
                     try
                     {
                         game.selectedField = byte.Parse(serverResponse[2]);
@@ -193,7 +193,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "d":
+                case "d": //How much money from tax
                     try
                     {
                         game.taxmoney = int.Parse(serverResponse[2]);
@@ -204,7 +204,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "e":
+                case "e": //Location of player
                     try
                     {
                         game.playerlocation[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
@@ -216,7 +216,7 @@ namespace Monopoly
                     Jump();
                     break;
 
-                case "f":
+                case "f": //Player money
                     try
                     {
                         game.playercash[byte.Parse(serverResponse[1])] = int.Parse(serverResponse[2]);
@@ -228,7 +228,7 @@ namespace Monopoly
                     PlayerStatusRefresh();
                     break;
 
-                case "g":
+                case "g": //How many railroads owned
                     try
                     {
                         game.playerRailroadOwned[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
@@ -239,7 +239,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "h":
+                case "h": //For how long arrested
                     try
                     {
                         game.playerArrestedTurns[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
@@ -250,7 +250,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "j":
+                case "j": //Bankrupcy
                     try
                     {
                         game.playerBankrupt[byte.Parse(serverResponse[1])] = bool.Parse(serverResponse[2]);
@@ -262,10 +262,11 @@ namespace Monopoly
                     }
                     break;
 
-                case "k":
+                case "k": //Bought house
                     try
                     {
                         game.fieldHouse[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        DrawHouses(byte.Parse(serverResponse[1]), byte.Parse(serverResponse[2]));
                     }
                     catch
                     {
@@ -273,10 +274,11 @@ namespace Monopoly
                     }
                     break;
 
-                case "l":
+                case "l": //Own field
                     try
                     {
                         game.fieldOwner[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
+                        DrawOwner(byte.Parse(serverResponse[1]), byte.Parse(serverResponse[2]));
                     }
                     catch
                     {
@@ -284,7 +286,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "m":
+                case "m": //How many players on filed
                     try
                     {
                         game.fieldPlayers[byte.Parse(serverResponse[1])] = byte.Parse(serverResponse[2]);
@@ -295,7 +297,7 @@ namespace Monopoly
                     }
                     break;
 
-                case "z":
+                case "z": //GameLog
                     try
                     {
                         GameLog.Text += serverResponse[2];
@@ -1843,10 +1845,6 @@ namespace Monopoly
                 case 39:
                     Field40Owner.Source = OwnerStatusCheck(status);
                     break;
-
-                default:
-                    MessageBox.Show("Wystąpił błąd podczas renderowania informacji o właścicielu pola!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
-                    throw new InvalidOperationException("Wystąpił błąd podczas renderowania informacji o właścicielu pola!");
             }
         }
 
@@ -1963,10 +1961,6 @@ namespace Monopoly
                 case 39:
                     Field40.Source = HousesStatusCheck(status);
                     break;
-
-                default:
-                    MessageBox.Show("Wystąpił błąd podczas renderowania domów!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
-                    throw new InvalidOperationException("Wystąpił błąd podczas renderowania domów!");
             }
         }
 
