@@ -1,3 +1,6 @@
+Beta 0.6-Pre2
+- Dodano ikony dla koœci do gry
+
 Beta 0.6-Pre1
 - Dodano ikony w³aœciciela przy ulicach, które s¹ jego w³asnoœci¹
 - Naprawiono b³¹d "Strefa zagro¿enia wymaga wykonanie akcji dwukrotnie aby mo¿na by³o kontynuowaæ grê"

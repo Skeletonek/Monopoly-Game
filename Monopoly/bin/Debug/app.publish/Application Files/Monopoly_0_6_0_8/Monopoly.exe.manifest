@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Monopoly.exe" version="0.6.0.8" publicKeyToken="0000000000000000" language="pl-PL" processorArchitecture="amd64" type="win32" />
+  <asmv1:assemblyIdentity name="Monopoly.exe" version="0.6.0.8" publicKeyToken="463bc1f67e568a1f" language="pl-PL" processorArchitecture="amd64" type="win32" />
   <description asmv2:iconFile="Resources\icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7981056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7981992">
       <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>G/UJkt9RQgccKL8H94HEvxqQ55aNOKQ1fc7IowHbp68=</dsig:DigestValue>
+        <dsig:DigestValue>byvCHryZ7AYbBgg1HFU/pmZLFBjbJ6vBzYc/qabNMMc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -650,4 +650,4 @@
       <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
     </application>
   </compatibility>
-</asmv1:assembly>
+<publisherIdentity name="CN=RYZEN\skele" issuerKeyHash="3b1c8b7e49158abca38e2412d6e69305bde3ba32" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>rZOVSIduSW+kXooQb5ln3idF0m7Vb1fsKdcDBMKyFiY=</DigestValue></Reference></SignedInfo><SignatureValue>AnC3fJMEELf2qNkhQITEc8hzsRX+eL9BSOhFsd9oZ1HFo5sjlgDs+Q5iuSGTB5GEgBROr6s8qpx+aV2hm5dXCUAXFK13gvXTtePdjadyyxaW1IGHw1rCMerl5C8+QyAI2bmxG+L9/AVVjz8o2Q/RePdaN1u7AEBvJgxrDf4y3ak=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>+Uta6UdsuxDccZBpUDrMeF3AlxTg9IiQKdP7GNt4L19Wh0r5bf3ey/b/nmsoacCMT+w8rAEK9DObMmUmRRtxB+nqPsl1U0G4B8aErnlJTFBoOFQW1iHYcCu+3UOck7feBaDXrCUYIz0hFJHKL7Ad/Nsupdj8E0I7aDcgCtVmALU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="2616b2c20403d729ec576fd56ed24527de67996f108a5ea46f496e87489593ad" Description="" Url=""><as:assemblyIdentity name="Monopoly.exe" version="0.6.0.8" publicKeyToken="463bc1f67e568a1f" language="pl-PL" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=RYZEN\skele</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>33T41CRTFeHbtzeLt+9i+RAKFPgfztZa7m1zMRLKGek=</DigestValue></Reference></SignedInfo><SignatureValue>7jAG0bD149nsuchCAc2KFSHjqx1QXWCFCCfcRwwM01RioFFtPqVVCY3W8Ji7t0MoJ1GbnzS3S2Wn6rmFVjuzMkiJwN8Xs8PBILiOl5XMtZAchTFaigj94EHBQKWLpuqXn5v4EhE9lxi186IFqzKCisrjwFNYUkGyV7r+Sm8Sw1s=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>+Uta6UdsuxDccZBpUDrMeF3AlxTg9IiQKdP7GNt4L19Wh0r5bf3ey/b/nmsoacCMT+w8rAEK9DObMmUmRRtxB+nqPsl1U0G4B8aErnlJTFBoOFQW1iHYcCu+3UOck7feBaDXrCUYIz0hFJHKL7Ad/Nsupdj8E0I7aDcgCtVmALU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBxTCCAS6gAwIBAgIQHgDaiG+3jaFKjg0G+HkXgTANBgkqhkiG9w0BAQsFADAhMR8wHQYDVQQDHhYAUgBZAFoARQBOAFwAcwBrAGUAbABlMB4XDTIwMDkyMDIxMzczMVoXDTIxMDkyMTAzMzczMVowITEfMB0GA1UEAx4WAFIAWQBaAEUATgBcAHMAawBlAGwAZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA+Uta6UdsuxDccZBpUDrMeF3AlxTg9IiQKdP7GNt4L19Wh0r5bf3ey/b/nmsoacCMT+w8rAEK9DObMmUmRRtxB+nqPsl1U0G4B8aErnlJTFBoOFQW1iHYcCu+3UOck7feBaDXrCUYIz0hFJHKL7Ad/Nsupdj8E0I7aDcgCtVmALUCAwEAATANBgkqhkiG9w0BAQsFAAOBgQA1CwSNL6HaTnXWmD7R5uTJq/dXLmDh7efbUA8hKMULkUU3WbDSO9zmlFpZvX3JhFADjfJNsLJ5aT+PX0PZj3/Ri1U0wh/vuhKQyrp3qftdNF4g8J/hBs0WMTAcLnfCbbaFK3CwYHejyQb23ZP3dQy57ZLTrBgfLiusyFGGK+/iag==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

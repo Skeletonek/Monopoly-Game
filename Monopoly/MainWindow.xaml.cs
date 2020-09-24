@@ -146,8 +146,7 @@ namespace Monopoly
                     {
                         byte dice1 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(0)));
                         byte dice2 = byte.Parse(Convert.ToString(serverResponse[2].ToCharArray().ElementAt(1)));
-                        Dice1.Content = Convert.ToString(dice1);
-                        Dice2.Content = Convert.ToString(dice2);
+                        DiceShow(game.dice1, game.dice2);
                         diceScore = Convert.ToByte(dice1 + dice2);
                         DiceScore.Content = Convert.ToString(diceScore);
                     }
@@ -666,8 +665,7 @@ namespace Monopoly
         {
             game.dice1 = Convert.ToByte(rng.Next(1, 7));
             game.dice2 = Convert.ToByte(rng.Next(1, 7));
-            Dice1.Content = game.dice1;
-            Dice2.Content = game.dice2;
+            DiceShow(game.dice1, game.dice2);
             diceScore = Convert.ToByte(game.dice1 + game.dice2);
             DiceScore.Content = diceScore;
             if (game.multiplayer)
@@ -1660,7 +1658,51 @@ namespace Monopoly
                 FieldCheck();
             }
         }
-
+        private void DiceShow(byte dice1, byte dice2)
+        {
+            switch(dice1)
+            {
+                case 1:
+                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+                    break;
+                case 2:
+                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_2.png", UriKind.Relative));
+                    break;
+                case 3:
+                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_3.png", UriKind.Relative));
+                    break;
+                case 4:
+                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_4.png", UriKind.Relative));
+                    break;
+                case 5:
+                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_5.png", UriKind.Relative));
+                    break;
+                case 6:
+                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_6.png", UriKind.Relative));
+                    break;
+            }
+            switch (dice2)
+            {
+                case 1:
+                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+                    break;
+                case 2:
+                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_2.png", UriKind.Relative));
+                    break;
+                case 3:
+                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_3.png", UriKind.Relative));
+                    break;
+                case 4:
+                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_4.png", UriKind.Relative));
+                    break;
+                case 5:
+                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_5.png", UriKind.Relative));
+                    break;
+                case 6:
+                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_6.png", UriKind.Relative));
+                    break;
+            }
+        }
         private void OverviewRefresh()
         {
             Overview_Picture.Source = boardData.fieldIcon[game.selectedField];
