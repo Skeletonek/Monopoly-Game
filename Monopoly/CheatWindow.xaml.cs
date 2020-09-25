@@ -18,5 +18,11 @@ namespace Monopoly
             MainWindow.cheat = Convert.ToInt32(TextBoxCheat.Text);
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.cheat_allowTradeWindow = true;
+            this.Close();
+        }
     }
 }

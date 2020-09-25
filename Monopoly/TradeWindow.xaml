@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="TradeWindow" Height="450" Width="800">
+        Title="TradeWindow" Height="450" Width="800" Icon="pack://siteoforigin:,,,/Resources/icon.ico" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="792">
+            <Label Content="Wybierz gracza do handlu: " Height="22" FontSize="11"/>
+            <MenuItem Header="Player 2"/>
+            <MenuItem Header="Player 3"/>
+            <MenuItem Header="Player 4"/>
+        </Menu>
+        <GroupBox x:Name="GroupBox_TradeLeft" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="10,27,0,0" VerticalAlignment="Top" Width="383">
+            <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363"/>
+        </GroupBox>
+        <GroupBox x:Name="GroupBox_TradeRight" Header="GroupBox_TradeRight" HorizontalAlignment="Left" Height="382" Margin="399,27,0,0" VerticalAlignment="Top" Width="383">
+            <Grid HorizontalAlignment="Left" Height="344" Margin="10,10,-2,0" VerticalAlignment="Top" Width="363"/>
+        </GroupBox>
+
     </Grid>
 </Window>

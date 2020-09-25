@@ -21,6 +21,7 @@ namespace Monopoly
         public static string ip;
         public static bool connectedToServer = false;
         public static int cheat = 0;
+        public static bool cheat_allowTradeWindow = false;
 
         Random rng = new Random();
         byte diceScore;
@@ -2285,10 +2286,17 @@ namespace Monopoly
             {
                 CheatWindow cheatWindow = new CheatWindow();
                 cheatWindow.ShowDialog();
-                Button_ThrowDice.IsEnabled = false;
-                diceScore = Convert.ToByte(cheat);
-                DiceScore.Content = diceScore;
-                wait.Start();
+                if (cheat_allowTradeWindow)
+                {
+                    Button_Trade.IsEnabled = true;
+                }
+                if (cheat != 0)
+                {
+                    Button_ThrowDice.IsEnabled = false;
+                    diceScore = Convert.ToByte(cheat);
+                    DiceScore.Content = diceScore;
+                    wait.Start();
+                }
             }
         }
 

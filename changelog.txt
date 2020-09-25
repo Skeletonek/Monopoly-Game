@@ -6,6 +6,7 @@
 - Możliwość wyciszenia gry (Currently not working. Looking for bug fix ಠ_ಠ)
 - Drobna optymalizacja kodu
 - Zmiana platformy gry na procesory x86_64
+- Usprawniono działanie okien gry
 - Lepiej ukryto okno dla oszustów
 
 Beta 0.6-Pre1
