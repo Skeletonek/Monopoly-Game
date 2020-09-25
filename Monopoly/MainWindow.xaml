@@ -34,7 +34,7 @@
                     <MenuItem x:Name="MenuItem_Volume80" Header="80%" IsCheckable="True" Checked="MenuItem_Checked_80"/>
                     <MenuItem x:Name="MenuItem_Volume70" Header="70%" IsCheckable="True" Checked="MenuItem_Checked_70"/>
                     <MenuItem x:Name="MenuItem_Volume60" Header="60%" IsCheckable="True" Checked="MenuItem_Checked_60"/>
-                    <MenuItem x:Name="MenuItem_Volume50" Header="50%" IsCheckable="True" Checked="MenuItem_Checked_50"/>
+                    <MenuItem x:Name="MenuItem_Volume50" Header="50%" IsCheckable="True" Checked="MenuItem_Checked_50" IsChecked="True"/>
                     <MenuItem x:Name="MenuItem_Volume40" Header="40%" IsCheckable="True" Checked="MenuItem_Checked_40"/>
                     <MenuItem x:Name="MenuItem_Volume30" Header="30%" IsCheckable="True" Checked="MenuItem_Checked_30"/>
                     <MenuItem x:Name="MenuItem_Volume20" Header="20%" IsCheckable="True" Checked="MenuItem_Checked_20"/>
