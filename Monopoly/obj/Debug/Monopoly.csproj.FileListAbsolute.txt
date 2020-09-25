@@ -204,3 +204,5 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_4.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_5.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_6.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\TradeWindow.g.cs
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\TradeWindow.baml

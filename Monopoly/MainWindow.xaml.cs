@@ -2281,12 +2281,15 @@ namespace Monopoly
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            CheatWindow cheatWindow = new CheatWindow();
-            cheatWindow.ShowDialog();
-            Button_ThrowDice.IsEnabled = false;
-            diceScore = Convert.ToByte(cheat);
-            DiceScore.Content = diceScore;
-            wait.Start();
+            if (e.Key == Key.Pause)
+            {
+                CheatWindow cheatWindow = new CheatWindow();
+                cheatWindow.ShowDialog();
+                Button_ThrowDice.IsEnabled = false;
+                diceScore = Convert.ToByte(cheat);
+                DiceScore.Content = diceScore;
+                wait.Start();
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
