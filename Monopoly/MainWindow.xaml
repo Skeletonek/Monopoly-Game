@@ -27,18 +27,18 @@
                 <MenuItem Header="Rozłącz" Click="btnSendMessage_Click"/>
             </MenuItem>
             <MenuItem Header="Opcje">
-                <MenuItem Header="Dźwięk" Click="MenuItem_Click"/>
+                <MenuItem x:Name="MenuItem_Sound" Header="Dźwięk" Click="MenuItem_Click" IsCheckable="True" Checked="MenuItem_Checked" IsChecked="True"/>
                 <MenuItem Header="Głośność">
-                    <MenuItem Header="100%"/>
-                    <MenuItem Header="90%"/>
-                    <MenuItem Header="80%"/>
-                    <MenuItem Header="70%"/>
-                    <MenuItem Header="60%"/>
-                    <MenuItem Header="50%"/>
-                    <MenuItem Header="40%"/>
-                    <MenuItem Header="30%"/>
-                    <MenuItem Header="20%"/>
-                    <MenuItem Header="10%"/>
+                    <MenuItem x:Name="MenuItem_Volume100" Header="100%" IsCheckable="True" Checked="MenuItem_Checked_100"/>
+                    <MenuItem x:Name="MenuItem_Volume90" Header="90%" IsCheckable="True" Checked="MenuItem_Checked_90"/>
+                    <MenuItem x:Name="MenuItem_Volume80" Header="80%" IsCheckable="True" Checked="MenuItem_Checked_80"/>
+                    <MenuItem x:Name="MenuItem_Volume70" Header="70%" IsCheckable="True" Checked="MenuItem_Checked_70"/>
+                    <MenuItem x:Name="MenuItem_Volume60" Header="60%" IsCheckable="True" Checked="MenuItem_Checked_60"/>
+                    <MenuItem x:Name="MenuItem_Volume50" Header="50%" IsCheckable="True" Checked="MenuItem_Checked_50"/>
+                    <MenuItem x:Name="MenuItem_Volume40" Header="40%" IsCheckable="True" Checked="MenuItem_Checked_40"/>
+                    <MenuItem x:Name="MenuItem_Volume30" Header="30%" IsCheckable="True" Checked="MenuItem_Checked_30"/>
+                    <MenuItem x:Name="MenuItem_Volume20" Header="20%" IsCheckable="True" Checked="MenuItem_Checked_20"/>
+                    <MenuItem x:Name="MenuItem_Volume10" Header="10%" IsCheckable="True" Checked="MenuItem_Checked_10"/>
                 </MenuItem>
                 <MenuItem Header="Powiększ planszę"/>
             </MenuItem>
@@ -550,7 +550,7 @@
         <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Height="461" Margin="0,0,10,7" VerticalAlignment="Bottom" Width="211" Grid.Column="1" Grid.RowSpan="2">
             <Grid Margin="0">
                 <ScrollViewer HorizontalAlignment="Left" Height="424" Margin="7,4,0,0" VerticalAlignment="Top" Width="182" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-                    <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                 </ScrollViewer>
             </Grid>
         </GroupBox>

@@ -1,84 +1,90 @@
-Beta 0.6-Pre2
-- Dodano ikony dla koœci do gry
+ï»¿Beta 0.6-Pre2
+- Dodano ikony dla koÅ›ci do gry
+- Naprawiono nieprawidÅ‚owe przesuniÄ™cie dla GameLoga
+- Ulepszono system audio
+- MoÅ¼liwoÅ›Ä‡ modyfikacji poziomu gÅ‚oÅ›noÅ›ci dÅºwiÄ™kÃ³w gry
+- MoÅ¼liwoÅ›Ä‡ wyciszenia gry (Currently not working. Looking for bug fix à² _à² )
+- Drobna optymalizacja kodu
+- Zmiana platformy gry na procesory x86_64
 
 Beta 0.6-Pre1
-- Dodano ikony w³aœciciela przy ulicach, które s¹ jego w³asnoœci¹
-- Naprawiono b³¹d "Strefa zagro¿enia wymaga wykonanie akcji dwukrotnie aby mo¿na by³o kontynuowaæ grê"
-- Naprawiono b³¹d "Gracz który zbankrutowa³, mo¿e og³osiæ bankructwo innych graczy"
-- Poprawiono wiele aspektów UI
-- Poprawa b³êdów
+- Dodano ikony wÅ‚aÅ›ciciela przy ulicach, ktÃ³re sÄ… jego wÅ‚asnoÅ›ciÄ…
+- Naprawiono bÅ‚Ä…d "Strefa zagroÅ¼enia wymaga wykonanie akcji dwukrotnie aby moÅ¼na byÅ‚o kontynuowaÄ‡ grÄ™"
+- Naprawiono bÅ‚Ä…d "Gracz ktÃ³ry zbankrutowaÅ‚, moÅ¼e ogÅ‚osiÄ‡ bankructwo innych graczy"
+- Poprawiono wiele aspektÃ³w UI
+- Poprawa bÅ‚Ä™dÃ³w
 - Optymalizacja kodu gry
 
 Beta 0.5.2
-- Naprawiono b³¹d "Strefa zagro¿enia nie wy³¹cza siê po zap³aceniu na polach innych ni¿ dzielnice"
-- Naprawiono b³¹d "Nie mo¿na sprzedawaæ pól innych ni¿ ulice"
-- Usprawniono niektóre komunikaty
-- Usuniêto poprzednie karty szansy i kasy spo³ecznej
-- Dodano 5 nowych kart szansy i 11 kart kasy spo³ecznej
-- Zmodyfikowano obs³ugê zasobów
+- Naprawiono bÅ‚Ä…d "Strefa zagroÅ¼enia nie wyÅ‚Ä…cza siÄ™ po zapÅ‚aceniu na polach innych niÅ¼ dzielnice"
+- Naprawiono bÅ‚Ä…d "Nie moÅ¼na sprzedawaÄ‡ pÃ³l innych niÅ¼ ulice"
+- Usprawniono niektÃ³re komunikaty
+- UsuniÄ™to poprzednie karty szansy i kasy spoÅ‚ecznej
+- Dodano 5 nowych kart szansy i 11 kart kasy spoÅ‚ecznej
+- Zmodyfikowano obsÅ‚ugÄ™ zasobÃ³w
 
 Beta 0.5.1
-- Dodano ikonê
-- Usuniêto Pop-Up informuj¹cy o nowej turze
-- Zmieniono nazwê sekcji "Kostki do gry" na "Koœci do gry"
-- Dodano efekt dŸwiêkowy i napis w sekcji "Koœci do gry" informuj¹cy o turze gracza
-- Usprawniono logikê gry, gdy jeden z graczy zbankrutuje
+- Dodano ikonÄ™
+- UsuniÄ™to Pop-Up informujÄ…cy o nowej turze
+- Zmieniono nazwÄ™ sekcji "Kostki do gry" na "KoÅ›ci do gry"
+- Dodano efekt dÅºwiÄ™kowy i napis w sekcji "KoÅ›ci do gry" informujÄ…cy o turze gracza
+- Usprawniono logikÄ™ gry, gdy jeden z graczy zbankrutuje
 - Usprawniono kod sieciowy
 
 Beta 0.5
 - Dodano tryb multiplayer
-- Poprawa b³êdów
+- Poprawa bÅ‚Ä™dÃ³w
 - Usprawniono serwer gry
 
 Alpha 0.4
 - Usprawniono interfejs
-- Dodano kupowanie budynków
-- Dodano sprzedawanie budynków
-- Dodano sprzedawanie dzia³ek
-- Mo¿liwoœæ nazwania graczy
-- Mo¿liwoœæ rozpoczêcia gry z ró¿n¹ liczb¹ graczy
-- Gra wymaga rozpoczêcia nowej gry z nowego menu
-- Poprawiono b³êdy
-- Dodano strefê zagro¿enia
+- Dodano kupowanie budynkÃ³w
+- Dodano sprzedawanie budynkÃ³w
+- Dodano sprzedawanie dziaÅ‚ek
+- MoÅ¼liwoÅ›Ä‡ nazwania graczy
+- MoÅ¼liwoÅ›Ä‡ rozpoczÄ™cia gry z rÃ³Å¼nÄ… liczbÄ… graczy
+- Gra wymaga rozpoczÄ™cia nowej gry z nowego menu
+- Poprawiono bÅ‚Ä™dy
+- Dodano strefÄ™ zagroÅ¼enia
 - Usprawniono system bankructwa
-- Gra nie wy³¹cza siê po zbankrutowaniu gracza
-- Usprawniono wiadomoœci gry
+- Gra nie wyÅ‚Ä…cza siÄ™ po zbankrutowaniu gracza
+- Usprawniono wiadomoÅ›ci gry
 - Usprawniono ekran statystyk
 
 Alpha 0.3
-- Dodano brakuj¹ce informacje o czynszu za teren niezabudowany
-- Dodano w³aœciwoœci wszystkich dzielnic
-- Zaprogramowano elektrowniê i wodoci¹gi
-- Zaprogramowano wiêzienie
-- Zaprogramowano bezp³atny parking
-- Zaprogramowano przejœcie przez start
+- Dodano brakujÄ…ce informacje o czynszu za teren niezabudowany
+- Dodano wÅ‚aÅ›ciwoÅ›ci wszystkich dzielnic
+- Zaprogramowano elektrowniÄ™ i wodociÄ…gi
+- Zaprogramowano wiÄ™zienie
+- Zaprogramowano bezpÅ‚atny parking
+- Zaprogramowano przejÅ›cie przez start
 - Zmodyfikowano kod sieciowy
-- Dodano okno cheatów
-- Poprawiono b³¹d w którym pionki siê stackowa³y
-- Poprawiono wspó³rzêdne lokalizacji pól
-- Dodano obs³ugê 4 graczy w jednej grze
+- Dodano okno cheatÃ³w
+- Poprawiono bÅ‚Ä…d w ktÃ³rym pionki siÄ™ stackowaÅ‚y
+- Poprawiono wspÃ³Å‚rzÄ™dne lokalizacji pÃ³l
+- Dodano obsÅ‚ugÄ™ 4 graczy w jednej grze
 
 Alpha 0.2
 - Dodano informacje o czynszu
-- W pe³ni zaprogramowano obs³ugê wszystkich 40 pól na planszy przez klienta
+- W peÅ‚ni zaprogramowano obsÅ‚ugÄ™ wszystkich 40 pÃ³l na planszy przez klienta
 - Zaprogramowano kupowanie dzielnic
-- Zaprogramowano koniecznoœæ zap³aty czynszu
-- Zaprogramowano pierwsze wiadomoœci w GameLog'u
+- Zaprogramowano koniecznoÅ›Ä‡ zapÅ‚aty czynszu
+- Zaprogramowano pierwsze wiadomoÅ›ci w GameLog'u
 - Zaprogramowano dworce kolejowe
-- Zaprogramowano system podatków
-- Wpisano 15 pól do bazy danych gry
+- Zaprogramowano system podatkÃ³w
+- Wpisano 15 pÃ³l do bazy danych gry
 
 Alpha 0.1
-- Najechanie kursorem na pole wyœwietla szczegó³y w polu podgl¹du (Dla pierwszych 3-ech pól)
+- Najechanie kursorem na pole wyÅ›wietla szczegÃ³Å‚y w polu podglÄ…du (Dla pierwszych 3-ech pÃ³l)
 - Rozbudowanie interfejsu gry
 - Dodanie animacji ruchu
 - Dodanie przeciwnika (AI)
 
 Prototype 2
-- Dodanie pe³nego interfejsu
+- Dodanie peÅ‚nego interfejsu
 - Zmodyfikowanie serwera TCP
 
 Prototype 1
-- Mo¿liwoœæ po³¹czenia z serwerem (obecnie tylko z serwerem na tej samej maszynie co klient)
+- MoÅ¼liwoÅ›Ä‡ poÅ‚Ä…czenia z serwerem (obecnie tylko z serwerem na tej samej maszynie co klient)
 - Dodanie planszy
-- Dodanie ruszaj¹cego siê pionka gracza pierwszego
+- Dodanie ruszajÄ…cego siÄ™ pionka gracza pierwszego

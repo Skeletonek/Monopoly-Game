@@ -198,3 +198,9 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Reconnecting.ba
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.TrustInfo.xml
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.exe.manifest
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.application
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_1.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_2.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_3.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_4.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_5.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\dice_6.png

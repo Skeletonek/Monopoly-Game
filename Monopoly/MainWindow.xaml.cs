@@ -19,13 +19,22 @@ namespace Monopoly
         public static Client client;
         public static string clientname;
         public static string ip;
-        Random rng = new Random();
         public static bool connectedToServer = false;
-        DispatcherTimer wait = new DispatcherTimer();
         public static int cheat = 0;
+
+        Random rng = new Random();
         byte diceScore;
-        MediaPlayer sfx = new MediaPlayer();
-        string sfxfile = @"Resources\music.mp3";
+
+        public class Audio
+        {
+            public bool active = true;
+            public MediaPlayer music = new MediaPlayer();
+            public string musicfile = @"Resources\music_wait.mp3";
+            public MediaPlayer sfx = new MediaPlayer();
+            public string sfxfile = @"Resources\music_wait.mp3";
+        }
+
+        DispatcherTimer wait = new DispatcherTimer();
         DispatcherTimer reload = new DispatcherTimer();
         public class Game
         {
@@ -56,6 +65,7 @@ namespace Monopoly
         BoardLocations boardLocations = new BoardLocations();
         BoardData boardData = new BoardData();
         Game game = new Game();
+        Audio audio = new Audio();
         public MainWindow()
         {
             for (int i = 0; i < 40; i++)
@@ -71,11 +81,12 @@ namespace Monopoly
             reload.Interval = TimeSpan.FromSeconds(10);
             reload.Tick += Reload_Tick;
             InitializeComponent();
-            sfxfile = @"Resources\music_wait.mp3";
-            sfx.Open(new Uri(sfxfile, UriKind.Relative));
-            sfx.Volume = 0.5;
-            sfx.Play();
-            sfx.MediaEnded += Sfx_MediaEnded;
+            audio.music.Open(new Uri(audio.musicfile, UriKind.Relative));
+            audio.sfx.Volume = 0.5;
+            audio.music.Volume = audio.sfx.Volume / 2;
+            if(audio.active)
+            audio.music.Play();
+            audio.music.MediaEnded += Sfx_MediaEnded;
         }
 
         private void Sfx_MediaEnded(object sender, EventArgs e)
@@ -441,7 +452,7 @@ namespace Monopoly
             boardData.gameDataWriter();
             //GameCanvas.Children.RemoveRange(44, 100);
             GameLog.Text = "";
-            sfx.Stop();
+            audio.music.Stop();
         }
         private void TurnCheck()
         {
@@ -620,8 +631,11 @@ namespace Monopoly
                 Button_MouseMode.Content = "Tryb budowania domów";
                 Button_ThrowDice.IsEnabled = true;
                 DiceScore.Content = "Twoja tura!";
-                sfx.Open(new Uri(@"Resources\correct.wav", UriKind.Relative));
-                sfx.Play();
+                if (audio.active)
+                {
+                    audio.sfx.Open(new Uri(@"Resources\correct.wav", UriKind.Relative));
+                    audio.sfx.Play();
+                }
             }
             else
             {
@@ -2727,6 +2741,104 @@ namespace Monopoly
                     MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void MenuItem_Checked(object sender, RoutedEventArgs e)
+        {
+            if (MenuItem_Sound.IsChecked)
+            {
+                audio.active = true;
+            }
+            else
+            {
+                audio.active = false;
+                audio.music.Stop();
+                audio.sfx.Stop();
+            }
+        }
+        private void MusicVolumeSet(byte status)
+        {
+            if (status != 0)
+                MenuItem_Volume10.IsChecked = false;
+            if (status != 1)
+                MenuItem_Volume20.IsChecked = false;
+            if (status != 2)
+                MenuItem_Volume30.IsChecked = false;
+            if (status != 3)
+                MenuItem_Volume40.IsChecked = false;
+            if (status != 4)
+                MenuItem_Volume50.IsChecked = false;
+            if (status != 5)
+                MenuItem_Volume60.IsChecked = false;
+            if (status != 6)
+                MenuItem_Volume70.IsChecked = false;
+            if (status != 7)
+                MenuItem_Volume80.IsChecked = false;
+            if (status != 8)
+                MenuItem_Volume90.IsChecked = false;
+            if (status != 9)
+                MenuItem_Volume100.IsChecked = false;
+            audio.music.Volume = audio.sfx.Volume / 2;
+        }
+        private void MenuItem_Checked_100(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 1;
+            MusicVolumeSet(9);
+            MenuItem_Volume100.IsChecked = true;
+        }
+        private void MenuItem_Checked_90(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.9;
+            MusicVolumeSet(8);
+            MenuItem_Volume90.IsChecked = true;
+        }
+        private void MenuItem_Checked_80(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.8;
+            MusicVolumeSet(7);
+            MenuItem_Volume80.IsChecked = true;
+        }
+        private void MenuItem_Checked_70(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.7;
+            MusicVolumeSet(6);
+            MenuItem_Volume70.IsChecked = true;
+        }
+        private void MenuItem_Checked_60(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.6;
+            MusicVolumeSet(5);
+            MenuItem_Volume60.IsChecked = true;
+        }
+        private void MenuItem_Checked_50(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.5;
+            MusicVolumeSet(4);
+            MenuItem_Volume50.IsChecked = true;
+        }
+        private void MenuItem_Checked_40(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.4;
+            MusicVolumeSet(3);
+            MenuItem_Volume40.IsChecked = true;
+        }
+        private void MenuItem_Checked_30(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.3;
+            MusicVolumeSet(2);
+            MenuItem_Volume30.IsChecked = true;
+        }
+        private void MenuItem_Checked_20(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.2;
+            MusicVolumeSet(1);
+            MenuItem_Volume20.IsChecked = true;
+        }
+        private void MenuItem_Checked_10(object sender, RoutedEventArgs e)
+        {
+            audio.sfx.Volume = 0.1;
+            MusicVolumeSet(0);
+            MenuItem_Volume10.IsChecked = true;
         }
     }
 }

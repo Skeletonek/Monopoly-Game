@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7981992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7986088">
       <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>byvCHryZ7AYbBgg1HFU/pmZLFBjbJ6vBzYc/qabNMMc=</dsig:DigestValue>
+        <dsig:DigestValue>dGDDaR0BppnBHj+NvNDgwgUhXZM84nugkDgyf/N07pU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -127,6 +127,60 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>bOchnAOL7kjjr+LpyyuLBj1EOumt42lxTxK2GyJYQQA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dice_1.png" size="2936">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QaphLM0He8lQ/LdlyNIcMfLGtSN1lUndlHah8qSjRro=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dice_2.png" size="4577">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hpwIskWrQny15pT5ELNvKHttU4L4syuUJ4Lj+aTjARs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dice_3.png" size="6176">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HK6SH15h8OdXU9JDqTJkzMkuQZkMuoDaIGmT1jCpQYY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dice_4.png" size="6999">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LghHJiMebCPaUh6r6ejGy66H+05CQJhWYHztbyyG17c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dice_5.png" size="8568">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dGDZ8K+/5WtMAOO9roi2um4tobWC1pbYcH16Euey1Bk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dice_6.png" size="9062">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nM56b7GeIIofrscG2WvLhi3VNcGoiqtu3wORq5bBZrs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\FieldBlue1.jpg" size="6441">
