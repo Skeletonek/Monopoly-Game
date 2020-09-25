@@ -90,6 +90,11 @@ namespace Monopoly
             audio.music.MediaEnded += Sfx_MediaEnded;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            MenuItem_Volume50.IsChecked = true;
+        }
+
         private void Sfx_MediaEnded(object sender, EventArgs e)
         {
             //sfx.Play();
@@ -2300,12 +2305,6 @@ namespace Monopoly
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            //Spotify spotify = new Spotify();
-            //spotify.Show();
-        }
-
         private void Field1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseNorSellThisField();
@@ -2753,20 +2752,6 @@ namespace Monopoly
                 }
             }
         }
-
-        private void MenuItem_Checked(object sender, RoutedEventArgs e)
-        {
-            if (MenuItem_Sound.IsChecked)
-            {
-                audio.active = true;
-            }
-            else
-            {
-                audio.active = false;
-                audio.music.Stop();
-                audio.sfx.Stop();
-            }
-        }
         private void MusicVolumeSet(byte status)
         {
             if (status != 0)
@@ -2850,6 +2835,20 @@ namespace Monopoly
             audio.sfx.Volume = 0.1;
             MusicVolumeSet(0);
             MenuItem_Volume10.IsChecked = true;
+        }
+
+        private void MenuItem_Sound_Click(object sender, RoutedEventArgs e)
+        {
+            if (MenuItem_Sound.IsChecked)
+            {
+                audio.active = true;
+            }
+            else
+            {
+                audio.active = false;
+                audio.music.Stop();
+                audio.sfx.Stop();
+            }
         }
     }
 }
