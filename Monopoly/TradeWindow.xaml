@@ -14,10 +14,46 @@
             <MenuItem Header="Player 4"/>
         </Menu>
         <GroupBox x:Name="GroupBox_TradeLeft" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="10,27,0,0" VerticalAlignment="Top" Width="383">
-            <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363"/>
+            <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363">
+                <ComboBox HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
+                <Label Content="Ulica: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75"/>
+                <CheckBox Content="Bezp. wyj. z wieź. (Szan.)" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="158"/>
+                <CheckBox Content="Bezp. wyj. z wieź. (Kasa społ.)" HorizontalAlignment="Left" Margin="173,44,0,0" VerticalAlignment="Top" Width="180"/>
+                <Slider HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="10"/>
+                <Label Content="Pieniądze:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="278,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61"/>
+                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,100,0,0" VerticalAlignment="Top" Width="75"/>
+                <Label Content="$" HorizontalAlignment="Left" Margin="339,70,0,0" VerticalAlignment="Top" Height="30" Width="24"/>
+                <ListView HorizontalAlignment="Left" Height="221" Margin="0,125,0,0" VerticalAlignment="Top" Width="353">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_TradeRight" Header="GroupBox_TradeRight" HorizontalAlignment="Left" Height="382" Margin="399,27,0,0" VerticalAlignment="Top" Width="383">
-            <Grid HorizontalAlignment="Left" Height="344" Margin="10,10,-2,0" VerticalAlignment="Top" Width="363"/>
+        <GroupBox x:Name="GroupBox_TradeLeft_Copy" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="398,27,0,0" VerticalAlignment="Top" Width="383">
+            <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363">
+                <ComboBox HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
+                <Label Content="Ulica: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75"/>
+                <CheckBox Content="Bezp. wyj. z wieź. (Szan.)" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="158"/>
+                <CheckBox Content="Bezp. wyj. z wieź. (Kasa społ.)" HorizontalAlignment="Left" Margin="173,44,0,0" VerticalAlignment="Top" Width="180"/>
+                <Slider HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="10"/>
+                <Label Content="Pieniądze:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="278,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61"/>
+                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,100,0,0" VerticalAlignment="Top" Width="75"/>
+                <Label Content="$" HorizontalAlignment="Left" Margin="339,70,0,0" VerticalAlignment="Top" Height="30" Width="24"/>
+                <ListView HorizontalAlignment="Left" Height="221" Margin="0,125,0,0" VerticalAlignment="Top" Width="353">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
         </GroupBox>
 
     </Grid>

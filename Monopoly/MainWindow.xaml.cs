@@ -2850,5 +2850,17 @@ namespace Monopoly
                 audio.sfx.Stop();
             }
         }
+
+        private void Button_Trade_Click(object sender, RoutedEventArgs e)
+        {
+            TradeWindow trade = new TradeWindow();
+            trade.ShowDialog();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
     }
 }

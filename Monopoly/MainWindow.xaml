@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Beta 0.6 - Pre2)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded">
+        Title="Monopoly (Beta 0.6)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="73*"/>
@@ -45,10 +45,10 @@
             </MenuItem>
             <MenuItem Header="Pomoc">
                 <MenuItem Header="Pomoc"/>
-                <MenuItem Header="O aplikacji"/>
+                <MenuItem Header="O aplikacji" Click="MenuItem_Click"/>
             </MenuItem>
             <Button x:Name="Button_MouseMode" Content="Tryb budowania domów" Click="Button_MouseMode_Click"/>
-            <Button x:Name="Button_Trade" Content="Handel" Width="75" IsEnabled="False"/>
+            <Button x:Name="Button_Trade" Content="Handel" Width="75" IsEnabled="False" Click="Button_Trade_Click"/>
             <Separator Width="50" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
             <MenuItem Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" Width="300"/>

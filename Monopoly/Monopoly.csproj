@@ -109,12 +109,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reconnecting.xaml.cs">
       <DependentUpon>Reconnecting.xaml</DependentUpon>
     </Compile>
     <Compile Include="TradeWindow.xaml.cs">
       <DependentUpon>TradeWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CheatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -349,7 +356,9 @@
     <Content Include="Resources\House4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\icon.ico" />
+    <Content Include="Resources\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\incorrect.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
