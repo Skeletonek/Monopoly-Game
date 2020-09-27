@@ -391,6 +391,7 @@ namespace Monopoly
 
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
         {
+            client.Disconnect();
             //client.SendData(ASCIIEncoding.ASCII.GetBytes("You are nice"));
         }
 

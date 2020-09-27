@@ -1,6 +1,7 @@
 ﻿Beta 0.6
 - Dodano okno "O aplikacji"
 - Dodano okno handlu z innymi graczami
+- Możliwość rozłączenia się z serwerem za pomocą przycisku
 
 Beta 0.6-Pre2
 - Dodano ikony dla kości do gry
