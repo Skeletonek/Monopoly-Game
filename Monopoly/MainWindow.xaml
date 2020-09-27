@@ -21,7 +21,7 @@
                 <MenuItem Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
                 <MenuItem Header="Zapisz grę"/>
                 <MenuItem Header="Wczytaj grę"/>
-                <MenuItem Header="Przerwij grę"/>
+                <MenuItem x:Name="MenuItem_StopGame" Header="Przerwij grę" Click="MenuItem_StopGame_Click"/>
             </MenuItem>
             <MenuItem Header="Gra wieloosobowa">
                 <MenuItem Header="Połącz" Click="btnConnectToServer_Click"/>
@@ -498,11 +498,12 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
+            <TextBlock x:Name="TextBlock_YourTurn" Canvas.Left="137" TextWrapping="Wrap" Canvas.Top="245" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" FontSize="24" Height="131" Width="367" TextAlignment="Center" Visibility="Hidden"><Run/><LineBreak/><Run FontWeight="Bold" FontSize="36" Text="Twoja tura!"/></TextBlock>
         </Canvas>
         <GroupBox Header="Kości do gry" HorizontalAlignment="Left" Height="124" Margin="10,22,0,0" VerticalAlignment="Top" Width="198" Grid.RowSpan="2">
             <Grid>
                 <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" HorizontalAlignment="Left" Margin="7,61,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
-                <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24"/>
+                <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold"/>
                 <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,61,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
                 <Image x:Name="Dice1" HorizontalAlignment="Left" Height="46" Margin="8,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
                 <Image x:Name="Dice2" HorizontalAlignment="Left" Height="46" Margin="59,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7995816">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7996840">
       <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LgUvlOIfu5ZsNDO12TPMPSIhPcVPB2vMJaYQ2fJGhYg=</dsig:DigestValue>
+        <dsig:DigestValue>za3EophMEmCI2Tq9IOwz4Jw4BXAjykZ7ObeRBBNIB+w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -640,7 +640,8 @@ namespace Monopoly
                 game.sellmode = false;
                 Button_MouseMode.Content = "Tryb budowania domów";
                 Button_ThrowDice.IsEnabled = true;
-                DiceScore.Content = "Twoja tura!";
+                TextBlock_YourTurn.Visibility = Visibility.Visible;
+                DiceScore.Foreground = Brushes.Red;
                 if (audio.active)
                 {
                     audio.sfx.Open(new Uri(@"Resources\correct.wav", UriKind.Relative));
@@ -1659,6 +1660,8 @@ namespace Monopoly
         // //////////////////////////////////////////////////////////////////////////////////////////////////////
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DiceScore.Foreground = Brushes.Black;
+            TextBlock_YourTurn.Visibility = Visibility.Hidden;
             if (!game.dangerzone)
             {
                 Button_ThrowDice.IsEnabled = false;

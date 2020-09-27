@@ -3,6 +3,7 @@
 - Dodano okno handlu z innymi graczami
 - Możliwość rozłączenia się z serwerem za pomocą przycisku
 - Naprawiono błąd z nieresetowaniem się UI po przerwaniu gry
+- Zmieniono sposób wyświetlania informacji o turze gracza
 
 Beta 0.6-Pre2
 - Dodano ikony dla kości do gry
