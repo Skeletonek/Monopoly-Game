@@ -392,6 +392,9 @@ namespace Monopoly
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
         {
             client.Disconnect();
+            if (game.multiplayer)
+                ResetUI();
+            game.multiplayer = false;
             //client.SendData(ASCIIEncoding.ASCII.GetBytes("You are nice"));
         }
 
@@ -2564,6 +2567,48 @@ namespace Monopoly
             game.multiplayer = false;
             //game.playboardTheme = newSinglePlayerGame.ListBox_PlayboardTheme.SelectedIndex;
             StartNewGame();
+        }
+        private void ResetUI()
+        {
+            int xcord;
+            int ycord;
+            Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+            Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+            Player1.Visibility = Visibility.Hidden;
+            Player1_Icon.Visibility = Visibility.Hidden;
+            Label_Player1Cash.Content = "1500 $";
+            Label_Player1Cash.Visibility = Visibility.Hidden;
+            Label_Player1Name.Visibility = Visibility.Hidden;
+            Player2.Visibility = Visibility.Hidden;
+            Player2_Icon.Visibility = Visibility.Hidden;
+            Label_Player2Cash.Content = "1500 $";
+            Label_Player2Cash.Visibility = Visibility.Hidden;
+            Label_Player2Name.Visibility = Visibility.Hidden;
+            Player3.Visibility = Visibility.Hidden;
+            Player3_Icon.Visibility = Visibility.Hidden;
+            Label_Player3Cash.Content = "1500 $";
+            Label_Player3Cash.Visibility = Visibility.Hidden;
+            Label_Player3Name.Visibility = Visibility.Hidden;
+            Player4.Visibility = Visibility.Hidden;
+            Player4_Icon.Visibility = Visibility.Hidden;
+            Label_Player4Cash.Content = "1500 $";
+            Label_Player4Cash.Visibility = Visibility.Hidden;
+            Label_Player4Name.Visibility = Visibility.Hidden;
+            xcord = boardLocations.playerlocation(true, 0);
+            ycord = boardLocations.playerlocation(false, 0); 
+            Canvas.SetLeft(Player1, xcord);
+            Canvas.SetTop(Player1, ycord);
+            Canvas.SetLeft(Player2, xcord);
+            Canvas.SetTop(Player2, ycord);
+            Canvas.SetLeft(Player3, xcord);
+            Canvas.SetTop(Player3, ycord);
+            Canvas.SetLeft(Player3, xcord);
+            Canvas.SetTop(Player3, ycord);
+        }
+        private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
+        {
+            if(!game.multiplayer)
+            ResetUI();
         }
         private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
         {
