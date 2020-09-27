@@ -498,7 +498,6 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <TextBlock x:Name="TextBlock_YourTurn" Canvas.Left="137" TextWrapping="Wrap" Canvas.Top="245" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" FontSize="24" Height="131" Width="367" TextAlignment="Center" Visibility="Hidden"><Run/><LineBreak/><Run FontWeight="Bold" FontSize="36" Text="Twoja tura!"/></TextBlock>
         </Canvas>
         <GroupBox Header="Kości do gry" HorizontalAlignment="Left" Height="124" Margin="10,22,0,0" VerticalAlignment="Top" Width="198" Grid.RowSpan="2">
             <Grid>

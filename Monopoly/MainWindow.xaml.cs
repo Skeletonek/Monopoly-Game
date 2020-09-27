@@ -1,5 +1,6 @@
 ﻿using NetComm;
 using System;
+//using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -67,6 +68,7 @@ namespace Monopoly
         BoardData boardData = new BoardData();
         Game game = new Game();
         Audio audio = new Audio();
+        AI ai = new AI();
         public MainWindow()
         {
             for (int i = 0; i < 40; i++)
@@ -640,8 +642,7 @@ namespace Monopoly
                 game.sellmode = false;
                 Button_MouseMode.Content = "Tryb budowania domów";
                 Button_ThrowDice.IsEnabled = true;
-                TextBlock_YourTurn.Visibility = Visibility.Visible;
-                DiceScore.Foreground = Brushes.Red;
+                GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
                 if (audio.active)
                 {
                     audio.sfx.Open(new Uri(@"Resources\correct.wav", UriKind.Relative));
@@ -1660,8 +1661,6 @@ namespace Monopoly
         // //////////////////////////////////////////////////////////////////////////////////////////////////////
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DiceScore.Foreground = Brushes.Black;
-            TextBlock_YourTurn.Visibility = Visibility.Hidden;
             if (!game.dangerzone)
             {
                 Button_ThrowDice.IsEnabled = false;

@@ -112,6 +112,7 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AI.cs" />
     <Compile Include="Reconnecting.xaml.cs">
       <DependentUpon>Reconnecting.xaml</DependentUpon>
     </Compile>
