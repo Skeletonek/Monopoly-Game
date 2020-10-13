@@ -87,8 +87,8 @@ namespace Monopoly
             audio.music.Open(new Uri(audio.musicfile, UriKind.Relative));
             audio.sfx.Volume = 0.5;
             audio.music.Volume = audio.sfx.Volume / 2;
-            if(audio.active)
-            audio.music.Play();
+            if (audio.active)
+                audio.music.Play();
             audio.music.MediaEnded += Sfx_MediaEnded;
         }
 
@@ -1659,6 +1659,27 @@ namespace Monopoly
 
         // UI Programming
         // //////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void SizeChangedEvent(object sender, SizeChangedEventArgs e)
+        {
+            CanvasRenderScale();
+        }
+        private void StateChangedEvent(object sender, EventArgs e)
+        {
+            CanvasRenderScale();
+        }
+        public void CanvasRenderScale()
+        {
+            double ScaleW = this.ActualWidth / 1100;
+            double ScaleH = this.ActualHeight / 700;
+            if (ScaleW < ScaleH)
+            {
+                GameCanvas.RenderTransform = new ScaleTransform(ScaleW, ScaleW);
+            }
+            else
+            {
+                GameCanvas.RenderTransform = new ScaleTransform(ScaleH, ScaleH);
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!game.dangerzone)
@@ -1686,7 +1707,7 @@ namespace Monopoly
         }
         private void DiceShow(byte dice1, byte dice2)
         {
-            switch(dice1)
+            switch (dice1)
             {
                 case 1:
                     Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
@@ -2597,7 +2618,7 @@ namespace Monopoly
             Label_Player4Cash.Visibility = Visibility.Hidden;
             Label_Player4Name.Visibility = Visibility.Hidden;
             xcord = boardLocations.playerlocation(true, 0);
-            ycord = boardLocations.playerlocation(false, 0); 
+            ycord = boardLocations.playerlocation(false, 0);
             Canvas.SetLeft(Player1, xcord);
             Canvas.SetTop(Player1, ycord);
             Canvas.SetLeft(Player2, xcord);
@@ -2609,8 +2630,8 @@ namespace Monopoly
         }
         private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
         {
-            if(!game.multiplayer)
-            ResetUI();
+            if (!game.multiplayer)
+                ResetUI();
         }
         private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
         {

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Beta 0.6)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded">
-    <Grid>
+        Title="Monopoly (Beta 0.6)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent">
+    <Grid x:Name="Grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="73*"/>
             <RowDefinition Height="235*"/>
