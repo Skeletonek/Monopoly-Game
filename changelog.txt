@@ -2,6 +2,7 @@
 - Dodano okno "O aplikacji"
 - Dodano okno handlu z innymi graczami
 - Zaimplementowano skalowanie planszy zgodnie z rozmiarem okna
+- Zaimplementowano automatyczne dopasowywanie GameLoga do dostępnego obszaru
 - Możliwość rozłączenia się z serwerem za pomocą przycisku
 - Naprawiono błąd z nieresetowaniem się UI po przerwaniu gry
 - Zmieniono sposób wyświetlania informacji o turze gracza
