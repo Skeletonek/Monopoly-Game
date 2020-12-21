@@ -19,8 +19,8 @@
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Gra jednoosobowa">
                 <MenuItem Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
-                <MenuItem Header="Zapisz grę"/>
-                <MenuItem Header="Wczytaj grę"/>
+                <MenuItem Header="Zapisz grę" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Wczytaj grę" Click="MenuItem_Click_2"/>
                 <MenuItem x:Name="MenuItem_StopGame" Header="Przerwij grę" Click="MenuItem_StopGame_Click"/>
             </MenuItem>
             <MenuItem Header="Gra wieloosobowa">

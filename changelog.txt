@@ -1,6 +1,6 @@
 ﻿Beta 0.6
 - Dodano okno "O aplikacji"
-- Dodano okno handlu z innymi graczami
+- Trwają pracę nad oknem handlu z innymi graczami
 - Zaimplementowano skalowanie planszy zgodnie z rozmiarem okna
 - Zaimplementowano automatyczne dopasowywanie GameLoga do dostępnego obszaru
 - Możliwość rozłączenia się z serwerem za pomocą przycisku

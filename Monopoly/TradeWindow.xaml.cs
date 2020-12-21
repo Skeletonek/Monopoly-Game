@@ -19,9 +19,21 @@ namespace Monopoly
     /// </summary>
     public partial class TradeWindow : Window
     {
+        MainWindow.Game game = new MainWindow.Game();
+        static byte[][] OwnedFields = new byte[4][];
         public TradeWindow()
         {
             InitializeComponent();
+        }
+        private void checkFieldOwners()
+        {
+            for(int i = 0; i < game.playerAvailable.Length; i++)
+            {
+                for(int j = 0; j < game.fieldOwner.Length; j++)
+                {
+
+                }
+            }
         }
     }
 }

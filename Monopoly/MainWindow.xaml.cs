@@ -1,5 +1,6 @@
 ﻿using NetComm;
 using System;
+using System.IO;
 //using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using Microsoft.Win32;
 
 namespace Monopoly
 {
@@ -41,13 +43,13 @@ namespace Monopoly
         public class Game
         {
             public bool multiplayer = false;
-            public string[] playername = new string[5] { "Gracz 1", "Gracz 2", "Gracz 3", "Gracz 4", "Mr. Nobody" };
-            public byte[] playerlocation = new byte[4] { 0, 0, 0, 0 };
-            public int[] playercash = new int[4] { 1500, 1500, 1500, 1500 };
-            public byte[] playerRailroadOwned = new byte[4] { 0, 0, 0, 0 };
-            public byte[] playerArrestedTurns = new byte[4] { 0, 0, 0, 0 };
-            public bool[] playerAvailable = new bool[4] { false, false, false, false };
-            public bool[] playerBankrupt = new bool[4] { false, false, false, false };
+            public string[] playername = new string[] { "Gracz 1", "Gracz 2", "Gracz 3", "Gracz 4", "Mr. Nobody" };
+            public byte[] playerlocation = new byte[] { 0, 0, 0, 0 };
+            public int[] playercash = new int[] { 1500, 1500, 1500, 1500 };
+            public byte[] playerRailroadOwned = new byte[] { 0, 0, 0, 0 };
+            public byte[] playerArrestedTurns = new byte[] { 0, 0, 0, 0 };
+            public bool[] playerAvailable = new bool[] { false, false, false, false };
+            public bool[] playerBankrupt = new bool[] { false, false, false, false };
             public byte playerBankruptNeededToWin = 0;
             public byte clientplayer = 0;
             public byte turn = 0;
@@ -102,6 +104,63 @@ namespace Monopoly
             //sfx.Play();
         }
 
+        private void LoadGame()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.Filter = "monopolysave";
+            if(openFileDialog.ShowDialog() == true)
+            {
+                FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+                string line;
+                int index = 0;
+                while((line = sr.ReadLine()) != null)
+                {
+                    switch(index)
+                    {
+                        case 0:
+                            game.playername = line.Split();
+                            break;
+                    }
+                    index++;
+                }
+                sr.Close();
+                Button_ThrowDice.IsEnabled = true;
+            }
+        }
+
+        private void SaveGame()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = "monopolysave";
+            if(saveFileDialog.ShowDialog() == true)
+            {
+                FileStream fs = File.Create(saveFileDialog.FileName);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine(game.playername);
+                sw.WriteLine(game.playerlocation);
+                sw.WriteLine(game.playercash);
+                sw.WriteLine(game.playerRailroadOwned);
+                sw.WriteLine(game.playerArrestedTurns);
+                sw.WriteLine(game.playerAvailable);
+                sw.WriteLine(game.playerBankrupt);
+                sw.WriteLine(game.playerBankruptNeededToWin);
+                sw.WriteLine(game.clientplayer);
+                sw.WriteLine(game.turn);
+                sw.WriteLine(game.dice1);
+                sw.WriteLine(game.dice2);
+                sw.WriteLine(game.selectedField);
+                sw.WriteLine(game.currentFieldPrice);
+                sw.WriteLine(game.currentFieldForSale);
+                sw.WriteLine(game.fieldHouse);
+                sw.WriteLine(game.fieldOwner);
+                sw.WriteLine(game.fieldPlayers);
+                sw.WriteLine(game.taxmoney);
+                sw.WriteLine(game.sellmode);
+                sw.WriteLine(game.dangerzone);
+                sw.Close();
+            }
+        }
         // SERVER CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void Reload_Tick(object sender, EventArgs e)
@@ -2930,6 +2989,16 @@ namespace Monopoly
         {
             About about = new About();
             about.ShowDialog();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            SaveGame();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            LoadGame();
         }
     }
 }
