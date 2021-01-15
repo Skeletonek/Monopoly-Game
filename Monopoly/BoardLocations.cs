@@ -208,33 +208,33 @@ namespace Monopoly
 
     }
 
-    class BoardData
+    static class BoardData
     {
-        public string[] fieldName = new string[40];
-        public BitmapImage[] fieldIcon = new BitmapImage[40];
-        public int[] fieldPrice = new int[40];
-        public int[] fieldNoSetRent = new int[40];
-        public int[] field1Rent = new int[40];
-        public int[] field2Rent = new int[40];
-        public int[] field3Rent = new int[40];
-        public int[] field4Rent = new int[40];
-        public int[] fieldHRent = new int[40];
-        public byte[] fieldSet1 = new byte[40];
-        public byte[] fieldSet2 = new byte[40];
-        public bool[] fieldChance = new bool[40];
-        public bool[] fieldCommChest = new bool[40];
-        public bool[] fieldRailroad = new bool[40];
-        public bool[] fieldExtra = new bool[40];
-        public bool[] fieldTax = new bool[40];
-        public int[] fieldTaxCost = new int[40];
-        public string[] chanceText = new string[10];
-        public byte[] chanceAction = new byte[10];
-        public int[] chanceXValue = new int[10];
-        public string[] commChestText = new string[11];
-        public byte[] commChestAction = new byte[11];
-        public int[] commChestXValue = new int[11];
+        static public string[] fieldName = new string[40];
+        static public BitmapImage[] fieldIcon = new BitmapImage[40];
+        static public int[] fieldPrice = new int[40];
+        static public int[] fieldNoSetRent = new int[40];
+        static public int[] field1Rent = new int[40];
+        static public int[] field2Rent = new int[40];
+        static public int[] field3Rent = new int[40];
+        static public int[] field4Rent = new int[40];
+        static public int[] fieldHRent = new int[40];
+        static public byte[] fieldSet1 = new byte[40];
+        static public byte[] fieldSet2 = new byte[40];
+        static public bool[] fieldChance = new bool[40];
+        static public bool[] fieldCommChest = new bool[40];
+        static public bool[] fieldRailroad = new bool[40];
+        static public bool[] fieldExtra = new bool[40];
+        static public bool[] fieldTax = new bool[40];
+        static public int[] fieldTaxCost = new int[40];
+        static public string[] chanceText = new string[10];
+        static public byte[] chanceAction = new byte[10];
+        static public int[] chanceXValue = new int[10];
+        static public string[] commChestText = new string[11];
+        static public byte[] commChestAction = new byte[11];
+        static public int[] commChestXValue = new int[11];
 
-        public void gameDataWriter()
+        static public void gameDataWriter()
         {
             for (int i = 0; i < 40; i++)
             {

@@ -9,23 +9,23 @@
     <Grid>
         <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="792">
             <Label Content="Wybierz gracza do handlu: " Height="22" FontSize="11"/>
-            <MenuItem Header="Player 2"/>
+            <MenuItem Header="Player 2" Click="MenuItem_Click"/>
             <MenuItem Header="Player 3"/>
             <MenuItem Header="Player 4"/>
         </Menu>
         <GroupBox x:Name="GroupBox_TradeLeft" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="10,27,0,0" VerticalAlignment="Top" Width="383">
             <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363">
-                <ComboBox HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
+                <ComboBox x:Name="FieldsComboBox_ClientPlayer" HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
                 <Label Content="Ulica: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button Content="Dodaj" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                 <CheckBox Content="Bezp. wyj. z wieź. (Szan.)" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="158"/>
                 <CheckBox Content="Bezp. wyj. z wieź. (Kasa społ.)" HorizontalAlignment="Left" Margin="173,44,0,0" VerticalAlignment="Top" Width="180"/>
-                <Slider HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="10"/>
+                <Slider x:Name="MoneySlider_ClientPlayer" HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="10"/>
                 <Label Content="Pieniądze:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="278,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61"/>
-                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,100,0,0" VerticalAlignment="Top" Width="75"/>
+                <TextBox x:Name="MoneyTextBox_ClientPlayer" HorizontalAlignment="Left" Height="23" Margin="278,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61"/>
+                <Button x:Name="Trade_Button" Content="Trade_Button.string" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="353" Click="Trade_Button_Click"/>
                 <Label Content="$" HorizontalAlignment="Left" Margin="339,70,0,0" VerticalAlignment="Top" Height="30" Width="24"/>
-                <ListView HorizontalAlignment="Left" Height="221" Margin="0,125,0,0" VerticalAlignment="Top" Width="353">
+                <ListView x:Name="List_ClientPlayer" HorizontalAlignment="Left" Height="221" Margin="0,125,0,0" VerticalAlignment="Top" Width="353">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn/>
@@ -36,17 +36,16 @@
         </GroupBox>
         <GroupBox x:Name="GroupBox_TradeLeft_Copy" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="398,27,0,0" VerticalAlignment="Top" Width="383">
             <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363">
-                <ComboBox HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
+                <ComboBox x:Name="FieldsComboBox_SecondPlayer" HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
                 <Label Content="Ulica: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button Content="Dodaj" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
                 <CheckBox Content="Bezp. wyj. z wieź. (Szan.)" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="158"/>
                 <CheckBox Content="Bezp. wyj. z wieź. (Kasa społ.)" HorizontalAlignment="Left" Margin="173,44,0,0" VerticalAlignment="Top" Width="180"/>
-                <Slider HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="10"/>
+                <Slider x:Name="MoneySlider_SecondPlayer" HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="10"/>
                 <Label Content="Pieniądze:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="278,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61"/>
-                <Button Content="Ok" HorizontalAlignment="Left" Margin="278,100,0,0" VerticalAlignment="Top" Width="75"/>
+                <TextBox x:Name="MoneyTextBox_SecondPlayer" HorizontalAlignment="Left" Height="23" Margin="278,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61"/>
                 <Label Content="$" HorizontalAlignment="Left" Margin="339,70,0,0" VerticalAlignment="Top" Height="30" Width="24"/>
-                <ListView HorizontalAlignment="Left" Height="221" Margin="0,125,0,0" VerticalAlignment="Top" Width="353">
+                <ListView x:Name="List_SecondPlayer" HorizontalAlignment="Left" Height="221" Margin="0,125,0,0" VerticalAlignment="Top" Width="353">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn/>
