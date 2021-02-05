@@ -1,4 +1,8 @@
-﻿Beta 0.6
+﻿Beta 0.7
+- Trwają pracę nad obsługą motywów
+- Dodano obsługę crashy i tworzenia logów z błędami
+
+Beta 0.6
 - Dodano okno "O aplikacji"
 - Trwają pracę nad oknem handlu z innymi graczami
 - Zaimplementowano skalowanie planszy zgodnie z rozmiarem okna

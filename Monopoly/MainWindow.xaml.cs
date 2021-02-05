@@ -74,6 +74,7 @@ namespace Monopoly
         AI ai = new AI();
         public MainWindow()
         {
+            this.Dispatcher.UnhandledException += App_DispatcherUnhandledException;
             for (int i = 0; i < 40; i++)
             {
                 Game.fieldOwner[i] = 4;
@@ -99,6 +100,21 @@ namespace Monopoly
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MenuItem_Volume50.IsChecked = true;
+        }
+
+        void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            if(!Directory.Exists("logs"))
+            {
+                Directory.CreateDirectory("logs");
+            }
+            FileStream fs = File.Create(@"logs\crash_report_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".crash");
+            StreamWriter sw = new StreamWriter(fs);
+            sw.Write(e.Exception);
+            sw.Close();
+            MessageBox.Show("Crash! Unhandled exception occured.\nCrash report saved to file:\n" + fs.Name, "Boom!", MessageBoxButton.OK, MessageBoxImage.Error);
+            // Prevent default unhandled exception processing
+            e.Handled = true;
         }
 
         private void Sfx_MediaEnded(object sender, EventArgs e)
