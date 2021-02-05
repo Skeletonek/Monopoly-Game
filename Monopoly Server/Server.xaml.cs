@@ -90,7 +90,7 @@ namespace Monopoly_Server
             }
             else
             {
-                //Server.SendData
+                SendData(id);
             }
         }
 

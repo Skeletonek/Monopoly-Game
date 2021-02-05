@@ -469,13 +469,13 @@ namespace Monopoly
 
         private void client_Connected()
         {
-            //pause the Game
+            ConnectionStatus.Header = "Connected to server";
         }
 
         private void client_Disconnected()
         {
-            Reconnecting reconnecting = new Reconnecting();
-            reconnecting.Show();
+            ConnectionStatus.Header = "Disconnected from server. Reconnecting...";
+            client.Connect(ip, 2020, clientname);
         }
         private void btnConnectToServer_Click(object sender, RoutedEventArgs e)
         {
@@ -484,6 +484,7 @@ namespace Monopoly
             client.DataReceived += new Client.DataReceivedEventHandler(client_DataReceived);
             client.Connected += new NetComm.Client.ConnectedEventHandler(client_Connected);
             client.Disconnected += new Client.DisconnectedEventHandler(client_Disconnected);
+            ConnectionStatus.Header = "Connected to server";
         }
 
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
