@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Monopoly" version="0.6.0.10" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Monopoly.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7994368">
-      <assemblyIdentity name="Monopoly" version="0.5.2.7" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7995392">
+      <assemblyIdentity name="Monopoly" version="0.6.0.10" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PJmVD870N2UEmB6PiyzYmjpDw7BSJnOc/B+2kMkLq6s=</dsig:DigestValue>
+        <dsig:DigestValue>sEW6dCgIAMj37xZgTljSTySitjT0Ck6WhVGBZV+OBdY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,13 +66,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Monopoly.exe.config" size="186">
+  <file name="Monopoly.exe.config" size="178">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>eSEJjkfolEEv39DK/g+IzGhJd0CZjqwXxowAEpBp2AM=</dsig:DigestValue>
+      <dsig:DigestValue>LvZzxUuL38KWNfiMf+f1Q3OZeQWDuCPfr7ZnOS7PeOA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\alpha.png" size="623">
@@ -100,6 +100,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>/nNBGm5r0DUpVtPAXxbS03UM++AMzFyFFcBQMjv83YE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\BoardName.mtf" size="30">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>djqmyCEyOcIJ0hT2+BsqI8VWfStY89XX8mWkE8OpTXA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\build.wav" size="142646">

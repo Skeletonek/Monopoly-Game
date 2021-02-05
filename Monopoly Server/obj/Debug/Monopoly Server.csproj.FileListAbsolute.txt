@@ -45,3 +45,20 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CopyComplete
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb
+Z:\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe.config
+Z:\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe
+Z:\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.pdb
+Z:\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\NetComm.dll
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csprojAssemblyReference.cache
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Server.g.cs
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\App.g.cs
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.cache
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.lref
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Server.baml
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.g.resources
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly_Server.Properties.Resources.resources
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.GenerateResource.cache
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CoreCompileInputs.cache
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CopyComplete
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
+Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb

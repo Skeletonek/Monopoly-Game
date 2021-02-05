@@ -505,7 +505,7 @@
                 <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold"/>
                 <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,61,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
                 <Image x:Name="Dice1" HorizontalAlignment="Left" Height="46" Margin="8,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
-                <Image x:Name="Dice2" HorizontalAlignment="Left" Height="46" Margin="59,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
+                <Image x:Name="Dice2" HorizontalAlignment="Left" Height="46" Margin="64,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="511" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198" Grid.RowSpan="2" Grid.Row="1">

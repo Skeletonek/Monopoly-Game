@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using System.Collections.Generic;
 
 namespace Monopoly
 {
@@ -25,9 +26,11 @@ namespace Monopoly
         public static bool connectedToServer = false;
         public static int cheat = 0;
         public static bool cheat_allowTradeWindow = false;
+        public static List<string> ThemeBoards;
 
         Random rng = new Random();
         byte diceScore;
+        string currentThemeDir;
 
         public class Audio
         {
@@ -83,6 +86,7 @@ namespace Monopoly
             wait.Tick += JumpingAnimation_Tick;
             reload.Interval = TimeSpan.FromSeconds(10);
             reload.Tick += Reload_Tick;
+            ThemeBoards = GetAvailableBoards();
             InitializeComponent();
             audio.music.Open(new Uri(audio.musicfile, UriKind.Relative));
             audio.sfx.Volume = 0.5;
@@ -126,7 +130,6 @@ namespace Monopoly
                 Button_ThrowDice.IsEnabled = true;
             }
         }
-
         private void SaveGame()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -158,6 +161,25 @@ namespace Monopoly
                 sw.WriteLine(Game.dangerzone);
                 sw.Close();
             }
+        }
+        private List<string> GetAvailableBoards()
+        {
+            List<string> AvailableBoards = new List<string>();
+            DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+            DirectoryInfo[] dirs = di.GetDirectories();
+            foreach(DirectoryInfo dir in dirs)
+            {
+                FileInfo[] files = dir.GetFiles();
+                foreach(FileInfo file in files)
+                {
+                    if(file.Name == "BoardName.mtf")
+                    {
+                        AvailableBoards.Add(File.ReadAllText(file.FullName)); 
+                    }
+                }
+            }
+            return AvailableBoards;
+
         }
         // SERVER CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2646,7 +2668,7 @@ namespace Monopoly
 
         private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
         {
-            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame();
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards);
             newSingleplayerGame.ShowDialog();
             Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
             Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
