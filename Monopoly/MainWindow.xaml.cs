@@ -481,10 +481,13 @@ namespace Monopoly
         {
             ConnectionToServer connectionToServer = new ConnectionToServer();
             connectionToServer.ShowDialog();
-            client.DataReceived += new Client.DataReceivedEventHandler(client_DataReceived);
-            client.Connected += new NetComm.Client.ConnectedEventHandler(client_Connected);
-            client.Disconnected += new Client.DisconnectedEventHandler(client_Disconnected);
-            ConnectionStatus.Header = "Connected to server";
+            if (connectedToServer)
+            {
+                client.DataReceived += new Client.DataReceivedEventHandler(client_DataReceived);
+                client.Connected += new NetComm.Client.ConnectedEventHandler(client_Connected);
+                client.Disconnected += new Client.DisconnectedEventHandler(client_Disconnected);
+                ConnectionStatus.Header = "Connected to server";
+            }
         }
 
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)

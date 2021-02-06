@@ -1,6 +1,7 @@
 ﻿Beta 0.7
 - Trwają pracę nad obsługą motywów
 - Dodano obsługę crashy i tworzenia logów z błędami
+- Naprawiono crash aplikacji przy zamknięciu okna łączenia z grą sieciową
 
 Beta 0.6
 - Dodano okno "O aplikacji"

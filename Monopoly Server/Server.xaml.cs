@@ -90,6 +90,10 @@ namespace Monopoly_Server
             }
             else
             {
+                if(GameStarted)
+                {
+                    Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("YouAreLate!-0-0"));
+                }
                 SendData(id);
             }
         }

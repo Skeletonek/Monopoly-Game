@@ -63,12 +63,19 @@ namespace Monopoly
                 startgame = true;
                 this.Close();
             }
+            if (ASCIIEncoding.ASCII.GetString(Data) == "YouAreLate!-0-0")
+            {
+                startgame = true;
+                this.Close();
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!startgame)
-            { MainWindow.client.Disconnect(); }
+            if (!startgame && MainWindow.connectedToServer)
+            { 
+                MainWindow.client.Disconnect(); 
+            }
         }
     }
 }
