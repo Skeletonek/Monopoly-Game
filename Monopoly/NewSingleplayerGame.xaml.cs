@@ -8,6 +8,7 @@ namespace Monopoly
     /// </summary>
     public partial class NewSingleplayerGame : Window
     {
+        static string currentTheme;
         public NewSingleplayerGame(List<string> ThemeBoards)
         {
             InitializeComponent();
@@ -21,6 +22,11 @@ namespace Monopoly
         private void Button_Start_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ListBox_PlayboardTheme_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            currentTheme = (string)ListBox_PlayboardTheme.SelectedItem;
         }
     }
 }

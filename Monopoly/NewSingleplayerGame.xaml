@@ -17,7 +17,7 @@
         <TextBox x:Name="TextBox_Player4" HorizontalAlignment="Left" Height="23" Margin="54,106,0,0" TextWrapping="Wrap" Text="Gracz 4" VerticalAlignment="Top" Width="120"/>
         <CheckBox x:Name="CheckBox_AIActive1" Content="Aktywny" HorizontalAlignment="Left" Margin="188,78,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="CheckBox_AIActive2" Content="Aktywny" HorizontalAlignment="Left" Margin="188,109,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="ListBox_PlayboardTheme" HorizontalAlignment="Left" Height="100" Margin="293,29,0,0" VerticalAlignment="Top" Width="177" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <ListBox x:Name="ListBox_PlayboardTheme" HorizontalAlignment="Left" Height="100" Margin="293,29,0,0" VerticalAlignment="Top" Width="177" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="ListBox_PlayboardTheme_SelectionChanged"/>
         <Label Content="Ustawienia planszy:" HorizontalAlignment="Left" Margin="293,3,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Button_Start" Content="Start!" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="100" Height="30" Click="Button_Start_Click"/>
 
