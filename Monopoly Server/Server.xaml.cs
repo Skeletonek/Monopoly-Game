@@ -121,7 +121,7 @@ namespace Monopoly_Server
         void Server_DataReceived(string ID, byte[] Data)
         {
             var users = usersList;
-            string broadcast = ASCIIEncoding.ASCII.GetString(Data);
+            string broadcast = UTF8Encoding.UTF8.GetString(Data);
             string[] serverResponse = broadcast.Split(new char[] { '-' });
             if (serverResponse[0] == "a")
                 ServerLog.Text = "";

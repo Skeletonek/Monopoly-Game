@@ -1,6 +1,8 @@
 ﻿Beta 0.7
 - Trwają pracę nad obsługą motywów
 - Dodano obsługę crashy i tworzenia logów z błędami
+- Dodano opcję resynchronizacji z grą sieciową
+- Zmieniono zachowanie aplikacji przy rozłączeniu się z serwerem
 - Naprawiono crash aplikacji przy zamknięciu okna łączenia z grą sieciową
 
 Beta 0.6

@@ -205,7 +205,8 @@ namespace Monopoly
         }
         void client_DataReceived(byte[] Data, string ID)
         {
-            string response = ASCIIEncoding.ASCII.GetString(Data);
+            string response = UTF8Encoding.UTF8.GetString(Data);
+            //string response = ASCIIEncoding.ASCII.GetString(Data);
             string[] serverResponse = response.Split(new char[] { '-' });
             switch (serverResponse[0])
             {
@@ -458,7 +459,8 @@ namespace Monopoly
         {
             string data;
             data = "z-" + "0-" + text;
-            client.SendData(ASCIIEncoding.ASCII.GetBytes(data));
+            client.SendData(UTF8Encoding.UTF8.GetBytes(data));
+            //client.SendData(ASCIIEncoding.ASCII.GetBytes(data));
         }
         private void SendMoveData()
         {
