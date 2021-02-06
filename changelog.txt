@@ -2,6 +2,7 @@
 - Trwają pracę nad obsługą motywów
 - Dodano obsługę crashy i tworzenia logów z błędami
 - Dodano opcję resynchronizacji z grą sieciową
+- Usunięto przycisk "Powiększenia planszy"
 - Zmieniono zachowanie aplikacji przy rozłączeniu się z serwerem
 - Naprawiono crash aplikacji przy zamknięciu okna łączenia z grą sieciową
 

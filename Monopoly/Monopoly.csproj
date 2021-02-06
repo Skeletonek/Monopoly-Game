@@ -30,8 +30,8 @@
     <ProductName>Monopoly</ProductName>
     <PublisherName>Skeletonek</PublisherName>
     <SuiteName>Monopoly</SuiteName>
-    <ApplicationRevision>8</ApplicationRevision>
-    <ApplicationVersion>0.6.0.8</ApplicationVersion>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>0.6.1.11</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
