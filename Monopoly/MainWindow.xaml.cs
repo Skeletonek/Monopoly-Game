@@ -2725,6 +2725,10 @@ namespace Monopoly
             ImageBrush imageBrush = new ImageBrush();
             imageBrush.ImageSource = new BitmapImage(new Uri(currentThemeDir + @"\monopolyboard.jpg", UriKind.Relative));
             GameCanvas.Background = imageBrush;
+            Player1.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
+            Player2.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
+            Player3.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
+            Player4.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
         }
 
         private void ResetUI()
@@ -2734,21 +2738,25 @@ namespace Monopoly
             Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
             Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
             Player1.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
             Player1_Icon.Visibility = Visibility.Hidden;
             Label_Player1Cash.Content = "1500 $";
             Label_Player1Cash.Visibility = Visibility.Hidden;
             Label_Player1Name.Visibility = Visibility.Hidden;
             Player2.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
             Player2_Icon.Visibility = Visibility.Hidden;
             Label_Player2Cash.Content = "1500 $";
             Label_Player2Cash.Visibility = Visibility.Hidden;
             Label_Player2Name.Visibility = Visibility.Hidden;
             Player3.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
             Player3_Icon.Visibility = Visibility.Hidden;
             Label_Player3Cash.Content = "1500 $";
             Label_Player3Cash.Visibility = Visibility.Hidden;
             Label_Player3Name.Visibility = Visibility.Hidden;
             Player4.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
             Player4_Icon.Visibility = Visibility.Hidden;
             Label_Player4Cash.Content = "1500 $";
             Label_Player4Cash.Visibility = Visibility.Hidden;

@@ -315,3 +315,4 @@ Z:\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.pdb
 Z:\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\BoardName.mtf
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\BoardName.mtf
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\BoardContent.mtf
+Z:\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\BoardContent.mtf
