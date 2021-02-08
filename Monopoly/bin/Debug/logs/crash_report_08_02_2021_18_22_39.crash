@@ -1,0 +1,17 @@
+System.NullReferenceException: Odwołanie do obiektu nie zostało ustawione na wystąpienie obiektu.
+   w Monopoly.MainWindow.App_DispatcherUnhandledException(Object sender, DispatcherUnhandledExceptionEventArgs e) w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow.xaml.cs:wiersz 119
+   w System.Windows.Threading.Dispatcher.CatchException(Exception e)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+   w System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   w MS.Internal.CulturePreservingExecutionContext.CallbackWrapper(Object obj)
+   w System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   w System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   w MS.Internal.CulturePreservingExecutionContext.Run(CulturePreservingExecutionContext executionContext, ContextCallback callback, Object state)
+   w System.Windows.Threading.DispatcherOperation.Invoke()
+   w System.Windows.Threading.Dispatcher.ProcessQueue()
+   w System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   w MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   w MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   w System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace Monopoly
 {
@@ -236,13 +237,16 @@ namespace Monopoly
 
         static public void gameDataWriter()
         {
+            FileStream fs = new FileStream(MainWindow.currentThemeDir + @"\BoardContent.mtf", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+
             for (int i = 0; i < 40; i++)
             {
                 switch (i)
                 {
                     case 0:
-                        fieldName[i] = "Pole startu";
-                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldStart.jpg", UriKind.Relative));
+                        fieldName[i] = sr.ReadLine();
+                        fieldIcon[i] = new BitmapImage(new Uri(MainWindow.currentThemeDir + @"\FieldBronze1.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
                         field1Rent[i] = 0;
@@ -261,8 +265,8 @@ namespace Monopoly
                         break;
 
                     case 1:
-                        fieldName[i] = "Mediterranean Avenue";
-                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBronze1.jpg", UriKind.Relative));
+                        fieldName[i] = sr.ReadLine();
+                        fieldIcon[i] = new BitmapImage(new Uri(MainWindow.currentThemeDir + @"\FieldBronze1.jpg", UriKind.Relative));
                         fieldPrice[i] = 60;
                         fieldNoSetRent[i] = 2;
                         field1Rent[i] = 10;
@@ -281,8 +285,8 @@ namespace Monopoly
                         break;
 
                     case 2:
-                        fieldName[i] = "Kasa społeczna";
-                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldCommChest.jpg", UriKind.Relative));
+                        fieldName[i] = sr.ReadLine();
+                        fieldIcon[i] = new BitmapImage(new Uri(MainWindow.currentThemeDir + @"\FieldCommChest.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
                         field1Rent[i] = 0;
@@ -301,8 +305,8 @@ namespace Monopoly
                         break;
 
                     case 3:
-                        fieldName[i] = "Baltic Avenue";
-                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBronze2.jpg", UriKind.Relative));
+                        fieldName[i] = sr.ReadLine();
+                        fieldIcon[i] = new BitmapImage(new Uri(MainWindow.currentThemeDir + @"\FieldBronze2.jpg", UriKind.Relative));
                         fieldPrice[i] = 60;
                         fieldNoSetRent[i] = 4;
                         field1Rent[i] = 20;
@@ -321,8 +325,8 @@ namespace Monopoly
                         break;
 
                     case 4:
-                        fieldName[i] = "Podatek dochodowy";
-                        fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldTax1.jpg", UriKind.Relative));
+                        fieldName[i] = sr.ReadLine();
+                        fieldIcon[i] = new BitmapImage(new Uri(MainWindow.currentThemeDir + @"\FieldTax1.jpg", UriKind.Relative));
                         fieldPrice[i] = 200;
                         fieldNoSetRent[i] = 0;
                         field1Rent[i] = 0;
@@ -341,7 +345,7 @@ namespace Monopoly
                         break;
 
                     case 5:
-                        fieldName[i] = "Dworzec Reading";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad1.jpg", UriKind.Relative));
                         fieldPrice[i] = 200;
                         fieldNoSetRent[i] = 0;
@@ -361,7 +365,7 @@ namespace Monopoly
                         break;
 
                     case 6:
-                        fieldName[i] = "Oriental Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldLightblue1.jpg", UriKind.Relative));
                         fieldPrice[i] = 100;
                         fieldNoSetRent[i] = 6;
@@ -381,7 +385,7 @@ namespace Monopoly
                         break;
 
                     case 7:
-                        fieldName[i] = "Szansa";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldChance.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -401,7 +405,7 @@ namespace Monopoly
                         break;
 
                     case 8:
-                        fieldName[i] = "Vermont Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldLightblue2.jpg", UriKind.Relative));
                         fieldPrice[i] = 100;
                         fieldNoSetRent[i] = 6;
@@ -421,7 +425,7 @@ namespace Monopoly
                         break;
 
                     case 9:
-                        fieldName[i] = "Connecticut Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldLightblue3.jpg", UriKind.Relative));
                         fieldPrice[i] = 120;
                         fieldNoSetRent[i] = 8;
@@ -441,7 +445,7 @@ namespace Monopoly
                         break;
 
                     case 10:
-                        fieldName[i] = "Więzienie";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldPrison.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -461,7 +465,7 @@ namespace Monopoly
                         break;
 
                     case 11:
-                        fieldName[i] = "St. Charles Place";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldMagenta1.jpg", UriKind.Relative));
                         fieldPrice[i] = 140;
                         fieldNoSetRent[i] = 10;
@@ -481,7 +485,7 @@ namespace Monopoly
                         break;
 
                     case 12:
-                        fieldName[i] = "Elektrownia";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldElectric.jpg", UriKind.Relative));
                         fieldPrice[i] = 150;
                         fieldNoSetRent[i] = 0;
@@ -501,7 +505,7 @@ namespace Monopoly
                         break;
 
                     case 13:
-                        fieldName[i] = "States Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldMagenta2.jpg", UriKind.Relative));
                         fieldPrice[i] = 140;
                         fieldNoSetRent[i] = 10;
@@ -521,7 +525,7 @@ namespace Monopoly
                         break;
 
                     case 14:
-                        fieldName[i] = "Virginia Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldMagenta3.jpg", UriKind.Relative));
                         fieldPrice[i] = 160;
                         fieldNoSetRent[i] = 12;
@@ -541,7 +545,7 @@ namespace Monopoly
                         break;
 
                     case 15:
-                        fieldName[i] = "Dworzec Pennsylvania";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad2.jpg", UriKind.Relative));
                         fieldPrice[i] = 200;
                         fieldNoSetRent[i] = 0;
@@ -561,7 +565,7 @@ namespace Monopoly
                         break;
 
                     case 16:
-                        fieldName[i] = "St. James Place";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldOrange1.jpg", UriKind.Relative));
                         fieldPrice[i] = 180;
                         fieldNoSetRent[i] = 14;
@@ -581,7 +585,7 @@ namespace Monopoly
                         break;
 
                     case 17:
-                        fieldName[i] = "Kasa społeczna";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldCommChest.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -601,7 +605,7 @@ namespace Monopoly
                         break;
 
                     case 18:
-                        fieldName[i] = "Tennesse Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldOrange2.jpg", UriKind.Relative));
                         fieldPrice[i] = 180;
                         fieldNoSetRent[i] = 14;
@@ -621,7 +625,7 @@ namespace Monopoly
                         break;
 
                     case 19:
-                        fieldName[i] = "New York Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldOrange3.jpg", UriKind.Relative));
                         fieldPrice[i] = 200;
                         fieldNoSetRent[i] = 16;
@@ -641,7 +645,7 @@ namespace Monopoly
                         break;
 
                     case 20:
-                        fieldName[i] = "Bezpłatny parking";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldParkingLot.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -661,7 +665,7 @@ namespace Monopoly
                         break;
 
                     case 21:
-                        fieldName[i] = "Kentucky Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRed1.jpg", UriKind.Relative));
                         fieldPrice[i] = 220;
                         fieldNoSetRent[i] = 18;
@@ -681,7 +685,7 @@ namespace Monopoly
                         break;
 
                     case 22:
-                        fieldName[i] = "Szansa";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldChance.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -701,7 +705,7 @@ namespace Monopoly
                         break;
 
                     case 23:
-                        fieldName[i] = "Indiana Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRed2.jpg", UriKind.Relative));
                         fieldPrice[i] = 220;
                         fieldNoSetRent[i] = 18;
@@ -721,7 +725,7 @@ namespace Monopoly
                         break;
 
                     case 24:
-                        fieldName[i] = "Illinois Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRed3.jpg", UriKind.Relative));
                         fieldPrice[i] = 240;
                         fieldNoSetRent[i] = 20;
@@ -741,7 +745,7 @@ namespace Monopoly
                         break;
 
                     case 25:
-                        fieldName[i] = "Dworzec B. & O.";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad3.jpg", UriKind.Relative));
                         fieldPrice[i] = 200;
                         fieldNoSetRent[i] = 0;
@@ -761,7 +765,7 @@ namespace Monopoly
                         break;
 
                     case 26:
-                        fieldName[i] = "Atlantic Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldYellow1.jpg", UriKind.Relative));
                         fieldPrice[i] = 260;
                         fieldNoSetRent[i] = 22;
@@ -781,7 +785,7 @@ namespace Monopoly
                         break;
 
                     case 27:
-                        fieldName[i] = "Ventnor Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldYellow2.jpg", UriKind.Relative));
                         fieldPrice[i] = 260;
                         fieldNoSetRent[i] = 22;
@@ -801,7 +805,7 @@ namespace Monopoly
                         break;
 
                     case 28:
-                        fieldName[i] = "Wodociągi";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldWaterworks.jpg", UriKind.Relative));
                         fieldPrice[i] = 150;
                         fieldNoSetRent[i] = 0;
@@ -821,7 +825,7 @@ namespace Monopoly
                         break;
 
                     case 29:
-                        fieldName[i] = "Marvin Gardens";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldYellow3.jpg", UriKind.Relative));
                         fieldPrice[i] = 280;
                         fieldNoSetRent[i] = 24;
@@ -841,7 +845,7 @@ namespace Monopoly
                         break;
 
                     case 30:
-                        fieldName[i] = "Idź do więzienia!";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGoToJail.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -861,7 +865,7 @@ namespace Monopoly
                         break;
 
                     case 31:
-                        fieldName[i] = "Pacific Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGreen1.jpg", UriKind.Relative));
                         fieldPrice[i] = 300;
                         fieldNoSetRent[i] = 26;
@@ -881,7 +885,7 @@ namespace Monopoly
                         break;
 
                     case 32:
-                        fieldName[i] = "North Carolina Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGreen2.jpg", UriKind.Relative));
                         fieldPrice[i] = 300;
                         fieldNoSetRent[i] = 26;
@@ -901,7 +905,7 @@ namespace Monopoly
                         break;
 
                     case 33:
-                        fieldName[i] = "Kasa społeczna";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldCommChest.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -921,7 +925,7 @@ namespace Monopoly
                         break;
 
                     case 34:
-                        fieldName[i] = "Pennsylvania Avenue";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldGreen3.jpg", UriKind.Relative));
                         fieldPrice[i] = 320;
                         fieldNoSetRent[i] = 28;
@@ -941,7 +945,7 @@ namespace Monopoly
                         break;
 
                     case 35:
-                        fieldName[i] = "Dworzec ShortLine";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldRailroad4.jpg", UriKind.Relative));
                         fieldPrice[i] = 200;
                         fieldNoSetRent[i] = 0;
@@ -961,7 +965,7 @@ namespace Monopoly
                         break;
 
                     case 36:
-                        fieldName[i] = "Szansa";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldChance.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -981,7 +985,7 @@ namespace Monopoly
                         break;
 
                     case 37:
-                        fieldName[i] = "Park Place";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBlue1.jpg", UriKind.Relative));
                         fieldPrice[i] = 350;
                         fieldNoSetRent[i] = 35;
@@ -1001,7 +1005,7 @@ namespace Monopoly
                         break;
 
                     case 38:
-                        fieldName[i] = "Podatek luksusowy";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldTax2.jpg", UriKind.Relative));
                         fieldPrice[i] = 0;
                         fieldNoSetRent[i] = 0;
@@ -1021,7 +1025,7 @@ namespace Monopoly
                         break;
 
                     case 39:
-                        fieldName[i] = "Boardwalk";
+                        fieldName[i] = sr.ReadLine();
                         fieldIcon[i] = new BitmapImage(new Uri(@"\Resources\FieldBlue2.jpg", UriKind.Relative));
                         fieldPrice[i] = 400;
                         fieldNoSetRent[i] = 50;

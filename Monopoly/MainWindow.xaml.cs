@@ -30,7 +30,8 @@ namespace Monopoly
 
         Random rng = new Random();
         byte diceScore;
-        string currentThemeDir;
+        string playboardTheme = "Monopoly Standard";
+        public static string currentThemeDir = "Resources";
 
         public class Audio
         {
@@ -115,6 +116,7 @@ namespace Monopoly
             MessageBox.Show("Crash! Unhandled exception occured.\nCrash report saved to file:\n" + fs.Name, "Boom!", MessageBoxButton.OK, MessageBoxImage.Error);
             // Prevent default unhandled exception processing
             e.Handled = true;
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void Sfx_MediaEnded(object sender, EventArgs e)
@@ -195,8 +197,19 @@ namespace Monopoly
                 }
             }
             return AvailableBoards;
-
         }
+        private void LoadCurrentThemeDir()
+        {
+            foreach(string x in ThemeBoards)
+            {
+                string[] splittedText = x.Split(';');
+                if(splittedText[0] == playboardTheme)
+                {
+                    currentThemeDir = splittedText[1];
+                }
+            }
+        }
+
         // SERVER CODE
         // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         private void Reload_Tick(object sender, EventArgs e)
@@ -2055,19 +2068,19 @@ namespace Monopoly
             switch (status)
             {
                 case 0:
-                    return new BitmapImage(new Uri(@"Resources\BlueField.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\BlueField.png", UriKind.Relative));
 
                 case 1:
-                    return new BitmapImage(new Uri(@"Resources\GreenField.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\GreenField.png", UriKind.Relative));
 
                 case 2:
-                    return new BitmapImage(new Uri(@"Resources\YellowField.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\YellowField.png", UriKind.Relative));
 
                 case 3:
-                    return new BitmapImage(new Uri(@"Resources\RedField.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\RedField.png", UriKind.Relative));
 
                 case 4:
-                    return new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\NoAlpha.png", UriKind.Relative));
             }
             return null;
         }
@@ -2171,17 +2184,17 @@ namespace Monopoly
             switch (status)
             {
                 case 0:
-                    return new BitmapImage(new Uri(@"Resources\NoAlpha.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\NoAlpha.png", UriKind.Relative));
                 case 1:
-                    return new BitmapImage(new Uri(@"Resources\House1.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\House1.png", UriKind.Relative));
                 case 2:
-                    return new BitmapImage(new Uri(@"Resources\House2.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\House2.png", UriKind.Relative));
                 case 3:
-                    return new BitmapImage(new Uri(@"Resources\House3.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\House3.png", UriKind.Relative));
                 case 4:
-                    return new BitmapImage(new Uri(@"Resources\House4.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\House4.png", UriKind.Relative));
                 case 5:
-                    return new BitmapImage(new Uri(@"Resources\Trivago.png", UriKind.Relative));
+                    return new BitmapImage(new Uri(currentThemeDir + @"\Trivago.png", UriKind.Relative));
             }
             return null;
         }
@@ -2701,9 +2714,19 @@ namespace Monopoly
             Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
             Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
             Game.multiplayer = false;
-            //Game.playboardTheme = newSinglePlayerGame.ListBox_PlayboardTheme.SelectedIndex;
+            playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
+            LoadTheme();
             StartNewGame();
         }
+
+        private void LoadTheme()
+        {
+            LoadCurrentThemeDir();
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri(currentThemeDir + @"\monopolyboard.jpg", UriKind.Relative));
+            GameCanvas.Background = imageBrush;
+        }
+
         private void ResetUI()
         {
             int xcord;

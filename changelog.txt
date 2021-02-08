@@ -1,4 +1,4 @@
-﻿Beta 0.7
+﻿Beta 0.6.1
 - Trwają pracę nad obsługą motywów
 - Dodano obsługę crashy i tworzenia logów z błędami
 - Dodano opcję resynchronizacji z grą sieciową

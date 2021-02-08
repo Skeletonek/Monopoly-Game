@@ -1,0 +1,7 @@
+System.NullReferenceException: Odwołanie do obiektu nie zostało ustawione na wystąpienie obiektu.
+   w Monopoly.MainWindow.btnSendMessage_Click(Object sender, RoutedEventArgs e) w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow.xaml.cs:wiersz 498
+   w System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   w System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   w System.Windows.Controls.MenuItem.InvokeClickAfterRender(Object arg)
+   w System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)

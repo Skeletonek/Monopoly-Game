@@ -1,0 +1,17 @@
+System.IO.IOException: Nie można zlokalizować zasobu „theme_jackopoly/fieldstart.jpg”.
+   w MS.Internal.AppModel.ResourcePart.GetStreamCore(FileMode mode, FileAccess access)
+   w System.IO.Packaging.PackagePart.GetStream(FileMode mode, FileAccess access)
+   w System.IO.Packaging.PackWebResponse.CachedResponse.GetResponseStream()
+   w System.IO.Packaging.PackWebResponse.get_ContentType()
+   w System.Windows.Media.Imaging.BitmapDecoder.SetupDecoderFromUriOrStream(Uri uri, Stream stream, BitmapCacheOption cacheOption, Guid& clsId, Boolean& isOriginalWritable, Stream& uriStream, UnmanagedMemoryStream& unmanagedMemoryStream, SafeFileHandle& safeFilehandle)
+   w System.Windows.Media.Imaging.BitmapDecoder.CreateFromUriOrStream(Uri baseUri, Uri uri, Stream stream, BitmapCreateOptions createOptions, BitmapCacheOption cacheOption, RequestCachePolicy uriCachePolicy, Boolean insertInDecoderCache)
+   w System.Windows.Media.Imaging.BitmapImage.FinalizeCreation()
+   w System.Windows.Media.Imaging.BitmapImage.EndInit()
+   w Monopoly.BoardData.gameDataWriter() w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\BoardLocations.cs:wiersz 249
+   w Monopoly.MainWindow.StartNewGame() w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow.xaml.cs:wiersz 578
+   w Monopoly.MainWindow.MenuItem_StartNewSingle(Object sender, RoutedEventArgs e) w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow.xaml.cs:wiersz 2721
+   w System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   w System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   w System.Windows.Controls.MenuItem.InvokeClickAfterRender(Object arg)
+   w System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)

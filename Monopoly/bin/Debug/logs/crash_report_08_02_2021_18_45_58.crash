@@ -1,0 +1,14 @@
+System.Windows.Markup.XamlParseException: Wywołanie konstruktora dla typu „Monopoly.MainWindow” zgodnego z określonymi ograniczeniami wiązania spowodowało wyjątek., numer wiersza 6, pozycja 9. ---> System.UriFormatException: Nie można utworzyć względnego identyfikatora URI, ponieważ parametr 'uriString' jest bezwzględnym identyfikatorem URI.
+   w System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   w Monopoly.BoardData.gameDataWriter() w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\BoardLocations.cs:wiersz 309
+   w Monopoly.MainWindow..ctor() w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow.xaml.cs:wiersz 86
+   --- Koniec śladu stosu wyjątków wewnętrznych ---
+   w System.Windows.Markup.XamlReader.RewrapException(Exception e, IXamlLineInfo lineInfo, Uri baseUri)
+   w System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   w System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   w System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   w System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   w System.Windows.Application.DoStartup()
+   w System.Windows.Application.<.ctor>b__1_0(Object unused)
+   w System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
