@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6q1OG4+ujzFnlx0mYbJCYxs+iw62cJZ+NhjkkOUQ3BI=</dsig:DigestValue>
+        <dsig:DigestValue>3Em6eIzk4J6UXwb76YG4Ta21iy5Lcg5QP/ghDIgUeeU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -135,7 +135,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>r3/bJsPxjjJCAnpBt71QfPSuC9elJtD43i4HFr0o1L8=</dsig:DigestValue>
+      <dsig:DigestValue>APZQ7ZWINZcpsv7Np/2dBbGmsOhBRO2JRlPWHKK8SiM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\destroy.wav" size="720490">

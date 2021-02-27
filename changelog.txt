@@ -1,10 +1,11 @@
 ﻿Beta 0.6.1
-- Trwają pracę nad obsługą motywów
+- Dodano obsługę motywów gry
 - Dodano obsługę crashy i tworzenia logów z błędami
 - Dodano opcję resynchronizacji z grą sieciową
 - Usunięto przycisk "Powiększenia planszy"
 - Zmieniono zachowanie aplikacji przy rozłączeniu się z serwerem
 - Naprawiono crash aplikacji przy zamknięciu okna łączenia z grą sieciową
+- Zmniejszono głośność dźwięku nowej tury
 
 Beta 0.6
 - Dodano okno "O aplikacji"

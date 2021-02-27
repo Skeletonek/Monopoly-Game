@@ -113,6 +113,7 @@ namespace Monopoly_Server
                 foreach (string user in users)
                 {
                     Server.Brodcast(ASCIIEncoding.ASCII.GetBytes(user));
+                    Server.SendData(id, ASCIIEncoding.ASCII.GetBytes("+-" + "0" + "-" + "0"));
                 }
                 Server.Brodcast(ASCIIEncoding.ASCII.GetBytes("EndCommunication"));
             }
