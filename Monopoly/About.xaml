@@ -24,7 +24,7 @@
     </Hyperlink>
         </TextBlock>
         <Label Content="Beta - 0.6.1" HorizontalAlignment="Left" Margin="175,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="06.02.2021" HorizontalAlignment="Left" Margin="225,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="27.02.2021" HorizontalAlignment="Left" Margin="225,67,0,0" VerticalAlignment="Top"/>
         <Label Content="Skeletonek" HorizontalAlignment="Left" Margin="173,93,0,0" VerticalAlignment="Top"/>
         <Label Content="Część grafik należy do: Hasbro, Inc." HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" FontSize="10" FontWeight="Bold"/>
 

@@ -6,6 +6,7 @@
 - Zmieniono zachowanie aplikacji przy rozłączeniu się z serwerem
 - Naprawiono crash aplikacji przy zamknięciu okna łączenia z grą sieciową
 - Zmniejszono głośność dźwięku nowej tury
+- Dodano więcej efektów dźwiękowych
 
 Beta 0.6
 - Dodano okno "O aplikacji"

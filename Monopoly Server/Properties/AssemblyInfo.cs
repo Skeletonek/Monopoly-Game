@@ -51,5 +51,5 @@ using System.Windows;
 // Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.6.1.10206")]
-[assembly: AssemblyFileVersion("0.6.1.10206")]
+[assembly: AssemblyVersion("0.6.1.10227")]
+[assembly: AssemblyFileVersion("0.6.1.10227")]
