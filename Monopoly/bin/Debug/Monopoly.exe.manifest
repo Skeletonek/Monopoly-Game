@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7996416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7997440">
       <assemblyIdentity name="Monopoly" version="0.6.1.11" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3Em6eIzk4J6UXwb76YG4Ta21iy5Lcg5QP/ghDIgUeeU=</dsig:DigestValue>
+        <dsig:DigestValue>dQ/NOWgRVPwXdKZFPWnGBUKoJXOg5T6US9rC8ssL6Xo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -144,7 +144,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>bOchnAOL7kjjr+LpyyuLBj1EOumt42lxTxK2GyJYQQA=</dsig:DigestValue>
+      <dsig:DigestValue>cdQg84bM9GRw9DhPkOWLb+Yk44VlYwUeR6XoqYS+m0A=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\dice_1.png" size="2936">

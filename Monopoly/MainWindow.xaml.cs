@@ -729,6 +729,11 @@ namespace Monopoly
             Button_ThrowDice.IsEnabled = true;
             Game.sellmode = true;
             Button_MouseMode.Content = "Tryb sprzedawania ulic";
+            if (audio.active)
+            {
+                audio.sfx.Open(new Uri(@"Resources\incorrect.wav", UriKind.Relative));
+                audio.sfx.Play();
+            }
             if (Game.turn == Game.clientplayer)
                 MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
             Game.dangerzone = true;
@@ -1432,6 +1437,11 @@ namespace Monopoly
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.fieldPrice[currentPlayerLocation];
                 Game.fieldOwner[currentPlayerLocation] = Game.turn;
                 DrawOwner(currentPlayerLocation, Game.turn);
+                if (audio.active)
+                {
+                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
+                    audio.sfx.Play();
+                }
                 return true;
             }
             else
@@ -1446,6 +1456,11 @@ namespace Monopoly
             {
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - rent;
                 Game.playercash[Game.fieldOwner[currentPlayerLocation]] = Game.playercash[Game.fieldOwner[currentPlayerLocation]] + rent;
+                if (audio.active)
+                {
+                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
+                    audio.sfx.Play();
+                }
                 return true;
             }
             else
@@ -1459,6 +1474,11 @@ namespace Monopoly
             {
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.fieldTaxCost[currentPlayerLocation];
                 Game.taxmoney = Game.taxmoney + BoardData.fieldTaxCost[currentPlayerLocation];
+                if (audio.active)
+                {
+                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
+                    audio.sfx.Play();
+                }
                 return true;
             }
             else
@@ -1536,6 +1556,11 @@ namespace Monopoly
             {
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - calculatedMoney;
                 Game.playercash[Game.fieldOwner[currentPlayerLocation]] = Game.playercash[Game.fieldOwner[currentPlayerLocation]] + calculatedMoney;
+                if (audio.active)
+                {
+                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
+                    audio.sfx.Play();
+                }
                 return true;
             }
             else
@@ -1625,6 +1650,11 @@ namespace Monopoly
         private void buyHouse2(byte selectedField)
         {
             Game.fieldHouse[selectedField]++;
+            if (audio.active)
+            {
+                audio.sfx.Open(new Uri(@"Resources\build.wav", UriKind.Relative));
+                audio.sfx.Play();
+            }
             GameLog.Text += Game.playername[Game.clientplayer] + " kupuje budynek w dzielnicy " + BoardData.fieldName[Game.selectedField] + Environment.NewLine + Environment.NewLine;
             if (Game.multiplayer)
             {
@@ -1726,6 +1756,11 @@ namespace Monopoly
         private void sellHouse2(byte selectedField)
         {
             Game.fieldHouse[selectedField]--;
+            if (audio.active)
+            {
+                audio.sfx.Open(new Uri(@"Resources\destroy.wav", UriKind.Relative));
+                audio.sfx.Play();
+            }
             GameLog.Text += Game.playername[Game.clientplayer] + " sprzedaje budynek w dzielnicy " + BoardData.fieldName[Game.selectedField] + Environment.NewLine + Environment.NewLine;
             if (Game.multiplayer)
             {
