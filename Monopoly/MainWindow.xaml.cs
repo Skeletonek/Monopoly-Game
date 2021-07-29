@@ -695,11 +695,7 @@ namespace Monopoly
             Button_ThrowDice.IsEnabled = true;
             Game.sellmode = true;
             Button_MouseMode.Content = "Tryb sprzedawania ulic";
-            if (audio.active)
-            {
-                audio.sfx.Open(new Uri(@"Resources\incorrect.wav", UriKind.Relative));
-                audio.sfx.Play();
-            }
+            audio.playSFX("incorrect");
             if (Game.turn == Game.clientplayer)
                 MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
             Game.dangerzone = true;
@@ -731,11 +727,7 @@ namespace Monopoly
                 //if(!Game.multiplayer)
                 //Button_Trade.IsEnabled = true;
                 GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
-                if (audio.active)
-                {
-                    audio.sfx.Open(new Uri(@"Resources\correct.wav", UriKind.Relative));
-                    audio.sfx.Play();
-                }
+                audio.playSFX("correct");
             }
             else
             {
@@ -1403,11 +1395,7 @@ namespace Monopoly
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.fieldPrice[currentPlayerLocation];
                 Game.fieldOwner[currentPlayerLocation] = Game.turn;
                 DrawOwner(currentPlayerLocation, Game.turn);
-                if (audio.active)
-                {
-                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
-                    audio.sfx.Play();
-                }
+                audio.playSFX("money");
                 return true;
             }
             else
@@ -1422,11 +1410,7 @@ namespace Monopoly
             {
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - rent;
                 Game.playercash[Game.fieldOwner[currentPlayerLocation]] = Game.playercash[Game.fieldOwner[currentPlayerLocation]] + rent;
-                if (audio.active)
-                {
-                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
-                    audio.sfx.Play();
-                }
+                audio.playSFX("money");
                 return true;
             }
             else
@@ -1440,11 +1424,7 @@ namespace Monopoly
             {
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.fieldTaxCost[currentPlayerLocation];
                 Game.taxmoney = Game.taxmoney + BoardData.fieldTaxCost[currentPlayerLocation];
-                if (audio.active)
-                {
-                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
-                    audio.sfx.Play();
-                }
+                audio.playSFX("money");
                 return true;
             }
             else
@@ -1475,7 +1455,7 @@ namespace Monopoly
             else
             {
                 MessageBox.Show("Błąd związany z kartą szansy! Dalsza gra może zawierać błędy! Zrestartuj aplikację i zgłoś błąd twórcy!", "Ups...", MessageBoxButton.OK, MessageBoxImage.Error);
-                throw new System.InvalidOperationException("Błąd związany z kartą szansy! Dalsza gra może zawierać błędy! Zrestartuj aplikację i zgłoś błąd twórcy!");
+                throw new System.Exception("Błąd związany z kartą szansy! Dalsza gra może zawierać błędy! Zrestartuj aplikację i zgłoś błąd twórcy!");
             }
         }
 
@@ -1522,11 +1502,7 @@ namespace Monopoly
             {
                 Game.playercash[Game.turn] = Game.playercash[Game.turn] - calculatedMoney;
                 Game.playercash[Game.fieldOwner[currentPlayerLocation]] = Game.playercash[Game.fieldOwner[currentPlayerLocation]] + calculatedMoney;
-                if (audio.active)
-                {
-                    audio.sfx.Open(new Uri(@"Resources\money.wav", UriKind.Relative));
-                    audio.sfx.Play();
-                }
+                audio.playSFX("money");
                 return true;
             }
             else
@@ -1616,11 +1592,7 @@ namespace Monopoly
         private void buyHouse2(byte selectedField)
         {
             Game.fieldHouse[selectedField]++;
-            if (audio.active)
-            {
-                audio.sfx.Open(new Uri(@"Resources\build.wav", UriKind.Relative));
-                audio.sfx.Play();
-            }
+            audio.playSFX("build");
             GameLog.Text += Game.playername[Game.clientplayer] + " kupuje budynek w dzielnicy " + BoardData.fieldName[Game.selectedField] + Environment.NewLine + Environment.NewLine;
             if (Game.multiplayer)
             {
@@ -1722,11 +1694,7 @@ namespace Monopoly
         private void sellHouse2(byte selectedField)
         {
             Game.fieldHouse[selectedField]--;
-            if (audio.active)
-            {
-                audio.sfx.Open(new Uri(@"Resources\destroy.wav", UriKind.Relative));
-                audio.sfx.Play();
-            }
+            audio.playSFX("destroy");
             GameLog.Text += Game.playername[Game.clientplayer] + " sprzedaje budynek w dzielnicy " + BoardData.fieldName[Game.selectedField] + Environment.NewLine + Environment.NewLine;
             if (Game.multiplayer)
             {

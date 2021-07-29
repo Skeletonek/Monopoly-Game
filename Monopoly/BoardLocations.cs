@@ -6,7 +6,7 @@ namespace Monopoly
 {
     class BoardLocations
     {
-        int[] playerLocationX_DB = new int[41]
+        static int[] playerLocationX_DB = new int[41]
             {
             559,
             507,
@@ -50,7 +50,7 @@ namespace Monopoly
             580,
             30
             };
-        int[] playerLocationY_DB = new int[41]
+        static int[] playerLocationY_DB = new int[41]
         {
             583,
             583,
@@ -94,7 +94,7 @@ namespace Monopoly
             506,
             561
         };
-        int[] houseLocationX_DB = new int[41]
+        static int[] houseLocationX_DB = new int[41]
             {
             559,
             507,
@@ -138,7 +138,7 @@ namespace Monopoly
             580,
             30
             };
-        int[] houseLocationY_DB = new int[41]
+        static int[] houseLocationY_DB = new int[41]
         {
             560,
             560,

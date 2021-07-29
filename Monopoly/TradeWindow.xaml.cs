@@ -32,9 +32,9 @@ namespace Monopoly
         }
         private void CheckFieldOwners()
         {
-            for (int fieldOwnerIteration = 0; fieldOwnerIteration < MainWindow.Game.fieldOwner.Length; fieldOwnerIteration++)
+            for (int fieldOwnerIteration = 0; fieldOwnerIteration < Game.fieldOwner.Length; fieldOwnerIteration++)
             {
-                switch (MainWindow.Game.fieldOwner[fieldOwnerIteration])
+                switch (Game.fieldOwner[fieldOwnerIteration])
                 {
                     case 0:
                         Player1OwnedFields.Add((byte)fieldOwnerIteration);
@@ -89,11 +89,11 @@ namespace Monopoly
         {
             foreach(string x in List_ClientPlayer.Items)
             {
-                MainWindow.Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = playerTrading;
+                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = playerTrading;
             }
             foreach (string x in List_SecondPlayer.Items)
             {
-                MainWindow.Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
+                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
             }
         }
     }

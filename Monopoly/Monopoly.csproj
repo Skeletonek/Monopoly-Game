@@ -119,8 +119,6 @@
     <Compile Include="Reconnecting.xaml.cs">
       <DependentUpon>Reconnecting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Server.cs" />
-    <Compile Include="ServerCode.cs" />
     <Compile Include="TradeWindow.xaml.cs">
       <DependentUpon>TradeWindow.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,7 @@
-﻿Beta 0.6.1
+﻿Beta 0.6.2
+- Optymalizacja kodu
+
+Beta 0.6.1
 - Dodano obsługę motywów gry
 - Dodano obsługę crashy i tworzenia logów z błędami
 - Dodano opcję resynchronizacji z grą sieciową
