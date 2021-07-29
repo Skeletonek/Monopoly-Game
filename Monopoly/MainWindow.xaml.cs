@@ -59,8 +59,7 @@ namespace Monopoly
             audio.music.Open(new Uri(audio.musicfile, UriKind.Relative));
             audio.sfx.Volume = 0.5;
             audio.music.Volume = audio.sfx.Volume / 2;
-            if (audio.active)
-                audio.music.Play();
+            audio.playMusic();
             audio.music.MediaEnded += Sfx_MediaEnded;
         }
 

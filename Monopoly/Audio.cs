@@ -23,5 +23,12 @@ namespace Monopoly
                 sfx.Play();
             }
         }
+
+        public void playMusic()
+        {
+            if (active)
+            {
+                music.Play();
+            }
     }
 }
