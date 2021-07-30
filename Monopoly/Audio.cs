@@ -30,5 +30,6 @@ namespace Monopoly
             {
                 music.Play();
             }
+        }
     }
 }
