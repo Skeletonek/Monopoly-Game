@@ -314,9 +314,12 @@ namespace Monopoly
             if (diceScore > 0)
             {
                 Game.playerlocation[Game.turn]++;
-                Game.fieldPlayers[Game.playerlocation[Game.turn] - 1]--;
-                Game.fieldPlayers[Game.playerlocation[Game.turn]]++;
-                if (Game.playerlocation[Game.turn] >= 40)
+                if (Game.playerlocation[Game.turn] < 40)
+                {
+                    Game.fieldPlayers[Game.playerlocation[Game.turn] - 1]--;
+                    Game.fieldPlayers[Game.playerlocation[Game.turn]]++; //This is crashing multiplayer after exiting prison.
+                }
+                else// if (Game.playerlocation[Game.turn] >= 40)
                 {
                     Game.fieldPlayers[40]--;
                     Game.fieldPlayers[0]++;

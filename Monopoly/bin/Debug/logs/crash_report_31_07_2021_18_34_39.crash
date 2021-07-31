@@ -1,0 +1,5 @@
+System.IndexOutOfRangeException: Indeks wykraczał poza granice tablicy.
+   w Monopoly.MainWindow.JumpingAnimation_Tick(Object sender, EventArgs e) w C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow_GameCode.cs:wiersz 318
+   w System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   w System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
