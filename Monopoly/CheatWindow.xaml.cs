@@ -24,5 +24,11 @@ namespace Monopoly
             MainWindow.cheat_allowTradeWindow = true;
             this.Close();
         }
+
+        private void ButtonText_Click_Money(object sender, RoutedEventArgs e)
+        {
+            Game.playercash[Game.clientplayer] += Convert.ToInt32(TextBoxCheat_Money.Text);
+            this.Close();
+        }
     }
 }

@@ -2739,6 +2739,12 @@ namespace Monopoly
             Canvas.SetTop(Player3, ycord);
             Canvas.SetLeft(Player3, xcord);
             Canvas.SetTop(Player3, ycord);
+            for(byte i = 1; i<40; i++)
+            {
+                DrawOwner(i, Game.fieldOwner[i]);
+                DrawHouses(i, Game.fieldHouse[i]);
+            }
+
         }
         private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
         {

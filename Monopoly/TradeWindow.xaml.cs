@@ -59,16 +59,6 @@ namespace Monopoly
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            playerTrading = 1;
-            FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player2OwnedFields)
-            {
-                FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!List_ClientPlayer.Items.Contains(FieldsComboBox_ClientPlayer.SelectedItem))
@@ -94,6 +84,34 @@ namespace Monopoly
             foreach (string x in List_SecondPlayer.Items)
             {
                 Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
+            }
+        }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            playerTrading = 1;
+            FieldsComboBox_SecondPlayer.Items.Clear();
+            foreach (byte x in Player2OwnedFields)
+            {
+                FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
+            }
+        }
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            playerTrading = 2;
+            FieldsComboBox_SecondPlayer.Items.Clear();
+            foreach (byte x in Player3OwnedFields)
+            {
+                FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
+            }
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            playerTrading = 3;
+            FieldsComboBox_SecondPlayer.Items.Clear();
+            foreach (byte x in Player4OwnedFields)
+            {
+                FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
         }
     }

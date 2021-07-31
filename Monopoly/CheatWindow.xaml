@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="CheatWindow" Height="156.831" Width="282.377" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True">
+        Title="CheatWindow" Height="225.831" Width="282.377" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid>
         <Label Content="Ty mały oszuście!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBoxCheat" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Podaj wartość o ile pól chcesz się przenieść do przodu"/>
         <Button x:Name="ButtonText" Content="Idź!" HorizontalAlignment="Left" Margin="179,41,0,0" VerticalAlignment="Top" Width="75" Click="ButtonText_Click"/>
-        <Button Content="Włącz okno handlu" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="254" Click="Button_Click"/>
+        <Button Content="Włącz okno handlu" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="254" Click="Button_Click"/>
+        <TextBox x:Name="TextBoxCheat_Money" HorizontalAlignment="Left" Height="23" Margin="10,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Podaj wartość o ile pól chcesz się przenieść do przodu"/>
+        <Button x:Name="ButtonText_Money" Content="Dodaj pieniądze" HorizontalAlignment="Left" Margin="151,69,0,0" VerticalAlignment="Top" Width="103" Click="ButtonText_Click_Money"/>
 
     </Grid>
 </Window>

@@ -10,5 +10,10 @@ namespace Monopoly
     {
         public byte[] morales = new byte[3] { 5, 5, 5 };
         public byte[] moraleTowardsPlayer = new byte[3] { 5, 5, 5 };
+
+        public void SwitchFunctionAccordingToBoardPosition()
+        {
+
+        }
     }
 }

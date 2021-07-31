@@ -10,8 +10,8 @@
         <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="792">
             <Label Content="Wybierz gracza do handlu: " Height="22" FontSize="11"/>
             <MenuItem Header="Player 2" Click="MenuItem_Click"/>
-            <MenuItem Header="Player 3"/>
-            <MenuItem Header="Player 4"/>
+            <MenuItem Header="Player 3" Click="MenuItem_Click_1"/>
+            <MenuItem Header="Player 4" Click="MenuItem_Click_2"/>
         </Menu>
         <GroupBox x:Name="GroupBox_TradeLeft" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="10,27,0,0" VerticalAlignment="Top" Width="383">
             <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363">
