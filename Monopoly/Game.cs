@@ -21,6 +21,7 @@ namespace Monopoly
         static public bool clientCanThrowDice = false;
         static public bool clientCanEndTurn = false;
         static public byte turn = 0;
+        static public byte faze = 0;
         static public byte dice1;
         static public byte dice2;
         static public byte selectedField = 0;

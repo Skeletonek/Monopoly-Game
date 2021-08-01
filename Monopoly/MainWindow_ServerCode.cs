@@ -92,7 +92,7 @@ namespace Monopoly
                         if (Game.turn == Game.clientplayer && Game.playerArrestedTurns[Game.clientplayer] == 0)
                         {
                             if (Game.playerBankrupt[Game.turn] == false)
-                                EnableMove();
+                                GameCoordinator();
                             else
                             {
                                 Game.turn++;
@@ -101,7 +101,7 @@ namespace Monopoly
                         }
                         else if (Game.turn == Game.clientplayer && Game.playerArrestedTurns[Game.turn] != 0)
                         {
-                            DisableMove();
+                            GameCoordinator();
                         }
                     }
                     catch

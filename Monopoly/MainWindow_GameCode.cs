@@ -58,6 +58,77 @@ namespace Monopoly
             audio.music.Stop();
             RefreshUI();
         }
+
+        private void CallClient()
+        {
+            switch(FazeCoordinator())
+            {
+                case 1:
+                    GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
+                    audio.playSFX("correct");
+                    Game.clientCanThrowDice = true;
+                    RefreshDiceUI();
+                    break;
+
+                case 2:
+                    Game.clientCanEndTurn = true;
+                    RefreshDiceUI();
+                    break;
+
+            }
+        }
+        private void CallAI()
+        {
+            switch (FazeCoordinator())
+            {
+                case 1:
+                    GameCoordinator();
+                    break;
+
+                case 2:
+                    GameCoordinator();
+                    break;
+
+            }
+        }
+        private void GameCoordinator()
+        {
+            if(Game.turn == Game.clientplayer)
+            {
+                CallClient();
+            }    
+            else if(!Game.multiplayer)
+            {
+                CallAI();
+            }
+        }
+        private sbyte FazeCoordinator()
+        {
+            switch (Game.faze)
+            {
+                case 0:
+                    if (Game.playerArrestedTurns[Game.turn] == 0)
+                        return 1; //Can Throw Dice
+                    else
+                        return 2; //Can do something else
+
+                case 1:
+                    ThrowDice();
+                    wait.Start(); //Start moving
+                    FieldCheck();
+                    return 2; //Can do something else
+
+                case 2:
+                    Game.turn++;
+                    Game.faze = 0;
+                    TurnCheck();
+                    GameCoordinator();
+                    return 3;
+
+                default:
+                    return -1; //Error
+            }
+        }
         private void TurnCheck()
         {
             if (Game.playerAvailable[3])
@@ -82,183 +153,8 @@ namespace Monopoly
                 }
             }
         }
-
-        private void EndTurn()
+        private void ThrowDice()
         {
-            Game.clientCanEndTurn = false;
-            Button_Trade.IsEnabled = false;
-            RefreshDiceUI();
-            TurnCheck();
-            if (Game.turn == 0 && Game.playerArrestedTurns[Game.turn] == 0)
-            {
-                if (Game.playerBankrupt[Game.turn] == false)
-                    EnableMove();
-                else
-                    Game.turn++;
-            }
-            else if (Game.turn == 0 && Game.playerArrestedTurns[Game.turn] != 0)
-            {
-                DisableMove();
-            }
-            if (Game.turn == 1 && Game.playerArrestedTurns[Game.turn] == 0)
-            {
-                if (Game.playerBankrupt[Game.turn] == false)
-                    EnableMove();
-                else
-                {
-                    Game.turn++;
-                    TurnCheck();
-                }
-            }
-            else if (Game.turn == 1 && Game.playerArrestedTurns[Game.turn] != 0)
-            {
-                DisableMove();
-            }
-            if (Game.turn == 2 && Game.playerArrestedTurns[Game.turn] == 0)
-            {
-                if (Game.playerBankrupt[Game.turn] == false)
-                    EnableMove();
-                else
-                {
-                    Game.turn++;
-                    TurnCheck();
-                }
-            }
-            else if (Game.turn == 2 && Game.playerArrestedTurns[Game.turn] != 0)
-            {
-                DisableMove();
-            }
-            if (Game.turn == 3 && Game.playerArrestedTurns[Game.turn] == 0)
-            {
-                if (Game.playerBankrupt[Game.turn] == false)
-                    EnableMove();
-                else
-                {
-                    Game.turn++;
-                    TurnCheck();
-                    EndTurn();
-                }
-            }
-            else if (Game.turn == 3 && Game.playerArrestedTurns[Game.turn] != 0)
-            {
-                DisableMove();
-            }
-        }
-
-        private void bankrupt()
-        {
-            GameLog.Text += Game.playername[Game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
-            if (Game.multiplayer)
-            {
-                SendGameLog(Game.playername[Game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine);
-            }
-            if (Game.turn == Game.clientplayer)
-            {
-                Button_ThrowDice.IsEnabled = false;
-                Button_EndTurn.IsEnabled = false;
-            }
-            Game.playerBankrupt[Game.turn] = true;
-            Game.fieldPlayers[Game.playerlocation[Game.turn]]--;
-            switch (Game.turn)
-            {
-                case 0:
-                    Player1.Visibility = Visibility.Hidden;
-                    Player1_Icon.Visibility = Visibility.Hidden;
-                    break;
-
-                case 1:
-                    Player2.Visibility = Visibility.Hidden;
-                    Player2_Icon.Visibility = Visibility.Hidden;
-                    break;
-
-                case 2:
-                    Player3.Visibility = Visibility.Hidden;
-                    Player3_Icon.Visibility = Visibility.Hidden;
-                    break;
-
-                case 3:
-                    Player4.Visibility = Visibility.Hidden;
-                    Player4_Icon.Visibility = Visibility.Hidden;
-                    break;
-            }
-            for (int i = 1; i < 40; i++)
-            {
-                if (Game.fieldOwner[i] == Game.turn)
-                {
-                    Game.fieldOwner[i] = 4;
-                    if (Game.fieldHouse[i] > 0)
-                    {
-                        Game.fieldHouse[i] = 0;
-                    }
-                }
-            }
-            Game.playerBankruptNeededToWin--;
-            LeaveDangerZone();
-            if (Game.playerBankruptNeededToWin <= 1)
-            {
-                MessageBox.Show("Koniec gry!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                if (Game.multiplayer)
-                {
-                    client.Disconnect();
-                }
-                ResetUI();
-            }
-            EndTurn();
-
-        }
-        private void EnableMove()
-        {
-            if (Game.clientplayer == Game.turn)
-            {
-                Game.clientCanThrowDice = true;
-                //if(!Game.multiplayer)
-                //Button_Trade.IsEnabled = true;
-                GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
-                audio.playSFX("correct");
-                RefreshDiceUI();
-            }
-            else
-            {
-                if (!Game.multiplayer)
-                {
-                    ThrowDiceAndMove();
-                }
-            }
-            if (Game.multiplayer)
-                SendData();
-        }
-
-        private void DisableMove()
-        {
-            Game.playerArrestedTurns[Game.turn]--;
-            if (Game.multiplayer)
-                SendData();
-            if (Game.clientplayer == Game.turn)
-            {
-                Game.clientCanEndTurn = true;
-                if (Game.playerArrestedTurns[Game.turn] == 0)
-                {
-                    Game.playerlocation[Game.turn] = 10;
-                }
-                RefreshDiceUI();
-            }
-            else
-            {
-                if (!Game.multiplayer)
-                {
-                    if (Game.playerArrestedTurns[Game.turn] == 0)
-                    {
-                        Game.playerlocation[Game.turn] = 10;
-                    }
-                    Game.turn++;
-                    EndTurn();
-                }
-            }
-        }
-
-        private void ThrowDiceAndMove()
-        {
-            Game.clientCanThrowDice = false;
             Game.dice1 = Convert.ToByte(rng.Next(1, 7));
             Game.dice2 = Convert.ToByte(rng.Next(1, 7));
             diceScore = Convert.ToByte(Game.dice1 + Game.dice2);
@@ -267,9 +163,7 @@ namespace Monopoly
             {
                 SendData();
             }
-            wait.Start();
         }
-
         private void JumpingAnimation_Tick(object sender, EventArgs e)
         {
             if (diceScore > 0)
@@ -303,20 +197,6 @@ namespace Monopoly
                 wait.Stop();
                 Game.selectedField = Game.playerlocation[Game.turn];
                 OverviewRefresh();
-                FieldCheck();
-                if (Game.turn != 0 && !Game.multiplayer)
-                {
-                    Game.turn++;
-                    if (Game.turn > 3)
-                    {
-                        Game.turn = 0;
-                    }
-                    EndTurn();
-                }
-                else
-                {
-                    Button_EndTurn.IsEnabled = true;
-                }
                 if (Game.multiplayer)
                     SendData();
             }
@@ -879,6 +759,67 @@ namespace Monopoly
             PlayerStatusRefresh();
             if (Game.multiplayer)
                 SendData();
+        }
+        private void bankrupt()
+        {
+            GameLog.Text += Game.playername[Game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
+            if (Game.multiplayer)
+            {
+                SendGameLog(Game.playername[Game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine);
+            }
+            if (Game.turn == Game.clientplayer)
+            {
+                Button_ThrowDice.IsEnabled = false;
+                Button_EndTurn.IsEnabled = false;
+            }
+            Game.playerBankrupt[Game.turn] = true;
+            Game.fieldPlayers[Game.playerlocation[Game.turn]]--;
+            switch (Game.turn)
+            {
+                case 0:
+                    Player1.Visibility = Visibility.Hidden;
+                    Player1_Icon.Visibility = Visibility.Hidden;
+                    break;
+
+                case 1:
+                    Player2.Visibility = Visibility.Hidden;
+                    Player2_Icon.Visibility = Visibility.Hidden;
+                    break;
+
+                case 2:
+                    Player3.Visibility = Visibility.Hidden;
+                    Player3_Icon.Visibility = Visibility.Hidden;
+                    break;
+
+                case 3:
+                    Player4.Visibility = Visibility.Hidden;
+                    Player4_Icon.Visibility = Visibility.Hidden;
+                    break;
+            }
+            for (int i = 1; i < 40; i++)
+            {
+                if (Game.fieldOwner[i] == Game.turn)
+                {
+                    Game.fieldOwner[i] = 4;
+                    if (Game.fieldHouse[i] > 0)
+                    {
+                        Game.fieldHouse[i] = 0;
+                    }
+                }
+            }
+            Game.playerBankruptNeededToWin--;
+            LeaveDangerZone();
+            if (Game.playerBankruptNeededToWin <= 1)
+            {
+                MessageBox.Show("Koniec gry!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (Game.multiplayer)
+                {
+                    client.Disconnect();
+                }
+                ResetUI();
+            }
+            GameCoordinator();
+
         }
         private bool buyField(byte currentPlayerLocation)
         {

@@ -202,7 +202,8 @@ namespace Monopoly
             if (!Game.dangerzone)
             {
                 Button_ThrowDice.IsEnabled = false;
-                ThrowDiceAndMove();
+                ThrowDice();
+                GameCoordinator();
             }
             else
             {
@@ -214,8 +215,7 @@ namespace Monopoly
         {
             if (!Game.dangerzone)
             {
-                Game.turn++;
-                EndTurn();
+                GameCoordinator();
             }
             else
             {
