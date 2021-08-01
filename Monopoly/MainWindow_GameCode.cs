@@ -14,37 +14,21 @@ namespace Monopoly
         {
             if (Game.playerAvailable[0])
             {
-                Player1.Visibility = Visibility.Visible;
-                Player1_Icon.Visibility = Visibility.Visible;
-                Label_Player1Cash.Visibility = Visibility.Visible;
-                Label_Player1Name.Visibility = Visibility.Visible;
                 Label_Player1Name.Content = Game.playername[0];
                 Game.playerBankruptNeededToWin++;
             }
             if (Game.playerAvailable[1])
             {
-                Player2.Visibility = Visibility.Visible;
-                Player2_Icon.Visibility = Visibility.Visible;
-                Label_Player2Cash.Visibility = Visibility.Visible;
-                Label_Player2Name.Visibility = Visibility.Visible;
                 Label_Player2Name.Content = Game.playername[1];
                 Game.playerBankruptNeededToWin++;
             }
             if (Game.playerAvailable[2])
             {
-                Player3.Visibility = Visibility.Visible;
-                Player3_Icon.Visibility = Visibility.Visible;
-                Label_Player3Cash.Visibility = Visibility.Visible;
-                Label_Player3Name.Visibility = Visibility.Visible;
                 Label_Player3Name.Content = Game.playername[2];
                 Game.playerBankruptNeededToWin++;
             }
             if (Game.playerAvailable[3])
             {
-                Player4.Visibility = Visibility.Visible;
-                Player4_Icon.Visibility = Visibility.Visible;
-                Label_Player4Cash.Visibility = Visibility.Visible;
-                Label_Player4Name.Visibility = Visibility.Visible;
                 Label_Player4Name.Content = Game.playername[3];
                 Game.playerBankruptNeededToWin++;
             }
@@ -52,7 +36,7 @@ namespace Monopoly
             {
                 Game.clientplayer = 0;
                 Label_Player1Name.FontWeight = FontWeights.Bold;
-                Button_ThrowDice.IsEnabled = true;
+                Game.clientCanThrowDice = true;
             }
             Game.playercash[0] = 1500;
             Game.playercash[1] = 1500;
@@ -70,9 +54,9 @@ namespace Monopoly
             }
             Game.fieldPlayers[0] = 4;
             BoardData.gameDataWriter();
-            //GameCanvas.Children.RemoveRange(44, 100);
             GameLog.Text = "";
             audio.music.Stop();
+            RefreshUI();
         }
         private void TurnCheck()
         {
@@ -101,8 +85,9 @@ namespace Monopoly
 
         private void EndTurn()
         {
-            Button_EndTurn.IsEnabled = false;
+            Game.clientCanEndTurn = false;
             Button_Trade.IsEnabled = false;
+            RefreshDiceUI();
             TurnCheck();
             if (Game.turn == 0 && Game.playerArrestedTurns[Game.turn] == 0)
             {
@@ -196,6 +181,17 @@ namespace Monopoly
                     Player4_Icon.Visibility = Visibility.Hidden;
                     break;
             }
+            for (int i = 1; i < 40; i++)
+            {
+                if (Game.fieldOwner[i] == Game.turn)
+                {
+                    Game.fieldOwner[i] = 4;
+                    if (Game.fieldHouse[i] > 0)
+                    {
+                        Game.fieldHouse[i] = 0;
+                    }
+                }
+            }
             Game.playerBankruptNeededToWin--;
             LeaveDangerZone();
             if (Game.playerBankruptNeededToWin <= 1)
@@ -205,57 +201,21 @@ namespace Monopoly
                 {
                     client.Disconnect();
                 }
-                this.Close();
+                ResetUI();
             }
             EndTurn();
 
-        }
-        private void DangerZone()
-        {
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Color.FromArgb(255, 255, 100, 100);
-            this.Background = brush;
-            Button_EndTurn.Background = brush;
-            Button_EndTurn.Content = "Zapłać";
-            Button_EndTurn.IsEnabled = true;
-            Button_ThrowDice.Background = brush;
-            Button_ThrowDice.Content = "Ogłoś bankructwo";
-            Button_ThrowDice.IsEnabled = true;
-            Game.sellmode = true;
-            Button_MouseMode.Content = "Tryb sprzedawania ulic";
-            audio.playSFX("incorrect");
-            if (Game.turn == Game.clientplayer)
-                MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            Game.dangerzone = true;
-
-        }
-        private void LeaveDangerZone()
-        {
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Color.FromArgb(255, 221, 221, 221);
-            Button_EndTurn.Background = brush;
-            Button_EndTurn.Content = "Zakończ turę";
-            Button_EndTurn.IsEnabled = true;
-            Button_ThrowDice.Background = brush;
-            Button_ThrowDice.Content = "Rzuć koścmi";
-            Button_ThrowDice.IsEnabled = false;
-            brush.Color = Color.FromArgb(255, 255, 255, 255);
-            this.Background = brush;
-            Game.sellmode = false;
-            Button_MouseMode.Content = "Tryb budowania domów";
-            Game.dangerzone = false;
         }
         private void EnableMove()
         {
             if (Game.clientplayer == Game.turn)
             {
-                Game.sellmode = false;
-                Button_MouseMode.Content = "Tryb budowania domów";
-                Button_ThrowDice.IsEnabled = true;
+                Game.clientCanThrowDice = true;
                 //if(!Game.multiplayer)
                 //Button_Trade.IsEnabled = true;
                 GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
                 audio.playSFX("correct");
+                RefreshDiceUI();
             }
             else
             {
@@ -275,11 +235,12 @@ namespace Monopoly
                 SendData();
             if (Game.clientplayer == Game.turn)
             {
-                Button_EndTurn.IsEnabled = true;
+                Game.clientCanEndTurn = true;
                 if (Game.playerArrestedTurns[Game.turn] == 0)
                 {
                     Game.playerlocation[Game.turn] = 10;
                 }
+                RefreshDiceUI();
             }
             else
             {
@@ -297,11 +258,11 @@ namespace Monopoly
 
         private void ThrowDiceAndMove()
         {
+            Game.clientCanThrowDice = false;
             Game.dice1 = Convert.ToByte(rng.Next(1, 7));
             Game.dice2 = Convert.ToByte(rng.Next(1, 7));
-            DiceShow(Game.dice1, Game.dice2);
             diceScore = Convert.ToByte(Game.dice1 + Game.dice2);
-            DiceScore.Content = diceScore;
+            RefreshDiceUI();
             if (Game.multiplayer)
             {
                 SendData();
@@ -317,7 +278,7 @@ namespace Monopoly
                 if (Game.playerlocation[Game.turn] < 40)
                 {
                     Game.fieldPlayers[Game.playerlocation[Game.turn] - 1]--;
-                    Game.fieldPlayers[Game.playerlocation[Game.turn]]++; //This is crashing multiplayer after exiting prison.
+                    Game.fieldPlayers[Game.playerlocation[Game.turn]]++; //This is crashing multiplayer after exiting prison. (Probably fixed)
                 }
                 else// if (Game.playerlocation[Game.turn] >= 40)
                 {

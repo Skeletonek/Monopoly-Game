@@ -267,11 +267,194 @@ namespace Monopoly
                     break;
             }
         }
-        private void RefreshOwnersUI()
+        private void LoadTheme()
+        {
+            LoadCurrentThemeDir();
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri(currentThemeDir + @"\monopolyboard.jpg", UriKind.Relative));
+            GameCanvas.Background = imageBrush;
+            Player1.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
+            Player2.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
+            Player3.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
+            Player4.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
+        }
+
+        private void ResetUI()
+        {
+            int xcord;
+            int ycord;
+            Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+            Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+            Player1.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
+            Player1_Icon.Visibility = Visibility.Hidden;
+            Label_Player1Cash.Content = "1500 $";
+            Label_Player1Cash.Visibility = Visibility.Hidden;
+            Label_Player1Name.Visibility = Visibility.Hidden;
+            Player2.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
+            Player2_Icon.Visibility = Visibility.Hidden;
+            Label_Player2Cash.Content = "1500 $";
+            Label_Player2Cash.Visibility = Visibility.Hidden;
+            Label_Player2Name.Visibility = Visibility.Hidden;
+            Player3.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
+            Player3_Icon.Visibility = Visibility.Hidden;
+            Label_Player3Cash.Content = "1500 $";
+            Label_Player3Cash.Visibility = Visibility.Hidden;
+            Label_Player3Name.Visibility = Visibility.Hidden;
+            Player4.Visibility = Visibility.Hidden;
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
+            Player4_Icon.Visibility = Visibility.Hidden;
+            Label_Player4Cash.Content = "1500 $";
+            Label_Player4Cash.Visibility = Visibility.Hidden;
+            Label_Player4Name.Visibility = Visibility.Hidden;
+            xcord = boardLocations.playerlocation(true, 0);
+            ycord = boardLocations.playerlocation(false, 0);
+            Canvas.SetLeft(Player1, xcord);
+            Canvas.SetTop(Player1, ycord);
+            Canvas.SetLeft(Player2, xcord);
+            Canvas.SetTop(Player2, ycord);
+            Canvas.SetLeft(Player3, xcord);
+            Canvas.SetTop(Player3, ycord);
+            Canvas.SetLeft(Player3, xcord);
+            Canvas.SetTop(Player3, ycord);
+            for (byte i = 1; i < 40; i++)
+            {
+                DrawOwner(i, 0);
+                DrawHouses(i, Game.fieldHouse[i]);
+            }
+
+        }
+        private void RefreshUI()
+        {
+            Player1.Visibility = VisibilityCheck(Game.playerAvailable[0]);
+            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
+            Player1_Icon.Visibility = VisibilityCheck(Game.playerAvailable[0]);
+            Label_Player1Cash.Visibility = VisibilityCheck(Game.playerAvailable[0]);
+            Label_Player1Name.Visibility = VisibilityCheck(Game.playerAvailable[0]);
+            Player2.Visibility = VisibilityCheck(Game.playerAvailable[1]);
+            Player2_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
+            Player2_Icon.Visibility = VisibilityCheck(Game.playerAvailable[1]);
+            Label_Player2Cash.Visibility = VisibilityCheck(Game.playerAvailable[1]);
+            Label_Player2Name.Visibility = VisibilityCheck(Game.playerAvailable[1]);
+            Player3.Visibility = VisibilityCheck(Game.playerAvailable[2]);
+            Player3_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
+            Player3_Icon.Visibility = VisibilityCheck(Game.playerAvailable[2]);
+            Label_Player3Cash.Visibility = VisibilityCheck(Game.playerAvailable[2]);
+            Label_Player3Name.Visibility = VisibilityCheck(Game.playerAvailable[2]);
+            Player4.Visibility = VisibilityCheck(Game.playerAvailable[3]);
+            Player4_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
+            Player4_Icon.Visibility = VisibilityCheck(Game.playerAvailable[3]);
+            Label_Player4Cash.Visibility = VisibilityCheck(Game.playerAvailable[3]);
+            Label_Player4Name.Visibility = VisibilityCheck(Game.playerAvailable[3]);
+            PlayerStatusRefresh();
+            Jump();
+            RefreshBoardUI();
+            if (Game.dangerzone)
+            {
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Color.FromArgb(255, 255, 100, 100);
+                this.Background = brush;
+                Button_EndTurn.Background = brush;
+                Button_ThrowDice.Background = brush;
+                Game.sellmode = true;
+            }
+            else
+            {
+                SolidColorBrush brush = new SolidColorBrush();
+                brush.Color = Color.FromArgb(255, 221, 221, 221);
+                Button_EndTurn.Background = brush;
+                Button_ThrowDice.Background = brush;
+            }
+            RefreshDiceUI();
+            if (Game.sellmode)
+            {
+                Button_MouseMode.Content = "Tryb sprzedawania ulic";
+            }
+            else
+            {
+                Button_MouseMode.Content = "Tryb budowania domów";
+            }
+        }
+
+        private Visibility VisibilityCheck(bool shouldBeVisible)
+        {
+            if (shouldBeVisible)
+                return Visibility.Visible;
+            else
+                return Visibility.Hidden;
+        }
+        private void DangerZone()
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromArgb(255, 255, 100, 100);
+            this.Background = brush;
+            Button_EndTurn.Background = brush;
+            Button_EndTurn.Content = "Zapłać";
+            Button_EndTurn.IsEnabled = true;
+            Button_ThrowDice.Background = brush;
+            Button_ThrowDice.Content = "Ogłoś bankructwo";
+            Button_ThrowDice.IsEnabled = true;
+            Game.sellmode = true;
+            audio.playSFX("incorrect");
+            if (Game.turn == Game.clientplayer)
+                MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            Game.dangerzone = true;
+
+        }
+        private void LeaveDangerZone()
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromArgb(255, 221, 221, 221);
+            Button_EndTurn.Background = brush;
+            Button_EndTurn.Content = "Zakończ turę";
+            Button_EndTurn.IsEnabled = true;
+            Button_ThrowDice.Background = brush;
+            Button_ThrowDice.Content = "Rzuć koścmi";
+            Button_ThrowDice.IsEnabled = false;
+            brush.Color = Color.FromArgb(255, 255, 255, 255);
+            this.Background = brush;
+            Game.sellmode = false;
+            Game.dangerzone = false;
+        }
+        private void RefreshBoardUI()
         {
             for(byte i = 1; i < 41; i++)
             {
                 DrawOwner(i, Game.fieldOwner[i]);
+                DrawHouses(i, Game.fieldHouse[i]);
+            }
+        }
+        private void RefreshDiceUI()
+        {
+            DiceShow(Game.dice1, Game.dice2);
+            DiceScore.Content = diceScore;
+            if (Game.clientCanThrowDice)
+            {
+                Button_ThrowDice.IsEnabled = true;
+            }
+            else
+            {
+                Button_ThrowDice.IsEnabled = false;
+            }
+            if (Game.clientCanEndTurn)
+            {
+                Button_EndTurn.IsEnabled = true;
+            }
+            else
+            {
+                Button_EndTurn.IsEnabled = false;
+            }
+            if (Game.dangerzone)
+            {
+                Button_EndTurn.Content = "Zapłać";
+                Button_ThrowDice.Content = "Ogłoś bankructwo";
+            }
+            else
+            {
+                Button_ThrowDice.Content = "Rzuć kośćmi";
+                Button_EndTurn.Content = "Zakończ turę";
             }
         }
         private void OverviewRefresh()
@@ -295,7 +478,35 @@ namespace Monopoly
             Label_Player3Cash.Content = Game.playercash[2] + "$";
             Label_Player4Cash.Content = Game.playercash[3] + "$";
         }
+
         private void Jump()
+        {
+            Canvas.SetLeft(Player1, boardLocations.playerlocation(true, Game.playerlocation[0]));
+            Canvas.SetTop(Player1, boardLocations.playerlocation(false, Game.playerlocation[0]));
+            if(Game.playerlocation[1] != 10)
+            {
+                Canvas.SetLeft(Player2, boardLocations.playerlocation(true, Game.playerlocation[1]) + 22);
+                Canvas.SetTop(Player2, boardLocations.playerlocation(false, Game.playerlocation[1]));
+            }
+            else
+            {
+                Canvas.SetLeft(Player2, boardLocations.playerlocation(true, Game.playerlocation[1]) + 22);
+                Canvas.SetTop(Player2, boardLocations.playerlocation(false, Game.playerlocation[1]) + 55);
+            }
+            Canvas.SetLeft(Player3, boardLocations.playerlocation(true, Game.playerlocation[2]));
+            Canvas.SetTop(Player3, boardLocations.playerlocation(false, Game.playerlocation[2]) + 22);
+            if(Game.playerlocation[3] != 10)
+            {
+                Canvas.SetLeft(Player4, boardLocations.playerlocation(true, Game.playerlocation[3]) + 22);
+                Canvas.SetTop(Player4, boardLocations.playerlocation(false, Game.playerlocation[3]) + 22);
+            }
+            else
+            {
+                Canvas.SetLeft(Player4, boardLocations.playerlocation(true, Game.playerlocation[3]) + 44);
+                Canvas.SetTop(Player4, boardLocations.playerlocation(false, Game.playerlocation[3]) + 55);
+            }
+        }
+        private void OldJump()
         {
             int xcord = 0;
             int ycord = 0;
@@ -342,7 +553,98 @@ namespace Monopoly
                     break;
             }
         }
+        private void CantBuyHouseNorSellThisField()
+        {
+            if (Game.turn == Game.clientplayer && !Game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (Game.turn == Game.clientplayer && Game.sellmode)
+            {
+                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
+        private void BuyHouseOrSellField(byte field)
+        {
+            if (Game.turn == Game.clientplayer && !Game.sellmode)
+            {
+                if (!buyHouse(field))
+                {
+                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else if (Game.turn == Game.clientplayer && Game.sellmode)
+            {
+                if (!sellField(field))
+                {
+                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void CantBuyHouseOrSellField(byte field)
+        {
+            if (Game.turn == Game.clientplayer && !Game.sellmode)
+            {
+                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (Game.turn == Game.clientplayer && Game.sellmode)
+            {
+                if (!sellField(field))
+                {
+                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+        private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
+        {
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards);
+            newSingleplayerGame.ShowDialog();
+            Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
+            Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
+            Game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
+            Game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
+            Game.playerAvailable[0] = true;
+            Game.playerAvailable[1] = true;
+            Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
+            Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
+            Game.multiplayer = false;
+            playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
+            LoadTheme();
+            StartNewGame();
+        }
+        private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Game.multiplayer)
+                ResetUI();
+        }
+        private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Game.sellmode)
+            {
+                Game.sellmode = true;
+                Button_MouseMode.Content = "Tryb sprzedawania ulic";
+            }
+            else
+            {
+                Game.sellmode = false;
+                Button_MouseMode.Content = "Tryb budowania domów";
+            }
+        }
+        private void CantSellHouse()
+        {
+            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void CanSellHouse(byte field)
+        {
+            if (Game.turn == Game.clientplayer)
+            {
+                if (!sellHouse(field))
+                {
+                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
         private void DrawOwner(byte field, byte status)
         {
             switch (field)
@@ -1054,147 +1356,6 @@ namespace Monopoly
         {
             BuyHouseOrSellField(39);
         }
-
-        private void CantBuyHouseNorSellThisField()
-        {
-            if (Game.turn == Game.clientplayer && !Game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (Game.turn == Game.clientplayer && Game.sellmode)
-            {
-                MessageBox.Show("Nie możesz sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void BuyHouseOrSellField(byte field)
-        {
-            if (Game.turn == Game.clientplayer && !Game.sellmode)
-            {
-                if (!buyHouse(field))
-                {
-                    MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else if (Game.turn == Game.clientplayer && Game.sellmode)
-            {
-                if (!sellField(field))
-                {
-                    MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-        }
-        private void CantBuyHouseOrSellField(byte field)
-        {
-            if (Game.turn == Game.clientplayer && !Game.sellmode)
-            {
-                MessageBox.Show("Na tym polu nie możesz kupować domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (Game.turn == Game.clientplayer && Game.sellmode)
-            {
-                if (!sellField(field))
-                {
-                    MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-        }
-
-        private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
-        {
-            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards);
-            newSingleplayerGame.ShowDialog();
-            Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
-            Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
-            Game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
-            Game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
-            Game.playerAvailable[0] = true;
-            Game.playerAvailable[1] = true;
-            Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
-            Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
-            Game.multiplayer = false;
-            playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
-            LoadTheme();
-            StartNewGame();
-        }
-
-        private void LoadTheme()
-        {
-            LoadCurrentThemeDir();
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri(currentThemeDir + @"\monopolyboard.jpg", UriKind.Relative));
-            GameCanvas.Background = imageBrush;
-            Player1.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
-            Player2.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
-            Player3.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
-            Player4.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
-        }
-
-        private void ResetUI()
-        {
-            int xcord;
-            int ycord;
-            Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
-            Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
-            Player1.Visibility = Visibility.Hidden;
-            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
-            Player1_Icon.Visibility = Visibility.Hidden;
-            Label_Player1Cash.Content = "1500 $";
-            Label_Player1Cash.Visibility = Visibility.Hidden;
-            Label_Player1Name.Visibility = Visibility.Hidden;
-            Player2.Visibility = Visibility.Hidden;
-            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
-            Player2_Icon.Visibility = Visibility.Hidden;
-            Label_Player2Cash.Content = "1500 $";
-            Label_Player2Cash.Visibility = Visibility.Hidden;
-            Label_Player2Name.Visibility = Visibility.Hidden;
-            Player3.Visibility = Visibility.Hidden;
-            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
-            Player3_Icon.Visibility = Visibility.Hidden;
-            Label_Player3Cash.Content = "1500 $";
-            Label_Player3Cash.Visibility = Visibility.Hidden;
-            Label_Player3Name.Visibility = Visibility.Hidden;
-            Player4.Visibility = Visibility.Hidden;
-            Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
-            Player4_Icon.Visibility = Visibility.Hidden;
-            Label_Player4Cash.Content = "1500 $";
-            Label_Player4Cash.Visibility = Visibility.Hidden;
-            Label_Player4Name.Visibility = Visibility.Hidden;
-            xcord = boardLocations.playerlocation(true, 0);
-            ycord = boardLocations.playerlocation(false, 0);
-            Canvas.SetLeft(Player1, xcord);
-            Canvas.SetTop(Player1, ycord);
-            Canvas.SetLeft(Player2, xcord);
-            Canvas.SetTop(Player2, ycord);
-            Canvas.SetLeft(Player3, xcord);
-            Canvas.SetTop(Player3, ycord);
-            Canvas.SetLeft(Player3, xcord);
-            Canvas.SetTop(Player3, ycord);
-            for(byte i = 1; i<40; i++)
-            {
-                DrawOwner(i, Game.fieldOwner[i]);
-                DrawHouses(i, Game.fieldHouse[i]);
-            }
-
-        }
-        private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
-        {
-            if (!Game.multiplayer)
-                ResetUI();
-        }
-        private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
-        {
-            if (!Game.sellmode)
-            {
-                Game.sellmode = true;
-                Button_MouseMode.Content = "Tryb sprzedawania ulic";
-            }
-            else
-            {
-                Game.sellmode = false;
-                Button_MouseMode.Content = "Tryb budowania domów";
-            }
-        }
-
         private void Field1_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CantSellHouse();
@@ -1355,20 +1516,6 @@ namespace Monopoly
         {
             CanSellHouse(39);
         }
-        private void CantSellHouse()
-        {
-            MessageBox.Show("Na tym polu nie możesz sprzedawać domów!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-        private void CanSellHouse(byte field)
-        {
-            if (Game.turn == Game.clientplayer)
-            {
-                if (!sellHouse(field))
-                {
-                    MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-        }
         private void MusicVolumeSet(byte status)
         {
             if (status != 0)
@@ -1472,7 +1619,7 @@ namespace Monopoly
         {
             TradeWindow trade = new TradeWindow();
             trade.ShowDialog();
-            RefreshOwnersUI();
+            RefreshBoardUI();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

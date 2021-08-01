@@ -18,6 +18,8 @@ namespace Monopoly
         static public bool[] playerBankrupt = new bool[] { false, false, false, false };
         static public byte playerBankruptNeededToWin = 0;
         static public byte clientplayer = 0;
+        static public bool clientCanThrowDice = false;
+        static public bool clientCanEndTurn = false;
         static public byte turn = 0;
         static public byte dice1;
         static public byte dice2;
