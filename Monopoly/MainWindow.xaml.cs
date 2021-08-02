@@ -207,7 +207,8 @@ namespace Monopoly
             }
             else
             {
-                bankrupt();
+                Bankrupt();
+                RefreshUI();
             }
         }
 
@@ -333,21 +334,25 @@ namespace Monopoly
             Player1.Visibility = VisibilityCheck(Game.playerAvailable[0]);
             Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
             Player1_Icon.Visibility = VisibilityCheck(Game.playerAvailable[0]);
+            Player1_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[0]);
             Label_Player1Cash.Visibility = VisibilityCheck(Game.playerAvailable[0]);
             Label_Player1Name.Visibility = VisibilityCheck(Game.playerAvailable[0]);
             Player2.Visibility = VisibilityCheck(Game.playerAvailable[1]);
             Player2_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
             Player2_Icon.Visibility = VisibilityCheck(Game.playerAvailable[1]);
+            Player2_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[1]);
             Label_Player2Cash.Visibility = VisibilityCheck(Game.playerAvailable[1]);
             Label_Player2Name.Visibility = VisibilityCheck(Game.playerAvailable[1]);
             Player3.Visibility = VisibilityCheck(Game.playerAvailable[2]);
             Player3_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
             Player3_Icon.Visibility = VisibilityCheck(Game.playerAvailable[2]);
+            Player3_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[2]);
             Label_Player3Cash.Visibility = VisibilityCheck(Game.playerAvailable[2]);
             Label_Player3Name.Visibility = VisibilityCheck(Game.playerAvailable[2]);
             Player4.Visibility = VisibilityCheck(Game.playerAvailable[3]);
             Player4_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
             Player4_Icon.Visibility = VisibilityCheck(Game.playerAvailable[3]);
+            Player4_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[3]);
             Label_Player4Cash.Visibility = VisibilityCheck(Game.playerAvailable[3]);
             Label_Player4Name.Visibility = VisibilityCheck(Game.playerAvailable[3]);
             PlayerStatusRefresh();
@@ -508,53 +513,53 @@ namespace Monopoly
                 Canvas.SetTop(Player4, boardLocations.playerlocation(false, Game.playerlocation[3]) + 55);
             }
         }
-        private void OldJump()
-        {
-            int xcord = 0;
-            int ycord = 0;
-            if (Game.fieldPlayers[Game.playerlocation[Game.turn]] <= 1)
-            {
-                xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
-                ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
-            }
-            else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 2)
-            {
-                xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
-                ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
-            }
-            else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 3)
-            {
-                xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
-                ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
-            }
-            else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] >= 4)
-            {
-                xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
-                ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
-            }
-            switch (Game.turn)
-            {
-                case 0:
-                    Canvas.SetLeft(Player1, xcord);
-                    Canvas.SetTop(Player1, ycord);
-                    break;
+        //private void OldJump()
+        //{
+        //    int xcord = 0;
+        //    int ycord = 0;
+        //    if (Game.fieldPlayers[Game.playerlocation[Game.turn]] <= 1)
+        //    {
+        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
+        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
+        //    }
+        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 2)
+        //    {
+        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
+        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
+        //    }
+        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 3)
+        //    {
+        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
+        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
+        //    }
+        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] >= 4)
+        //    {
+        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
+        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
+        //    }
+        //    switch (Game.turn)
+        //    {
+        //        case 0:
+        //            Canvas.SetLeft(Player1, xcord);
+        //            Canvas.SetTop(Player1, ycord);
+        //            break;
 
-                case 1:
-                    Canvas.SetLeft(Player2, xcord);
-                    Canvas.SetTop(Player2, ycord);
-                    break;
+        //        case 1:
+        //            Canvas.SetLeft(Player2, xcord);
+        //            Canvas.SetTop(Player2, ycord);
+        //            break;
 
-                case 2:
-                    Canvas.SetLeft(Player3, xcord);
-                    Canvas.SetTop(Player3, ycord);
-                    break;
+        //        case 2:
+        //            Canvas.SetLeft(Player3, xcord);
+        //            Canvas.SetTop(Player3, ycord);
+        //            break;
 
-                case 3:
-                    Canvas.SetLeft(Player4, xcord);
-                    Canvas.SetTop(Player4, ycord);
-                    break;
-            }
-        }
+        //        case 3:
+        //            Canvas.SetLeft(Player4, xcord);
+        //            Canvas.SetTop(Player4, ycord);
+        //            break;
+        //    }
+        //}
         private void CantBuyHouseNorSellThisField()
         {
             if (Game.turn == Game.clientplayer && !Game.sellmode)

@@ -177,7 +177,7 @@ namespace Monopoly
                     Game.fieldPlayers[Game.playerlocation[Game.turn] - 1]--;
                     Game.fieldPlayers[Game.playerlocation[Game.turn]]++; //This is crashing multiplayer after exiting prison. (Probably fixed)
                 }
-                else// if (Game.playerlocation[Game.turn] >= 40)
+                else
                 {
                     Game.fieldPlayers[40]--;
                     Game.fieldPlayers[0]++;
@@ -248,7 +248,7 @@ namespace Monopoly
                         else
                         {
                             MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                            bankrupt();
+                            Bankrupt();
                         }
                     }
                 }
@@ -290,7 +290,7 @@ namespace Monopoly
                         else
                         {
                             MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                            bankrupt();
+                            Bankrupt();
                         }
                     }
                 }
@@ -384,7 +384,7 @@ namespace Monopoly
                             if (!payRent(currentPlayerLocation, rent))
                             {
                                 MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                                bankrupt();
+                                Bankrupt();
                             }
                             else
                             {
@@ -429,7 +429,7 @@ namespace Monopoly
                         else
                         {
                             MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                            bankrupt();
+                            Bankrupt();
                         }
                     }
                 }
@@ -546,7 +546,7 @@ namespace Monopoly
                                     if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                                     {
                                         MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                                        bankrupt();
+                                        Bankrupt();
                                     }
                                     else
                                     {
@@ -627,7 +627,7 @@ namespace Monopoly
                                     if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                                     {
                                         MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                                        bankrupt();
+                                        Bankrupt();
                                     }
                                     else
                                     {
@@ -752,7 +752,7 @@ namespace Monopoly
                             if (!payRent(currentPlayerLocation, rent))
                             {
                                 MessageBox.Show("Przeciwnik bankrutuje!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                                bankrupt();
+                                Bankrupt();
                             }
                             else
                             {
@@ -766,7 +766,7 @@ namespace Monopoly
             if (Game.multiplayer)
                 SendData();
         }
-        private void bankrupt()
+        private void Bankrupt()
         {
             GameLog.Text += Game.playername[Game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine;
             if (Game.multiplayer)
@@ -775,33 +775,12 @@ namespace Monopoly
             }
             if (Game.turn == Game.clientplayer)
             {
-                Button_ThrowDice.IsEnabled = false;
-                Button_EndTurn.IsEnabled = false;
+                Game.clientCanEndTurn = false;
+                Game.clientCanThrowDice = false;
+                LeaveDangerZone();
             }
             Game.playerBankrupt[Game.turn] = true;
             Game.fieldPlayers[Game.playerlocation[Game.turn]]--;
-            switch (Game.turn)
-            {
-                case 0:
-                    Player1.Visibility = Visibility.Hidden;
-                    Player1_Icon.Visibility = Visibility.Hidden;
-                    break;
-
-                case 1:
-                    Player2.Visibility = Visibility.Hidden;
-                    Player2_Icon.Visibility = Visibility.Hidden;
-                    break;
-
-                case 2:
-                    Player3.Visibility = Visibility.Hidden;
-                    Player3_Icon.Visibility = Visibility.Hidden;
-                    break;
-
-                case 3:
-                    Player4.Visibility = Visibility.Hidden;
-                    Player4_Icon.Visibility = Visibility.Hidden;
-                    break;
-            }
             for (int i = 1; i < 40; i++)
             {
                 if (Game.fieldOwner[i] == Game.turn)
@@ -814,7 +793,6 @@ namespace Monopoly
                 }
             }
             Game.playerBankruptNeededToWin--;
-            LeaveDangerZone();
             if (Game.playerBankruptNeededToWin <= 1)
             {
                 MessageBox.Show("Koniec gry!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -825,7 +803,6 @@ namespace Monopoly
                 ResetUI();
             }
             GameCoordinator();
-
         }
         private bool buyField(byte currentPlayerLocation)
         {
