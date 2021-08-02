@@ -201,9 +201,9 @@ namespace Monopoly
         {
             if (!Game.dangerzone)
             {
-                Button_ThrowDice.IsEnabled = false;
+                Game.clientCanThrowDice = false;
+                RefreshDiceUI();
                 ThrowDice();
-                GameCoordinator();
             }
             else
             {
@@ -215,7 +215,9 @@ namespace Monopoly
         {
             if (!Game.dangerzone)
             {
-                GameCoordinator();
+                Game.clientCanEndTurn = false;
+                RefreshDiceUI();
+                EndTurn();
             }
             else
             {
@@ -429,7 +431,7 @@ namespace Monopoly
         private void RefreshDiceUI()
         {
             DiceShow(Game.dice1, Game.dice2);
-            DiceScore.Content = diceScore;
+            DiceScore.Content = Game.dice1 + Game.dice2;
             if (Game.clientCanThrowDice)
             {
                 Button_ThrowDice.IsEnabled = true;

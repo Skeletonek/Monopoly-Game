@@ -67,10 +67,12 @@ namespace Monopoly
                     GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
                     audio.playSFX("correct");
                     Game.clientCanThrowDice = true;
+                    Game.clientCanEndTurn = false;
                     RefreshDiceUI();
                     break;
 
                 case 2:
+                    Game.clientCanThrowDice = false;
                     Game.clientCanEndTurn = true;
                     RefreshDiceUI();
                     break;
@@ -82,11 +84,11 @@ namespace Monopoly
             switch (FazeCoordinator())
             {
                 case 1:
-                    GameCoordinator();
+                    ThrowDice();
                     break;
 
                 case 2:
-                    GameCoordinator();
+                    EndTurn();
                     break;
 
             }
@@ -113,21 +115,21 @@ namespace Monopoly
                         return 2; //Can do something else
 
                 case 1:
-                    ThrowDice();
-                    wait.Start(); //Start moving
-                    FieldCheck();
                     return 2; //Can do something else
 
                 case 2:
-                    Game.turn++;
-                    Game.faze = 0;
-                    TurnCheck();
-                    GameCoordinator();
                     return 3;
 
                 default:
                     return -1; //Error
             }
+        }
+        public void EndTurn()
+        {
+            Game.turn++;
+            Game.faze = 0;
+            TurnCheck();
+            GameCoordinator();
         }
         private void TurnCheck()
         {
@@ -153,7 +155,7 @@ namespace Monopoly
                 }
             }
         }
-        private void ThrowDice()
+        public void ThrowDice()
         {
             Game.dice1 = Convert.ToByte(rng.Next(1, 7));
             Game.dice2 = Convert.ToByte(rng.Next(1, 7));
@@ -163,6 +165,7 @@ namespace Monopoly
             {
                 SendData();
             }
+            wait.Start();
         }
         private void JumpingAnimation_Tick(object sender, EventArgs e)
         {
@@ -197,6 +200,9 @@ namespace Monopoly
                 wait.Stop();
                 Game.selectedField = Game.playerlocation[Game.turn];
                 OverviewRefresh();
+                FieldCheck();
+                Game.faze++;
+                GameCoordinator();
                 if (Game.multiplayer)
                     SendData();
             }
@@ -943,7 +949,7 @@ namespace Monopoly
                 return false;
             }
         }
-        private bool buyHouse(byte selectedField)
+        public bool buyHouse(byte selectedField)
         {
             bool hasSet = false;
             if (BoardData.fieldSet2[selectedField] == 0)
@@ -1060,7 +1066,7 @@ namespace Monopoly
             OverviewRefresh();
             PlayerStatusRefresh();
         }
-        private bool sellHouse(byte selectedField)
+        public bool sellHouse(byte selectedField)
         {
             bool hasSet = false;
             if (BoardData.fieldSet2[selectedField] == 0)
@@ -1162,7 +1168,7 @@ namespace Monopoly
             OverviewRefresh();
             PlayerStatusRefresh();
         }
-        private bool sellField(byte selectedField)
+        public bool sellField(byte selectedField)
         {
             if (Game.fieldHouse[selectedField] == 0 && Game.fieldOwner[selectedField] == Game.turn)
             {
