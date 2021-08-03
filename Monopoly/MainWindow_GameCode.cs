@@ -61,7 +61,7 @@ namespace Monopoly
 
         private void CallClient()
         {
-            switch(FazeCoordinator())
+            switch (FazeCoordinator())
             {
                 case 1:
                     GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
@@ -95,11 +95,11 @@ namespace Monopoly
         }
         private void GameCoordinator()
         {
-            if(Game.turn == Game.clientplayer)
+            if (Game.turn == Game.clientplayer)
             {
                 CallClient();
-            }    
-            else if(!Game.multiplayer)
+            }
+            else if (!Game.multiplayer)
             {
                 CallAI();
             }
@@ -126,9 +126,12 @@ namespace Monopoly
         }
         public void EndTurn()
         {
-            Game.turn++;
+            do
+            {
+                Game.turn++;
+                TurnCheck();
+            } while (Game.playerBankrupt[Game.turn]);
             Game.faze = 0;
-            TurnCheck();
             GameCoordinator();
         }
         private void TurnCheck()
@@ -217,25 +220,7 @@ namespace Monopoly
                 byte chanceCard = Convert.ToByte(rng.Next(0, 5));
                 if (Game.turn == Game.clientplayer)
                 {
-                    MessageBox.Show(BoardData.chanceText[chanceCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                    if (!doChanceCard(chanceCard))
-                    {
-                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Game.dangerzone = true;
-                        DangerZone();
-                    }
-                    else
-                    {
-                        if (Game.dangerzone == true)
-                        {
-                            LeaveDangerZone();
-                        }
-                        GameLog.Text += Game.playername[Game.turn] + " otrzymuje kartę szansy: " + BoardData.chanceText[chanceCard] + "!" + Environment.NewLine + Environment.NewLine;
-                        if (Game.multiplayer)
-                        {
-                            SendGameLog(Game.playername[Game.turn] + " otrzymuje kartę szansy: " + BoardData.chanceText[chanceCard] + "!" + Environment.NewLine + Environment.NewLine);
-                        }
-                    }
+                    CallClientAction(1, chanceCard);
                 }
                 else
                 {
@@ -259,25 +244,7 @@ namespace Monopoly
                 byte commChestCard = Convert.ToByte(rng.Next(0, 11));
                 if (Game.turn == Game.clientplayer)
                 {
-                    MessageBox.Show(BoardData.commChestText[commChestCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                    if (!doCommChestCard(commChestCard))
-                    {
-                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                        Game.dangerzone = true;
-                        DangerZone();
-                    }
-                    else
-                    {
-                        if (Game.dangerzone == true)
-                        {
-                            LeaveDangerZone();
-                        }
-                        GameLog.Text += Game.playername[Game.turn] + " otrzymuje kartę kasy społecznej: " + BoardData.commChestText[commChestCard] + "!" + Environment.NewLine + Environment.NewLine;
-                        if (Game.multiplayer)
-                        {
-                            SendGameLog(Game.playername[Game.turn] + " otrzymuje kartę kasy społecznej: " + BoardData.commChestText[commChestCard] + "!" + Environment.NewLine + Environment.NewLine);
-                        }
-                    }
+                    CallClientAction(2, commChestCard);
                 }
                 else
                 {
@@ -301,28 +268,7 @@ namespace Monopoly
                 {
                     if (Game.turn == Game.clientplayer)
                     {
-                        MessageBoxResult result = MessageBox.Show("Czy chcesz kupić " + BoardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        switch (result)
-                        {
-                            case MessageBoxResult.Yes:
-                                if (!buyField(currentPlayerLocation))
-                                {
-                                    MessageBox.Show("Nie stać Cię na ten dworzec!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                                }
-                                else
-                                {
-                                    Game.playerRailroadOwned[Game.turn]++;
-                                    GameLog.Text += Game.playername[Game.turn] + " kupuje " + BoardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
-                                    if (Game.multiplayer)
-                                    {
-                                        SendGameLog(Game.playername[Game.turn] + " kupuje " + BoardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine);
-                                    }
-                                }
-                                break;
-
-                            case MessageBoxResult.No:
-                                break;
-                        }
+                        CallClientAction(3, currentPlayerLocation);
                     }
                     else
                     {
@@ -357,25 +303,7 @@ namespace Monopoly
                     }
                     if (Game.turn == Game.clientplayer)
                     {
-                        MessageBox.Show("Stanąłeś na dworcu gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        if (!payRent(currentPlayerLocation, rent))
-                        {
-                            MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-                            Game.dangerzone = true;
-                            DangerZone();
-                        }
-                        else
-                        {
-                            if (Game.dangerzone == true)
-                            {
-                                LeaveDangerZone();
-                            }
-                            GameLog.Text += Game.playername[Game.turn] + " płaci " + rent + "$ graczowi " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
-                            if (Game.multiplayer)
-                            {
-                                SendGameLog(Game.playername[Game.turn] + " płaci " + rent + "$ graczowi " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine);
-                            }
-                        }
+                        CallClientAction(4, currentPlayerLocation, rent);
                     }
                     else
                     {
@@ -793,6 +721,7 @@ namespace Monopoly
                 }
             }
             Game.playerBankruptNeededToWin--;
+            RefreshUI();
             if (Game.playerBankruptNeededToWin <= 1)
             {
                 MessageBox.Show("Koniec gry!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -802,7 +731,7 @@ namespace Monopoly
                 }
                 ResetUI();
             }
-            GameCoordinator();
+            EndTurn();
         }
         private bool buyField(byte currentPlayerLocation)
         {

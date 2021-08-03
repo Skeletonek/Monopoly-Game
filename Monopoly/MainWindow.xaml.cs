@@ -197,34 +197,6 @@ namespace Monopoly
                 GameCanvas.RenderTransform = new ScaleTransform(ScaleH, ScaleH);
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (!Game.dangerzone)
-            {
-                Game.clientCanThrowDice = false;
-                RefreshDiceUI();
-                ThrowDice();
-            }
-            else
-            {
-                Bankrupt();
-                RefreshUI();
-            }
-        }
-
-        private void EndTurn_Click(object sender, RoutedEventArgs e)
-        {
-            if (!Game.dangerzone)
-            {
-                Game.clientCanEndTurn = false;
-                RefreshDiceUI();
-                EndTurn();
-            }
-            else
-            {
-                FieldCheck();
-            }
-        }
         private void DiceShow(byte dice1, byte dice2)
         {
             switch (dice1)
@@ -288,6 +260,7 @@ namespace Monopoly
             int ycord;
             Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
             Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
+            DiceScore.Content = "0";
             Player1.Visibility = Visibility.Hidden;
             Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
             Player1_Icon.Visibility = Visibility.Hidden;
@@ -324,8 +297,8 @@ namespace Monopoly
             Canvas.SetTop(Player3, ycord);
             for (byte i = 1; i < 40; i++)
             {
-                DrawOwner(i, 0);
-                DrawHouses(i, Game.fieldHouse[i]);
+                DrawOwner(i, 4);
+                DrawHouses(i, 0);
             }
 
         }
@@ -392,39 +365,6 @@ namespace Monopoly
             else
                 return Visibility.Hidden;
         }
-        private void DangerZone()
-        {
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Color.FromArgb(255, 255, 100, 100);
-            this.Background = brush;
-            Button_EndTurn.Background = brush;
-            Button_EndTurn.Content = "Zapłać";
-            Button_EndTurn.IsEnabled = true;
-            Button_ThrowDice.Background = brush;
-            Button_ThrowDice.Content = "Ogłoś bankructwo";
-            Button_ThrowDice.IsEnabled = true;
-            Game.sellmode = true;
-            audio.playSFX("incorrect");
-            if (Game.turn == Game.clientplayer)
-                MessageBox.Show("Znajdujesz się w strefie zagrożenia! Sprzedaj budynki lub ulice aby móc zapłacić. Jeżeli nie możesz zrobić nic więcej, ogłoś swoje bankructwo", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
-            Game.dangerzone = true;
-
-        }
-        private void LeaveDangerZone()
-        {
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Color.FromArgb(255, 221, 221, 221);
-            Button_EndTurn.Background = brush;
-            Button_EndTurn.Content = "Zakończ turę";
-            Button_EndTurn.IsEnabled = true;
-            Button_ThrowDice.Background = brush;
-            Button_ThrowDice.Content = "Rzuć koścmi";
-            Button_ThrowDice.IsEnabled = false;
-            brush.Color = Color.FromArgb(255, 255, 255, 255);
-            this.Background = brush;
-            Game.sellmode = false;
-            Game.dangerzone = false;
-        }
         private void RefreshBoardUI()
         {
             for(byte i = 1; i < 41; i++)
@@ -485,81 +425,6 @@ namespace Monopoly
             Label_Player3Cash.Content = Game.playercash[2] + "$";
             Label_Player4Cash.Content = Game.playercash[3] + "$";
         }
-
-        private void Jump()
-        {
-            Canvas.SetLeft(Player1, boardLocations.playerlocation(true, Game.playerlocation[0]));
-            Canvas.SetTop(Player1, boardLocations.playerlocation(false, Game.playerlocation[0]));
-            if(Game.playerlocation[1] != 10)
-            {
-                Canvas.SetLeft(Player2, boardLocations.playerlocation(true, Game.playerlocation[1]) + 22);
-                Canvas.SetTop(Player2, boardLocations.playerlocation(false, Game.playerlocation[1]));
-            }
-            else
-            {
-                Canvas.SetLeft(Player2, boardLocations.playerlocation(true, Game.playerlocation[1]) + 22);
-                Canvas.SetTop(Player2, boardLocations.playerlocation(false, Game.playerlocation[1]) + 55);
-            }
-            Canvas.SetLeft(Player3, boardLocations.playerlocation(true, Game.playerlocation[2]));
-            Canvas.SetTop(Player3, boardLocations.playerlocation(false, Game.playerlocation[2]) + 22);
-            if(Game.playerlocation[3] != 10)
-            {
-                Canvas.SetLeft(Player4, boardLocations.playerlocation(true, Game.playerlocation[3]) + 22);
-                Canvas.SetTop(Player4, boardLocations.playerlocation(false, Game.playerlocation[3]) + 22);
-            }
-            else
-            {
-                Canvas.SetLeft(Player4, boardLocations.playerlocation(true, Game.playerlocation[3]) + 44);
-                Canvas.SetTop(Player4, boardLocations.playerlocation(false, Game.playerlocation[3]) + 55);
-            }
-        }
-        //private void OldJump()
-        //{
-        //    int xcord = 0;
-        //    int ycord = 0;
-        //    if (Game.fieldPlayers[Game.playerlocation[Game.turn]] <= 1)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
-        //    }
-        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 2)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
-        //    }
-        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 3)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
-        //    }
-        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] >= 4)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
-        //    }
-        //    switch (Game.turn)
-        //    {
-        //        case 0:
-        //            Canvas.SetLeft(Player1, xcord);
-        //            Canvas.SetTop(Player1, ycord);
-        //            break;
-
-        //        case 1:
-        //            Canvas.SetLeft(Player2, xcord);
-        //            Canvas.SetTop(Player2, ycord);
-        //            break;
-
-        //        case 2:
-        //            Canvas.SetLeft(Player3, xcord);
-        //            Canvas.SetTop(Player3, ycord);
-        //            break;
-
-        //        case 3:
-        //            Canvas.SetLeft(Player4, xcord);
-        //            Canvas.SetTop(Player4, ycord);
-        //            break;
-        //    }
-        //}
         private void CantBuyHouseNorSellThisField()
         {
             if (Game.turn == Game.clientplayer && !Game.sellmode)
@@ -623,7 +488,12 @@ namespace Monopoly
         private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
         {
             if (!Game.multiplayer)
+            {
+                wait.Stop();
                 ResetUI();
+                Game.clientCanEndTurn = false;
+                Game.clientCanThrowDice = false;
+            }
         }
         private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
         {

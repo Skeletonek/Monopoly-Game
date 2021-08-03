@@ -116,6 +116,7 @@
     <Compile Include="AI.cs" />
     <Compile Include="Audio.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="MainWindow_GameClient.cs" />
     <Compile Include="MainWindow_GameCode.cs" />
     <Compile Include="MainWindow_ServerCode.cs" />
     <Compile Include="Reconnecting.xaml.cs">
