@@ -62,3 +62,20 @@ Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CoreCom
 Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CopyComplete
 Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
 Z:\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe.config
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.pdb
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\NetComm.dll
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.AssemblyReference.cache
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Server.g.cs
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\App.g.cs
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.cache
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.lref
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Server.baml
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.g.resources
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly_Server.Properties.Resources.resources
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.GenerateResource.cache
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CoreCompileInputs.cache
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CopyComplete
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
+C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb

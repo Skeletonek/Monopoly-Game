@@ -162,6 +162,7 @@ namespace Monopoly
         private void CallClientAction(byte ActionCode, byte AdditionalCode, int rent = 0)
         {
             byte currentPlayerLocation = 0;
+            MessageBoxResult result = MessageBoxResult.OK;
             switch (ActionCode)
             {
                 case 1:
@@ -212,7 +213,7 @@ namespace Monopoly
 
                 case 3:
                     currentPlayerLocation = AdditionalCode;
-                    MessageBoxResult result = MessageBox.Show("Czy chcesz kupić " + BoardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    result = MessageBox.Show("Czy chcesz kupić " + BoardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
@@ -258,6 +259,57 @@ namespace Monopoly
                         }
                     }
                     break;
+
+                case 5:
+                    currentPlayerLocation = AdditionalCode;
+                    MessageBox.Show("Musisz zapłacić podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "$.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    if (!payTax(currentPlayerLocation))
+                    {
+                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        Game.dangerzone = true;
+                        DangerZone();
+                    }
+                    else
+                    {
+                        if (Game.dangerzone == true)
+                        {
+                            LeaveDangerZone();
+                        }
+                        GameLog.Text += Game.playername[Game.turn] + " płaci podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
+                        if (Game.multiplayer)
+                        {
+                            SendGameLog(Game.playername[Game.turn] + " płaci podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine);
+                        }
+                    }
+                    break;
+
+                case 6:
+                    currentPlayerLocation = AdditionalCode;
+                    result = MessageBox.Show("Czy chcesz kupić ulicę " + BoardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            if (!buyField(currentPlayerLocation))
+                            {
+                                MessageBox.Show("Nie stać Cię na tą ulicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            else
+                            {
+                                GameLog.Text += Game.playername[Game.turn] + " kupuje " + BoardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
+                                if (Game.multiplayer)
+                                {
+                                    SendGameLog(Game.playername[Game.turn] + " kupuje " + BoardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine);
+                                }
+                                if (Game.fieldOwner[currentPlayerLocation] != 4 && Game.fieldOwner[currentPlayerLocation] == Game.fieldOwner[BoardData.fieldSet1[currentPlayerLocation]] && (Game.fieldOwner[currentPlayerLocation] == Game.fieldOwner[BoardData.fieldSet2[currentPlayerLocation]] || BoardData.fieldSet2[currentPlayerLocation] == 0))
+                                {
+                                    MessageBox.Show("Od teraz możesz kupować domy w tej dzielnicy! Aby kupić, kliknij na dane pole lewym przyciskiem myszy przed zakończeniem tury", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                                }
+                            }
+                            break;
+                    }
+                    break;
+
+                 //Not Completed Yet
             }
         }
     }
