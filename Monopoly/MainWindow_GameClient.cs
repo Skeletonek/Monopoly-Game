@@ -67,7 +67,10 @@ namespace Monopoly
         private void LeaveDangerZone()
         {
             Game.clientCanThrowDice = false;
+            if (!Game.playerBankrupt[Game.clientplayer])
             Game.clientCanEndTurn = true;
+            else
+            Game.clientCanEndTurn = false;
             SolidColorBrush brush = new SolidColorBrush();
             brush.Color = Color.FromArgb(255, 221, 221, 221);
             Button_EndTurn.Background = brush;

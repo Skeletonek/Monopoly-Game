@@ -731,7 +731,10 @@ namespace Monopoly
                 }
                 ResetUI();
             }
-            EndTurn();
+            else
+            {
+                EndTurn();
+            }
         }
         private bool buyField(byte currentPlayerLocation)
         {
