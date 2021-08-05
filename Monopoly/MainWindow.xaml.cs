@@ -245,9 +245,9 @@ namespace Monopoly
         private void LoadTheme()
         {
             LoadCurrentThemeDir();
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri(currentThemeDir + @"\monopolyboard.jpg", UriKind.Relative));
-            GameCanvas.Background = imageBrush;
+            ImageBrush iB = new ImageBrush();
+            iB.ImageSource = new BitmapImage(new Uri(currentThemeDir + @"\monopolyboard.jpg", UriKind.Relative));
+            GameCanvas.Background = iB;
             Player1.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
             Player2.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
             Player3.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
@@ -1533,11 +1533,20 @@ namespace Monopoly
 
         private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e)
         {
-            Game.hotseat = true;
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards);
+            newSingleplayerGame.ShowDialog();
+            Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
+            Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
+            Game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
+            Game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
             Game.playerAvailable[0] = true;
             Game.playerAvailable[1] = true;
-            Game.playername[0] = "Gracz 1";
-            Game.playername[1] = "Gracz 2";
+            Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
+            Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
+            Game.multiplayer = false;
+            Game.hotseat = true;
+            playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
+            LoadTheme();
             StartNewGame();
         }
     }
