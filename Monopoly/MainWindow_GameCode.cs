@@ -660,12 +660,6 @@ namespace Monopoly
             {
                 SendGameLog(Game.playername[Game.turn] + " OGŁASZA BANKRUCTWO!" + Environment.NewLine + Environment.NewLine);
             }
-            if (Game.turn == Game.clientplayer)
-            {
-                Game.clientCanEndTurn = false;
-                Game.clientCanThrowDice = false;
-                LeaveDangerZone();
-            }
             Game.playerBankrupt[Game.turn] = true;
             Game.fieldPlayers[Game.playerlocation[Game.turn]]--;
             for (int i = 1; i < 40; i++)
@@ -680,6 +674,11 @@ namespace Monopoly
                 }
             }
             Game.playerBankruptNeededToWin--;
+            if (Game.turn == Game.clientplayer)
+            {
+                LeaveDangerZone();
+                RefreshDiceUI();
+            }
             RefreshUI();
             if (Game.playerBankruptNeededToWin <= 1)
             {
