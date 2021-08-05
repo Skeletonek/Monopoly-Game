@@ -67,7 +67,7 @@ namespace Monopoly
 
         void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            if(!Directory.Exists("logs"))
+            if (!Directory.Exists("logs"))
             {
                 Directory.CreateDirectory("logs");
             }
@@ -90,15 +90,15 @@ namespace Monopoly
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             //openFileDialog.Filter = "monopolysave";
-            if(openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == true)
             {
                 FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
                 StreamReader sr = new StreamReader(fs);
                 string line;
                 int index = 0;
-                while((line = sr.ReadLine()) != null)
+                while ((line = sr.ReadLine()) != null)
                 {
-                    switch(index)
+                    switch (index)
                     {
                         case 0:
                             Game.playername = line.Split();
@@ -114,7 +114,7 @@ namespace Monopoly
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.DefaultExt = "monopolysave";
-            if(saveFileDialog.ShowDialog() == true)
+            if (saveFileDialog.ShowDialog() == true)
             {
                 FileStream fs = File.Create(saveFileDialog.FileName);
                 StreamWriter sw = new StreamWriter(fs);
@@ -147,14 +147,14 @@ namespace Monopoly
             List<string> AvailableBoards = new List<string>();
             DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
             DirectoryInfo[] dirs = di.GetDirectories();
-            foreach(DirectoryInfo dir in dirs)
+            foreach (DirectoryInfo dir in dirs)
             {
                 FileInfo[] files = dir.GetFiles();
-                foreach(FileInfo file in files)
+                foreach (FileInfo file in files)
                 {
-                    if(file.Name == "BoardName.mtf")
+                    if (file.Name == "BoardName.mtf")
                     {
-                        AvailableBoards.Add(File.ReadAllText(file.FullName)); 
+                        AvailableBoards.Add(File.ReadAllText(file.FullName));
                     }
                 }
             }
@@ -162,10 +162,10 @@ namespace Monopoly
         }
         private void LoadCurrentThemeDir()
         {
-            foreach(string x in ThemeBoards)
+            foreach (string x in ThemeBoards)
             {
                 string[] splittedText = x.Split(';');
-                if(splittedText[0] == playboardTheme)
+                if (splittedText[0] == playboardTheme)
                 {
                     currentThemeDir = splittedText[1];
                 }
@@ -307,29 +307,41 @@ namespace Monopoly
             Player1.Visibility = VisibilityCheck(Game.playerAvailable[0]);
             Player1_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/BluePlayer.png"));
             Player1_Icon.Visibility = VisibilityCheck(Game.playerAvailable[0]);
-            Player1_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[0]);
-            Player1.Visibility = VisibilityCheck(!Game.playerBankrupt[0]);
+            if (Game.playerAvailable[0])
+            {
+                Player1_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[0]);
+                Player1.Visibility = VisibilityCheck(!Game.playerBankrupt[0]);
+            }
             Label_Player1Cash.Visibility = VisibilityCheck(Game.playerAvailable[0]);
             Label_Player1Name.Visibility = VisibilityCheck(Game.playerAvailable[0]);
             Player2.Visibility = VisibilityCheck(Game.playerAvailable[1]);
             Player2_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/GreenPlayer.png"));
             Player2_Icon.Visibility = VisibilityCheck(Game.playerAvailable[1]);
-            Player2.Visibility = VisibilityCheck(!Game.playerBankrupt[1]);
-            Player2_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[1]);
+            if (Game.playerAvailable[1])
+            {
+                Player2.Visibility = VisibilityCheck(!Game.playerBankrupt[1]);
+                Player2_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[1]);
+            }
             Label_Player2Cash.Visibility = VisibilityCheck(Game.playerAvailable[1]);
             Label_Player2Name.Visibility = VisibilityCheck(Game.playerAvailable[1]);
             Player3.Visibility = VisibilityCheck(Game.playerAvailable[2]);
             Player3_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
             Player3_Icon.Visibility = VisibilityCheck(Game.playerAvailable[2]);
-            Player3.Visibility = VisibilityCheck(!Game.playerBankrupt[2]);
-            Player3_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[2]);
+            if (Game.playerAvailable[2])
+            {
+                Player3.Visibility = VisibilityCheck(!Game.playerBankrupt[2]);
+                Player3_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[2]);
+            }
             Label_Player3Cash.Visibility = VisibilityCheck(Game.playerAvailable[2]);
             Label_Player3Name.Visibility = VisibilityCheck(Game.playerAvailable[2]);
             Player4.Visibility = VisibilityCheck(Game.playerAvailable[3]);
             Player4_Icon.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
             Player4_Icon.Visibility = VisibilityCheck(Game.playerAvailable[3]);
-            Player4.Visibility = VisibilityCheck(!Game.playerBankrupt[3]);
-            Player4_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[3]);
+            if (Game.playerAvailable[3])
+            {
+                Player4.Visibility = VisibilityCheck(!Game.playerBankrupt[3]);
+                Player4_Icon.Visibility = VisibilityCheck(!Game.playerBankrupt[3]);
+            }
             Label_Player4Cash.Visibility = VisibilityCheck(Game.playerAvailable[3]);
             Label_Player4Name.Visibility = VisibilityCheck(Game.playerAvailable[3]);
             PlayerStatusRefresh();
@@ -371,7 +383,7 @@ namespace Monopoly
         }
         private void RefreshBoardUI()
         {
-            for(byte i = 1; i < 41; i++)
+            for (byte i = 1; i < 41; i++)
             {
                 DrawOwner(i, Game.fieldOwner[i]);
                 DrawHouses(i, Game.fieldHouse[i]);
