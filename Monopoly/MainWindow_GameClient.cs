@@ -36,6 +36,19 @@ namespace Monopoly
             {
                 Game.clientCanEndTurn = false;
                 RefreshDiceUI();
+                if(Game.hotseat)
+                {
+                    switch(Game.clientplayer)
+                    {
+                        case 0:
+                            Game.clientplayer++;
+                            break;
+
+                        case 1:
+                            Game.clientplayer--;
+                            break;
+                    }
+                }
                 EndTurn();
             }
             else

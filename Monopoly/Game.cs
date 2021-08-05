@@ -9,6 +9,7 @@ namespace Monopoly
     static public class Game
     {
         static public bool multiplayer = false;
+        static public bool hotseat = false;
         static public string[] playername = new string[] { "Gracz 1", "Gracz 2", "Gracz 3", "Gracz 4", "Mr. Nobody" };
         static public byte[] playerlocation = new byte[] { 0, 0, 0, 0 };
         static public int[] playercash = new int[] { 1500, 1500, 1500, 1500 };

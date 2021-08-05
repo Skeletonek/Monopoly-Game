@@ -27,7 +27,7 @@
                 <MenuItem Header="Połącz (LAN)" Click="btnConnectToServer_Click"/>
                 <MenuItem Header="Rozłącz (LAN)" Click="btnSendMessage_Click"/>
                 <Separator/>
-                <MenuItem Header="Hotseat"/>
+                <MenuItem x:Name="MenuItem_Hotseat" Header="Hotseat" Click="MenuItem_Hotseat_Click"/>
             </MenuItem>
             <MenuItem Header="Opcje">
                 <MenuItem x:Name="MenuItem_Sound" Header="Dźwięk" IsCheckable="True" IsChecked="True" Click="MenuItem_Sound_Click"/>

@@ -1518,5 +1518,15 @@ namespace Monopoly
         {
             LoadGame();
         }
+
+        private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e)
+        {
+            Game.hotseat = true;
+            Game.playerAvailable[0] = true;
+            Game.playerAvailable[1] = true;
+            Game.playername[0] = "Gracz 1";
+            Game.playername[1] = "Gracz 2";
+            StartNewGame();
+        }
     }
 }
