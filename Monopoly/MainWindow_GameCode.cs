@@ -112,6 +112,7 @@ namespace Monopoly
                     if (Game.playerArrestedTurns[Game.turn] == 0)
                         return 1; //Can Throw Dice
                     else
+                        Game.playerArrestedTurns[Game.turn]--;
                         return 2; //Can do something else
 
                 case 1:
