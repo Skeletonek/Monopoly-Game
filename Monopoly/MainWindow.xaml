@@ -7,15 +7,6 @@
         mc:Ignorable="d"
         Title="Monopoly (Beta 0.6.1.20210805)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent">
     <Grid x:Name="Grid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="235*"/>
-            <RowDefinition Height="361*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="241*"/>
-            <ColumnDefinition Width="123*"/>
-        </Grid.ColumnDefinitions>
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Gra jednoosobowa">
                 <MenuItem Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
@@ -45,7 +36,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Pomoc">
-                <MenuItem Header="Pomoc"/>
+                <MenuItem Header="Pomoc" Click="MenuItem_Click_3"/>
                 <MenuItem Header="O aplikacji" Click="MenuItem_Click"/>
             </MenuItem>
             <Button x:Name="Button_MouseMode" Content="Tryb budowania domów" Click="Button_MouseMode_Click"/>

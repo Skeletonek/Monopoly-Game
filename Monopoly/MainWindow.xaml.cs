@@ -1549,5 +1549,11 @@ namespace Monopoly
             LoadTheme();
             StartNewGame();
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Uwaga! Zasady umieszczone na stronie mogą różnić się w zależności od wybranego motywu. Wersja beta tej gry, również może nie zawierać pewnych mechanik opisanych w instrukcji.", "Pomoc", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            System.Diagnostics.Process.Start("https://www.hasbro.com/common/instruct/00009.pdf");
+        }
     }
 }
