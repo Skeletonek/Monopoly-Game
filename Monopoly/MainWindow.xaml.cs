@@ -51,7 +51,7 @@ namespace Monopoly
             Game.fieldPlayers[0] = 4;
             BoardData.gameDataWriter();
             wait.Tick += JumpingAnimation_Tick;
-            wait.Interval = 300;
+            wait.Interval = 280;
             reload.Interval = TimeSpan.FromSeconds(10);
             reload.Tick += Reload_Tick;
             ThemeBoards = GetAvailableBoards();
