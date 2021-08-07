@@ -1,5 +1,12 @@
-﻿Beta 0.6.2
-- Optymalizacja kodu
+﻿Beta 0.7.0
+- Znacząco zoptymalizowano kod gry
+- Dodano tryb Hotseat do gry wieloosobowej
+- Kliknięcie w pomoc przekierowywuje do ogólnych zasad gry planszowej Monopoly
+- Ulepszono mechanizm odświeżania UI planszy
+- GameLog automatycznie przewija się w dół
+- Przywrócono stary styl renderowania pionków na planszy
+- Naprawiono błąd "Komunikat o możliwości kupowania budynków pojawia się nawet gdy gracz nie skompletował dzielnicy"
+- Naprawiono błąd wyświetlający przyciski "Tak", "Nie" zamiast "Ok" w komunikacie o możliwości kupowania budynków (Dzięki Oxygen!)
 
 Beta 0.6.1
 - Dodano obsługę motywów gry
