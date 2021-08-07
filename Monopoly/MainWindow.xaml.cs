@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Collections.Generic;
+using System.Windows.Media.Animation;
 
 namespace Monopoly
 {
@@ -17,6 +18,7 @@ namespace Monopoly
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public static Client client;
         public static string clientname;
         public static string ip;
@@ -30,8 +32,9 @@ namespace Monopoly
         string playboardTheme = "Monopoly Standard";
         public static string currentThemeDir = "Resources";
 
-        DispatcherTimer wait = new DispatcherTimer();
+        //DispatcherTimer wait = new DispatcherTimer();
         DispatcherTimer reload = new DispatcherTimer();
+        System.Windows.Forms.Timer wait = new System.Windows.Forms.Timer();
 
         BoardLocations boardLocations = new BoardLocations();
         Audio audio = new Audio();
@@ -47,8 +50,8 @@ namespace Monopoly
             }
             Game.fieldPlayers[0] = 4;
             BoardData.gameDataWriter();
-            wait.Interval = TimeSpan.FromMilliseconds(300);
             wait.Tick += JumpingAnimation_Tick;
+            wait.Interval = 300;
             reload.Interval = TimeSpan.FromSeconds(10);
             reload.Tick += Reload_Tick;
             ThemeBoards = GetAvailableBoards();
@@ -59,7 +62,6 @@ namespace Monopoly
             audio.playMusic();
             audio.music.MediaEnded += Sfx_MediaEnded;
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MenuItem_Volume50.IsChecked = true;
@@ -1554,6 +1556,12 @@ namespace Monopoly
         {
             MessageBox.Show("Uwaga! Zasady umieszczone na stronie mogą różnić się w zależności od wybranego motywu. Wersja beta tej gry, również może nie zawierać pewnych mechanik opisanych w instrukcji.", "Pomoc", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             System.Diagnostics.Process.Start("https://www.hasbro.com/common/instruct/00009.pdf");
+        }
+
+        private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            if(!GameLog_ScrollViewer.IsMouseOver)
+            GameLog_ScrollViewer.ScrollToEnd();
         }
     }
 }
