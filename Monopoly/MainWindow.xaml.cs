@@ -201,48 +201,8 @@ namespace Monopoly
         }
         private void DiceShow(byte dice1, byte dice2)
         {
-            switch (dice1)
-            {
-                case 1:
-                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
-                    break;
-                case 2:
-                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_2.png", UriKind.Relative));
-                    break;
-                case 3:
-                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_3.png", UriKind.Relative));
-                    break;
-                case 4:
-                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_4.png", UriKind.Relative));
-                    break;
-                case 5:
-                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_5.png", UriKind.Relative));
-                    break;
-                case 6:
-                    Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_6.png", UriKind.Relative));
-                    break;
-            }
-            switch (dice2)
-            {
-                case 1:
-                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_1.png", UriKind.Relative));
-                    break;
-                case 2:
-                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_2.png", UriKind.Relative));
-                    break;
-                case 3:
-                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_3.png", UriKind.Relative));
-                    break;
-                case 4:
-                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_4.png", UriKind.Relative));
-                    break;
-                case 5:
-                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_5.png", UriKind.Relative));
-                    break;
-                case 6:
-                    Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_6.png", UriKind.Relative));
-                    break;
-            }
+            Dice1.Source = new BitmapImage(new Uri(@"Resources/dice_" + dice1 + ".png", UriKind.Relative));
+            Dice2.Source = new BitmapImage(new Uri(@"Resources/dice_" + dice2 + ".png", UriKind.Relative));
         }
         private void LoadTheme()
         {
@@ -657,27 +617,10 @@ namespace Monopoly
                     break;
             }
         }
-
+        public enum Fields { BlueField, GreenField, YellowField, RedField, NoAlpha }
         private BitmapImage OwnerStatusCheck(byte status)
         {
-            switch (status)
-            {
-                case 0:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\BlueField.png", UriKind.Relative));
-
-                case 1:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\GreenField.png", UriKind.Relative));
-
-                case 2:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\YellowField.png", UriKind.Relative));
-
-                case 3:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\RedField.png", UriKind.Relative));
-
-                case 4:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\NoAlpha.png", UriKind.Relative));
-            }
-            return null;
+            return new BitmapImage(new Uri(currentThemeDir + @"\" + (Fields)status + ".png", UriKind.Relative));
         }
 
         private void DrawHouses(byte field, byte status)
@@ -1032,27 +975,6 @@ namespace Monopoly
             Game.selectedField = 39;
             OverviewRefresh();
         }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Pause)
-            {
-                CheatWindow cheatWindow = new CheatWindow();
-                cheatWindow.ShowDialog();
-                if (cheat_allowTradeWindow)
-                {
-                    Button_Trade.IsEnabled = true;
-                }
-                if (cheat != 0)
-                {
-                    Button_ThrowDice.IsEnabled = false;
-                    diceScore = Convert.ToByte(cheat);
-                    DiceScore.Content = diceScore;
-                    wait.Start();
-                }
-            }
-        }
-
         private void Field1_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseNorSellThisField();
@@ -1515,6 +1437,25 @@ namespace Monopoly
             TradeWindow trade = new TradeWindow();
             trade.ShowDialog();
             RefreshBoardUI();
+        }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Pause)
+            {
+                CheatWindow cheatWindow = new CheatWindow();
+                cheatWindow.ShowDialog();
+                if (cheat_allowTradeWindow)
+                {
+                    Button_Trade.IsEnabled = true;
+                }
+                if (cheat != 0)
+                {
+                    Button_ThrowDice.IsEnabled = false;
+                    diceScore = Convert.ToByte(cheat);
+                    DiceScore.Content = diceScore;
+                    wait.Start();
+                }
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
