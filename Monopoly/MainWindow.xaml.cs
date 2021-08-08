@@ -488,7 +488,7 @@ namespace Monopoly
         }
         private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
         {
-            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards);
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards, false);
             newSingleplayerGame.ShowDialog();
             Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
             Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
@@ -1535,7 +1535,7 @@ namespace Monopoly
 
         private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e)
         {
-            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards);
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards, true);
             newSingleplayerGame.ShowDialog();
             Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
             Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;

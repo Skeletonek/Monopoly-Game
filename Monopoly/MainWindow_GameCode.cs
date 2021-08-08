@@ -397,7 +397,6 @@ namespace Monopoly
                         break;
 
                     case 12: //Electric Company
-                    Waterworks:
                         if (Game.fieldOwner[currentPlayerLocation] == 4)
                         {
                             if (Game.turn == Game.clientplayer)
@@ -441,7 +440,7 @@ namespace Monopoly
                         break;
 
                     case 28: //Waterworks
-                        goto Waterworks; //I really didn't want to do this, but this must be it for now
+                        goto case 12;
                 }
             }
             else // For normal estates
