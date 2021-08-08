@@ -178,7 +178,7 @@ namespace Monopoly
             MessageBoxResult result = MessageBoxResult.OK;
             switch (ActionCode)
             {
-                case 1:
+                case 10: //Chance
                     byte chanceCard = AdditionalCode;
                     MessageBox.Show(BoardData.chanceText[chanceCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!doChanceCard(chanceCard))
@@ -201,7 +201,7 @@ namespace Monopoly
                     }
                     break;
 
-                case 2:
+                case 20: //Community Chest
                     byte commChestCard = AdditionalCode;
                     MessageBox.Show(BoardData.commChestText[commChestCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!doCommChestCard(commChestCard))
@@ -224,7 +224,7 @@ namespace Monopoly
                     }
                     break;
 
-                case 3:
+                case 30: //Buy railroad
                     currentPlayerLocation = AdditionalCode;
                     result = MessageBox.Show("Czy chcesz kupić " + BoardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     switch (result)
@@ -250,7 +250,7 @@ namespace Monopoly
                     }
                     break;
 
-                case 4:
+                case 31: //Pay for staying on a railroad
                     currentPlayerLocation = AdditionalCode;
                     MessageBox.Show("Stanąłeś na dworcu gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                     if (!payRent(currentPlayerLocation, rent))
@@ -273,7 +273,7 @@ namespace Monopoly
                     }
                     break;
 
-                case 5:
+                case 40: //Pay tax
                     currentPlayerLocation = AdditionalCode;
                     MessageBox.Show("Musisz zapłacić podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "$.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     if (!payTax(currentPlayerLocation))
@@ -296,7 +296,7 @@ namespace Monopoly
                     }
                     break;
 
-                case 6:
+                case 50: //Buy street
                     currentPlayerLocation = AdditionalCode;
                     result = MessageBox.Show("Czy chcesz kupić ulicę " + BoardData.fieldName[currentPlayerLocation] + "?", "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     switch (result)
@@ -322,7 +322,77 @@ namespace Monopoly
                     }
                     break;
 
-                 //Not Completed Yet
+                case 51: //Pay for street
+                    currentPlayerLocation = AdditionalCode;
+                    MessageBox.Show("Stanąłeś na dzielnicy gracz " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    if (!payRent(currentPlayerLocation, rent))
+                    {
+                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        Game.dangerzone = true;
+                        DangerZone();
+                    }
+                    else
+                    {
+                        if (Game.dangerzone == true)
+                        {
+                            LeaveDangerZone();
+                        }
+                        GameLog.Text += Game.playername[Game.turn] + " płaci " + rent + "$ graczowi " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
+                        if (Game.multiplayer)
+                        {
+                            SendGameLog(Game.playername[Game.turn] + " płaci " + rent + "$ graczowi " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine);
+                        }
+                    }
+                    break;
+
+                case 60: //Buy electric company / waterworks
+                    currentPlayerLocation = AdditionalCode;
+                    result = MessageBox.Show("Czy chcesz kupić " + BoardData.fieldName[currentPlayerLocation], "Monopoly", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            if (!buyField(currentPlayerLocation))
+                            {
+                                MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            else
+                            {
+                                GameLog.Text += Game.playername[Game.turn] + " kupuje " + BoardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
+                                if (Game.multiplayer)
+                                {
+                                    SendGameLog(Game.playername[Game.turn] + " kupuje " + BoardData.fieldName[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine);
+                                }
+                            }
+                            break;
+
+                        case MessageBoxResult.No:
+                            break;
+                    }
+                    break;
+
+                case 61: //Pay for electric company / waterworks
+                    currentPlayerLocation = AdditionalCode;
+                    int calculatedMoney = rent;
+                    MessageBox.Show("Stanąłeś na " + BoardData.fieldName[currentPlayerLocation] + " gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + calculatedMoney, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
+                    {
+                        MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
+                        Game.dangerzone = true;
+                        DangerZone();
+                    }
+                    else
+                    {
+                        if (Game.dangerzone == true)
+                        {
+                            LeaveDangerZone();
+                        }
+                        GameLog.Text += Game.playername[Game.turn] + " płaci " + calculatedMoney + "$ graczowi " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine;
+                        if (Game.multiplayer)
+                        {
+                            SendGameLog(Game.playername[Game.turn] + " płaci " + calculatedMoney + "$ graczowi " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + "!" + Environment.NewLine + Environment.NewLine);
+                        }
+                    }
+                    break;
             }
         }
     }
