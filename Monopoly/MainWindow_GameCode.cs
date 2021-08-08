@@ -110,16 +110,25 @@ namespace Monopoly
             {
                 case 0:
                     if (Game.playerArrestedTurns[Game.turn] == 0)
+                    {
                         return 1; //Can Throw Dice
+                    }
                     else
+                    {
                         Game.playerArrestedTurns[Game.turn]--;
+                        if (Game.playerArrestedTurns[Game.turn] == 0)
+                        {
+                            Game.playerlocation[Game.turn] = 10;
+                            RefreshBoardUI();
+                        }
                         return 2; //Can do something else
+                    }
 
                 case 1:
                     return 2; //Can do something else
 
                 case 2:
-                    return 3;
+                    return 3; //End (Unused)
 
                 default:
                     return -1; //Error
@@ -388,7 +397,7 @@ namespace Monopoly
                         break;
 
                     case 12: //Electric Company
-                        Waterworks:
+                    Waterworks:
                         if (Game.fieldOwner[currentPlayerLocation] == 4)
                         {
                             if (Game.turn == Game.clientplayer)
