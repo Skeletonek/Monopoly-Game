@@ -31,7 +31,8 @@ namespace Monopoly
                     {
                         Game.clientplayer = 0;
                         Label_Player1Name.FontWeight = FontWeights.Bold;
-                        Button_ThrowDice.IsEnabled = true;
+                        Game.clientCanThrowDice = true;
+                        RefreshDiceUI();
                     }
                     break;
 

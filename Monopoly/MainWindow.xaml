@@ -49,17 +49,17 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
-            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" MouseEnter="Field1_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field1_MouseUp" Stretch="Fill" MouseRightButtonUp="Field1_MouseRightButtonUp"/>
+            <Image x:Name="Field1" Height="84" Canvas.Left="556" Canvas.Top="556" Width="84" MouseEnter="Field1_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field2" Height="84" Canvas.Left="504" Canvas.Top="556" Width="52" MouseEnter="Field2_MouseEnter" Source="Resources/NoAlpha.png" Stretch="Fill" MouseLeftButtonUp="Field2_MouseUp" MouseRightButtonUp="Field2_MouseRightButtonUp"/>
-            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field3_MouseUp" Stretch="Fill" MouseRightButtonUp="Field3_MouseRightButtonUp"/>
+            <Image x:Name="Field3" Height="84" Canvas.Left="452" Canvas.Top="556" Width="52" MouseEnter="Field3_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field4" Height="84" Canvas.Left="399" Canvas.Top="556" Width="52" MouseEnter="Field4_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field4_MouseUp" Stretch="Fill" MouseRightButtonUp="Field4_MouseRightButtonUp"/>
-            <Image x:Name="Field5" Height="84" Canvas.Left="346" Canvas.Top="556" Width="52" MouseEnter="Field5_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field5_MouseUp" Stretch="Fill" MouseRightButtonUp="Field5_MouseRightButtonUp"/>
-            <Image x:Name="Field6" Height="84" Canvas.Left="294" Canvas.Top="556" Width="52" MouseEnter="Field6_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field6_MouseUp" Stretch="Fill" MouseRightButtonUp="Field6_MouseRightButtonUp"/>
+            <Image x:Name="Field5" Height="84" Canvas.Left="346" Canvas.Top="556" Width="52" MouseEnter="Field5_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
+            <Image x:Name="Field6" Height="84" Canvas.Left="294" Canvas.Top="556" Width="52" MouseEnter="Field6_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field6_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field7" Height="84" Canvas.Left="242" Canvas.Top="556" Width="52" MouseEnter="Field7_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field7_MouseUp" Stretch="Fill" MouseRightButtonUp="Field7_MouseRightButtonUp"/>
-            <Image x:Name="Field8" Height="84" Canvas.Left="190" Canvas.Top="556" Width="52" MouseEnter="Field8_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field8_MouseUp" Stretch="Fill" MouseRightButtonUp="Field8_MouseRightButtonUp"/>
+            <Image x:Name="Field8" Height="84" Canvas.Left="190" Canvas.Top="556" Width="52" MouseEnter="Field8_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field9" Height="84" Canvas.Left="137" Canvas.Top="556" Width="52" MouseEnter="Field9_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field9_MouseUp" Stretch="Fill" MouseRightButtonUp="Field9_MouseRightButtonUp"/>
             <Image x:Name="Field10" Height="84" Canvas.Left="85" Canvas.Top="556" Width="52" MouseEnter="Field10_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field10_MouseUp" Stretch="Fill" MouseRightButtonUp="Field10_MouseRightButtonUp"/>
-            <Image x:Name="Field11" Height="84" Canvas.Top="556" Width="84" MouseEnter="Field11_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field11_MouseUp" Stretch="Fill" MouseRightButtonUp="Field11_MouseRightButtonUp"/>
+            <Image x:Name="Field11" Height="84" Canvas.Top="556" Width="84" MouseEnter="Field11_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field12" Height="84" Canvas.Top="488" Width="52" MouseEnter="Field12_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field12_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field12_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -70,7 +70,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field13" Height="84" Canvas.Top="436" Width="52" MouseEnter="Field13_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field13_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field13_MouseRightButtonUp">
+            <Image x:Name="Field13" Height="84" Canvas.Top="436" Width="52" MouseEnter="Field13_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field13_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -100,7 +100,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field16" Height="84" Canvas.Top="278" Width="52" MouseEnter="Field16_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field16_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field16_MouseRightButtonUp">
+            <Image x:Name="Field16" Height="84" Canvas.Top="278" Width="52" MouseEnter="Field16_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field16_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -120,7 +120,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field18" Height="84" Canvas.Top="173" Width="52" MouseEnter="Field18_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field18_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field18_MouseRightButtonUp">
+            <Image x:Name="Field18" Height="84" Canvas.Top="173" Width="52" MouseEnter="Field18_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -150,7 +150,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field21" Height="84" Width="84" MouseEnter="Field21_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field21_MouseUp" Stretch="Fill" MouseRightButtonUp="Field21_MouseRightButtonUp"/>
+            <Image x:Name="Field21" Height="84" Width="84" MouseEnter="Field21_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field22" Height="84" Canvas.Left="85" Width="52" MouseEnter="Field22_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field22_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field22_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -161,7 +161,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field23" Height="84" Canvas.Left="137" Width="52" MouseEnter="Field23_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field23_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field23_MouseRightButtonUp">
+            <Image x:Name="Field23" Height="84" Canvas.Left="137" Width="52" MouseEnter="Field23_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -191,7 +191,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field26" Height="84" Canvas.Left="293" Width="52" MouseEnter="Field26_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field26_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field26_MouseRightButtonUp">
+            <Image x:Name="Field26" Height="84" Canvas.Left="293" Width="52" MouseEnter="Field26_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field26_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -221,7 +221,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field29" Height="84" Canvas.Left="452" Width="52" MouseEnter="Field29_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field29_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field29_MouseRightButtonUp">
+            <Image x:Name="Field29" Height="84" Canvas.Left="452" Width="52" MouseEnter="Field29_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field29_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -241,7 +241,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field31" Height="84" Canvas.Left="556" Width="84" MouseEnter="Field31_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field31_MouseUp" Stretch="Fill" MouseRightButtonUp="Field31_MouseRightButtonUp"/>
+            <Image x:Name="Field31" Height="84" Canvas.Left="556" Width="84" MouseEnter="Field31_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp"/>
             <Image x:Name="Field32" Height="84" Canvas.Left="573" Canvas.Top="68" Width="52" MouseEnter="Field32_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field32_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field32_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -262,7 +262,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field34" Height="84" Canvas.Left="573" Canvas.Top="173" Width="52" MouseEnter="Field34_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field34_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field34_MouseRightButtonUp">
+            <Image x:Name="Field34" Height="84" Canvas.Left="573" Canvas.Top="173" Width="52" MouseEnter="Field34_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -282,7 +282,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field36" Height="84" Canvas.Left="573" Canvas.Top="278" Width="52" MouseEnter="Field36_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field36_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field36_MouseRightButtonUp">
+            <Image x:Name="Field36" Height="84" Canvas.Left="573" Canvas.Top="278" Width="52" MouseEnter="Field36_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field36_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -292,7 +292,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field37" Height="84" Canvas.Left="573" Canvas.Top="331" Width="52" MouseEnter="Field37_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field37_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field37_MouseRightButtonUp">
+            <Image x:Name="Field37" Height="84" Canvas.Left="573" Canvas.Top="331" Width="52" MouseEnter="Field37_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -312,7 +312,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field39" Height="84" Canvas.Left="573" Canvas.Top="436" Width="52" MouseEnter="Field39_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field39_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field39_MouseRightButtonUp">
+            <Image x:Name="Field39" Height="84" Canvas.Left="573" Canvas.Top="436" Width="52" MouseEnter="Field39_MouseEnter" Source="Resources/NoAlpha.png" MouseLeftButtonUp="Field_CantDoShitInDetroit_MouseUp" RenderTransformOrigin="0.5,0.5" Stretch="Fill" MouseRightButtonUp="Field_CantDoShitInDetroit_MouseRightButtonUp">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

@@ -617,7 +617,7 @@ namespace Monopoly
                     break;
             }
         }
-        public enum Fields { BlueField, GreenField, YellowField, RedField, NoAlpha }
+        private enum Fields { BlueField, GreenField, YellowField, RedField, NoAlpha }
         private BitmapImage OwnerStatusCheck(byte status)
         {
             return new BitmapImage(new Uri(currentThemeDir + @"\" + (Fields)status + ".png", UriKind.Relative));
@@ -716,25 +716,10 @@ namespace Monopoly
                     break;
             }
         }
-
+        private enum Houses { NoAlpha, House1, House2, House3, House4, Trivago}
         private BitmapImage HousesStatusCheck(byte status)
         {
-            switch (status)
-            {
-                case 0:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\NoAlpha.png", UriKind.Relative));
-                case 1:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\House1.png", UriKind.Relative));
-                case 2:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\House2.png", UriKind.Relative));
-                case 3:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\House3.png", UriKind.Relative));
-                case 4:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\House4.png", UriKind.Relative));
-                case 5:
-                    return new BitmapImage(new Uri(currentThemeDir + @"\Trivago.png", UriKind.Relative));
-            }
-            return null;
+            return new BitmapImage(new Uri(currentThemeDir + @"\" + (Houses)status + ".png", UriKind.Relative));
         }
         private void Field1_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -975,205 +960,123 @@ namespace Monopoly
             Game.selectedField = 39;
             OverviewRefresh();
         }
-        private void Field1_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field2_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(1);
         }
-
-        private void Field3_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field4_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(3);
         }
-
-        private void Field5_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field6_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseOrSellField(5);
         }
-
         private void Field7_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(6);
         }
-
-        private void Field8_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field9_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(8);
         }
-
         private void Field10_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(9);
         }
-
-        private void Field11_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(11);
         }
-
         private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseOrSellField(12);
         }
-
         private void Field14_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(13);
         }
-
         private void Field15_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(14);
         }
-
         private void Field16_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseOrSellField(15);
         }
-
         private void Field17_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(16);
         }
-
-        private void Field18_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field19_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(18);
         }
-
         private void Field20_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(19);
         }
-        private void Field21_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field22_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(21);
         }
-
-        private void Field23_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field24_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(23);
         }
-
         private void Field25_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(24);
         }
-
         private void Field26_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseOrSellField(25);
         }
-
         private void Field27_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(26);
         }
-
         private void Field28_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(27);
         }
-
         private void Field29_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseOrSellField(28);
         }
-
         private void Field30_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(29);
         }
-
-        private void Field31_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field32_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(31);
         }
-
         private void Field33_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(32);
         }
-
-        private void Field34_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field35_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(34);
         }
-
         private void Field36_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CantBuyHouseOrSellField(35);
         }
-
-        private void Field37_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field38_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(37);
         }
-
-        private void Field39_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-
         private void Field40_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BuyHouseOrSellField(39);
         }
-        private void Field1_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void Field_CantDoShitInDetroit_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            CantBuyHouseNorSellThisField();
+        }
+        private void Field_CantDoShitInDetroit_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CantSellHouse();
         }
@@ -1181,29 +1084,13 @@ namespace Monopoly
         {
             CanSellHouse(1);
         }
-        private void Field3_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field4_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(3);
         }
-        private void Field5_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
-        private void Field6_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field7_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(6);
-        }
-        private void Field8_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
         }
         private void Field9_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -1213,17 +1100,9 @@ namespace Monopoly
         {
             CanSellHouse(9);
         }
-        private void Field11_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field12_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(11);
-        }
-        private void Field13_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
         }
         private void Field14_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -1233,17 +1112,9 @@ namespace Monopoly
         {
             CanSellHouse(14);
         }
-        private void Field16_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field17_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(16);
-        }
-        private void Field18_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
         }
         private void Field19_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -1253,17 +1124,9 @@ namespace Monopoly
         {
             CanSellHouse(19);
         }
-        private void Field21_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field22_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(21);
-        }
-        private void Field23_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
         }
         private void Field24_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -1273,10 +1136,6 @@ namespace Monopoly
         {
             CanSellHouse(24);
         }
-        private void Field26_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field27_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(26);
@@ -1285,17 +1144,9 @@ namespace Monopoly
         {
             CanSellHouse(27);
         }
-        private void Field29_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field30_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(29);
-        }
-        private void Field31_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
         }
         private void Field32_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -1305,29 +1156,13 @@ namespace Monopoly
         {
             CanSellHouse(32);
         }
-        private void Field34_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field35_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(34);
         }
-        private void Field36_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
-        private void Field37_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
         private void Field38_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             CanSellHouse(37);
-        }
-        private void Field39_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
         }
         private void Field40_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
