@@ -1,6 +1,6 @@
-﻿Beta 0.7.0
+﻿Beta 0.7-Pre1
 - Znacząco zoptymalizowano kod gry
-- Dodano tryb Hotseat do gry wieloosobowej
+- Dodano tryb Hotseat do gry wieloosobowej (w wersji testowej dla 2 graczy z możliwością włączenia botów)
 - Kliknięcie w pomoc przekierowywuje do ogólnych zasad gry planszowej Monopoly
 - Ulepszono mechanizm odświeżania UI planszy
 - GameLog automatycznie przewija się w dół

@@ -10,6 +10,7 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Windows.Media.Animation;
+using System.Text.RegularExpressions;
 
 namespace Monopoly
 {
@@ -499,578 +500,107 @@ namespace Monopoly
                     MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
-        private void DrawOwner(byte field, byte status)
-        {
-            switch (field)
-            {
-                case 1:
-                    Field2Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 3:
-                    Field4Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 5:
-                    Field6Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 6:
-                    Field7Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 8:
-                    Field9Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 9:
-                    Field10Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 11:
-                    Field12Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 12:
-                    Field13Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 13:
-                    Field14Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 14:
-                    Field15Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 15:
-                    Field16Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 16:
-                    Field17Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 18:
-                    Field19Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 19:
-                    Field20Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 21:
-                    Field22Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 23:
-                    Field24Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 24:
-                    Field25Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 25:
-                    Field26Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 26:
-                    Field27Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 27:
-                    Field28Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 28:
-                    Field29Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 29:
-                    Field30Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 31:
-                    Field32Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 32:
-                    Field33Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 34:
-                    Field35Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 35:
-                    Field36Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 37:
-                    Field38Owner.Source = OwnerStatusCheck(status);
-                    break;
-
-                case 39:
-                    Field40Owner.Source = OwnerStatusCheck(status);
-                    break;
-            }
+            //DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE
+            //
+            //
+            Console.WriteLine($"Field number: {field}");
+            //
+            //
+            //DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE
         }
         private enum Fields { BlueField, GreenField, YellowField, RedField, NoAlpha }
-        private BitmapImage OwnerStatusCheck(byte status)
+        private void DrawOwner(byte field, byte status)
         {
-            return new BitmapImage(new Uri(currentThemeDir + @"\" + (Fields)status + ".png", UriKind.Relative));
-        }
-
-        private void DrawHouses(byte field, byte status)
-        {
-            switch (field)
+            Regex regex = new Regex(@"Field\d+Owner");
+            int FieldNumber = 0;
+            string FieldOwnerSplittedName = string.Empty;
+            foreach (Image img in GameCanvas.Children)
             {
-                case 1:
-                    Field2.Source = HousesStatusCheck(status);
-                    break;
-
-                case 3:
-                    Field4.Source = HousesStatusCheck(status);
-                    break;
-
-                case 6:
-                    Field7.Source = HousesStatusCheck(status);
-                    break;
-
-                case 8:
-                    Field9.Source = HousesStatusCheck(status);
-                    break;
-
-                case 9:
-                    Field10.Source = HousesStatusCheck(status);
-                    break;
-
-                case 11:
-                    Field12.Source = HousesStatusCheck(status);
-                    break;
-
-                case 13:
-                    Field14.Source = HousesStatusCheck(status);
-                    break;
-
-                case 14:
-                    Field15.Source = HousesStatusCheck(status);
-                    break;
-
-                case 16:
-                    Field17.Source = HousesStatusCheck(status);
-                    break;
-
-                case 18:
-                    Field19.Source = HousesStatusCheck(status);
-                    break;
-
-                case 19:
-                    Field20.Source = HousesStatusCheck(status);
-                    break;
-
-                case 21:
-                    Field22.Source = HousesStatusCheck(status);
-                    break;
-
-                case 23:
-                    Field24.Source = HousesStatusCheck(status);
-                    break;
-
-                case 24:
-                    Field25.Source = HousesStatusCheck(status);
-                    break;
-
-                case 26:
-                    Field27.Source = HousesStatusCheck(status);
-                    break;
-
-                case 27:
-                    Field28.Source = HousesStatusCheck(status);
-                    break;
-
-                case 29:
-                    Field30.Source = HousesStatusCheck(status);
-                    break;
-
-                case 31:
-                    Field32.Source = HousesStatusCheck(status);
-                    break;
-
-                case 32:
-                    Field33.Source = HousesStatusCheck(status);
-                    break;
-
-                case 34:
-                    Field35.Source = HousesStatusCheck(status);
-                    break;
-
-                case 37:
-                    Field38.Source = HousesStatusCheck(status);
-                    break;
-
-                case 39:
-                    Field40.Source = HousesStatusCheck(status);
-                    break;
+                if (regex.IsMatch(img.Name))
+                {
+                    FieldOwnerSplittedName = img.Name.Substring(5, 2);
+                    if(!int.TryParse(FieldOwnerSplittedName, out FieldNumber))
+                    {
+                        FieldOwnerSplittedName = img.Name.Substring(5, 1);
+                        int.TryParse(FieldOwnerSplittedName, out FieldNumber);
+                    }
+                    if (FieldNumber == field + 1)
+                    {
+                        img.Source = new BitmapImage(new Uri(currentThemeDir + @"\" + (Fields)status + ".png", UriKind.Relative));
+                        break;
+                    }
+                }
             }
         }
-        private enum Houses { NoAlpha, House1, House2, House3, House4, Trivago}
-        private BitmapImage HousesStatusCheck(byte status)
-        {
-            return new BitmapImage(new Uri(currentThemeDir + @"\" + (Houses)status + ".png", UriKind.Relative));
-        }
-        private void Field1_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 0;
-            OverviewRefresh();
-        }
-
-        private void Field2_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 1;
-            OverviewRefresh();
-        }
-
-        private void Field3_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 2;
-            OverviewRefresh();
-        }
-
-        private void Field4_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 3;
-            OverviewRefresh();
-        }
-
-        private void Field5_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 4;
-            OverviewRefresh();
-        }
-
-        private void Field6_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 5;
-            OverviewRefresh();
-        }
-
-        private void Field7_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 6;
-            OverviewRefresh();
-        }
-
-        private void Field8_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 7;
-            OverviewRefresh();
-        }
-
-        private void Field9_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 8;
-            OverviewRefresh();
-        }
-
-        private void Field10_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 9;
-            OverviewRefresh();
-        }
-
-        private void Field11_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 10;
-            OverviewRefresh();
-        }
-
-        private void Field12_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 11;
-            OverviewRefresh();
-        }
-
-        private void Field13_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 12;
-            OverviewRefresh();
-        }
-
-        private void Field14_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 13;
-            OverviewRefresh();
-        }
-
-        private void Field15_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 14;
-            OverviewRefresh();
-        }
-
-        private void Field16_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 15;
-            OverviewRefresh();
-        }
-
-        private void Field17_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 16;
-            OverviewRefresh();
-        }
-
-        private void Field18_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 17;
-            OverviewRefresh();
-        }
-
-        private void Field19_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 18;
-            OverviewRefresh();
-        }
-
-        private void Field20_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 19;
-            OverviewRefresh();
-        }
-
-        private void Field21_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 20;
-            OverviewRefresh();
-        }
-
-        private void Field22_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 21;
-            OverviewRefresh();
-        }
-
-        private void Field23_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 22;
-            OverviewRefresh();
-        }
-
-        private void Field24_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 23;
-            OverviewRefresh();
-        }
-
-        private void Field25_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 24;
-            OverviewRefresh();
-        }
-
-        private void Field26_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 25;
-            OverviewRefresh();
-        }
-
-        private void Field27_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 26;
-            OverviewRefresh();
-        }
-
-        private void Field28_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 27;
-            OverviewRefresh();
-        }
-
-        private void Field29_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 28;
-            OverviewRefresh();
-        }
-
-        private void Field30_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 29;
-            OverviewRefresh();
-        }
-
-        private void Field31_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 30;
-            OverviewRefresh();
-        }
-
-        private void Field32_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 31;
-            OverviewRefresh();
-        }
-
-        private void Field33_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 32;
-            OverviewRefresh();
-        }
-
-        private void Field34_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 33;
-            OverviewRefresh();
-        }
-
-        private void Field35_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 34;
-            OverviewRefresh();
-        }
-
-        private void Field36_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 35;
-            OverviewRefresh();
-        }
-
-        private void Field37_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 36;
-            OverviewRefresh();
-        }
-
-        private void Field38_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 37;
-            OverviewRefresh();
-        }
-
-        private void Field39_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 38;
-            OverviewRefresh();
-        }
-
-        private void Field40_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Game.selectedField = 39;
-            OverviewRefresh();
-        }
-        private void Field2_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(1);
-        }
-        private void Field4_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(3);
-        }
-        private void Field6_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseOrSellField(5);
-        }
-        private void Field7_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(6);
-        }
-        private void Field9_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(8);
-        }
-        private void Field10_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(9);
-        }
-        private void Field12_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(11);
-        }
-        private void Field13_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseOrSellField(12);
-        }
-        private void Field14_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(13);
-        }
-        private void Field15_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(14);
-        }
-        private void Field16_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseOrSellField(15);
-        }
-        private void Field17_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(16);
-        }
-        private void Field19_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(18);
-        }
-        private void Field20_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(19);
-        }
-        private void Field22_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(21);
-        }
-        private void Field24_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(23);
-        }
-        private void Field25_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(24);
-        }
-        private void Field26_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseOrSellField(25);
-        }
-        private void Field27_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(26);
-        }
-        private void Field28_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(27);
-        }
-        private void Field29_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseOrSellField(28);
-        }
-        private void Field30_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(29);
-        }
-        private void Field32_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(31);
-        }
-        private void Field33_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(32);
-        }
-        private void Field35_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(34);
-        }
-        private void Field36_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseOrSellField(35);
-        }
-        private void Field38_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(37);
-        }
-        private void Field40_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            BuyHouseOrSellField(39);
+        private enum Houses { NoAlpha, House1, House2, House3, House4, Trivago }
+        private void DrawHouses(byte field, byte status)
+        {
+            Regex regex = new Regex(@"Field\d+");
+            byte FieldNumber = 0;
+            foreach (Image img in GameCanvas.Children)
+            {
+                if (regex.IsMatch(img.Name))
+                {
+                    if (FieldNumber == field)
+                    {
+                        img.Source = new BitmapImage(new Uri(currentThemeDir + @"\" + (Houses)status + ".png", UriKind.Relative));
+                        break;
+                    }
+                    FieldNumber++;
+                }
+            }
+        }
+        private void Field_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Regex regex = new Regex(@"Field\d+");
+            byte FieldNumber = 0;
+            foreach (Image img in GameCanvas.Children)
+            {
+                if (regex.IsMatch(img.Name))
+                {
+                    if (img == sender)
+                    {
+                        Game.selectedField = FieldNumber;
+                        OverviewRefresh();
+                        break;
+                    }
+                    FieldNumber++;
+                }
+            }
+        }
+        private void Field_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Regex regex = new Regex(@"Field\d+");
+            byte FieldNumber = 0;
+            foreach (Image img in GameCanvas.Children)
+            {
+                if (regex.IsMatch(img.Name))
+                {
+                    if (img == sender)
+                    {
+                        BuyHouseOrSellField(FieldNumber);
+                        break;
+                    }
+                    FieldNumber++;
+                }
+            }
+        }
+        private void FieldNoHouseBuying_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Regex regex = new Regex(@"Field\d+");
+            byte FieldNumber = 0;
+            foreach (Image img in GameCanvas.Children)
+            {
+                if (regex.IsMatch(img.Name))
+                {
+                    if (img == sender)
+                    {
+                        BuyHouseOrSellField(FieldNumber);
+                        break;
+                    }
+                    FieldNumber++;
+                }
+            }
         }
         private void Field_CantDoShitInDetroit_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -1080,179 +610,36 @@ namespace Monopoly
         {
             CantSellHouse();
         }
-        private void Field2_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void Field_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            CanSellHouse(1);
+            Regex regex = new Regex(@"Field\d+");
+            byte FieldNumber = 0;
+            foreach(Image img in GameCanvas.Children)
+            {
+                if (regex.IsMatch(img.Name))
+                {
+                    if (img == sender)
+                    {
+                        CanSellHouse(FieldNumber);
+                        break;
+                    }
+                    FieldNumber++;
+                }
+            }
         }
-        private void Field4_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void MenuItem_ChangeMusicVolume(object sender, RoutedEventArgs e)
         {
-            CanSellHouse(3);
-        }
-        private void Field7_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(6);
-        }
-        private void Field9_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(8);
-        }
-        private void Field10_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(9);
-        }
-        private void Field12_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(11);
-        }
-        private void Field14_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(13);
-        }
-        private void Field15_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(14);
-        }
-        private void Field17_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(16);
-        }
-        private void Field19_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(18);
-        }
-        private void Field20_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(19);
-        }
-        private void Field22_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(21);
-        }
-        private void Field24_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(23);
-        }
-        private void Field25_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(24);
-        }
-        private void Field27_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(26);
-        }
-        private void Field28_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(27);
-        }
-        private void Field30_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(29);
-        }
-        private void Field32_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(31);
-        }
-        private void Field33_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(32);
-        }
-        private void Field35_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(34);
-        }
-        private void Field38_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(37);
-        }
-        private void Field40_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CanSellHouse(39);
-        }
-        private void MusicVolumeSet(byte status)
-        {
-            if (status != 0)
-                MenuItem_Volume10.IsChecked = false;
-            if (status != 1)
-                MenuItem_Volume20.IsChecked = false;
-            if (status != 2)
-                MenuItem_Volume30.IsChecked = false;
-            if (status != 3)
-                MenuItem_Volume40.IsChecked = false;
-            if (status != 4)
-                MenuItem_Volume50.IsChecked = false;
-            if (status != 5)
-                MenuItem_Volume60.IsChecked = false;
-            if (status != 6)
-                MenuItem_Volume70.IsChecked = false;
-            if (status != 7)
-                MenuItem_Volume80.IsChecked = false;
-            if (status != 8)
-                MenuItem_Volume90.IsChecked = false;
-            if (status != 9)
-                MenuItem_Volume100.IsChecked = false;
+            int index = MenuItem_Volume.Items.IndexOf(sender);
+            audio.sfx.Volume = (1.1 - (double)index / 10);
+            foreach(MenuItem menu in MenuItem_Volume.Items)
+            {
+                if(menu != sender)
+                menu.IsChecked = false;
+            }
             audio.music.Volume = audio.sfx.Volume / 2;
+            MenuItem menuItem = sender as MenuItem;
+            menuItem.IsChecked = true;
         }
-        private void MenuItem_Checked_100(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 1;
-            MusicVolumeSet(9);
-            MenuItem_Volume100.IsChecked = true;
-        }
-        private void MenuItem_Checked_90(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.9;
-            MusicVolumeSet(8);
-            MenuItem_Volume90.IsChecked = true;
-        }
-        private void MenuItem_Checked_80(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.8;
-            MusicVolumeSet(7);
-            MenuItem_Volume80.IsChecked = true;
-        }
-        private void MenuItem_Checked_70(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.7;
-            MusicVolumeSet(6);
-            MenuItem_Volume70.IsChecked = true;
-        }
-        private void MenuItem_Checked_60(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.6;
-            MusicVolumeSet(5);
-            MenuItem_Volume60.IsChecked = true;
-        }
-        private void MenuItem_Checked_50(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.5;
-            MusicVolumeSet(4);
-            MenuItem_Volume50.IsChecked = true;
-        }
-        private void MenuItem_Checked_40(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.4;
-            MusicVolumeSet(3);
-            MenuItem_Volume40.IsChecked = true;
-        }
-        private void MenuItem_Checked_30(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.3;
-            MusicVolumeSet(2);
-            MenuItem_Volume30.IsChecked = true;
-        }
-        private void MenuItem_Checked_20(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.2;
-            MusicVolumeSet(1);
-            MenuItem_Volume20.IsChecked = true;
-        }
-        private void MenuItem_Checked_10(object sender, RoutedEventArgs e)
-        {
-            audio.sfx.Volume = 0.1;
-            MusicVolumeSet(0);
-            MenuItem_Volume10.IsChecked = true;
-        }
-
         private void MenuItem_Sound_Click(object sender, RoutedEventArgs e)
         {
             if (MenuItem_Sound.IsChecked)
@@ -1266,7 +653,6 @@ namespace Monopoly
                 audio.sfx.Stop();
             }
         }
-
         private void Button_Trade_Click(object sender, RoutedEventArgs e)
         {
             TradeWindow trade = new TradeWindow();
