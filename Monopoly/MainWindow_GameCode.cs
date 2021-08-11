@@ -64,8 +64,6 @@ namespace Monopoly
             switch (FazeCoordinator())
             {
                 case 1:
-                    GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
-                    audio.playSFX("correct");
                     Game.clientCanThrowDice = true;
                     Game.clientCanEndTurn = false;
                     RefreshDiceUI();
@@ -97,6 +95,11 @@ namespace Monopoly
         {
             if (Game.turn == Game.clientplayer)
             {
+                if(Game.faze == 0)
+                {
+                    GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
+                    audio.playSFX("correct");
+                }
                 CallClient();
             }
             else if (!Game.multiplayer)
