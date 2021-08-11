@@ -543,8 +543,8 @@
         </GroupBox>
         <GroupBox x:Name="GroupBox_GameLog" Header="Wiadomości" HorizontalAlignment="Right" Margin="0,201,10,12" Width="211">
             <Grid Margin="0">
-                <ScrollViewer x:Name="GameLog_ScrollViewer" HorizontalAlignment="Left" Margin="7,4,0,0" VerticalAlignment="Top" Width="182" VerticalScrollBarVisibility="Auto" CanContentScroll="True" VerticalContentAlignment="Bottom" ScrollChanged="ScrollViewer_ScrollChanged">
-                    <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                <ScrollViewer x:Name="GameLog_ScrollViewer" HorizontalAlignment="Center" Margin="5,4,5,0" VerticalAlignment="Top" Width="189" VerticalScrollBarVisibility="Auto" CanContentScroll="True" VerticalContentAlignment="Bottom" ScrollChanged="ScrollViewer_ScrollChanged">
+                    <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                 </ScrollViewer>
             </Grid>
         </GroupBox>
