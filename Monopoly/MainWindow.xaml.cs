@@ -29,7 +29,6 @@ namespace Monopoly
         public static List<string> ThemeBoards;
         public static bool NewSingleplayerGame_ClosedByGameStart = false;
 
-        Random rng = new Random();
         byte diceScore;
         string playboardTheme = "Monopoly Standard";
         public static string currentThemeDir = "Resources";
@@ -38,11 +37,15 @@ namespace Monopoly
         DispatcherTimer reload = new DispatcherTimer();
         System.Windows.Forms.Timer wait = new System.Windows.Forms.Timer();
 
+        Random rng = new Random();
+        LoadingWindow loading = new LoadingWindow();
         BoardLocations boardLocations = new BoardLocations();
         Audio audio = new Audio();
         AI ai = new AI();
+
         public MainWindow()
         {
+            loading.Show();
             this.Dispatcher.UnhandledException += App_DispatcherUnhandledException;
             for (int i = 0; i < 40; i++)
             {
@@ -67,6 +70,7 @@ namespace Monopoly
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             MenuItem_Volume50.IsChecked = true;
+            loading.Close();
         }
 
         void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

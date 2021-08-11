@@ -421,3 +421,5 @@ C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.app
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.csproj.CopyComplete
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.pdb
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\LoadingWindow.g.cs
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\LoadingWindow.baml

@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Monopoly" version="0.6.1.11" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Monopoly.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7990784">
-      <assemblyIdentity name="Monopoly" version="0.6.1.11" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7996416">
+      <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zdRbvV+zSI/4JunfyHjOMToIbuQ2il4a5Dp3G79grt0=</dsig:DigestValue>
+        <dsig:DigestValue>IsA4Mh1fElswuuJ2o/jqE+kNP/YBsnFVJlyD/6f1+jw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
