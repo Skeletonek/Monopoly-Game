@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{90D35427-AC07-44EC-BFE6-FD35F8204FD0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Monopoly</RootNamespace>
     <AssemblyName>Monopoly</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -366,16 +366,20 @@
     <Content Include="Resources\GreenPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\House1.png">
+    <Resource Include="Resources\House1.png" />
+    <Content Include="Resources\House1Old.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\House2.png">
+    <Resource Include="Resources\House2.png" />
+    <Content Include="Resources\House2Old.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\House3.png">
+    <Resource Include="Resources\House3.png" />
+    <Content Include="Resources\House3Old.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\House4.png">
+    <Resource Include="Resources\House4.png" />
+    <Content Include="Resources\House4Old.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\icon.ico">
@@ -405,7 +409,8 @@
     <Content Include="Resources\RedField.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Trivago.png">
+    <Resource Include="Resources\Trivago.png" />
+    <Content Include="Resources\TrivagoOld.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\NoAlpha.png">

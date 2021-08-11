@@ -168,10 +168,6 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\Field
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldYellow2.jpg
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\FieldYellow3.jpg
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\GreenField.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House1.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House2.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House3.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House4.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\incorrect.wav
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\mcoof.wav
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\mcwhirl.wav
@@ -179,7 +175,6 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\money
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\music.mp3
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\music_wait.mp3
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\RedField.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\Trivago.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\NoAlpha.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\YellowField.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\YellowPlayer.png
@@ -423,3 +418,8 @@ C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.pdb
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\LoadingWindow.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\LoadingWindow.baml
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House1Old.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House2Old.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House3Old.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House4Old.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\TrivagoOld.png

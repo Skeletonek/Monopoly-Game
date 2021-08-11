@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7996416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="8009728">
       <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IsA4Mh1fElswuuJ2o/jqE+kNP/YBsnFVJlyD/6f1+jw=</dsig:DigestValue>
+        <dsig:DigestValue>xSq8CjSm+SgPjs1ANJBp1eFakVFy1BWRrLQU9cVnpGI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -543,7 +543,7 @@
       <dsig:DigestValue>tG1TTnbkLDoIMamLHeRuUS2Zsg/uRVT/ppGt88w35fs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House1.png" size="703">
+  <file name="Resources\House1Old.png" size="703">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -552,7 +552,7 @@
       <dsig:DigestValue>guX20CcRqb4IaYnlnK7mRGomJ2kXpRuseIB8BDl/xzM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House2.png" size="704">
+  <file name="Resources\House2Old.png" size="704">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -561,7 +561,7 @@
       <dsig:DigestValue>6oqWgcfB8WrlAZJEuhiQLWJi7z0zr1Yjh1b9t+M7s5w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House3.png" size="711">
+  <file name="Resources\House3Old.png" size="711">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -570,7 +570,7 @@
       <dsig:DigestValue>5DzscejxG7nl3Wm8pQGBuga7J165Z9XNaX7ZIxYvhiY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House4.png" size="712">
+  <file name="Resources\House4Old.png" size="712">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -678,7 +678,7 @@
       <dsig:DigestValue>voeF+NZfHM9jUVhI4DZXDSl5zrQMMVlVIDbSkyi0Im8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\Trivago.png" size="684">
+  <file name="Resources\TrivagoOld.png" size="684">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
