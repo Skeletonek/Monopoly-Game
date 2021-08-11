@@ -10,6 +10,9 @@ namespace Monopoly
 {
     static class BoardData
     {
+        public const byte chanceCards = 5;
+        public const byte commChestCards = 10;
+
         static public string[] fieldName = new string[40];
         static public BitmapImage[] fieldIcon = new BitmapImage[40];
         static public int[] fieldPrice = new int[40];
@@ -27,12 +30,12 @@ namespace Monopoly
         static public bool[] fieldExtra = new bool[40];
         static public bool[] fieldTax = new bool[40];
         static public int[] fieldTaxCost = new int[40];
-        static public string[] chanceText = new string[10];
-        static public byte[] chanceAction = new byte[10];
-        static public int[] chanceXValue = new int[10];
-        static public string[] commChestText = new string[11];
-        static public byte[] commChestAction = new byte[11];
-        static public int[] commChestXValue = new int[11];
+        static public string[] chanceText = new string[chanceCards];
+        static public byte[] chanceAction = new byte[chanceCards];
+        static public int[] chanceXValue = new int[chanceCards];
+        static public string[] commChestText = new string[commChestCards];
+        static public byte[] commChestAction = new byte[commChestCards];
+        static public int[] commChestXValue = new int[commChestCards];
 
         static public void gameDataWriter()
         {
@@ -880,9 +883,13 @@ namespace Monopoly
             commChestAction[0] = 1;
             commChestXValue[0] = 50;
 
-            commChestText[2] = "Otrzymujesz zwrot podatku dochodowego. Pobierz 20 zł.";
+            commChestText[1] = "Otrzymujesz zwrot podatku dochodowego. Pobierz 20 zł.";
+            commChestAction[1] = 0;
+            commChestXValue[1] = 20;
+
+            commChestText[2] = "Błąd bankowy na twoją korzyść. Pobierz 200 zł.";
             commChestAction[2] = 0;
-            commChestXValue[2] = 20;
+            commChestXValue[2] = 200;
 
             commChestText[3] = "Otrzymujesz odsetki od lokaty terminowej. Pobierz 25 zł.";
             commChestAction[3] = 0;
@@ -911,10 +918,6 @@ namespace Monopoly
             commChestText[9] = "Zapłać składkę ubezpieczeniową 50 zł.";
             commChestAction[9] = 1;
             commChestXValue[9] = 50;
-
-            commChestText[10] = "Błąd bankowy na twoją korzyść. Pobierz 200 zł.";
-            commChestAction[10] = 0;
-            commChestXValue[10] = 200;
         }
     }
 }
