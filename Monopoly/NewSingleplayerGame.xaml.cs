@@ -28,6 +28,7 @@ namespace Monopoly
 
         private void Button_Start_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.NewSingleplayerGame_ClosedByGameStart = true;
             this.Close();
         }
 

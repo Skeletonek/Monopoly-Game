@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly_Server"
         mc:Ignorable="d"
-        Title="MonopolyServer (V.27022021 For 0.6.1)" Height="300" Width="674" Closed="Window_Closed">
+        Title="MonopolyServer (V.09082021 For 0.7-Pre1)" Height="300" Width="674" Closed="Window_Closed">
     <Grid Margin="0,0,2,2">
         <Button x:Name="Button_StartServer" Content="Uruchom server" Margin="10,10,0,0" Width="120" Click="btnStartServer_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24"/>
         <Label x:Name="Label_ServerStatus" Content="" HorizontalAlignment="Center" Margin="144,10,10,0" VerticalAlignment="Top" Width="236" Height="24" FontSize="10"/>

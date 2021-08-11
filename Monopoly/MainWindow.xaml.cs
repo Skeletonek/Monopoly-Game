@@ -27,6 +27,7 @@ namespace Monopoly
         public static int cheat = 0;
         public static bool cheat_allowTradeWindow = false;
         public static List<string> ThemeBoards;
+        public static bool NewSingleplayerGame_ClosedByGameStart = false;
 
         Random rng = new Random();
         byte diceScore;
@@ -449,20 +450,29 @@ namespace Monopoly
         }
         private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
         {
-            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards, false);
+            StartingNewGame(false);
+        }
+        private void StartingNewGame(bool hotseat)
+        {
+            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards, hotseat);
             newSingleplayerGame.ShowDialog();
-            Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
-            Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
-            Game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
-            Game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
-            Game.playerAvailable[0] = true;
-            Game.playerAvailable[1] = true;
-            Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
-            Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
-            Game.multiplayer = false;
-            playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
-            LoadTheme();
-            StartNewGame();
+            if (NewSingleplayerGame_ClosedByGameStart)
+            {
+                Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
+                Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
+                Game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
+                Game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
+                Game.playerAvailable[0] = true;
+                Game.playerAvailable[1] = true;
+                Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
+                Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
+                Game.multiplayer = false;
+                Game.hotseat = hotseat;
+                playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
+                LoadTheme();
+                StartNewGame();
+                NewSingleplayerGame_ClosedByGameStart = false;
+            }
         }
         private void MenuItem_StopGame_Click(object sender, RoutedEventArgs e)
         {
@@ -473,6 +483,10 @@ namespace Monopoly
                 Game.clientCanEndTurn = false;
                 Game.clientCanThrowDice = false;
             }
+        }
+        private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e)
+        {
+            StartingNewGame(true);
         }
         private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
         {
@@ -678,42 +692,19 @@ namespace Monopoly
                 }
             }
         }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             About about = new About();
             about.ShowDialog();
         }
-
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             SaveGame();
         }
-
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             LoadGame();
         }
-
-        private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e)
-        {
-            NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards, true);
-            newSingleplayerGame.ShowDialog();
-            Game.playername[0] = newSingleplayerGame.TextBox_Player1.Text;
-            Game.playername[1] = newSingleplayerGame.TextBox_Player2.Text;
-            Game.playername[2] = newSingleplayerGame.TextBox_Player3.Text;
-            Game.playername[3] = newSingleplayerGame.TextBox_Player4.Text;
-            Game.playerAvailable[0] = true;
-            Game.playerAvailable[1] = true;
-            Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
-            Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
-            Game.multiplayer = false;
-            Game.hotseat = true;
-            playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
-            LoadTheme();
-            StartNewGame();
-        }
-
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Uwaga! Zasady umieszczone na stronie mogą różnić się w zależności od wybranego motywu. Wersja beta tej gry, również może nie zawierać pewnych mechanik opisanych w instrukcji.", "Pomoc", MessageBoxButton.OK, MessageBoxImage.Exclamation);

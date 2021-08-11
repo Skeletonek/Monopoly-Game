@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Monopoly" version="0.6.1.11" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Monopoly.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7975936">
-      <assemblyIdentity name="Monopoly" version="0.6.1.11" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7970304">
+      <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iTQ9F+TTltWaia5WxDelKnpgVAjxzNN50Os9ou46hxs=</dsig:DigestValue>
+        <dsig:DigestValue>aoun9bPmzabP2QGLk+1uy8ZlQp/EtOUebFfG5w2Y7zM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -135,7 +135,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>r3/bJsPxjjJCAnpBt71QfPSuC9elJtD43i4HFr0o1L8=</dsig:DigestValue>
+      <dsig:DigestValue>APZQ7ZWINZcpsv7Np/2dBbGmsOhBRO2JRlPWHKK8SiM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\destroy.wav" size="720490">
@@ -144,7 +144,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>bOchnAOL7kjjr+LpyyuLBj1EOumt42lxTxK2GyJYQQA=</dsig:DigestValue>
+      <dsig:DigestValue>cdQg84bM9GRw9DhPkOWLb+Yk44VlYwUeR6XoqYS+m0A=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\dice_1.png" size="2936">
