@@ -1,4 +1,7 @@
-﻿Beta 0.7-Pre1
+﻿Beta 0.7
+- Naprawiono błąd z niepoprawnym zamknięciem okna nowej gry przy zamknięciu za pomocą przycisku "X"
+
+Beta 0.7-Pre1
 - Znacząco zoptymalizowano kod gry
 - Dodano tryb Hotseat do gry wieloosobowej (w wersji testowej dla 2 graczy z możliwością włączenia botów)
 - Kliknięcie w pomoc przekierowywuje do ogólnych zasad gry planszowej Monopoly

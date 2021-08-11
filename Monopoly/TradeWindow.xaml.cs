@@ -29,6 +29,7 @@ namespace Monopoly
             InitializeComponent();
             CheckFieldOwners();
             LoadItems_ClientPlayer();
+            GroupBox_TradeLeft.Name = Game.playername[Game.clientplayer];
         }
         private void CheckFieldOwners()
         {
@@ -57,34 +58,7 @@ namespace Monopoly
             {
                 FieldsComboBox_ClientPlayer.Items.Add(BoardData.fieldName[x]);
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (!List_ClientPlayer.Items.Contains(FieldsComboBox_ClientPlayer.SelectedItem))
-            {
-                List_ClientPlayer.Items.Add(FieldsComboBox_ClientPlayer.SelectedItem);
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (!List_SecondPlayer.Items.Contains(FieldsComboBox_SecondPlayer.SelectedItem))
-            {
-                List_SecondPlayer.Items.Add(FieldsComboBox_SecondPlayer.SelectedItem);
-            }
-        }
-
-        private void Trade_Button_Click(object sender, RoutedEventArgs e)
-        {
-            foreach(string x in List_ClientPlayer.Items)
-            {
-                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = playerTrading;
-            }
-            foreach (string x in List_SecondPlayer.Items)
-            {
-                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
-            }
+            MoneySlider_ClientPlayer.Maximum = Game.playercash[0];
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -94,6 +68,8 @@ namespace Monopoly
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
+            MoneySlider_SecondPlayer.Maximum = Game.playercash[1];
+            GroupBox_TradeRight.Name = Game.playername[1];
         }
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
@@ -103,8 +79,9 @@ namespace Monopoly
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
+            MoneySlider_SecondPlayer.Maximum = Game.playercash[2];
+            GroupBox_TradeRight.Name = Game.playername[2];
         }
-
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             playerTrading = 3;
@@ -112,6 +89,41 @@ namespace Monopoly
             foreach (byte x in Player4OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
+            }
+            MoneySlider_SecondPlayer.Maximum = Game.playercash[3];
+            GroupBox_TradeRight.Name = Game.playername[3];
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!List_ClientPlayer.Items.Contains(FieldsComboBox_ClientPlayer.SelectedItem))
+            {
+                List_ClientPlayer.Items.Add(FieldsComboBox_ClientPlayer.SelectedItem);
+            }
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!List_SecondPlayer.Items.Contains(FieldsComboBox_SecondPlayer.SelectedItem))
+            {
+                List_SecondPlayer.Items.Add(FieldsComboBox_SecondPlayer.SelectedItem);
+            }
+        }
+        private void MoneySlider_ClientPlayer_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            MoneyTextBox_ClientPlayer.Text = Convert.ToInt32(MoneySlider_ClientPlayer.Value).ToString();
+        }
+        private void MoneySlider_SecondPlayer_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            MoneyTextBox_SecondPlayer.Text = Convert.ToInt32(MoneySlider_SecondPlayer.Value).ToString();
+        }
+        private void Trade_Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(string x in List_ClientPlayer.Items)
+            {
+                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = playerTrading;
+            }
+            foreach (string x in List_SecondPlayer.Items)
+            {
+                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
             }
         }
     }

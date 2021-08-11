@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Beta 0.7-Pre1)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent">
+        Title="Monopoly (Beta 0.7-Pre1.20210811)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent">
     <Grid x:Name="Grid">
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <MenuItem Header="Gra jednoosobowa">
-                <MenuItem Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
-                <MenuItem Header="Zapisz grę" Click="MenuItem_Click_1" IsEnabled="False"/>
-                <MenuItem Header="Wczytaj grę" Click="MenuItem_Click_2" IsEnabled="False"/>
+            <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra jednoosobowa">
+                <MenuItem x:Name="MenuItem_NewGame" Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
+                <MenuItem x:Name="MenuItem_Savegame" Header="Zapisz grę" Click="MenuItem_Click_1" IsEnabled="False"/>
+                <MenuItem x:Name="MenuItem_Loadgame" Header="Wczytaj grę" Click="MenuItem_Click_2" IsEnabled="False"/>
                 <MenuItem x:Name="MenuItem_StopGame" Header="Przerwij grę" Click="MenuItem_StopGame_Click"/>
             </MenuItem>
-            <MenuItem Header="Gra wieloosobowa">
-                <MenuItem Header="Połącz (LAN)" Click="btnConnectToServer_Click"/>
-                <MenuItem Header="Rozłącz (LAN)" Click="btnSendMessage_Click"/>
+            <MenuItem x:Name="MenuItem_MultiplayerCategory" Header="Gra wieloosobowa">
+                <MenuItem x:Name="MenuItem_LANConnect" Header="Połącz (LAN)" Click="btnConnectToServer_Click"/>
+                <MenuItem x:Name="MenuItem_LANDisconnect" Header="Rozłącz (LAN)" Click="btnSendMessage_Click"/>
                 <Separator/>
                 <MenuItem x:Name="MenuItem_Hotseat" Header="Hotseat" Click="MenuItem_Hotseat_Click"/>
             </MenuItem>
-            <MenuItem Header="Opcje">
+            <MenuItem x:Name="MenuItem_OptionsCategory" Header="Opcje">
                 <MenuItem x:Name="MenuItem_Sound" Header="Dźwięk" IsCheckable="True" IsChecked="True" Click="MenuItem_Sound_Click"/>
                 <MenuItem x:Name="MenuItem_Volume" Header="Głośność">
                     <MenuItem x:Name="MenuItem_Volume100" Header="100%" IsCheckable="True" Checked="MenuItem_ChangeMusicVolume"/>
@@ -35,14 +35,14 @@
                     <MenuItem x:Name="MenuItem_Volume10" Header="10%" IsCheckable="True" Checked="MenuItem_ChangeMusicVolume"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Pomoc">
-                <MenuItem Header="Pomoc" Click="MenuItem_Click_3"/>
-                <MenuItem Header="O aplikacji" Click="MenuItem_Click"/>
+            <MenuItem x:Name="MenuItem_HelpCategory" Header="Pomoc">
+                <MenuItem x:Name="MenuItem_Help" Header="Pomoc" Click="MenuItem_Click_3"/>
+                <MenuItem x:Name="MenuItem_About" Header="O aplikacji" Click="MenuItem_Click"/>
             </MenuItem>
             <Button x:Name="Button_MouseMode" Content="Tryb budowania domów" Click="Button_MouseMode_Click"/>
             <Button x:Name="Button_Trade" Content="Handel" Width="75" IsEnabled="False" Click="Button_Trade_Click"/>
             <Separator Width="50" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
-            <MenuItem Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
+            <MenuItem x:Name="MenuItem_ConnectionStatus" Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" Width="300"/>
         </Menu>
         <Canvas x:Name="GameCanvas" Height="640" Margin="226,24,226,5" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.RowSpan="3">
@@ -491,7 +491,7 @@
                 </Image.RenderTransform>
             </Image>
         </Canvas>
-        <GroupBox Header="Kości do gry" HorizontalAlignment="Left" Height="124" Margin="10,22,0,0" VerticalAlignment="Top" Width="198" Grid.RowSpan="2">
+        <GroupBox x:Name="GroupBox_Dices" Header="Kości do gry" HorizontalAlignment="Left" Height="124" Margin="10,22,0,0" VerticalAlignment="Top" Width="198" Grid.RowSpan="2">
             <Grid>
                 <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" HorizontalAlignment="Left" Margin="7,61,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
                 <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold"/>
@@ -500,32 +500,32 @@
                 <Image x:Name="Dice2" HorizontalAlignment="Left" Height="46" Margin="64,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Podgląd" HorizontalAlignment="Left" Height="511" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198" Grid.RowSpan="2" Grid.Row="1">
+        <GroupBox x:Name="GroupBox_Overview" Header="Podgląd" HorizontalAlignment="Left" Height="511" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198" Grid.RowSpan="2" Grid.Row="1">
             <Grid Margin="0">
                 <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="Resources/FieldStart.jpg"/>
                 <Label x:Name="Overview_Name" Content="Pole startu" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
-                <Label Content="Koszt: " HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top"/>
-                <Label Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top"/>
-                <Label Content="Właściciel: " HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Label_PriceDesc" Content="Koszt: " HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Label_HousesDesc" Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Label_OwnerDesc" Content="Właściciel: " HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="Overview_Price" Content="0 $" HorizontalAlignment="Right" Margin="0,199,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right"/>
                 <Label x:Name="Overview_Houses" Content="0" HorizontalAlignment="Right" Margin="0,225,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
                 <Label x:Name="Overview_Owner" Content="Mr. Nobody" HorizontalAlignment="Right" Margin="0,251,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
-                <Label Content="1 dom:" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label Content="2 domy:" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label Content="3 domy:" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label Content="4 domy:" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label Content="Hotel:" HorizontalAlignment="Left" Margin="10,439,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_1RentDesc" Content="1 dom:" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_2RentDesc" Content="2 domy:" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_3RentDesc" Content="3 domy:" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_4RentDesc" Content="4 domy:" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_HRentDesc" Content="Hotel:" HorizontalAlignment="Left" Margin="10,439,0,0" VerticalAlignment="Top" FontSize="11"/>
                 <Label x:Name="Overview_1Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,339,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
                 <Label x:Name="Overview_2Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,364,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
                 <Label x:Name="Overview_3Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,389,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
                 <Label x:Name="Overview_4Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,415,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
                 <Label x:Name="Overview_HRent" Content="0 $" HorizontalAlignment="Right" Margin="0,439,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label Content="Czynsz" HorizontalAlignment="Center" Margin="10,288,10,174" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" FontWeight="Bold" Width="166"/>
-                <Label Content="Teren niezabudowany:" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_RentHeaderDesc" Content="Czynsz" HorizontalAlignment="Center" Margin="10,288,10,174" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" FontWeight="Bold" Width="166"/>
+                <Label x:Name="Label_NoSetRentDesc" Content="Teren niezabudowany:" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" FontSize="11"/>
                 <Label x:Name="Overview_NoSetRent" Content="0 $" HorizontalAlignment="Right" Margin="0,314,10,0" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Right" FontSize="11"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211" Grid.Column="1" Grid.RowSpan="2">
+        <GroupBox x:Name="GroupBox_Stats" Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211" Grid.Column="1" Grid.RowSpan="2">
             <Grid Margin="0">
                 <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player2Name" Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -541,7 +541,7 @@
                 <Image x:Name="Player4_Icon" Source="Resources/RedPlayer.png" Margin="17,103,162,23" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Wiadomości" HorizontalAlignment="Right" Margin="0,201,10,12" Width="211">
+        <GroupBox x:Name="GroupBox_GameLog" Header="Wiadomości" HorizontalAlignment="Right" Margin="0,201,10,12" Width="211">
             <Grid Margin="0">
                 <ScrollViewer x:Name="GameLog_ScrollViewer" HorizontalAlignment="Left" Margin="7,4,0,0" VerticalAlignment="Top" Width="182" VerticalScrollBarVisibility="Auto" CanContentScroll="True" VerticalContentAlignment="Bottom" ScrollChanged="ScrollViewer_ScrollChanged">
                     <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
