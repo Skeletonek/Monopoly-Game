@@ -670,13 +670,13 @@ namespace Monopoly
         }
         private int calculateExtraFieldMultiplier(byte currentPlayerLocation)
         {
-            if (Game.fieldOwner[BoardData.fieldSet1[currentPlayerLocation]] != Game.turn)
+            if (Game.fieldOwner[BoardData.fieldSet1[currentPlayerLocation]] != Game.fieldOwner[currentPlayerLocation])
             {
-                return Game.dice1 + Game.dice2 * 4;
+                return (Game.dice1 + Game.dice2) * 4;
             }
             else
             {
-                return Game.dice1 + Game.dice2 * 10;
+                return (Game.dice1 + Game.dice2) * 10;
             }
         }
 
