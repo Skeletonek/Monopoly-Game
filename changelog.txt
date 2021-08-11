@@ -1,4 +1,6 @@
 ﻿Beta 0.7
+- Dodano ekran ładowania gry
+- Zremasterowano ikony domków
 - Naprawiono błąd z niepoprawnym zamknięciem okna nowej gry przy zamknięciu za pomocą przycisku "X"
 
 Beta 0.7-Pre1

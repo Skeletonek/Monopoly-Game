@@ -518,13 +518,6 @@ namespace Monopoly
                     MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            //DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE
-            //
-            //
-            Console.WriteLine($"Field number: {field}");
-            //
-            //
-            //DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE DEBUG CODE
         }
         private enum Fields { BlueField, GreenField, YellowField, RedField, NoAlpha }
         private void DrawOwner(byte field, byte status)
@@ -544,7 +537,7 @@ namespace Monopoly
                     }
                     if (FieldNumber == field + 1)
                     {
-                        img.Source = new BitmapImage(new Uri(currentThemeDir + @"\" + (Fields)status + ".png", UriKind.Relative));
+                        img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Fields)status + @".png"));
                         break;
                     }
                 }
@@ -561,7 +554,7 @@ namespace Monopoly
                 {
                     if (FieldNumber == field)
                     {
-                        img.Source = new BitmapImage(new Uri(currentThemeDir + @"\" + (Houses)status + ".png", UriKind.Relative));
+                        img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Houses)status + @".png"));
                         break;
                     }
                     FieldNumber++;
