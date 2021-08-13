@@ -124,6 +124,7 @@
     <Compile Include="MainWindow_GameClient.cs" />
     <Compile Include="MainWindow_GameCode.cs" />
     <Compile Include="MainWindow_ServerCode.cs" />
+    <Compile Include="MainWindow_TradeWindow.cs" />
     <Compile Include="Reconnecting.xaml.cs">
       <DependentUpon>Reconnecting.xaml</DependentUpon>
     </Compile>

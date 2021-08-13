@@ -670,8 +670,10 @@ namespace Monopoly
         }
         private void Button_Trade_Click(object sender, RoutedEventArgs e)
         {
-            TradeWindow trade = new TradeWindow();
-            trade.ShowDialog();
+            //TradeWindow trade = new TradeWindow();
+            //trade.ShowDialog();
+            Grid_Trade.Visibility = Visibility.Visible;
+            LoadTrading();
             RefreshBoardUI();
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)

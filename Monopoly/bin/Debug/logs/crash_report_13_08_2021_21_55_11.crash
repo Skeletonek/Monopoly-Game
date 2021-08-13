@@ -1,0 +1,9 @@
+System.ArgumentException: „Gracz 2” jest nieprawidłową wartością dla właściwości „Name”.
+   w System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)
+   w System.Windows.DependencyObject.SetValue(DependencyProperty dp, Object value)
+   w Monopoly.MainWindow.MenuItem_Player_Click(Object sender, RoutedEventArgs e) w C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\MainWindow_TradeWindow.cs:wiersz 56
+   w System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   w System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   w System.Windows.Controls.MenuItem.InvokeClickAfterRender(Object arg)
+   w System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   w System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)

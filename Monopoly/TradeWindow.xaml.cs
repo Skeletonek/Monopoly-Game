@@ -60,7 +60,7 @@ namespace Monopoly
             }
             MoneySlider_ClientPlayer.Maximum = Game.playercash[0];
         }
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Player_Click(object sender, RoutedEventArgs e)
         {
             playerTrading = 1;
             FieldsComboBox_SecondPlayer.Items.Clear();
@@ -71,7 +71,7 @@ namespace Monopoly
             MoneySlider_SecondPlayer.Maximum = Game.playercash[1];
             GroupBox_TradeRight.Name = Game.playername[1];
         }
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Player_Click_1(object sender, RoutedEventArgs e)
         {
             playerTrading = 2;
             FieldsComboBox_SecondPlayer.Items.Clear();
@@ -82,7 +82,7 @@ namespace Monopoly
             MoneySlider_SecondPlayer.Maximum = Game.playercash[2];
             GroupBox_TradeRight.Name = Game.playername[2];
         }
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void MenuItem_Player_Click_2(object sender, RoutedEventArgs e)
         {
             playerTrading = 3;
             FieldsComboBox_SecondPlayer.Items.Clear();
@@ -93,7 +93,7 @@ namespace Monopoly
             MoneySlider_SecondPlayer.Maximum = Game.playercash[3];
             GroupBox_TradeRight.Name = Game.playername[3];
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_AddDistrict_Click(object sender, RoutedEventArgs e)
         {
             if (!List_ClientPlayer.Items.Contains(FieldsComboBox_ClientPlayer.SelectedItem))
             {

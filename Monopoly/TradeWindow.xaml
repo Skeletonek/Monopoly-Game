@@ -9,15 +9,15 @@
     <Grid>
         <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="792">
             <Label Content="Wybierz gracza do handlu: " Height="22" FontSize="11"/>
-            <MenuItem Header="Player 2" Click="MenuItem_Click"/>
-            <MenuItem Header="Player 3" Click="MenuItem_Click_1"/>
-            <MenuItem Header="Player 4" Click="MenuItem_Click_2"/>
+            <MenuItem Header="Player 2" Click="MenuItem_Player_Click"/>
+            <MenuItem Header="Player 3" Click="MenuItem_Player_Click_1"/>
+            <MenuItem Header="Player 4" Click="MenuItem_Player_Click_2"/>
         </Menu>
         <GroupBox x:Name="GroupBox_TradeLeft" Header="GroupBox_TradeLeft" HorizontalAlignment="Left" Height="382" Margin="10,27,0,0" VerticalAlignment="Top" Width="383">
             <Grid HorizontalAlignment="Left" Height="356" Margin="10,0,-2,0" VerticalAlignment="Top" Width="363">
                 <ComboBox x:Name="FieldsComboBox_ClientPlayer" HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="209"/>
                 <Label Content="Ulica: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Button Content="Dodaj" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                <Button Content="Dodaj" HorizontalAlignment="Left" Margin="278,16,0,0" VerticalAlignment="Top" Width="75" Click="Button_AddDistrict_Click"/>
                 <CheckBox Content="Bezp. wyj. z wieź. (Szan.)" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
                 <CheckBox Content="Bezp. wyj. z wieź. (Kasa społ.)" HorizontalAlignment="Left" Margin="173,44,0,0" VerticalAlignment="Top" Width="180" IsEnabled="False"/>
                 <Slider x:Name="MoneySlider_ClientPlayer" HorizontalAlignment="Left" Margin="78,72,0,0" VerticalAlignment="Top" Width="188" Maximum="1500" LargeChange="100" SmallChange="1" ValueChanged="MoneySlider_ClientPlayer_ValueChanged"/>
