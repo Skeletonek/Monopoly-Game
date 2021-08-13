@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Beta 0.7-Pre1.20210811)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
+        Title="Monopoly (Beta 0.7-Pre1.20210813)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
     <Grid x:Name="Grid">
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra jednoosobowa">
