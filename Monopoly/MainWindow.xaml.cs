@@ -498,6 +498,10 @@ namespace Monopoly
         }
         private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
         {
+            SellModeToggle();
+        }
+        private void SellModeToggle()
+        {
             if (!Game.sellmode)
             {
                 Game.sellmode = true;
@@ -693,6 +697,10 @@ namespace Monopoly
                     DiceScore.Content = diceScore;
                     wait.Start();
                 }
+            }
+            else if(e.Key == Key.LeftShift)
+            {
+                SellModeToggle();
             }
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
