@@ -97,7 +97,10 @@ namespace Monopoly
             {
                 if(Game.faze == 0)
                 {
+                    if(!Game.hotseat)
                     GameLog.Text += "TWOJA TURA!" + Environment.NewLine + Environment.NewLine;
+                    else
+                    GameLog.Text += "TURA GRACZA " + Game.playername[Game.turn] + "!"+ Environment.NewLine + Environment.NewLine;
                     audio.playSFX("correct");
                 }
                 CallClient();

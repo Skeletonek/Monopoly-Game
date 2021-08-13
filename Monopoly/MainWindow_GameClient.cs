@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -41,11 +42,33 @@ namespace Monopoly
                     switch(Game.clientplayer)
                     {
                         case 0:
-                            Game.clientplayer++;
+                            Hotseat_ChangeClientPlayer(1);
                             break;
 
                         case 1:
-                            Game.clientplayer--;
+                            if (!Game.playerAI[2])
+                            {
+                                Hotseat_ChangeClientPlayer(2);
+                            }
+                            else
+                            {
+                                Hotseat_ChangeClientPlayer(0);
+                            }                              
+                            break;
+
+                        case 2:
+                            if (!Game.playerAI[3])
+                            {
+                                Hotseat_ChangeClientPlayer(3);
+                            }
+                            else
+                            {
+                                Hotseat_ChangeClientPlayer(0);
+                            }
+                            break;
+
+                        case 3:
+                            Hotseat_ChangeClientPlayer(0);
                             break;
                     }
                 }
@@ -54,6 +77,22 @@ namespace Monopoly
             else
             {
                 FieldCheck();
+            }
+        }
+        private void Hotseat_ChangeClientPlayer(sbyte player)
+        {
+            Game.clientplayer = player;
+            foreach(Label label in Grid_GroupBox_Stats.Children.OfType<Label>())
+            {
+                label.FontWeight = FontWeights.Normal;
+                if(label.Name == string.Concat("Label_Player",player + 1,"Name"))
+                {
+                    label.FontWeight = FontWeights.Bold;
+                }
+                if(label.Name == "Label_Player1Cash") //Not quite satisfied with that method but this should do
+                {
+                    break;
+                }
             }
         }
         private void DangerZone()
@@ -125,53 +164,6 @@ namespace Monopoly
                 Canvas.SetTop(Player4, boardLocations.playerlocation(false, Game.playerlocation[3]) + 55);
             }
         }
-        //private void OldJump()
-        //{
-        //    int xcord = 0;
-        //    int ycord = 0;
-        //    if (Game.fieldPlayers[Game.playerlocation[Game.turn]] <= 1)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
-        //    }
-        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 2)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]);
-        //    }
-        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] == 3)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]);
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
-        //    }
-        //    else if (Game.fieldPlayers[Game.playerlocation[Game.turn]] >= 4)
-        //    {
-        //        xcord = boardLocations.playerlocation(true, Game.playerlocation[Game.turn]) + 22;
-        //        ycord = boardLocations.playerlocation(false, Game.playerlocation[Game.turn]) + 22;
-        //    }
-        //    switch (Game.turn)
-        //    {
-        //        case 0:
-        //            Canvas.SetLeft(Player1, xcord);
-        //            Canvas.SetTop(Player1, ycord);
-        //            break;
-
-        //        case 1:
-        //            Canvas.SetLeft(Player2, xcord);
-        //            Canvas.SetTop(Player2, ycord);
-        //            break;
-
-        //        case 2:
-        //            Canvas.SetLeft(Player3, xcord);
-        //            Canvas.SetTop(Player3, ycord);
-        //            break;
-
-        //        case 3:
-        //            Canvas.SetLeft(Player4, xcord);
-        //            Canvas.SetTop(Player4, ycord);
-        //            break;
-        //    }
-        //}
         private void CallClientAction(byte ActionCode, byte AdditionalCode, int rent = 0)
         {
             byte currentPlayerLocation = 0;
@@ -373,7 +365,7 @@ namespace Monopoly
                 case 61: //Pay for electric company / waterworks
                     currentPlayerLocation = AdditionalCode;
                     int calculatedMoney = rent;
-                    MessageBox.Show("Stanąłeś na " + BoardData.fieldName[currentPlayerLocation] + " gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + calculatedMoney, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Stanąłeś na " + BoardData.fieldName[currentPlayerLocation] + " gracza " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + calculatedMoney, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                     if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);

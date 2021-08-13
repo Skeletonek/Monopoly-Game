@@ -1,7 +1,13 @@
 ﻿Beta 0.7
+- Tryb Hotseat obsługuje możliwość gry z 4 graczami ludzkimi
 - Dodano ekran ładowania gry
 - Zremasterowano ikony domków
+- Dostosowano UI GameLoga tak aby ScrollBar nie zasłaniał tekstu
 - Naprawiono błąd z niepoprawnym zamknięciem okna nowej gry przy zamknięciu za pomocą przycisku "X"
+- Naprawiono niedziałający podgląd w innych motywach
+- Naprawiono błąd "Pusta karta kasy społecznej"
+- Naprawiono błąd "Dźwięk nowej tury nie jest odtwarzany gdy gracz siedzi w więzieniu"
+- Naprawiono błąd z niepoprawną kalkulacją opłaty za postój na elektrowni lub wodociągach
 
 Beta 0.7-Pre1
 - Znacząco zoptymalizowano kod gry

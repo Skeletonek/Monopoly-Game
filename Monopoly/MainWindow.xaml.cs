@@ -470,6 +470,10 @@ namespace Monopoly
                 Game.playerAvailable[1] = true;
                 Game.playerAvailable[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive1.IsChecked);
                 Game.playerAvailable[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AIActive2.IsChecked);
+                Game.playerAI[0] = false;
+                Game.playerAI[1] = !hotseat;
+                Game.playerAI[2] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AI1.IsChecked);
+                Game.playerAI[3] = Convert.ToBoolean(newSingleplayerGame.CheckBox_AI2.IsChecked);
                 Game.multiplayer = false;
                 Game.hotseat = hotseat;
                 playboardTheme = (string)newSingleplayerGame.ListBox_PlayboardTheme.SelectedItem;
