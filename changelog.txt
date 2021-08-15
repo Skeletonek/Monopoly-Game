@@ -1,4 +1,4 @@
-﻿Beta 0.7
+﻿Beta 0.7-Pre2
 - Tryb Hotseat obsługuje możliwość gry z 4 graczami ludzkimi
 - Dodano ekran ładowania gry
 - Zremasterowano ikony domków

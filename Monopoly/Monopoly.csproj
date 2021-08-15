@@ -367,22 +367,22 @@
     <Content Include="Resources\GreenPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\House1.png" />
-    <Content Include="Resources\House1Old.png">
+    <Content Include="Resources\House1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\House2.png" />
-    <Content Include="Resources\House2Old.png">
+    <Content Include="Resources\House1Old.png" />
+    <Content Include="Resources\House2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\House3.png" />
-    <Content Include="Resources\House3Old.png">
+    <Content Include="Resources\House2Old.png" />
+    <Content Include="Resources\House3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\House4.png" />
-    <Content Include="Resources\House4Old.png">
+    <Content Include="Resources\House3Old.png" />
+    <Content Include="Resources\House4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\House4Old.png" />
     <Content Include="Resources\icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -410,10 +410,10 @@
     <Content Include="Resources\RedField.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Trivago.png" />
-    <Content Include="Resources\TrivagoOld.png">
+    <Content Include="Resources\Trivago.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\TrivagoOld.png" />
     <Content Include="Resources\NoAlpha.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -10,7 +10,7 @@
         <Image HorizontalAlignment="Center" Height="134" Margin="93,54,93,43" VerticalAlignment="Center" Width="133" Source="Resources/icon.ico"/>
         <Label x:Name="Label_Loading" Content="Ładowanie Monopoly..." Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="299" HorizontalContentAlignment="Center"/>
         <Label Content="Copyright © Skeletonek 2020 - 2021" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" FontStyle="Italic" FontSize="11"/>
-        <Label Content="Beta - 0.7 - Pre1" HorizontalAlignment="Center" Margin="72,26,72,0" VerticalAlignment="Top" Width="175" HorizontalContentAlignment="Center" FontSize="9"/>
+        <Label Content="Beta - 0.7 - Pre2" HorizontalAlignment="Center" Margin="72,26,72,0" VerticalAlignment="Top" Width="175" HorizontalContentAlignment="Center" FontSize="9"/>
         <Label x:Name="Label_CopyrightHasbro" Content="Część grafik należy do: Hasbro, Inc." HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" FontSize="10" FontWeight="Bold"/>
 
     </Grid>

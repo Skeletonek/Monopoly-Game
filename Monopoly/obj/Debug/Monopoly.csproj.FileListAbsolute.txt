@@ -34,7 +34,6 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\monop
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Monopoly.exe.config
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Monopoly.exe
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Monopoly.pdb
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.csprojAssemblyReference.cache
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\MainWindow.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\App.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly_Content.g.cs
@@ -418,8 +417,9 @@ C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.pdb
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\LoadingWindow.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\LoadingWindow.baml
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House1Old.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House2Old.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House3Old.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House4Old.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\TrivagoOld.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.csproj.AssemblyReference.cache
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House1.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House2.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House3.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\House4.png
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\Trivago.png

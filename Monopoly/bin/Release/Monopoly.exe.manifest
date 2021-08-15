@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Monopoly" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Monopoly.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7974912">
-      <assemblyIdentity name="Monopoly" version="0.6.1.12" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="7994368">
+      <assemblyIdentity name="Monopoly" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8EkQ1mCDbV9NtAqqF46KJPgzUJ3/uqPD0KLJ4tl2kkk=</dsig:DigestValue>
+        <dsig:DigestValue>XmXEDhxtO0t4z360oH5Ol2o7cEFOp71G+SY872pRd9w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -543,7 +543,16 @@
       <dsig:DigestValue>tG1TTnbkLDoIMamLHeRuUS2Zsg/uRVT/ppGt88w35fs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House1.png" size="703">
+  <file name="Resources\House1.png" size="1760">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>OmXpbEEon7j2dp5QEv44nZZAvruuHB70GB+ZCrZbgg0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\House1Old.png" size="703">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -552,7 +561,16 @@
       <dsig:DigestValue>guX20CcRqb4IaYnlnK7mRGomJ2kXpRuseIB8BDl/xzM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House2.png" size="704">
+  <file name="Resources\House2.png" size="2500">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DI/N7ToflAglEq9/aBRXhtUdZk7mV5DQgsjONeVXLGU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\House2Old.png" size="704">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -561,7 +579,16 @@
       <dsig:DigestValue>6oqWgcfB8WrlAZJEuhiQLWJi7z0zr1Yjh1b9t+M7s5w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House3.png" size="711">
+  <file name="Resources\House3.png" size="3148">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>hOv1gtQGSiAyPZgFCBfXanii/XzIdO8pBN4/OOochs8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\House3Old.png" size="711">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -570,7 +597,16 @@
       <dsig:DigestValue>5DzscejxG7nl3Wm8pQGBuga7J165Z9XNaX7ZIxYvhiY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\House4.png" size="712">
+  <file name="Resources\House4.png" size="3719">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oPPEVnHSIHvJEXnrtNW3oDkEfQWBS4ays8598gq8ng8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\House4Old.png" size="712">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -678,7 +714,16 @@
       <dsig:DigestValue>voeF+NZfHM9jUVhI4DZXDSl5zrQMMVlVIDbSkyi0Im8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\Trivago.png" size="684">
+  <file name="Resources\Trivago.png" size="1974">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>etmW7gkxszGhR5hh7H0cuMVGvMxUyIyo4eertOzsako=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\TrivagoOld.png" size="684">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
