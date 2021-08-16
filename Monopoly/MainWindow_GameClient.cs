@@ -173,7 +173,7 @@ namespace Monopoly
                 case 10: //Chance
                     byte chanceCard = AdditionalCode;
                     MessageBox.Show(BoardData.chanceText[chanceCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                    if (!doChanceCard(chanceCard))
+                    if (!DoChanceCard(chanceCard))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                         Game.dangerzone = true;
@@ -196,7 +196,7 @@ namespace Monopoly
                 case 20: //Community Chest
                     byte commChestCard = AdditionalCode;
                     MessageBox.Show(BoardData.commChestText[commChestCard], "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
-                    if (!doCommChestCard(commChestCard))
+                    if (!DoCommChestCard(commChestCard))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                         Game.dangerzone = true;
@@ -222,7 +222,7 @@ namespace Monopoly
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
-                            if (!buyField(currentPlayerLocation))
+                            if (!BuyField(currentPlayerLocation))
                             {
                                 MessageBox.Show("Nie stać Cię na ten dworzec!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
@@ -245,7 +245,7 @@ namespace Monopoly
                 case 31: //Pay for staying on a railroad
                     currentPlayerLocation = AdditionalCode;
                     MessageBox.Show("Stanąłeś na dworcu gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    if (!payRent(currentPlayerLocation, rent))
+                    if (!PayRent(currentPlayerLocation, rent))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                         Game.dangerzone = true;
@@ -268,7 +268,7 @@ namespace Monopoly
                 case 40: //Pay tax
                     currentPlayerLocation = AdditionalCode;
                     MessageBox.Show("Musisz zapłacić podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "$.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    if (!payTax(currentPlayerLocation))
+                    if (!PayTax(currentPlayerLocation))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                         Game.dangerzone = true;
@@ -294,7 +294,7 @@ namespace Monopoly
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
-                            if (!buyField(currentPlayerLocation))
+                            if (!BuyField(currentPlayerLocation))
                             {
                                 MessageBox.Show("Nie stać Cię na tą ulicę!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
@@ -317,7 +317,7 @@ namespace Monopoly
                 case 51: //Pay for street
                     currentPlayerLocation = AdditionalCode;
                     MessageBox.Show("Stanąłeś na dzielnicy gracz " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    if (!payRent(currentPlayerLocation, rent))
+                    if (!PayRent(currentPlayerLocation, rent))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                         Game.dangerzone = true;
@@ -343,7 +343,7 @@ namespace Monopoly
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
-                            if (!buyField(currentPlayerLocation))
+                            if (!BuyField(currentPlayerLocation))
                             {
                                 MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
@@ -366,7 +366,7 @@ namespace Monopoly
                     currentPlayerLocation = AdditionalCode;
                     int calculatedMoney = rent;
                     MessageBox.Show("Stanąłeś na " + BoardData.fieldName[currentPlayerLocation] + " gracza " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + calculatedMoney, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    if (!payExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
+                    if (!PayExtraFieldMultiplier(calculatedMoney, currentPlayerLocation))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                         Game.dangerzone = true;

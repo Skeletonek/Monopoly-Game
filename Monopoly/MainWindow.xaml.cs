@@ -419,14 +419,14 @@ namespace Monopoly
         {
             if (Game.turn == Game.clientplayer && !Game.sellmode)
             {
-                if (!buyHouse(field))
+                if (!BuyHouse(field))
                 {
                     MessageBox.Show("Nie można kupić budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else if (Game.turn == Game.clientplayer && Game.sellmode)
             {
-                if (!sellField(field))
+                if (!SellField(field))
                 {
                     MessageBox.Show("Nie można sprzedać ulicy!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -440,7 +440,7 @@ namespace Monopoly
             }
             else if (Game.turn == Game.clientplayer && Game.sellmode)
             {
-                if (!sellField(field))
+                if (!SellField(field))
                 {
                     MessageBox.Show("Nie można sprzedać tego pola!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -506,7 +506,7 @@ namespace Monopoly
         {
             if (Game.turn == Game.clientplayer)
             {
-                if (!sellHouse(field))
+                if (!SellHouse(field))
                 {
                     MessageBox.Show("Nie można sprzedać budynku", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -516,13 +516,12 @@ namespace Monopoly
         private void DrawOwner(byte field, byte status)
         {
             Regex regex = new Regex(@"Field\d+Owner");
-            int FieldNumber = 0;
-            string FieldOwnerSplittedName = string.Empty;
+            int FieldNumber;
             foreach (Image img in GameCanvas.Children)
             {
                 if (regex.IsMatch(img.Name))
                 {
-                    FieldOwnerSplittedName = img.Name.Substring(5, 2);
+                    string FieldOwnerSplittedName = img.Name.Substring(5, 2);
                     if(!int.TryParse(FieldOwnerSplittedName, out FieldNumber))
                     {
                         FieldOwnerSplittedName = img.Name.Substring(5, 1);
