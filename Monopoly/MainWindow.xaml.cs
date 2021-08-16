@@ -183,15 +183,9 @@ namespace Monopoly
         // UI Programming
         // //////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma warning disable CS0108 // Składowa ukrywa dziedziczoną składową; brak słowa kluczowego new
-        private void SizeChangedEvent(object sender, SizeChangedEventArgs e)
+        private void SizeChangedEvent(object sender, SizeChangedEventArgs e) => CanvasRenderScale();
 #pragma warning restore CS0108 // Składowa ukrywa dziedziczoną składową; brak słowa kluczowego new
-        {
-            CanvasRenderScale();
-        }
-        private void StateChangedEvent(object sender, EventArgs e)
-        {
-            CanvasRenderScale();
-        }
+        private void StateChangedEvent(object sender, EventArgs e) => CanvasRenderScale();
         public void CanvasRenderScale()
         {
             double ScaleW = this.ActualWidth / 1100;
@@ -452,10 +446,7 @@ namespace Monopoly
                 }
             }
         }
-        private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e)
-        {
-            StartingNewGame(false);
-        }
+        private void MenuItem_StartNewSingle(object sender, RoutedEventArgs e) => StartingNewGame(false);
         private void StartingNewGame(bool hotseat)
         {
             NewSingleplayerGame newSingleplayerGame = new NewSingleplayerGame(ThemeBoards, hotseat);
@@ -492,14 +483,8 @@ namespace Monopoly
                 Game.clientCanThrowDice = false;
             }
         }
-        private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e)
-        {
-            StartingNewGame(true);
-        }
-        private void Button_MouseMode_Click(object sender, RoutedEventArgs e)
-        {
-            SellModeToggle();
-        }
+        private void MenuItem_Hotseat_Click(object sender, RoutedEventArgs e) => StartingNewGame(true);
+        private void Button_MouseMode_Click(object sender, RoutedEventArgs e) => SellModeToggle();
         private void SellModeToggle()
         {
             if (!Game.sellmode)
@@ -621,14 +606,8 @@ namespace Monopoly
                 }
             }
         }
-        private void Field_CantDoShitInDetroit_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            CantBuyHouseNorSellThisField();
-        }
-        private void Field_CantDoShitInDetroit_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            CantSellHouse();
-        }
+        private void Field_CantDoShitInDetroit_MouseUp(object sender, MouseButtonEventArgs e) => CantBuyHouseNorSellThisField();
+        private void Field_CantDoShitInDetroit_MouseRightButtonUp(object sender, MouseButtonEventArgs e) => CantSellHouse();
         private void Field_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             Regex regex = new Regex(@"Field\d+");
@@ -676,7 +655,7 @@ namespace Monopoly
         {
             //TradeWindow trade = new TradeWindow();
             //trade.ShowDialog();
-            Grid_Trade.Visibility = Visibility.Visible;
+            Grid_Trade.Visibility = VisibilityCheck(Grid_Trade.Visibility != Visibility.Visible);
             LoadTrading();
             RefreshBoardUI();
         }
@@ -708,14 +687,8 @@ namespace Monopoly
             About about = new About();
             about.ShowDialog();
         }
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            SaveGame();
-        }
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        {
-            LoadGame();
-        }
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e) => SaveGame();
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e) => LoadGame();
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Uwaga! Zasady umieszczone na stronie mogą różnić się w zależności od wybranego motywu. Wersja beta tej gry, również może nie zawierać pewnych mechanik opisanych w instrukcji.", "Pomoc", MessageBoxButton.OK, MessageBoxImage.Exclamation);
