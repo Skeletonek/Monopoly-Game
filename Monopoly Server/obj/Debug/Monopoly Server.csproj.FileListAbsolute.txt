@@ -32,7 +32,6 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.exe
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\Monopoly Server.pdb
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\bin\Debug\NetComm.dll
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csprojAssemblyReference.cache
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Server.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\App.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server_MarkupCompile.cache
@@ -79,3 +78,4 @@ C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monop
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.CopyComplete
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.AssemblyReference.cache
