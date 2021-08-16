@@ -7,7 +7,8 @@ DotNet Windows Presentation Foundation game based on Monopoly by Hasbro
  - Microsoft Windows x64: 7 (SP1), 8.1, 10, 11
  - .NET Framework 4.8
 
-*Running Monopoly on Linux should be possible with WINE and DXVK installed but expect some bugs*
+*Running Monopoly on Linux should be possible with WINE and DXVK installed but expect some bugs.*
+*[Here is how to do it](https://www.reddit.com/r/linux4noobs/comments/firqs9/getting_windows_wpf_applications_to_run_with_wine/)*
 
 ### Stable
 To run a game, simply [download](https://github.com/Skeletonek/Monopoly-Game/releases) a release, unpack .zip archive and run Monopoly.exe
@@ -35,6 +36,7 @@ or by compiling project in Visual Studio with WPF projects support. **This versi
  - ...and other miscellaneous
 
 ## Changelog
-ENG (currently not available)
+[ENG](changelog_eng.md)
 
-[POL](changelog.txt)
+[POL](changelog_pl.md)
+
