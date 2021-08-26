@@ -14,9 +14,12 @@ using System.Windows.Shapes;
 
 namespace Monopoly
 {
-    /// <summary>
-    /// Logika interakcji dla klasy TradeWindow.xaml
-    /// </summary>
+    #region
+    /*This is deprecated trade Window
+     * Currently not used by the app but it is still there if needed
+     * This will be deleted in later versions
+     */
+    #endregion
     public partial class TradeWindow : Window
     {
         List<byte> Player1OwnedFields = new List<byte>();

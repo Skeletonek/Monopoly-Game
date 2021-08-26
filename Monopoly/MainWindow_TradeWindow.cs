@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Monopoly
 {
@@ -13,6 +14,7 @@ namespace Monopoly
         List<byte> Player2OwnedFields = new List<byte>();
         List<byte> Player3OwnedFields = new List<byte>();
         List<byte> Player4OwnedFields = new List<byte>();
+        string[] MoneyTraded = new string[2];
         byte playerTrading;
 
         private void LoadTrading()
@@ -84,14 +86,14 @@ namespace Monopoly
             MoneySlider_SecondPlayer.Maximum = Game.playercash[3];
             GroupBox_TradeRight.Header = Game.playername[3].ToString();
         }
-        private void Button_AddDistrict_Click(object sender, RoutedEventArgs e)
+        private void Button_ClientPlayer_AddDistrict_Click(object sender, RoutedEventArgs e)
         {
             if (!List_ClientPlayer.Items.Contains(FieldsComboBox_ClientPlayer.SelectedItem))
             {
                 List_ClientPlayer.Items.Add(FieldsComboBox_ClientPlayer.SelectedItem);
             }
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_SecondPlayer_AddDistrict_Click(object sender, RoutedEventArgs e)
         {
             if (!List_SecondPlayer.Items.Contains(FieldsComboBox_SecondPlayer.SelectedItem))
             {
@@ -100,11 +102,23 @@ namespace Monopoly
         }
         private void MoneySlider_ClientPlayer_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            MoneyTextBox_ClientPlayer.Text = Convert.ToInt32(MoneySlider_ClientPlayer.Value).ToString();
+            if(List_ClientPlayer.Items.Contains(MoneyTraded[0]))
+            {
+                List_ClientPlayer.Items.Remove(MoneyTraded[0]);
+            }
+            MoneyTraded[0] = Convert.ToInt32(MoneySlider_ClientPlayer.Value).ToString() + " $";
+            MoneyTextBox_ClientPlayer.Text = MoneyTraded[0];
+            List_ClientPlayer.Items.Add(MoneyTraded[0]);
         }
         private void MoneySlider_SecondPlayer_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            MoneyTextBox_SecondPlayer.Text = Convert.ToInt32(MoneySlider_SecondPlayer.Value).ToString();
+            if (List_ClientPlayer.Items.Contains(MoneyTraded[1]))
+            {
+                List_ClientPlayer.Items.Remove(MoneyTraded[1]);
+            }
+            MoneyTraded[1] = Convert.ToInt32(MoneySlider_SecondPlayer.Value).ToString() + " $";
+            MoneyTextBox_SecondPlayer.Text = MoneyTraded[1];
+            List_SecondPlayer.Items.Add(MoneyTraded[1]);
         }
         private void Trade_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -116,6 +130,25 @@ namespace Monopoly
             {
                 Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
             }
+            Grid_Trade.Visibility = Visibility.Hidden;
+        }
+        private void Reject_Trade_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_Trade.Visibility = Visibility.Hidden;
+        }
+        private void Change_Trade_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO
+        }
+        private void FieldsComboBox_ClientPlayer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Game.selectedField = (byte)Array.IndexOf(BoardData.fieldName, FieldsComboBox_ClientPlayer.SelectedItem);
+            OverviewRefresh();
+        }
+        private void FieldsComboBox_SecondPlayer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Game.selectedField = (byte)Array.IndexOf(BoardData.fieldName, FieldsComboBox_SecondPlayer.SelectedItem);
+            OverviewRefresh();
         }
     }
 }
