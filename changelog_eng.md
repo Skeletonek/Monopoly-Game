@@ -19,46 +19,46 @@
 - Fixed issue "The message about the possibility of buying buildings appears even if the player has not completed the entire district"
 - Fixed showing "Yes" and "No" instead of "Ok" in the message about being able to buy buildings (Thanks Oxygen!)
 
----
->To do: Correcting after Google Translate
-
 ## Beta 0.6.1
 - Added support for game themes
-- Support for crashes and error logs has been added
+- Added crashes handling and error logs creating
 - Added option to re-sync with network game
-- The "Board Zoom" button has been removed
-- The behavior of the application when disconnecting from the server has been changed
-- Fixed an application crash when closing the connecting window to a network game
-- The volume of the sound of the new turn has been reduced
+- The "Zoom board" button has been removed
+- Changed app behaviour when disconnected from the server
+- Fixed crash after "Connecting to server" window closing
+- Reduced new turn sound effect volume
 - Added more sound effects
 
 ## Beta 0.6
-- "About application" window added
-- Work on the trade window with other players is in progress
-- Scaling of the board according to the size of the window has been implemented
+- Added "About application" window
+- Working on trading with other players
+- Implemented automatic board scalling according to window size
 - Implemented automatic GameLog matching to the available area
 - Ability to disconnect from the server by pressing a button
 - Fixed bug with UI not resetting after quitting the game
-- The way information about the player's turn is displayed has been changed
+- Changed notification about new player turn
 
 ## Beta 0.6-Pre2
 - Icons for game dice have been added
 - Fixed incorrect offset for GameLog
-- The audio system has been improved
-- Ability to modify the volume of game sounds
+- Audio system has been improved
+- Ability to modify the game volume
 - Ability to mute the game
 - Minor code optimization
 - Changing the game platform to x86_64 processors
-- Improved game windows functionality
+- Improved game windows behaviour
 - The cheat window is better hidden
 
 ## Beta 0.6-Pre1
-- Added owner icons to streets owned by the owner
-- The "Danger Zone requires action twice to continue playing" bug has been fixed
-- Fixed bug "A player who has bankrupted may file other players bankrupt"
+- Added owner icons
+- Fixed "Danger Zone requires action twice to continue playing"
+- Fixed "A player who has bankrupted may file other players bankrupt"
 - Many UI aspects have been improved
 - Bug fixes
 - Game code optimization
+
+---
+>To do: Correcting after Google Translate
 
 ## Beta 0.5.2
 - The bug "Danger zone does not disable after paying in fields other than districts" has been fixed
