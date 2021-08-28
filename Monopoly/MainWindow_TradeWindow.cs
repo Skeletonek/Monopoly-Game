@@ -15,7 +15,7 @@ namespace Monopoly
         List<byte> Player3OwnedFields = new List<byte>();
         List<byte> Player4OwnedFields = new List<byte>();
         string[] MoneyTraded = new string[2];
-        byte playerTrading;
+        byte PlayerTradeTarget;
 
         private void LoadTrading()
         {
@@ -51,11 +51,27 @@ namespace Monopoly
             {
                 FieldsComboBox_ClientPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_ClientPlayer.Maximum = Game.playercash[0];
+            MoneySlider_ClientPlayer.Maximum = Game.playercash[Game.turn];
+        }
+        private void AcceptTradeOffer()
+        {
+            //Giving districts to each other
+            foreach (string x in List_ClientPlayer.Items)
+            {
+                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = PlayerTradeTarget; //This is not ideal.
+            }
+            foreach (string x in List_SecondPlayer.Items)
+            {
+                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = Game.turn;
+            }
+            //Giving money to each other
+            Game.playercash[Game.turn] += -int.Parse(MoneyTraded[0].Substring(0, MoneyTraded[0].Length-2)) + int.Parse(MoneyTraded[1].Substring(0, MoneyTraded[1].Length - 2));
+            Game.playercash[PlayerTradeTarget] += int.Parse(MoneyTraded[0].Substring(0, MoneyTraded[0].Length - 2)) + -int.Parse(MoneyTraded[1].Substring(0, MoneyTraded[1].Length - 2));
+            Grid_Trade.Visibility = Visibility.Hidden;
         }
         private void MenuItem_Player_Click(object sender, RoutedEventArgs e)
         {
-            playerTrading = 1;
+            PlayerTradeTarget = 1;
             FieldsComboBox_SecondPlayer.Items.Clear();
             foreach (byte x in Player2OwnedFields)
             {
@@ -66,7 +82,7 @@ namespace Monopoly
         }
         private void MenuItem_Player_Click_1(object sender, RoutedEventArgs e)
         {
-            playerTrading = 2;
+            PlayerTradeTarget = 2;
             FieldsComboBox_SecondPlayer.Items.Clear();
             foreach (byte x in Player3OwnedFields)
             {
@@ -77,7 +93,7 @@ namespace Monopoly
         }
         private void MenuItem_Player_Click_2(object sender, RoutedEventArgs e)
         {
-            playerTrading = 3;
+            PlayerTradeTarget = 3;
             FieldsComboBox_SecondPlayer.Items.Clear();
             foreach (byte x in Player4OwnedFields)
             {
@@ -102,35 +118,27 @@ namespace Monopoly
         }
         private void MoneySlider_ClientPlayer_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if(List_ClientPlayer.Items.Contains(MoneyTraded[0]))
+            if(List_ClientPlayer.Items.Contains(MoneyTraded[Game.turn]))
             {
-                List_ClientPlayer.Items.Remove(MoneyTraded[0]);
+                List_ClientPlayer.Items.Remove(MoneyTraded[Game.turn]);
             }
             MoneyTraded[0] = Convert.ToInt32(MoneySlider_ClientPlayer.Value).ToString() + " $";
-            MoneyTextBox_ClientPlayer.Text = MoneyTraded[0];
-            List_ClientPlayer.Items.Add(MoneyTraded[0]);
+            MoneyTextBox_ClientPlayer.Text = MoneyTraded[Game.turn];
+            List_ClientPlayer.Items.Add(MoneyTraded[Game.turn]);
         }
         private void MoneySlider_SecondPlayer_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (List_ClientPlayer.Items.Contains(MoneyTraded[1]))
+            if (List_ClientPlayer.Items.Contains(MoneyTraded[PlayerTradeTarget]))
             {
-                List_ClientPlayer.Items.Remove(MoneyTraded[1]);
+                List_ClientPlayer.Items.Remove(MoneyTraded[PlayerTradeTarget]);
             }
-            MoneyTraded[1] = Convert.ToInt32(MoneySlider_SecondPlayer.Value).ToString() + " $";
-            MoneyTextBox_SecondPlayer.Text = MoneyTraded[1];
-            List_SecondPlayer.Items.Add(MoneyTraded[1]);
+            MoneyTraded[PlayerTradeTarget] = Convert.ToInt32(MoneySlider_SecondPlayer.Value).ToString() + " $";
+            MoneyTextBox_SecondPlayer.Text = MoneyTraded[PlayerTradeTarget];
+            List_SecondPlayer.Items.Add(MoneyTraded[PlayerTradeTarget]);
         }
         private void Trade_Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (string x in List_ClientPlayer.Items)
-            {
-                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = playerTrading;
-            }
-            foreach (string x in List_SecondPlayer.Items)
-            {
-                Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = 0;
-            }
-            Grid_Trade.Visibility = Visibility.Hidden;
+            AcceptTradeOffer();
         }
         private void Reject_Trade_Click(object sender, RoutedEventArgs e)
         {
