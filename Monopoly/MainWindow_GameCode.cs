@@ -372,14 +372,14 @@ namespace Monopoly
                     case 20: //Parking Lot
                         Game.playercash[Game.turn] += Game.taxmoney;
                         PlayerStatusRefresh();
-                        GameLog.Text += Game.playername[Game.turn] + " odwiedza bezpłatny parking." + Environment.NewLine + Environment.NewLine;
+                        GameLog.Text += Game.playername[Game.turn] + " zdobywa " + Game.taxmoney + "$!" + Environment.NewLine + Environment.NewLine;
                         if (Game.multiplayer)
                         {
-                            SendGameLog(Game.playername[Game.turn] + " odwiedza bezpłatny parking." + Environment.NewLine + Environment.NewLine);
+                            SendGameLog(Game.playername[Game.turn] + " zdobywa " + Game.taxmoney + "$!" + Environment.NewLine + Environment.NewLine);
                         }
                         if (Game.turn == Game.clientplayer)
                         {
-                            MessageBox.Show("Odwiedzasz bezpłatny parking.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Zdobywasz " + Game.taxmoney + "$!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         Game.taxmoney = 0;
                         break;
