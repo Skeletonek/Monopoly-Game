@@ -38,14 +38,11 @@ namespace Monopoly
                 Label_Player1Name.FontWeight = FontWeights.Bold;
                 Game.clientCanThrowDice = true;
             }
-            Game.playercash[0] = 1500;
-            Game.playercash[1] = 1500;
-            Game.playercash[2] = 1500;
-            Game.playercash[3] = 1500;
-            Game.playerlocation[0] = 0;
-            Game.playerlocation[1] = 0;
-            Game.playerlocation[2] = 0;
-            Game.playerlocation[3] = 0;
+            for(int i=0; i < 4; i++)
+            {
+                Game.playercash[i] = 1500;
+                Game.playerlocation[i] = 0;
+            }
             for (int i = 0; i < 41; i++)
             {
                 Game.fieldOwner[i] = 4;
@@ -231,7 +228,7 @@ namespace Monopoly
         {
             byte currentPlayerLocation = Game.playerlocation[Game.turn];
             int rent = BoardData.fieldNoSetRent[currentPlayerLocation];
-            if (BoardData.fieldChance[currentPlayerLocation] == true)
+            if (BoardData.fieldChance[currentPlayerLocation])
             {
                 byte chanceCard = Convert.ToByte(rng.Next(0, BoardData.chanceCards));
                 if (Game.turn == Game.clientplayer)
@@ -278,7 +275,7 @@ namespace Monopoly
                     }
                 }
             }
-            else if (BoardData.fieldRailroad[currentPlayerLocation] == true)
+            else if (BoardData.fieldRailroad[currentPlayerLocation])
             {
                 if (Game.fieldOwner[currentPlayerLocation] == 4)
                 {
@@ -360,7 +357,7 @@ namespace Monopoly
                     }
                 }
             }
-            else if (BoardData.fieldExtra[currentPlayerLocation] == true)
+            else if (BoardData.fieldExtra[currentPlayerLocation])
             {
                 switch (currentPlayerLocation)
                 {
@@ -373,16 +370,16 @@ namespace Monopoly
                         break;
 
                     case 20: //Parking Lot
-                        Game.playercash[Game.turn] = Game.playercash[Game.turn] + Game.taxmoney;
+                        Game.playercash[Game.turn] += Game.taxmoney;
                         PlayerStatusRefresh();
-                        GameLog.Text += Game.playername[Game.turn] + " zdobywa " + Game.taxmoney + "$!" + Environment.NewLine + Environment.NewLine;
+                        GameLog.Text += Game.playername[Game.turn] + " odwiedza bezpłatny parking." + Environment.NewLine + Environment.NewLine;
                         if (Game.multiplayer)
                         {
-                            SendGameLog(Game.playername[Game.turn] + " zdobywa " + Game.taxmoney + "$!" + Environment.NewLine + Environment.NewLine);
+                            SendGameLog(Game.playername[Game.turn] + " odwiedza bezpłatny parking." + Environment.NewLine + Environment.NewLine);
                         }
                         if (Game.turn == Game.clientplayer)
                         {
-                            MessageBox.Show("Zdobywasz " + Game.taxmoney + "$!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Odwiedzasz bezpłatny parking.", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         Game.taxmoney = 0;
                         break;
@@ -579,7 +576,7 @@ namespace Monopoly
         {
             if (Game.playercash[Game.turn] >= BoardData.fieldPrice[currentPlayerLocation])
             {
-                Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.fieldPrice[currentPlayerLocation];
+                Game.playercash[Game.turn] -= BoardData.fieldPrice[currentPlayerLocation];
                 Game.fieldOwner[currentPlayerLocation] = Game.turn;
                 DrawOwner(currentPlayerLocation, Game.turn);
                 audio.playSFX("money");
@@ -595,7 +592,7 @@ namespace Monopoly
         {
             if (Game.playercash[Game.turn] >= rent)
             {
-                Game.playercash[Game.turn] = Game.playercash[Game.turn] - rent;
+                Game.playercash[Game.turn] -= rent;
                 Game.playercash[Game.fieldOwner[currentPlayerLocation]] = Game.playercash[Game.fieldOwner[currentPlayerLocation]] + rent;
                 audio.playSFX("money");
                 return true;
@@ -631,7 +628,7 @@ namespace Monopoly
             {
                 if (Game.playercash[Game.turn] >= BoardData.chanceXValue[chanceCard])
                 {
-                    Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.chanceXValue[chanceCard];
+                    Game.playercash[Game.turn] -= BoardData.chanceXValue[chanceCard];
                     return true;
                 }
                 else
@@ -657,7 +654,7 @@ namespace Monopoly
             {
                 if (Game.playercash[Game.turn] >= BoardData.commChestXValue[commChestCard])
                 {
-                    Game.playercash[Game.turn] = Game.playercash[Game.turn] - BoardData.commChestXValue[commChestCard];
+                    Game.playercash[Game.turn] -= BoardData.commChestXValue[commChestCard];
                     return true;
                 }
                 else
@@ -687,7 +684,7 @@ namespace Monopoly
         {
             if (Game.playercash[Game.turn] >= calculatedMoney)
             {
-                Game.playercash[Game.turn] = Game.playercash[Game.turn] - calculatedMoney;
+                Game.playercash[Game.turn] -= calculatedMoney;
                 Game.playercash[Game.fieldOwner[currentPlayerLocation]] = Game.playercash[Game.fieldOwner[currentPlayerLocation]] + calculatedMoney;
                 audio.playSFX("money");
                 return true;
@@ -722,7 +719,7 @@ namespace Monopoly
                     {
                         if (Game.playercash[Game.turn] >= 50)
                         {
-                            Game.playercash[Game.turn] = Game.playercash[Game.turn] - 50;
+                            Game.playercash[Game.turn] -= 50;
                             BuyHouse2(selectedField);
                             return true;
                         }
@@ -736,7 +733,7 @@ namespace Monopoly
                     {
                         if (Game.playercash[Game.turn] >= 100)
                         {
-                            Game.playercash[Game.turn] = Game.playercash[Game.turn] - 100;
+                            Game.playercash[Game.turn] -= 100;
                             BuyHouse2(selectedField);
                             return true;
                         }
@@ -750,7 +747,7 @@ namespace Monopoly
                     {
                         if (Game.playercash[Game.turn] >= 150)
                         {
-                            Game.playercash[Game.turn] = Game.playercash[Game.turn] - 150;
+                            Game.playercash[Game.turn] -= 150;
                             BuyHouse2(selectedField);
                             return true;
                         }
@@ -764,7 +761,7 @@ namespace Monopoly
                     {
                         if (Game.playercash[Game.turn] >= 200)
                         {
-                            Game.playercash[Game.turn] = Game.playercash[Game.turn] - 200;
+                            Game.playercash[Game.turn] -= 200;
                             BuyHouse2(selectedField);
                             return true;
                         }
@@ -837,7 +834,7 @@ namespace Monopoly
                 {
                     if (Game.fieldHouse[selectedField] > 0)
                     {
-                        Game.playercash[Game.turn] = Game.playercash[Game.turn] + 25;
+                        Game.playercash[Game.turn] += 25;
                         SellHouse2(selectedField);
                         return true;
                     }
@@ -847,7 +844,7 @@ namespace Monopoly
                 {
                     if (Game.fieldHouse[selectedField] > 0)
                     {
-                        Game.playercash[Game.turn] = Game.playercash[Game.turn] + 50;
+                        Game.playercash[Game.turn] += 50;
                         SellHouse2(selectedField);
                         return true;
                     }
@@ -857,7 +854,7 @@ namespace Monopoly
                 {
                     if (Game.fieldHouse[selectedField] > 0)
                     {
-                        Game.playercash[Game.turn] = Game.playercash[Game.turn] + 75;
+                        Game.playercash[Game.turn] += 75;
                         SellHouse2(selectedField);
                         return true;
                     }
@@ -867,7 +864,7 @@ namespace Monopoly
                 {
                     if (Game.fieldHouse[selectedField] > 0)
                     {
-                        Game.playercash[Game.turn] = Game.playercash[Game.turn] + 100;
+                        Game.playercash[Game.turn] += 100;
                         SellHouse2(selectedField);
                         return true;
                     }

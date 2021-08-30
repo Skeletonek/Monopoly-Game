@@ -859,63 +859,63 @@ namespace Monopoly
             // 7 - Player have to pay x or choose other card
             // 8 - Player have a free exit-prison card
 
-            chanceText[0] = "Otrzymałeś kredyt budowlany. Pobierz 150 zł.";
+            chanceText[0] = "Otrzymałeś kredyt budowlany: +150$";
             chanceAction[0] = 0;
             chanceXValue[0] = 150;
 
-            chanceText[1] = "Mandat za przekroczenie prędkości. Zapłać 15 zł.";
+            chanceText[1] = "Mandat za przekroczenie prędkości: -15$";
             chanceAction[1] = 1;
             chanceXValue[1] = 15;
 
-            chanceText[2] = "Grzywna. Zapłać 20 zł.";
+            chanceText[2] = "Zapłać grzywnę: -20$";
             chanceAction[2] = 1;
             chanceXValue[2] = 20;
 
-            chanceText[3] = "Wygrałeś konkurs krzyżówkowy. Pobierz 100 zł.";
+            chanceText[3] = "Wygrałeś konkurs krzyżówkowy: +100$";
             chanceAction[3] = 0;
             chanceXValue[3] = 100;
 
-            chanceText[4] = "Zapłać za szkołę. 150 zł.";
+            chanceText[4] = "Powrót do szkoły: -150$";
             chanceAction[4] = 1;
             chanceXValue[4] = 150;
 
-            commChestText[0] = "Honorarium lekarza. Zapłać 50 zł.";
+            commChestText[0] = "Zapłać za wizytę u lekarza: -50$";
             commChestAction[0] = 1;
             commChestXValue[0] = 50;
 
-            commChestText[1] = "Otrzymujesz zwrot podatku dochodowego. Pobierz 20 zł.";
+            commChestText[1] = "Otrzymujesz zwrot podatku dochodowego: +20$";
             commChestAction[1] = 0;
             commChestXValue[1] = 20;
 
-            commChestText[2] = "Błąd bankowy na twoją korzyść. Pobierz 200 zł.";
+            commChestText[2] = "Błąd bankowy na twoją korzyść: +200$";
             commChestAction[2] = 0;
             commChestXValue[2] = 200;
 
-            commChestText[3] = "Otrzymujesz odsetki od lokaty terminowej. Pobierz 25 zł.";
+            commChestText[3] = "Otrzymujesz odsetki od lokaty terminowej: +25$";
             commChestAction[3] = 0;
             commChestXValue[3] = 25;
 
-            commChestText[4] = "Sprzedałeś obligacje. Pobierz 100 zł.";
+            commChestText[4] = "Sprzedałeś obligacje: +100$";
             commChestAction[4] = 0;
             commChestXValue[4] = 100;
 
-            commChestText[5] = "Zapłać rachunek za szpital 100 zł.";
+            commChestText[5] = "Zapłać rachunek za szpital: -100$";
             commChestAction[5] = 1;
             commChestXValue[5] = 100;
 
-            commChestText[6] = "Otrzymujesz 50 zł za sprzedane obligacje.";
+            commChestText[6] = "Otrzymujesz +50$ za sprzedane obligacje";
             commChestAction[6] = 0;
             commChestXValue[6] = 50;
 
-            commChestText[7] = "Odziedziczyłeś w spadku 100 zł.";
+            commChestText[7] = "Odziedziczyłeś w spadku +100$";
             commChestAction[7] = 0;
             commChestXValue[7] = 100;
 
-            commChestText[8] = "Wygrana druga nagroda w konkusie piękności. Pobierz 10 zł.";
+            commChestText[8] = "Wygrana druga nagroda w konkusie piękności: +10$";
             commChestAction[8] = 0;
             commChestXValue[8] = 10;
 
-            commChestText[9] = "Zapłać składkę ubezpieczeniową 50 zł.";
+            commChestText[9] = "Zapłać składkę ubezpieczeniową: -50$";
             commChestAction[9] = 1;
             commChestXValue[9] = 50;
         }

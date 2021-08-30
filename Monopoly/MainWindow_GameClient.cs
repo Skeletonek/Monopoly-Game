@@ -244,7 +244,7 @@ namespace Monopoly
 
                 case 31: //Pay for staying on a railroad
                     currentPlayerLocation = AdditionalCode;
-                    MessageBox.Show("Stanąłeś na dworcu gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Stanąłeś na dworcu gracza " + Game.fieldOwner[currentPlayerLocation] + ". Musisz mu zapłacić: " + rent + "$", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                     if (!PayRent(currentPlayerLocation, rent))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -280,10 +280,10 @@ namespace Monopoly
                         {
                             LeaveDangerZone();
                         }
-                        GameLog.Text += Game.playername[Game.turn] + " płaci podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine;
+                        GameLog.Text += Game.playername[Game.turn] + " płaci podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "$!" + Environment.NewLine + Environment.NewLine;
                         if (Game.multiplayer)
                         {
-                            SendGameLog(Game.playername[Game.turn] + " płaci podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "!" + Environment.NewLine + Environment.NewLine);
+                            SendGameLog(Game.playername[Game.turn] + " płaci podatek w wysokości " + BoardData.fieldTaxCost[currentPlayerLocation] + "$!" + Environment.NewLine + Environment.NewLine);
                         }
                     }
                     break;
@@ -316,7 +316,7 @@ namespace Monopoly
 
                 case 51: //Pay for street
                     currentPlayerLocation = AdditionalCode;
-                    MessageBox.Show("Stanąłeś na dzielnicy gracz " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent, "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Stanąłeś na dzielnicy gracza " + Game.playername[Game.fieldOwner[currentPlayerLocation]] + ". Musisz mu zapłacić: " + rent + "$", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Warning);
                     if (!PayRent(currentPlayerLocation, rent))
                     {
                         MessageBox.Show("Nie stać Cię!", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Error);
