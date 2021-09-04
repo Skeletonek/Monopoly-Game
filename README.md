@@ -24,6 +24,7 @@ or by compiling project in Visual Studio with WPF projects support. **This versi
  - **Trading** *(Will be available in Beta-0.7 for sure!)*
  - More languages
  - Advanced AI
+ - Game saving
  - Better theme support
  - Improve netcode
  - Adding more chance and community chest cards
