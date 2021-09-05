@@ -205,10 +205,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Resources\BoardName.mtf">
+    <Content Include="Board\BoardName.mtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\BoardContent.mtf">
+    <Content Include="Board\BoardContent.mtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -216,13 +216,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\alpha.png">
+    <Content Include="Board\alpha.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\BlueField.png">
+    <Content Include="Board\BlueField.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\BluePlayer.png">
+    <Content Include="Board\BluePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\build.wav">
@@ -252,118 +252,118 @@
     <Content Include="Resources\dice_6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldBlue1.jpg">
+    <Content Include="Board\FieldBlue1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldBlue2.jpg">
+    <Content Include="Board\FieldBlue2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldBronze1.jpg">
+    <Content Include="Board\FieldBronze1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldBronze2.jpg">
+    <Content Include="Board\FieldBronze2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldChance.jpg">
+    <Content Include="Board\FieldChance.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldCommChest.jpg">
+    <Content Include="Board\FieldCommChest.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldElectric.jpg">
+    <Content Include="Board\FieldElectric.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldGoToJail.jpg">
+    <Content Include="Board\FieldGoToJail.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldGreen1.jpg">
+    <Content Include="Board\FieldGreen1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldGreen2.jpg">
+    <Content Include="Board\FieldGreen2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldGreen3.jpg">
+    <Content Include="Board\FieldGreen3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldLightblue1.jpg">
+    <Content Include="Board\FieldLightblue1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldLightblue2.jpg">
+    <Content Include="Board\FieldLightblue2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldLightblue3.jpg">
+    <Content Include="Board\FieldLightblue3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldMagenta1.jpg">
+    <Content Include="Board\FieldMagenta1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldMagenta2.jpg">
+    <Content Include="Board\FieldMagenta2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldMagenta3.jpg">
+    <Content Include="Board\FieldMagenta3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldOrange1.jpg">
+    <Content Include="Board\FieldOrange1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldOrange2.jpg">
+    <Content Include="Board\FieldOrange2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldOrange3.jpg">
+    <Content Include="Board\FieldOrange3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldParkingLot.jpg">
+    <Content Include="Board\FieldParkingLot.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldPrison.jpg">
+    <Content Include="Board\FieldPrison.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRailroad1.jpg">
+    <Content Include="Board\FieldRailroad1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRailroad2.jpg">
+    <Content Include="Board\FieldRailroad2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRailroad3.jpg">
+    <Content Include="Board\FieldRailroad3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRailroad4.jpg">
+    <Content Include="Board\FieldRailroad4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRed1.jpg">
+    <Content Include="Board\FieldRed1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRed2.jpg">
+    <Content Include="Board\FieldRed2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldRed3.jpg">
+    <Content Include="Board\FieldRed3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldStart.jpg">
+    <Content Include="Board\FieldStart.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldTax1.jpg">
+    <Content Include="Board\FieldTax1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldTax2.jpg">
+    <Content Include="Board\FieldTax2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldWaterworks.jpg">
+    <Content Include="Board\FieldWaterworks.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldYellow1.jpg">
+    <Content Include="Board\FieldYellow1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldYellow2.jpg">
+    <Content Include="Board\FieldYellow2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\FieldYellow3.jpg">
+    <Content Include="Board\FieldYellow3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\GreenField.png">
+    <Content Include="Board\GreenField.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\GreenPlayer.png">
+    <Content Include="Board\GreenPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\House1.png">
@@ -397,7 +397,7 @@
     <Content Include="Resources\money.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\monopolyboard.jpg">
+    <Content Include="Board\monopolyboard.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\music.mp3">
@@ -406,23 +406,23 @@
     <Content Include="Resources\music_wait.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\RedField.png">
+    <Content Include="Board\RedField.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Trivago.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\TrivagoOld.png" />
-    <Content Include="Resources\NoAlpha.png">
+    <Content Include="Board\NoAlpha.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\YellowField.png">
+    <Content Include="Board\YellowField.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\YellowPlayer.png">
+    <Content Include="Board\YellowPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\RedPlayer.png">
+    <Content Include="Board\RedPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

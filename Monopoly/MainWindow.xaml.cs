@@ -31,7 +31,7 @@ namespace Monopoly
 
         byte diceScore;
         string playboardTheme = "Monopoly Standard";
-        public static string currentThemeDir = "Resources";
+        public static string currentThemeDir = "Board";
 
         //DispatcherTimer wait = new DispatcherTimer();
         DispatcherTimer reload = new DispatcherTimer();

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="8006144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopoly.exe" size="8005632">
       <assemblyIdentity name="Monopoly" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dReHVUcF2zYTqQ50Ac/FgjQz5FypUUjEtSySuRAlPgA=</dsig:DigestValue>
+        <dsig:DigestValue>nGXaCBUT63SEScqEkflojh3Pllx5lAE960Th5v0Y+V8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,16 +66,7 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Monopoly.exe.config" size="184">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\alpha.png" size="623">
+  <file name="Board\alpha.png" size="623">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -84,7 +75,7 @@
       <dsig:DigestValue>Vbl1ae+xXg04Fauaag7GqmloSCQSvWkiKz0XY4UySbg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\BlueField.png" size="604">
+  <file name="Board\BlueField.png" size="604">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -93,7 +84,7 @@
       <dsig:DigestValue>L97zTbDd1CqbExbuq1zTKQZHgx9nVfwC7rg1lfXcgy4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\BluePlayer.png" size="1113">
+  <file name="Board\BluePlayer.png" size="1113">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -102,7 +93,7 @@
       <dsig:DigestValue>/nNBGm5r0DUpVtPAXxbS03UM++AMzFyFFcBQMjv83YE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\BoardContent.mtf" size="643">
+  <file name="Board\BoardContent.mtf" size="643">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -111,13 +102,418 @@
       <dsig:DigestValue>7CMJqFjE1TT5TqJ8g6fV7Oj1p9A4/e+L+fmUAP2rgyI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\BoardName.mtf" size="30">
+  <file name="Board\BoardName.mtf" size="26">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>djqmyCEyOcIJ0hT2+BsqI8VWfStY89XX8mWkE8OpTXA=</dsig:DigestValue>
+      <dsig:DigestValue>gbrHpa83dlU5MUVrNTQGOxtwBoZiR404HDMaJa6Samg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldBlue1.jpg" size="6441">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>RTKcS1oj/GB6i6GrtmNBjNYUE/So/A8qI97Nfdnt2lY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldBlue2.jpg" size="6368">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>eoWR8Ljk/ytFU6xuaFpXHgrf3cIMm2lJIylQwAvFmvo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldBronze1.jpg" size="7129">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8khcYXxG9d5/XrWHEOK4UV4JNJpSlCB/hlwk7iQgGVY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldBronze2.jpg" size="6426">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bfDaGGWc/WBgsZ7zhlFqyY9KoVl3uv+opXzAUzzNBKk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldChance.jpg" size="9612">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5qYRVq7Qowx74WZx55QNGJgC8c9bazhigQ+w93BxScw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldCommChest.jpg" size="10888">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aAjzlrKuD/DS39V1i+6Jz6mYLHfR0lZVq+ihhWbt4p4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldElectric.jpg" size="10823">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5pJKs+ikow74RIG52fxczmJ9TB8o3WmGjLIHho/yC7U=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldGoToJail.jpg" size="14111">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GZZZAxfHxoPnxl3MA/CO9duPsdACQXtSo1DrPN0l2oY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldGreen1.jpg" size="6779">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Agw9Mb9HoAGcwL34yDXJXGQ4iH9jfhM0G3DY0tNwK8w=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldGreen2.jpg" size="7859">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zFk3K0d5kLS9CLlaA4yBcQzX8S7a9yrRaeXatuUvZX8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldGreen3.jpg" size="7122">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ZpWGMivlc0MM2TvAA0WAMWMpNJmycBMwaY/WF8dNyqk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldLightblue1.jpg" size="6578">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pJZk2sCW52BN5QK5hEKgCHdvkAUtBXJCG2qMm9JxX+g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldLightblue2.jpg" size="6500">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ZKD8MWlQWlbMW0ebidCyQvN9HdF0r3tQiPB0JbrNKjA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldLightblue3.jpg" size="7077">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>aMlEGca/iGqjIvS45PvlbYo4gneb/8LWsRFO3SPh4oY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldMagenta1.jpg" size="6598">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SAjuQZpmJtGDqjae6uqnnIFpIN4tlWIF6sLnRvPnjsQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldMagenta2.jpg" size="6252">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/VbIn+st1naCBVeHynQxUuyehbJgoaaDINPk1VczyQQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldMagenta3.jpg" size="6466">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Vxa8yJf/AgK0ahSgqlWI9CIFt6zXPj1+HTu+3pmBCKE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldOrange1.jpg" size="6589">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>egiBqg/4z792q+3CBc0p6i5qtYxFZnJ4IgCGF+OY7To=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldOrange2.jpg" size="6689">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>7k8FF8m+cnPVKyAUX1IkwRcFNRuNBFLYFcavVZnFbdY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldOrange3.jpg" size="6852">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LEaRIZrC+ROZzRYj2TM6N0djG16HSGHvn/rni/Z44LA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldParkingLot.jpg" size="12440">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>c2RwQJ7U9ssDDk/QOTzGjeIGU/KrHRqufUJakxlStSY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldPrison.jpg" size="16719">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tOtucmkZaMbUO7zNM0o+3dYtrm4ItUjVoDW9ZMB8Ofg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRailroad1.jpg" size="9039">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2fuVq7lDgE2MoriIuVoxU8Lp6jjfI9Dn4WZvju2mDjc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRailroad2.jpg" size="9471">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>v5RFXDwSu3+FTXANS/UaJitadQsl8CFlifICkmZLMsI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRailroad3.jpg" size="9367">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b2pyCHGmaD6T1Vf7dHXEQkPsEjVqWtgdAPEpVwYpHeY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRailroad4.jpg" size="8761">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qqkWe3pq+DwsauWLYQfQRXONG2eq/y4BO+BXU4VTTcg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRed1.jpg" size="6774">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XFpqb2f3b6jRjpn/LZJsg15juK+HGk6kanA8IoA1nCw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRed2.jpg" size="6744">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bqLdds2aykUuNkqXoUAvUChjtf1TExFDorXrLSAZsh8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldRed3.jpg" size="6624">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>dNq2WmsvchY/F8YziF4BdJfhowJLzJOcaHTUgKpsoy0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldStart.jpg" size="16133">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PHJFJzmS8CKZF1odTQGZhiJqOt6ajJlFTyzgUd6Ydv8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldTax1.jpg" size="7073">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9lDb8tDN79pveZAqdyEvPWrYk/muj0hJoV9jlzMhXZ8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldTax2.jpg" size="11338">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1pzw9NlCI2mD8KEQcYPnmaSOP6Ol8hCEYWhPp86bSqs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldWaterworks.jpg" size="9485">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Mgsnj9UhWLZyCmkXfRjiF3W4XvdLP0OdbhLFIEmIWAQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldYellow1.jpg" size="6554">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SiWF/dCDYFn5ik/L1yYZbndL+kLNEL84mBUc+ahK9gU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldYellow2.jpg" size="6976">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Jo8uKIFTvl1GbVUHOCymddPsYd/oD4cBi735SJVxYe8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\FieldYellow3.jpg" size="6655">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1SPOFCdt0LA4YTkXnT4PsYfegX3ueeF0G4fH60k6mR4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\GreenField.png" size="605">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1KSqVw2fygekAQRO96qYqlEJhOadbDtr3mkf1qw93T4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\GreenPlayer.png" size="1136">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tG1TTnbkLDoIMamLHeRuUS2Zsg/uRVT/ppGt88w35fs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\monopolyboard.jpg" size="259039">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9HNvAScBRSDTw6XLYYjYLS5rfwEXRF/Gq6EGMgwIRS4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\NoAlpha.png" size="809">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>X6RIWGZ9pl3W5m8GBpQsME10IxpchO3Np++6S9uZyuU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\RedField.png" size="603">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>AJOCBBZjybQJKy2AprWHlXKhZwR9dSKX1P1GEWZ+EYQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\RedPlayer.png" size="1928">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>voeF+NZfHM9jUVhI4DZXDSl5zrQMMVlVIDbSkyi0Im8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\YellowField.png" size="601">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iSGr1cqRsmKho/R9cPWN2/KUlgDkOuYdUUzruGPykrI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\YellowPlayer.png" size="1819">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oDfiA7VzFTsQIElSomVOMloQoWYXuq6l3LazjVC2VBE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Monopoly.exe.config" size="184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\build.wav" size="142646">
@@ -199,348 +595,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>nM56b7GeIIofrscG2WvLhi3VNcGoiqtu3wORq5bBZrs=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldBlue1.jpg" size="6441">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RTKcS1oj/GB6i6GrtmNBjNYUE/So/A8qI97Nfdnt2lY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldBlue2.jpg" size="6368">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>eoWR8Ljk/ytFU6xuaFpXHgrf3cIMm2lJIylQwAvFmvo=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldBronze1.jpg" size="7129">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>8khcYXxG9d5/XrWHEOK4UV4JNJpSlCB/hlwk7iQgGVY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldBronze2.jpg" size="6426">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>bfDaGGWc/WBgsZ7zhlFqyY9KoVl3uv+opXzAUzzNBKk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldChance.jpg" size="9612">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5qYRVq7Qowx74WZx55QNGJgC8c9bazhigQ+w93BxScw=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldCommChest.jpg" size="10888">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>aAjzlrKuD/DS39V1i+6Jz6mYLHfR0lZVq+ihhWbt4p4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldElectric.jpg" size="10823">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>5pJKs+ikow74RIG52fxczmJ9TB8o3WmGjLIHho/yC7U=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldGoToJail.jpg" size="14111">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GZZZAxfHxoPnxl3MA/CO9duPsdACQXtSo1DrPN0l2oY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldGreen1.jpg" size="6779">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Agw9Mb9HoAGcwL34yDXJXGQ4iH9jfhM0G3DY0tNwK8w=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldGreen2.jpg" size="7859">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zFk3K0d5kLS9CLlaA4yBcQzX8S7a9yrRaeXatuUvZX8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldGreen3.jpg" size="7122">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZpWGMivlc0MM2TvAA0WAMWMpNJmycBMwaY/WF8dNyqk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldLightblue1.jpg" size="6578">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>pJZk2sCW52BN5QK5hEKgCHdvkAUtBXJCG2qMm9JxX+g=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldLightblue2.jpg" size="6500">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZKD8MWlQWlbMW0ebidCyQvN9HdF0r3tQiPB0JbrNKjA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldLightblue3.jpg" size="7077">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>aMlEGca/iGqjIvS45PvlbYo4gneb/8LWsRFO3SPh4oY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldMagenta1.jpg" size="6598">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SAjuQZpmJtGDqjae6uqnnIFpIN4tlWIF6sLnRvPnjsQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldMagenta2.jpg" size="6252">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>/VbIn+st1naCBVeHynQxUuyehbJgoaaDINPk1VczyQQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldMagenta3.jpg" size="6466">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Vxa8yJf/AgK0ahSgqlWI9CIFt6zXPj1+HTu+3pmBCKE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldOrange1.jpg" size="6589">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>egiBqg/4z792q+3CBc0p6i5qtYxFZnJ4IgCGF+OY7To=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldOrange2.jpg" size="6689">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>7k8FF8m+cnPVKyAUX1IkwRcFNRuNBFLYFcavVZnFbdY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldOrange3.jpg" size="6852">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LEaRIZrC+ROZzRYj2TM6N0djG16HSGHvn/rni/Z44LA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldParkingLot.jpg" size="12440">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>c2RwQJ7U9ssDDk/QOTzGjeIGU/KrHRqufUJakxlStSY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldPrison.jpg" size="16719">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tOtucmkZaMbUO7zNM0o+3dYtrm4ItUjVoDW9ZMB8Ofg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRailroad1.jpg" size="9039">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>2fuVq7lDgE2MoriIuVoxU8Lp6jjfI9Dn4WZvju2mDjc=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRailroad2.jpg" size="9471">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>v5RFXDwSu3+FTXANS/UaJitadQsl8CFlifICkmZLMsI=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRailroad3.jpg" size="9367">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>b2pyCHGmaD6T1Vf7dHXEQkPsEjVqWtgdAPEpVwYpHeY=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRailroad4.jpg" size="8761">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>qqkWe3pq+DwsauWLYQfQRXONG2eq/y4BO+BXU4VTTcg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRed1.jpg" size="6774">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XFpqb2f3b6jRjpn/LZJsg15juK+HGk6kanA8IoA1nCw=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRed2.jpg" size="6744">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>bqLdds2aykUuNkqXoUAvUChjtf1TExFDorXrLSAZsh8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldRed3.jpg" size="6624">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>dNq2WmsvchY/F8YziF4BdJfhowJLzJOcaHTUgKpsoy0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldStart.jpg" size="16133">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PHJFJzmS8CKZF1odTQGZhiJqOt6ajJlFTyzgUd6Ydv8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldTax1.jpg" size="7073">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9lDb8tDN79pveZAqdyEvPWrYk/muj0hJoV9jlzMhXZ8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldTax2.jpg" size="11338">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1pzw9NlCI2mD8KEQcYPnmaSOP6Ol8hCEYWhPp86bSqs=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldWaterworks.jpg" size="9485">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Mgsnj9UhWLZyCmkXfRjiF3W4XvdLP0OdbhLFIEmIWAQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldYellow1.jpg" size="6554">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SiWF/dCDYFn5ik/L1yYZbndL+kLNEL84mBUc+ahK9gU=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldYellow2.jpg" size="6976">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Jo8uKIFTvl1GbVUHOCymddPsYd/oD4cBi735SJVxYe8=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\FieldYellow3.jpg" size="6655">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1SPOFCdt0LA4YTkXnT4PsYfegX3ueeF0G4fH60k6mR4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\GreenField.png" size="605">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1KSqVw2fygekAQRO96qYqlEJhOadbDtr3mkf1qw93T4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\GreenPlayer.png" size="1136">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tG1TTnbkLDoIMamLHeRuUS2Zsg/uRVT/ppGt88w35fs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\House1.png" size="1760">
@@ -660,15 +714,6 @@
       <dsig:DigestValue>nXptse8vnqCP1i2pz7By8wKmT3TCe8ZpIyrUNJrlwhU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\monopolyboard.jpg" size="259039">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9HNvAScBRSDTw6XLYYjYLS5rfwEXRF/Gq6EGMgwIRS4=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Resources\music.mp3" size="2209122">
     <hash>
       <dsig:Transforms>
@@ -687,33 +732,6 @@
       <dsig:DigestValue>q+Q4W8uSR+qjB+hfc4FhtXCW37gsrKsC2XIJZSAcZ5I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\NoAlpha.png" size="809">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>X6RIWGZ9pl3W5m8GBpQsME10IxpchO3Np++6S9uZyuU=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\RedField.png" size="603">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>AJOCBBZjybQJKy2AprWHlXKhZwR9dSKX1P1GEWZ+EYQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\RedPlayer.png" size="1928">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>voeF+NZfHM9jUVhI4DZXDSl5zrQMMVlVIDbSkyi0Im8=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Resources\Trivago.png" size="1974">
     <hash>
       <dsig:Transforms>
@@ -730,24 +748,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>rkaI8UCNlh0v7RVuDM51WgWRv80vQLKd3zA+ic3uzUU=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\YellowField.png" size="601">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>iSGr1cqRsmKho/R9cPWN2/KUlgDkOuYdUUzruGPykrI=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Resources\YellowPlayer.png" size="1819">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oDfiA7VzFTsQIElSomVOMloQoWYXuq6l3LazjVC2VBE=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
