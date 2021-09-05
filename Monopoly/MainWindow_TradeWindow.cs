@@ -10,12 +10,12 @@ namespace Monopoly
 {
     public partial class MainWindow : Window
     {
-        List<byte> Player1OwnedFields = new List<byte>();
-        List<byte> Player2OwnedFields = new List<byte>();
-        List<byte> Player3OwnedFields = new List<byte>();
-        List<byte> Player4OwnedFields = new List<byte>();
         string[] MoneyTraded = new string[2];
         byte PlayerTradeTarget;
+        TradePlayer Player1Trade = new TradePlayer(0);
+        TradePlayer Player2Trade = new TradePlayer(1);
+        TradePlayer Player3Trade = new TradePlayer(2);
+        TradePlayer Player4Trade = new TradePlayer(3);
 
         private void LoadTrading()
         {
@@ -31,23 +31,23 @@ namespace Monopoly
                 switch (Game.fieldOwner[fieldOwnerIteration])
                 {
                     case 0:
-                        Player1OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player1Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                     case 1:
-                        Player2OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player2Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                     case 2:
-                        Player3OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player3Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                     case 3:
-                        Player4OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player4Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                 }
             }
         }
         private void LoadItems_ClientPlayer()
         {
-            foreach (byte x in Player1OwnedFields)
+            foreach (byte x in Player1Trade.OwnedFields)
             {
                 FieldsComboBox_ClientPlayer.Items.Add(BoardData.fieldName[x]);
             }
@@ -73,7 +73,7 @@ namespace Monopoly
         {
             PlayerTradeTarget = 1;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player2OwnedFields)
+            foreach (byte x in Player2Trade.OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
@@ -84,7 +84,7 @@ namespace Monopoly
         {
             PlayerTradeTarget = 2;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player3OwnedFields)
+            foreach (byte x in Player3Trade.OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
@@ -95,7 +95,7 @@ namespace Monopoly
         {
             PlayerTradeTarget = 3;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player4OwnedFields)
+            foreach (byte x in Player4Trade.OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
