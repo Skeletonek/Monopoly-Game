@@ -66,6 +66,7 @@ namespace Monopoly
             audio.music.Volume = audio.sfx.Volume / 2;
             audio.playMusic();
             audio.music.MediaEnded += Sfx_MediaEnded;
+            Grid_Trade.Visibility = Visibility.Hidden;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

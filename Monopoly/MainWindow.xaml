@@ -548,7 +548,7 @@
                 </ScrollViewer>
             </Grid>
         </GroupBox>
-        <Grid x:Name="Grid_Trade" Background="#FFD9E4FB" Margin="201,89" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="665" Visibility="Hidden" AllowDrop="True">
+        <Grid x:Name="Grid_Trade" Background="#FFD9E4FB" Margin="201,89" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="665" AllowDrop="True">
             <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="665" Background="Black">
                 <Label Content="Wybierz gracza do handlu: " Height="22" FontSize="11" Width="479" Foreground="White"/>
                 <MenuItem Header="Player 2" Click="MenuItem_Player_Click" Foreground="White"/>
@@ -566,7 +566,9 @@
                     <Label Content="$" HorizontalAlignment="Left" Margin="339,70,0,0" VerticalAlignment="Top" Height="30" Width="24"/>
                     <ListView x:Name="List_ClientPlayer" HorizontalAlignment="Left" Height="216" Margin="10,130,0,0" VerticalAlignment="Top" Width="290">
                         <ListView.View>
-                            <GridView/>
+                            <GridView AllowsColumnReorder="False">
+                                <GridViewColumn Header="Oferta" Width="{Binding ActualWidth, ElementName=List_ClientPlayer, Mode=OneWay}"/>
+                            </GridView>
                         </ListView.View>
                     </ListView>
                     <GroupBox Header="Karta wyjścia z więzienia" HorizontalAlignment="Left" Height="60" Margin="10,65,0,0" VerticalAlignment="Top" Width="290">
@@ -589,8 +591,8 @@
                     <Label Content="$" HorizontalAlignment="Left" Margin="339,70,0,0" VerticalAlignment="Top" Height="30" Width="24"/>
                     <ListView x:Name="List_SecondPlayer" HorizontalAlignment="Left" Height="216" Margin="10,130,0,0" VerticalAlignment="Top" Width="290">
                         <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
+                            <GridView AllowsColumnReorder="False">
+                                <GridViewColumn Header="Oferta" Width="{Binding ActualWidth, ElementName=List_SecondPlayer, Mode=OneWay}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>

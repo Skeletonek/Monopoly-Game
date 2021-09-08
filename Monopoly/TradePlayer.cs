@@ -20,5 +20,10 @@ namespace Monopoly
             OwnedFields = new List<byte>();
             Cash = Game.playercash[this.ID];
         }
+
+        public string ShowCashInString()
+        {
+            return Cash + " $";
+        }
     }
 }
