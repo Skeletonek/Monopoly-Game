@@ -45,13 +45,29 @@ namespace Monopoly
                 }
             }
         }
+        private TradePlayer currentTurnPlayer()
+        {
+            switch(Game.turn)
+            {
+                case 0:
+                    return Player1Trade;
+                case 1:
+                    return Player2Trade;
+                case 2:
+                    return Player3Trade;
+                case 3:
+                    return Player4Trade;
+                default:
+                    return null;
+            }
+        }
         private void LoadItems_ClientPlayer()
         {
-            foreach (byte x in Player1Trade.OwnedFields)
+            foreach (byte x in currentTurnPlayer().OwnedFields)
             {
                 FieldsComboBox_ClientPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_ClientPlayer.Maximum = Game.playercash[Game.turn];
+            MoneySlider_ClientPlayer.Maximum = currentTurnPlayer().Cash;
         }
         private void AcceptTradeOffer()
         {
@@ -77,7 +93,7 @@ namespace Monopoly
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_SecondPlayer.Maximum = Game.playercash[1];
+            MoneySlider_SecondPlayer.Maximum = Player2Trade.Cash;
             GroupBox_TradeRight.Header = Game.playername[1].ToString();
         }
         private void MenuItem_Player_Click_1(object sender, RoutedEventArgs e)
@@ -157,6 +173,16 @@ namespace Monopoly
         {
             Game.selectedField = (byte)Array.IndexOf(BoardData.fieldName, FieldsComboBox_SecondPlayer.SelectedItem);
             OverviewRefresh();
+        }
+        private void LockOfferButtons()
+        {
+            Reject_Trade_Button.IsEnabled = false;
+            Change_Trade_Button.IsEnabled = false;
+            Accept_Trade_Button.IsEnabled = false;
+        }
+        private void LockTradeSettings()
+        {
+
         }
     }
 }

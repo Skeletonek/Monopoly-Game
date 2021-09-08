@@ -11,8 +11,8 @@ namespace Monopoly
         public byte ID;
         public List<byte> OwnedFields;
         public int Cash;
-        public bool ExitPrison_Chance; //<----{
-        public bool ExitPrison_Community; //<-{ Unused as there is no ExitPrison cards currently
+        //public bool ExitPrison_Chance; //<----{
+        //public bool ExitPrison_Community; //<-{ Unused as there is no ExitPrison cards currently
 
         public TradePlayer(byte ID)
         {
