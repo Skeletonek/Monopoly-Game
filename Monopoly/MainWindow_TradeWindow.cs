@@ -10,12 +10,12 @@ namespace Monopoly
 {
     public partial class MainWindow : Window
     {
-        List<byte> Player1OwnedFields = new List<byte>();
-        List<byte> Player2OwnedFields = new List<byte>();
-        List<byte> Player3OwnedFields = new List<byte>();
-        List<byte> Player4OwnedFields = new List<byte>();
         string[] MoneyTraded = new string[2];
         byte PlayerTradeTarget;
+        TradePlayer Player1Trade = new TradePlayer(0);
+        TradePlayer Player2Trade = new TradePlayer(1);
+        TradePlayer Player3Trade = new TradePlayer(2);
+        TradePlayer Player4Trade = new TradePlayer(3);
 
         private void LoadTrading()
         {
@@ -31,27 +31,43 @@ namespace Monopoly
                 switch (Game.fieldOwner[fieldOwnerIteration])
                 {
                     case 0:
-                        Player1OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player1Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                     case 1:
-                        Player2OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player2Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                     case 2:
-                        Player3OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player3Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                     case 3:
-                        Player4OwnedFields.Add((byte)fieldOwnerIteration);
+                        Player4Trade.OwnedFields.Add((byte)fieldOwnerIteration);
                         break;
                 }
             }
         }
+        private TradePlayer currentTurnPlayer()
+        {
+            switch(Game.turn)
+            {
+                case 0:
+                    return Player1Trade;
+                case 1:
+                    return Player2Trade;
+                case 2:
+                    return Player3Trade;
+                case 3:
+                    return Player4Trade;
+                default:
+                    return null;
+            }
+        }
         private void LoadItems_ClientPlayer()
         {
-            foreach (byte x in Player1OwnedFields)
+            foreach (byte x in currentTurnPlayer().OwnedFields)
             {
                 FieldsComboBox_ClientPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_ClientPlayer.Maximum = Game.playercash[Game.turn];
+            MoneySlider_ClientPlayer.Maximum = currentTurnPlayer().Cash;
         }
         private void AcceptTradeOffer()
         {
@@ -73,18 +89,18 @@ namespace Monopoly
         {
             PlayerTradeTarget = 1;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player2OwnedFields)
+            foreach (byte x in Player2Trade.OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_SecondPlayer.Maximum = Game.playercash[1];
+            MoneySlider_SecondPlayer.Maximum = Player2Trade.Cash;
             GroupBox_TradeRight.Header = Game.playername[1].ToString();
         }
         private void MenuItem_Player_Click_1(object sender, RoutedEventArgs e)
         {
             PlayerTradeTarget = 2;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player3OwnedFields)
+            foreach (byte x in Player3Trade.OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
@@ -95,7 +111,7 @@ namespace Monopoly
         {
             PlayerTradeTarget = 3;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player4OwnedFields)
+            foreach (byte x in Player4Trade.OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
@@ -157,6 +173,16 @@ namespace Monopoly
         {
             Game.selectedField = (byte)Array.IndexOf(BoardData.fieldName, FieldsComboBox_SecondPlayer.SelectedItem);
             OverviewRefresh();
+        }
+        private void LockOfferButtons()
+        {
+            Reject_Trade_Button.IsEnabled = false;
+            Change_Trade_Button.IsEnabled = false;
+            Accept_Trade_Button.IsEnabled = false;
+        }
+        private void LockTradeSettings()
+        {
+
         }
     }
 }

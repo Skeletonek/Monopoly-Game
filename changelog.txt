@@ -1,4 +1,10 @@
-﻿Beta 0.7-Pre2
+﻿Beta 0.7
+- Dodano handel! (Jeszcze nie ale będzie)
+- Przeniesiono pliki domyślnego motywu do innego folderu
+- Naprawiono błąd pozwalający na budowanie domków na wodociągach
+- Małe poprawki w powiadomieniach gry (Dzięki Oxygen!)
+
+Beta 0.7-Pre2
 - Tryb Hotseat obsługuje możliwość gry z 4 graczami ludzkimi
 - Dodano ekran ładowania gry
 - Zremasterowano ikony domków

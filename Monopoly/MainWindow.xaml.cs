@@ -31,7 +31,7 @@ namespace Monopoly
 
         byte diceScore;
         string playboardTheme = "Monopoly Standard";
-        public static string currentThemeDir = "Resources";
+        public static string currentThemeDir = "Board";
 
         //DispatcherTimer wait = new DispatcherTimer();
         DispatcherTimer reload = new DispatcherTimer();
@@ -66,6 +66,7 @@ namespace Monopoly
             audio.music.Volume = audio.sfx.Volume / 2;
             audio.playMusic();
             audio.music.MediaEnded += Sfx_MediaEnded;
+            Grid_Trade.Visibility = Visibility.Hidden;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
