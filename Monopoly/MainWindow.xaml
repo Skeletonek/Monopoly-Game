@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopoly (Beta 0.7-Pre2)" Height="700" Width="1100" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1100" MinHeight="700" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
+        Title="Monopoly (Beta 0.7-Pre2)" Height="800" Width="1240" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1240" MinHeight="800" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
     <Grid x:Name="Grid">
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra jednoosobowa">
+            <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra jednoosobowa" Height="22">
                 <MenuItem x:Name="MenuItem_NewGame" Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
                 <MenuItem x:Name="MenuItem_Savegame" Header="Zapisz grę" Click="MenuItem_Click_1" IsEnabled="False"/>
                 <MenuItem x:Name="MenuItem_Loadgame" Header="Wczytaj grę" Click="MenuItem_Click_2" IsEnabled="False"/>
@@ -39,13 +39,11 @@
                 <MenuItem x:Name="MenuItem_Help" Header="Pomoc" Click="MenuItem_Click_3"/>
                 <MenuItem x:Name="MenuItem_About" Header="O aplikacji" Click="MenuItem_Click"/>
             </MenuItem>
-            <Button x:Name="Button_MouseMode" Content="Tryb budowania domów" Click="Button_MouseMode_Click"/>
-            <Button x:Name="Button_Trade" Content="Handel" Width="75" IsEnabled="False" Click="Button_Trade_Click"/>
-            <Separator Width="50" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
+            <Separator Width="400" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Center"/>
             <MenuItem x:Name="MenuItem_ConnectionStatus" Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" Width="300"/>
         </Menu>
-        <Canvas x:Name="GameCanvas" Height="640" Margin="226,24,226,5" Width="640" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.RowSpan="3">
+        <Canvas x:Name="GameCanvas" Height="640" Width="640" Margin="296,78,296,59" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/monopolyboard.jpg"/>
             </Canvas.Background>
@@ -491,16 +489,20 @@
                 </Image.RenderTransform>
             </Image>
         </Canvas>
-        <GroupBox x:Name="GroupBox_Dices" Header="Kości do gry" HorizontalAlignment="Left" Height="124" Margin="10,22,0,0" VerticalAlignment="Top" Width="198" Grid.RowSpan="2">
+        <GroupBox x:Name="GroupBox_Dices" Header="Kości do gry" HorizontalAlignment="Left" Height="128" Margin="10,24,0,0" VerticalAlignment="Top" Width="200" Grid.RowSpan="2">
             <Grid>
-                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" HorizontalAlignment="Left" Margin="7,61,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
-                <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold"/>
-                <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,61,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="19*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" HorizontalAlignment="Left" Margin="7,64,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
+                <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,64,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False" Grid.ColumnSpan="2"/>
                 <Image x:Name="Dice1" HorizontalAlignment="Left" Height="46" Margin="8,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
                 <Image x:Name="Dice2" HorizontalAlignment="Left" Height="46" Margin="64,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_Overview" Header="Podgląd" HorizontalAlignment="Left" Height="511" Margin="10,0,0,7" VerticalAlignment="Bottom" Width="198" Grid.RowSpan="2" Grid.Row="1">
+        <GroupBox x:Name="GroupBox_Overview" Header="Podgląd" HorizontalAlignment="Left" Margin="10,157,0,101" Width="200">
             <Grid Margin="0">
                 <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="Resources/FieldStart.jpg"/>
                 <Label x:Name="Overview_Name" Content="Pole startu" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
@@ -520,13 +522,21 @@
                 <Label x:Name="Overview_3Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,389,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
                 <Label x:Name="Overview_4Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,415,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
                 <Label x:Name="Overview_HRent" Content="0 $" HorizontalAlignment="Right" Margin="0,439,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label x:Name="Label_RentHeaderDesc" Content="Czynsz" HorizontalAlignment="Center" Margin="10,288,10,174" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="5" FontWeight="Bold" Width="166"/>
+                <Label x:Name="Label_RentHeaderDesc" Content="Czynsz" HorizontalAlignment="Center" Margin="10,282,10,0" HorizontalContentAlignment="Center" Padding="5" FontWeight="Bold" Width="168" Height="26" VerticalAlignment="Top"/>
                 <Label x:Name="Label_NoSetRentDesc" Content="Teren niezabudowany:" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" FontSize="11"/>
                 <Label x:Name="Overview_NoSetRent" Content="0 $" HorizontalAlignment="Right" Margin="0,314,10,0" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Right" FontSize="11"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_Stats" Header="Statystyki" HorizontalAlignment="Right" Height="169" Margin="0,27,10,0" VerticalAlignment="Top" Width="211" Grid.Column="1" Grid.RowSpan="2">
-            <Grid x:Name="Grid_GroupBox_Stats" Margin="0">
+        <GroupBox Header="Akcje specjalne" HorizontalAlignment="Left" Margin="10,0,0,10" Height="85" Width="200" VerticalAlignment="Bottom">
+            <Grid>
+                <Button x:Name="Button_MouseMode" Click="Button_MouseMode_Click" Margin="10,10,98,10" Width="80">
+                    <TextBlock x:Name="Button_MouseMode_Text" Width="72" TextAlignment="Center" TextWrapping="Wrap" Text="Tryb budowania"/>
+                </Button>
+                <Button x:Name="Button_Trade" Content="Handel" IsEnabled="False" Click="Button_Trade_Click" Margin="98,10,10,10" Width="80"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="GroupBox_Stats" Header="Statystyki" HorizontalAlignment="Right" Height="164" Margin="0,24,10,0" VerticalAlignment="Top" Width="212">
+            <Grid x:Name="Grid_GroupBox_Stats" Margin="0,0,0,6" Height="140">
                 <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player2Name" Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player3Name" Content="Gracz 3" HorizontalAlignment="Left" Margin="43,72,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -541,7 +551,7 @@
                 <Image x:Name="Player4_Icon" Source="Resources/RedPlayer.png" Margin="17,103,162,23" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_GameLog" Header="Wiadomości" HorizontalAlignment="Right" Margin="0,201,10,12" Width="211">
+        <GroupBox x:Name="GroupBox_GameLog" Header="Wiadomości" HorizontalAlignment="Right" Margin="0,193,10,10" Width="212">
             <Grid Margin="0">
                 <ScrollViewer x:Name="GameLog_ScrollViewer" HorizontalAlignment="Center" Margin="5,4,5,0" VerticalAlignment="Top" Width="189" VerticalScrollBarVisibility="Auto" CanContentScroll="True" VerticalContentAlignment="Bottom" ScrollChanged="ScrollViewer_ScrollChanged">
                     <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
@@ -605,6 +615,7 @@
             <Button x:Name="Change_Trade_Button" Content="Zmień ofertę" HorizontalAlignment="Center" Margin="233,0,232,10" VerticalAlignment="Bottom" Width="200" Click="Change_Trade_Click"/>
             <Button x:Name="Reject_Trade_Button" Content="Odrzuć ofertę" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Click="Reject_Trade_Click"/>
         </Grid>
+
 
     </Grid>
 </Window>

@@ -328,11 +328,11 @@ namespace Monopoly
             RefreshDiceUI();
             if (Game.sellmode)
             {
-                Button_MouseMode.Content = "Tryb sprzedawania ulic";
+                Button_MouseMode_Text.Text = "Tryb sprzedawania";
             }
             else
             {
-                Button_MouseMode.Content = "Tryb budowania domów";
+                Button_MouseMode_Text.Text = "Tryb budowania";
             }
         }
 
@@ -490,12 +490,12 @@ namespace Monopoly
             if (!Game.sellmode)
             {
                 Game.sellmode = true;
-                Button_MouseMode.Content = "Tryb sprzedawania ulic";
+                Button_MouseMode_Text.Text = "Tryb sprzedawania";
             }
             else
             {
                 Game.sellmode = false;
-                Button_MouseMode.Content = "Tryb budowania domów";
+                Button_MouseMode_Text.Text = "Tryb budowania";
             }
         }
         private void CantSellHouse()
