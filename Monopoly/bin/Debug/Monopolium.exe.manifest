@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopolium.exe" size="8006144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopolium.exe" size="8006656">
       <assemblyIdentity name="Monopolium" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pq/Q9MxrJjRitIAG2GSsbS3W1p6WcR/Vi+HMDXDVnnE=</dsig:DigestValue>
+        <dsig:DigestValue>5qP+LWfw6l/VA56NwmXT+HCipalCJl5fc0g3AHVjMAk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

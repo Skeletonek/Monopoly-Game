@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         mc:Ignorable="d"
-        Title="Monopolium (Beta 0.7)" Height="800" Width="1240" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="1240" MinHeight="800" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
+        Title="Monopolium (Beta 0.7)" Height="760" Width="1200" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="5" MinHeight="760" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
     <Grid x:Name="Grid">
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra jednoosobowa" Height="22">
@@ -43,7 +43,7 @@
             <MenuItem x:Name="MenuItem_ConnectionStatus" Header="Status połączenia sieciowego: " HorizontalAlignment="Right"/>
             <MenuItem x:Name="ConnectionStatus" Width="300"/>
         </Menu>
-        <Canvas x:Name="GameCanvas" Height="640" Width="640" Margin="296,78,296,59" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="GameCanvas" Height="630" Width="630" Margin="296,78,296,59" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center">
             <Canvas.Background>
                 <ImageBrush ImageSource="pack://siteoforigin:,,,/Board/monopolyboard.jpg"/>
             </Canvas.Background>
@@ -489,45 +489,41 @@
                 </Image.RenderTransform>
             </Image>
         </Canvas>
-        <GroupBox x:Name="GroupBox_Dices" Header="Kości do gry" HorizontalAlignment="Left" Height="128" Margin="10,24,0,0" VerticalAlignment="Top" Width="200" Grid.RowSpan="2">
+        <GroupBox x:Name="GroupBox_Dices" Header="Kości do gry" HorizontalAlignment="Left" Height="128" Margin="10,24,0,0" VerticalAlignment="Top" Width="220" Grid.RowSpan="2">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75*"/>
-                    <ColumnDefinition Width="19*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" HorizontalAlignment="Left" Margin="7,64,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
-                <Label x:Name="DiceScore" Content="0" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                <Button x:Name="Button_EndTurn" Content="Zakończ turę" HorizontalAlignment="Left" Margin="94,64,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False" Grid.ColumnSpan="2"/>
+                <Button x:Name="Button_ThrowDice" Content="Rzuć kośćmi" Margin="17,64,109,0" VerticalAlignment="Top" Width="82" Height="34" Click="Button_Click" IsEnabled="False"/>
+                <Label x:Name="DiceScore" Content="0" Margin="0,10,10,0" VerticalAlignment="Top" Width="66" HorizontalContentAlignment="Right" Height="46" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right"/>
+                <Button x:Name="Button_EndTurn" Content="Zakończ turę" Margin="107,64,17,0" VerticalAlignment="Top" Width="84" Height="34" Click="EndTurn_Click" IsEnabled="False"/>
                 <Image x:Name="Dice1" HorizontalAlignment="Left" Height="46" Margin="8,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
                 <Image x:Name="Dice2" HorizontalAlignment="Left" Height="46" Margin="64,10,0,0" VerticalAlignment="Top" Width="46" Source="Resources/dice_1.png"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_Overview" Header="Podgląd" HorizontalAlignment="Left" Margin="10,157,0,101" Width="200">
+        <GroupBox x:Name="GroupBox_Overview" Header="Podgląd" HorizontalAlignment="Left" Margin="10,157,0,100" Width="220">
             <Grid Margin="0">
                 <Image x:Name="Overview_Picture" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Source="Board/FieldStart.jpg"/>
                 <Label x:Name="Overview_Name" Content="Pole startu" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="166"/>
                 <Label x:Name="Label_PriceDesc" Content="Koszt: " HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Label_HousesDesc" Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Label_OwnerDesc" Content="Właściciel: " HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Label_HousesDesc" Content="Domy / Hotele: " HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Label_OwnerDesc" Content="Właściciel: " HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="Overview_Price" Content="0 $" HorizontalAlignment="Right" Margin="0,199,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right"/>
-                <Label x:Name="Overview_Houses" Content="0" HorizontalAlignment="Right" Margin="0,225,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
-                <Label x:Name="Overview_Owner" Content="Mr. Nobody" HorizontalAlignment="Right" Margin="0,251,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
-                <Label x:Name="Label_1RentDesc" Content="1 dom:" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label x:Name="Label_2RentDesc" Content="2 domy:" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label x:Name="Label_3RentDesc" Content="3 domy:" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label x:Name="Label_4RentDesc" Content="4 domy:" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label x:Name="Label_HRentDesc" Content="Hotel:" HorizontalAlignment="Left" Margin="10,439,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label x:Name="Overview_1Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,339,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label x:Name="Overview_2Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,364,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label x:Name="Overview_3Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,389,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label x:Name="Overview_4Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,415,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label x:Name="Overview_HRent" Content="0 $" HorizontalAlignment="Right" Margin="0,439,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
-                <Label x:Name="Label_RentHeaderDesc" Content="Czynsz" HorizontalAlignment="Center" Margin="10,282,10,0" HorizontalContentAlignment="Center" Padding="5" FontWeight="Bold" Width="168" Height="26" VerticalAlignment="Top"/>
-                <Label x:Name="Label_NoSetRentDesc" Content="Teren niezabudowany:" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" FontSize="11"/>
-                <Label x:Name="Overview_NoSetRent" Content="0 $" HorizontalAlignment="Right" Margin="0,314,10,0" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_Houses" Content="0" HorizontalAlignment="Right" Margin="0,222,10,0" VerticalAlignment="Top" Width="67" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Label x:Name="Overview_Owner" Content="Mr. Nobody" HorizontalAlignment="Right" Margin="0,244,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" RenderTransformOrigin="0.478,0.5"/>
+                <Label x:Name="Label_1RentDesc" Content="1 dom:" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_2RentDesc" Content="2 domy:" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_3RentDesc" Content="3 domy:" HorizontalAlignment="Left" Margin="10,365,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_4RentDesc" Content="4 domy:" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Label_HRentDesc" Content="Hotel:" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Overview_1Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,315,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_2Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,340,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_3Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,365,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_4Rent" Content="0 $" HorizontalAlignment="Right" Margin="0,391,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Overview_HRent" Content="0 $" HorizontalAlignment="Right" Margin="0,415,10,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" FontSize="11"/>
+                <Label x:Name="Label_RentHeaderDesc" Content="Czynsz" HorizontalAlignment="Center" Margin="20,266,20,0" HorizontalContentAlignment="Center" Padding="5" FontWeight="Bold" Width="168" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="Label_NoSetRentDesc" Content="Teren niezabudowany:" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" FontSize="11"/>
+                <Label x:Name="Overview_NoSetRent" Content="0 $" HorizontalAlignment="Right" Margin="0,290,10,0" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Right" FontSize="11"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Akcje specjalne" HorizontalAlignment="Left" Margin="10,0,0,10" Height="85" Width="200" VerticalAlignment="Bottom">
+        <GroupBox Header="Akcje specjalne" HorizontalAlignment="Left" Margin="10,0,0,10" Height="85" Width="220" VerticalAlignment="Bottom">
             <Grid>
                 <Button x:Name="Button_MouseMode" Click="Button_MouseMode_Click" Margin="10,10,98,10" Width="80">
                     <TextBlock x:Name="Button_MouseMode_Text" Width="72" TextAlignment="Center" TextWrapping="Wrap" Text="Tryb budowania"/>
@@ -535,7 +531,7 @@
                 <Button x:Name="Button_Trade" Content="Handel" IsEnabled="False" Click="Button_Trade_Click" Margin="98,10,10,10" Width="80"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_Stats" Header="Statystyki" HorizontalAlignment="Right" Height="164" Margin="0,24,10,0" VerticalAlignment="Top" Width="212">
+        <GroupBox x:Name="GroupBox_Stats" Header="Statystyki" HorizontalAlignment="Right" Height="164" Margin="0,24,10,0" VerticalAlignment="Top" Width="220">
             <Grid x:Name="Grid_GroupBox_Stats" Margin="0,0,0,6" Height="140">
                 <Label x:Name="Label_Player1Name" Content="Gracz 1" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label x:Name="Label_Player2Name" Content="Gracz 2" HorizontalAlignment="Left" Margin="43,41,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
@@ -551,7 +547,7 @@
                 <Image x:Name="Player4_Icon" Source="Board/RedPlayer.png" Margin="17,103,162,23" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="GroupBox_GameLog" Header="Wiadomości" HorizontalAlignment="Right" Margin="0,193,10,10" Width="212">
+        <GroupBox x:Name="GroupBox_GameLog" Header="Wiadomości" HorizontalAlignment="Right" Margin="0,193,10,10" Width="220">
             <Grid Margin="0">
                 <ScrollViewer x:Name="GameLog_ScrollViewer" HorizontalAlignment="Center" Margin="5,4,5,0" VerticalAlignment="Top" Width="189" VerticalScrollBarVisibility="Auto" CanContentScroll="True" VerticalContentAlignment="Bottom" ScrollChanged="ScrollViewer_ScrollChanged">
                     <TextBlock x:Name="GameLog" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
@@ -614,7 +610,7 @@
                     </GroupBox>
                 </Grid>
             </GroupBox>
-            <Button x:Name="Change_Trade_Button" Content="Zmień ofertę" HorizontalAlignment="Center" Margin="233,0,232,10" VerticalAlignment="Bottom" Width="200" Click="Change_Trade_Click"/>
+            <Button x:Name="Change_Trade_Button" Content="Zmień ofertę" HorizontalAlignment="Center" Margin="233,0,232,10" VerticalAlignment="Bottom" Width="200" Click="Change_Trade_Click" IsEnabled="False"/>
             <Button x:Name="Reject_Trade_Button" Content="Odrzuć ofertę" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Click="Reject_Trade_Click"/>
         </Grid>
 

@@ -18,9 +18,21 @@ namespace Monopoly
         {
             this.ID = ID;
             OwnedFields = new List<byte>();
+            RefreshData();
+        }
+        private void RefreshData()
+        {
+            byte loopIterarion = 0;
+            foreach (byte fieldOwner in Game.fieldOwner)
+            {
+                if(fieldOwner == ID)
+                {
+                    OwnedFields.Add(loopIterarion);
+                }
+                loopIterarion++;
+            }
             Cash = Game.playercash[this.ID];
         }
-
         public string ShowCashInString()
         {
             return Cash + " $";

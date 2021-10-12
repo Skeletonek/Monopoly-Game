@@ -13,8 +13,14 @@ namespace Monopoly
      */
     class AI
     {
+        public byte AI_ID;
         public byte[] morales = new byte[3] { 5, 5, 5 };
         public byte[] moraleTowardsPlayer = new byte[3] { 5, 5, 5 };
+
+        public AI()//byte ID)
+        {
+            //AI_ID = ID;
+        }
 
         public void SwitchFunctionAccordingToBoardPosition()
         {
