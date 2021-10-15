@@ -46,7 +46,7 @@ namespace Monopoly
                             break;
 
                         case 1:
-                            if (!Game.playerAI[2])
+                            if (!Game.playerAI[2] && Game.playerAvailable[2])
                             {
                                 Hotseat_ChangeClientPlayer(2);
                             }
@@ -57,7 +57,7 @@ namespace Monopoly
                             break;
 
                         case 2:
-                            if (!Game.playerAI[3])
+                            if (!Game.playerAI[3] && Game.playerAvailable[3])
                             {
                                 Hotseat_ChangeClientPlayer(3);
                             }
