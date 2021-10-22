@@ -417,9 +417,11 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium_Cont
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium_MarkupCompile.cache
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium_MarkupCompile.lref
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.g.resources
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.Properties.Resources.resources
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.TrustInfo.xml
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.exe.manifest
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.application
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.exe
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.pdb
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\KeyboardManager.g.cs
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\KeyboardManager.baml
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.Properties.Resources.resources

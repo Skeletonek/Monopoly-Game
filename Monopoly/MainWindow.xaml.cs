@@ -698,5 +698,11 @@ namespace Monopoly
             if(!GameLog_ScrollViewer.IsMouseOver)
             GameLog_ScrollViewer.ScrollToEnd();
         }
+
+        private void MenuItem_Keyboard_Click(object sender, RoutedEventArgs e)
+        {
+            KeyboardManager keyboard = new KeyboardManager();
+            keyboard.Show();
+        }
     }
 }

@@ -8,19 +8,19 @@
         Title="Monopolium (Beta 0.7)" Height="760" Width="1200" KeyDown="Window_KeyDown" Loaded="Window_Loaded" SizeChanged="SizeChangedEvent" MinWidth="5" MinHeight="760" StateChanged="StateChangedEvent" WindowStartupLocation="CenterScreen">
     <Grid x:Name="Grid">
         <Menu Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra jednoosobowa" Height="22">
+            <MenuItem x:Name="MenuItem_SinglePlayerCategory" Header="Gra _jednoosobowa" Height="22">
                 <MenuItem x:Name="MenuItem_NewGame" Header="Nowa gra" Click="MenuItem_StartNewSingle"/>
                 <MenuItem x:Name="MenuItem_Savegame" Header="Zapisz grę" Click="MenuItem_Click_1" IsEnabled="False"/>
                 <MenuItem x:Name="MenuItem_Loadgame" Header="Wczytaj grę" Click="MenuItem_Click_2" IsEnabled="False"/>
                 <MenuItem x:Name="MenuItem_StopGame" Header="Przerwij grę" Click="MenuItem_StopGame_Click"/>
             </MenuItem>
-            <MenuItem x:Name="MenuItem_MultiplayerCategory" Header="Gra wieloosobowa">
+            <MenuItem x:Name="MenuItem_MultiplayerCategory" Header="Gra _wieloosobowa">
                 <MenuItem x:Name="MenuItem_LANConnect" Header="Połącz (LAN)" Click="btnConnectToServer_Click"/>
                 <MenuItem x:Name="MenuItem_LANDisconnect" Header="Rozłącz (LAN)" Click="btnSendMessage_Click"/>
                 <Separator/>
                 <MenuItem x:Name="MenuItem_Hotseat" Header="Hotseat" Click="MenuItem_Hotseat_Click"/>
             </MenuItem>
-            <MenuItem x:Name="MenuItem_OptionsCategory" Header="Opcje">
+            <MenuItem x:Name="MenuItem_OptionsCategory" Header="_Opcje">
                 <MenuItem x:Name="MenuItem_Sound" Header="Dźwięk" IsCheckable="True" IsChecked="True" Click="MenuItem_Sound_Click"/>
                 <MenuItem x:Name="MenuItem_Volume" Header="Głośność">
                     <MenuItem x:Name="MenuItem_Volume100" Header="100%" IsCheckable="True" Checked="MenuItem_ChangeMusicVolume"/>
@@ -34,8 +34,9 @@
                     <MenuItem x:Name="MenuItem_Volume20" Header="20%" IsCheckable="True" Checked="MenuItem_ChangeMusicVolume"/>
                     <MenuItem x:Name="MenuItem_Volume10" Header="10%" IsCheckable="True" Checked="MenuItem_ChangeMusicVolume"/>
                 </MenuItem>
+                <MenuItem x:Name="MenuItem_Keyboard" Header="Klawiatura" Click="MenuItem_Keyboard_Click"/>
             </MenuItem>
-            <MenuItem x:Name="MenuItem_HelpCategory" Header="Pomoc">
+            <MenuItem x:Name="MenuItem_HelpCategory" Header="_Pomoc">
                 <MenuItem x:Name="MenuItem_Help" Header="Pomoc" Click="MenuItem_Click_3"/>
                 <MenuItem x:Name="MenuItem_About" Header="O aplikacji" Click="MenuItem_Click"/>
             </MenuItem>

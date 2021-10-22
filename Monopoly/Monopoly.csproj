@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{90D35427-AC07-44EC-BFE6-FD35F8204FD0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Monopolium</RootNamespace>
+    <RootNamespace>Monopoly</RootNamespace>
     <AssemblyName>Monopolium</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -117,6 +117,10 @@
     <Compile Include="Audio.cs" />
     <Compile Include="BoardData.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="KeyboardManager.xaml.cs">
+      <DependentUpon>KeyboardManager.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="LoadingWindow.xaml.cs">
       <DependentUpon>LoadingWindow.xaml</DependentUpon>
     </Compile>
@@ -142,6 +146,10 @@
     <Page Include="ConnectionToServer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeyboardManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="LoadingWindow.xaml">
       <SubType>Designer</SubType>
