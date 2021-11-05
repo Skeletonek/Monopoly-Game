@@ -21,7 +21,7 @@ If you want to test the newest features, you can download the git repository and
 or by compiling project in Visual Studio with WPF projects support. **This versions of the game are very unstable!**
 
 ## Roadmap
- - **Trading** *(Will be available in Beta-0.7 for sure!)*
+ - **Trading**
  - More languages
  - Advanced AI
  - Game saving
@@ -33,6 +33,8 @@ or by compiling project in Visual Studio with WPF projects support. **This versi
  - Buildings shortage
  - Adding speed dice ruleset
  - Tutorial
+ - Nicer UI
+ - Dark theme
  - Probably many more bugfixes...
  - ...and other miscellaneous
 
