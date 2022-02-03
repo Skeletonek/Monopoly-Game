@@ -183,9 +183,9 @@ namespace Monopoly
 
         // UI Programming
         // //////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma warning disable CS0108 // Składowa ukrywa dziedziczoną składową; brak słowa kluczowego new
+#pragma warning disable CS0108
         private void SizeChangedEvent(object sender, SizeChangedEventArgs e) => CanvasRenderScale();
-#pragma warning restore CS0108 // Składowa ukrywa dziedziczoną składową; brak słowa kluczowego new
+#pragma warning restore CS0108
         private void StateChangedEvent(object sender, EventArgs e) => CanvasRenderScale();
         public void CanvasRenderScale()
         {
@@ -216,7 +216,6 @@ namespace Monopoly
             Player3.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/YellowPlayer.png"));
             Player4.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/RedPlayer.png"));
         }
-
         private void ResetUI()
         {
             int xcord;
@@ -336,14 +335,7 @@ namespace Monopoly
                 Button_MouseMode_Text.Text = "Tryb budowania";
             }
         }
-
-        private Visibility VisibilityCheck(bool shouldBeVisible)
-        {
-            if (shouldBeVisible)
-                return Visibility.Visible;
-            else
-                return Visibility.Hidden;
-        }
+        private Visibility VisibilityCheck(bool shouldBeVisible) => shouldBeVisible ? Visibility.Visible : Visibility.Hidden;
         private void RefreshBoardUI()
         {
             for (byte i = 1; i < 41; i++)
@@ -517,13 +509,13 @@ namespace Monopoly
         private void DrawOwner(byte field, byte status)
         {
             Regex regex = new Regex(@"Field\d+Owner");
-            int FieldNumber;
             foreach (Image img in GameCanvas.Children)
             {
                 if (regex.IsMatch(img.Name))
                 {
+                    int FieldNumber;
                     string FieldOwnerSplittedName = img.Name.Substring(5, 2);
-                    if(!int.TryParse(FieldOwnerSplittedName, out FieldNumber))
+                    if (!int.TryParse(FieldOwnerSplittedName, out FieldNumber))
                     {
                         FieldOwnerSplittedName = img.Name.Substring(5, 1);
                         int.TryParse(FieldOwnerSplittedName, out FieldNumber);

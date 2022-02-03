@@ -25,29 +25,6 @@ namespace Monopoly
             GroupBox_TradeLeft.Header = Game.playername[Game.clientplayer].ToString();
             PlayersForTrade.Remove(Game.clientplayer);
         }
-
-#warning This function is deprecated. Will be deleted if not needed in the future
-        //private void CheckFieldOwners() 
-        //{
-        //    for (int fieldOwnerIteration = 0; fieldOwnerIteration < Game.fieldOwner.Length; fieldOwnerIteration++)
-        //    {
-        //        switch (Game.fieldOwner[fieldOwnerIteration])
-        //        {
-        //            case 0:
-        //                Player1Trade.OwnedFields.Add((byte)fieldOwnerIteration);
-        //                break;
-        //            case 1:
-        //                Player2Trade.OwnedFields.Add((byte)fieldOwnerIteration);
-        //                break;
-        //            case 2:
-        //                Player3Trade.OwnedFields.Add((byte)fieldOwnerIteration);
-        //                break;
-        //            case 3:
-        //                Player4Trade.OwnedFields.Add((byte)fieldOwnerIteration);
-        //                break;
-        //        }
-        //    }
-        //}
         private TradePlayer currentTurnPlayer()
         {
             switch(Game.turn)

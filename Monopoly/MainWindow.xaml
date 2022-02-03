@@ -335,154 +335,154 @@
             <Image x:Name="Player2" Height="20" Width="20" Source="Board/GreenPlayer.png" Canvas.Left="591" Canvas.Top="582" Visibility="Hidden"/>
             <Image x:Name="Player3" Height="20" Canvas.Left="566" Canvas.Top="607" Width="20" Source="Board/YellowPlayer.png" Visibility="Hidden"/>
             <Image x:Name="Player4" Height="20" Width="20" Source="Board/RedPlayer.png" Canvas.Left="591" Canvas.Top="607" Visibility="Hidden"/>
-            <Image x:Name="Field2Owner" Height="13" Canvas.Left="531" Canvas.Top="543" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field4Owner" Height="13" Canvas.Left="426" Canvas.Top="543" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field6Owner" Height="13" Canvas.Left="321" Canvas.Top="543" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field7Owner" Height="13" Canvas.Left="269" Canvas.Top="543" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field9Owner" Height="13" Canvas.Left="164" Canvas.Top="543" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field10Owner" Height="13" Canvas.Left="112" Canvas.Top="543" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field12Owner" Height="14" Canvas.Left="79" Canvas.Top="536" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field2Owner" Height="13" Canvas.Left="522" Canvas.Top="535" Width="24"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field4Owner" Height="13" Canvas.Left="419" Canvas.Top="535" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field6Owner" Height="13" Canvas.Left="316" Canvas.Top="535" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field7Owner" Height="13" Canvas.Left="265" Canvas.Top="535" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field9Owner" Height="13" Canvas.Left="162" Canvas.Top="535" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field10Owner" Height="13" Canvas.Left="111" Canvas.Top="535" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field12Owner" Height="14" Canvas.Left="79" Canvas.Top="528" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field13Owner" Height="14" Canvas.Left="79" Canvas.Top="482" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field13Owner" Height="14" Canvas.Left="79" Canvas.Top="475" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field14Owner" Height="14" Canvas.Left="79" Canvas.Top="430" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field14Owner" Height="14" Canvas.Left="79" Canvas.Top="424" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field15Owner" Height="14" Canvas.Left="79" Canvas.Top="378" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field15Owner" Height="14" Canvas.Left="79" Canvas.Top="373" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field16Owner" Height="14" Canvas.Left="79" Canvas.Top="325" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field16Owner" Height="14" Canvas.Left="79" Canvas.Top="321" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field17Owner" Height="14" Canvas.Left="79" Canvas.Top="272" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field17Owner" Height="14" Canvas.Left="79" Canvas.Top="269" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field19Owner" Height="14" Canvas.Left="79" Canvas.Top="168" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field19Owner" Height="13" Canvas.Left="79" Canvas.Top="167" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field20Owner" Height="14" Canvas.Left="79" Canvas.Top="115" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field20Owner" Height="14" Canvas.Left="79" Canvas.Top="114" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field22Owner" Height="14" Canvas.Left="85" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field24Owner" Height="14" Canvas.Left="190" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field25Owner" Height="14" Canvas.Left="242" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field26Owner" Height="13" Canvas.Left="294" Canvas.Top="85" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field27Owner" Height="14" Canvas.Left="346" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field28Owner" Height="14" Canvas.Left="399" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field29Owner" Height="13" Canvas.Left="452" Canvas.Top="85" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill"/>
-            <Image x:Name="Field30Owner" Height="14" Canvas.Left="504" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-            <Image x:Name="Field32Owner" Height="14" Canvas.Left="535" Canvas.Top="91" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field22Owner" Height="14" Canvas.Left="85" Canvas.Top="84" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field24Owner" Height="14" Canvas.Left="188" Canvas.Top="84" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field25Owner" Height="14" Canvas.Left="239" Canvas.Top="84" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field26Owner" Height="13" Canvas.Left="290" Canvas.Top="85" Width="24"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field27Owner" Height="14" Canvas.Left="341" Canvas.Top="84" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field28Owner" Height="14" Canvas.Left="393" Canvas.Top="84" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field29Owner" Height="13" Canvas.Left="445" Canvas.Top="85" Width="24"  Source="Board/NoAlpha.png" Stretch="Fill"/>
+            <Image x:Name="Field30Owner" Height="14" Canvas.Left="495" Canvas.Top="84" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="Field32Owner" Height="14" Canvas.Left="526" Canvas.Top="91" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field33Owner" Height="14" Canvas.Left="536" Canvas.Top="143" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field33Owner" Height="14" Canvas.Left="527" Canvas.Top="142" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field35Owner" Height="14" Canvas.Left="535" Canvas.Top="248" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field35Owner" Height="14" Canvas.Left="526" Canvas.Top="245" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field36Owner" Height="14" Canvas.Left="535" Canvas.Top="301" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field36Owner" Height="14" Canvas.Left="526" Canvas.Top="297" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field38Owner" Height="14" Canvas.Left="535" Canvas.Top="406" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field38Owner" Height="13" Canvas.Left="526" Canvas.Top="401" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image x:Name="Field40Owner" Height="14" Canvas.Left="536" Canvas.Top="510" Width="26"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image x:Name="Field40Owner" Height="14" Canvas.Left="527" Canvas.Top="503" Width="25"  Source="Board/NoAlpha.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
+                        <ScaleTransform ScaleX="1.004" ScaleY="0.997"/>
                         <SkewTransform/>
                         <RotateTransform Angle="90"/>
                         <TranslateTransform/>
@@ -555,7 +555,7 @@
                 </ScrollViewer>
             </Grid>
         </GroupBox>
-        <Grid x:Name="Grid_Trade" Background="#FFD9E4FB" Margin="201,89" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="665" AllowDrop="True">
+        <Grid x:Name="Grid_Trade" Background="#FFD9E4FB" Margin="201,89" HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="665" AllowDrop="True" d:IsHidden="True">
             <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="665" Background="Black">
                 <Label Content="Wybierz gracza do handlu: " Height="22" FontSize="11" Width="479" Foreground="White"/>
                 <MenuItem Header="Player 2" Click="MenuItem_Player_Click" Foreground="White"/>
@@ -614,6 +614,7 @@
             <Button x:Name="Change_Trade_Button" Content="Zmień ofertę" HorizontalAlignment="Center" Margin="233,0,232,10" VerticalAlignment="Bottom" Width="200" Click="Change_Trade_Click" IsEnabled="False"/>
             <Button x:Name="Reject_Trade_Button" Content="Odrzuć ofertę" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Click="Reject_Trade_Click"/>
         </Grid>
+        <DockPanel LastChildFill="False"/>
 
 
     </Grid>
