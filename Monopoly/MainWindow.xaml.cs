@@ -338,7 +338,7 @@ namespace Monopoly
         private Visibility VisibilityCheck(bool shouldBeVisible) => shouldBeVisible ? Visibility.Visible : Visibility.Hidden;
         private void RefreshBoardUI()
         {
-            for (byte i = 1; i < 41; i++)
+            for (byte i = 1; i < 40; i++)
             {
                 DrawOwner(i, Game.fieldOwner[i]);
                 DrawHouses(i, Game.fieldHouse[i]);
@@ -509,7 +509,7 @@ namespace Monopoly
         private void DrawOwner(byte field, byte status)
         {
             Regex regex = new Regex(@"Field\d+Owner");
-            foreach (Image img in GameCanvas.Children)
+            foreach (Image img in FieldOwner_Canvas.Children)
             {
                 if (regex.IsMatch(img.Name))
                 {
@@ -531,92 +531,56 @@ namespace Monopoly
         private enum Houses { NoAlpha, House1, House2, House3, House4, Trivago }
         private void DrawHouses(byte field, byte status)
         {
-            Regex regex = new Regex(@"Field\d+");
             byte FieldNumber = 0;
             foreach (Image img in GameCanvas.Children)
             {
-                if (regex.IsMatch(img.Name))
+                if (FieldNumber == field)
                 {
-                    if (FieldNumber == field)
-                    {
-                        img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Houses)status + @".png"));
-                        break;
-                    }
-                    FieldNumber++;
+                    //img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Houses)status + @".png"));
+                    img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + @"Resources/" + (Houses)status + @".png"));
+                    return;
                 }
+                FieldNumber++;
             }
         }
-        private void Field_MouseEnter(object sender, MouseEventArgs e)
+
+        private void FieldsMouseFunction(object sender, string function)
         {
-            Regex regex = new Regex(@"Field\d+");
             byte FieldNumber = 0;
             foreach (Image img in GameCanvas.Children)
             {
-                if (regex.IsMatch(img.Name))
+                if(img == sender)
                 {
-                    if (img == sender)
+                    switch(function)
                     {
-                        Game.selectedField = FieldNumber;
-                        OverviewRefresh();
-                        break;
+                        case "Field_MouseEnter":
+                            Game.selectedField = FieldNumber;
+                            OverviewRefresh();
+                            break;
+
+                        case "Field_MouseUp":
+                            BuyHouseOrSellField(FieldNumber);
+                            break;
+
+                        case "FieldNoHouseBuying_MouseUp":
+                            CantBuyHouseOrSellField(FieldNumber);
+                            break;
+
+                        case "Field_MouseRightButtonUp":
+                            CanSellHouse(FieldNumber);
+                            break;
                     }
-                    FieldNumber++;
+                    return;
                 }
+                FieldNumber++;
             }
         }
-        private void Field_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            Regex regex = new Regex(@"Field\d+");
-            byte FieldNumber = 0;
-            foreach (Image img in GameCanvas.Children)
-            {
-                if (regex.IsMatch(img.Name))
-                {
-                    if (img == sender)
-                    {
-                        BuyHouseOrSellField(FieldNumber);
-                        break;
-                    }
-                    FieldNumber++;
-                }
-            }
-        }
-        private void FieldNoHouseBuying_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            Regex regex = new Regex(@"Field\d+");
-            byte FieldNumber = 0;
-            foreach (Image img in GameCanvas.Children)
-            {
-                if (regex.IsMatch(img.Name))
-                {
-                    if (img == sender)
-                    {
-                        CantBuyHouseOrSellField(FieldNumber);
-                        break;
-                    }
-                    FieldNumber++;
-                }
-            }
-        }
+        private void Field_MouseEnter(object sender, MouseEventArgs e) => FieldsMouseFunction(sender, System.Reflection.MethodBase.GetCurrentMethod().Name);
+        private void Field_MouseUp(object sender, MouseButtonEventArgs e) => FieldsMouseFunction(sender, System.Reflection.MethodBase.GetCurrentMethod().Name);
+        private void FieldNoHouseBuying_MouseUp(object sender, MouseButtonEventArgs e) => FieldsMouseFunction(sender, System.Reflection.MethodBase.GetCurrentMethod().Name);
         private void Field_CantDoShitInDetroit_MouseUp(object sender, MouseButtonEventArgs e) => CantBuyHouseNorSellThisField();
         private void Field_CantDoShitInDetroit_MouseRightButtonUp(object sender, MouseButtonEventArgs e) => CantSellHouse();
-        private void Field_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Regex regex = new Regex(@"Field\d+");
-            byte FieldNumber = 0;
-            foreach(Image img in GameCanvas.Children)
-            {
-                if (regex.IsMatch(img.Name))
-                {
-                    if (img == sender)
-                    {
-                        CanSellHouse(FieldNumber);
-                        break;
-                    }
-                    FieldNumber++;
-                }
-            }
-        }
+        private void Field_MouseRightButtonUp(object sender, MouseButtonEventArgs e) => FieldsMouseFunction(sender, System.Reflection.MethodBase.GetCurrentMethod().Name);
         private void MenuItem_ChangeMusicVolume(object sender, RoutedEventArgs e)
         {
             int index = MenuItem_Volume.Items.IndexOf(sender);

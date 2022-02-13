@@ -425,3 +425,4 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.pdb
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\KeyboardManager.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\KeyboardManager.baml
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.Properties.Resources.resources
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.csproj.SuggestedBindingRedirects.cache
