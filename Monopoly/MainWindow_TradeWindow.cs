@@ -11,77 +11,66 @@ namespace Monopoly
     public partial class MainWindow : Window
     {
         byte PlayerTradeTarget;
-        TradePlayer Player1Trade = new TradePlayer(0);
-        TradePlayer Player2Trade = new TradePlayer(1);
-        TradePlayer Player3Trade = new TradePlayer(2);
-        TradePlayer Player4Trade = new TradePlayer(3);
-        List<SByte> PlayersForTrade = new List<SByte>() { 0, 1, 2, 3 };
+        TradePlayer[] PlayerTrade;
+        List<sbyte> PlayersForTrade;
         string[] MoneyTraded = new string[32];
 
         private void LoadTrading()
         {
+            PlayerTrade = new TradePlayer[4]
+            {
+                new TradePlayer(0),
+                new TradePlayer(1),
+                new TradePlayer(2),
+                new TradePlayer(3)
+            };
+            PlayersForTrade = new List<sbyte>() { 0, 1, 2, 3 };
             //CheckFieldOwners();
             LoadItems_ClientPlayer();
             GroupBox_TradeLeft.Header = Game.playername[Game.clientplayer].ToString();
             PlayersForTrade.Remove(Game.clientplayer);
         }
-        private TradePlayer currentTurnPlayer()
-        {
-            switch(Game.turn)
-            {
-                case 0:
-                    return Player1Trade;
-                case 1:
-                    return Player2Trade;
-                case 2:
-                    return Player3Trade;
-                case 3:
-                    return Player4Trade;
-                default:
-                    return null;
-            }
-        }
         private void LoadItems_ClientPlayer()
         {
             FieldsComboBox_ClientPlayer.Items.Clear();
-            foreach (byte x in currentTurnPlayer().OwnedFields)
+            foreach (byte x in PlayerTrade[Game.turn].OwnedFields)
             {
                 FieldsComboBox_ClientPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_ClientPlayer.Maximum = currentTurnPlayer().Cash;
+            MoneySlider_ClientPlayer.Maximum = PlayerTrade[Game.turn].Cash;
         }
         private void MenuItem_Player_Click(object sender, RoutedEventArgs e)
         {
             PlayerTradeTarget = 1;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player2Trade.OwnedFields)
+            foreach (byte x in PlayerTrade[PlayersForTrade[0]].OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_SecondPlayer.Maximum = Player2Trade.Cash;
-            GroupBox_TradeRight.Header = Game.playername[1].ToString();
+            MoneySlider_SecondPlayer.Maximum = PlayerTrade[PlayersForTrade[0]].Cash;
+            GroupBox_TradeRight.Header = PlayerTrade[PlayersForTrade[0]].ToString();
         }
         private void MenuItem_Player_Click_1(object sender, RoutedEventArgs e)
         {
             PlayerTradeTarget = 2;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player3Trade.OwnedFields)
+            foreach (byte x in PlayerTrade[PlayersForTrade[1]].OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_SecondPlayer.Maximum = Game.playercash[2];
-            GroupBox_TradeRight.Header = Game.playername[2].ToString();
+            MoneySlider_SecondPlayer.Maximum = PlayerTrade[PlayersForTrade[1]].Cash;
+            GroupBox_TradeRight.Header = PlayerTrade[PlayersForTrade[1]].ToString();
         }
         private void MenuItem_Player_Click_2(object sender, RoutedEventArgs e)
         {
             PlayerTradeTarget = 3;
             FieldsComboBox_SecondPlayer.Items.Clear();
-            foreach (byte x in Player4Trade.OwnedFields)
+            foreach (byte x in PlayerTrade[PlayersForTrade[2]].OwnedFields)
             {
                 FieldsComboBox_SecondPlayer.Items.Add(BoardData.fieldName[x]);
             }
-            MoneySlider_SecondPlayer.Maximum = Game.playercash[3];
-            GroupBox_TradeRight.Header = Game.playername[3].ToString();
+            MoneySlider_SecondPlayer.Maximum = PlayerTrade[PlayersForTrade[2]].Cash;
+            GroupBox_TradeRight.Header = PlayerTrade[PlayersForTrade[2]].ToString();
         }
         private void AcceptTradeOffer()
         {

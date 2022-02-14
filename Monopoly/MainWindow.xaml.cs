@@ -508,23 +508,20 @@ namespace Monopoly
         private enum Fields { BlueField, GreenField, YellowField, RedField, NoAlpha }
         private void DrawOwner(byte field, byte status)
         {
-            Regex regex = new Regex(@"Field\d+Owner");
             foreach (Image img in FieldOwner_Canvas.Children)
             {
-                if (regex.IsMatch(img.Name))
+                int FieldNumber;
+                string FieldOwnerSplittedName = img.Name.Substring(5, 2);
+                if (!int.TryParse(FieldOwnerSplittedName, out FieldNumber))
                 {
-                    int FieldNumber;
-                    string FieldOwnerSplittedName = img.Name.Substring(5, 2);
-                    if (!int.TryParse(FieldOwnerSplittedName, out FieldNumber))
-                    {
-                        FieldOwnerSplittedName = img.Name.Substring(5, 1);
-                        int.TryParse(FieldOwnerSplittedName, out FieldNumber);
-                    }
-                    if (FieldNumber == field + 1)
-                    {
-                        img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Fields)status + @".png"));
-                        break;
-                    }
+                    FieldOwnerSplittedName = img.Name.Substring(5, 1);
+                    int.TryParse(FieldOwnerSplittedName, out FieldNumber);
+                }
+                if (FieldNumber == field + 1)
+                {
+                    //img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Fields)status + @".png"));
+                    img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + @"Resources/" + (Fields)status + @".png"));
+                    break;
                 }
             }
         }

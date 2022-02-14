@@ -22,14 +22,14 @@ namespace Monopoly
         }
         private void RefreshData()
         {
-            byte loopIterarion = 0;
+            byte i = 0;
             foreach (byte fieldOwner in Game.fieldOwner)
             {
                 if(fieldOwner == ID)
                 {
-                    OwnedFields.Add(loopIterarion);
+                    OwnedFields.Add(i);
                 }
-                loopIterarion++;
+                i++;
             }
             Cash = Game.playercash[this.ID];
         }

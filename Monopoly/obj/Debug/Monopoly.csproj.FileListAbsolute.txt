@@ -404,7 +404,6 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\GreenFiel
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\GreenPlayer.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\monopolyboard.jpg
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\RedField.png
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\NoAlpha.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\YellowField.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\YellowPlayer.png
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Board\RedPlayer.png
@@ -425,4 +424,4 @@ C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopolium.pdb
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\KeyboardManager.g.cs
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\KeyboardManager.baml
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.Properties.Resources.resources
-C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\obj\Debug\Monopoly.csproj.SuggestedBindingRedirects.cache
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly\bin\Debug\Resources\NoAlpha.png

@@ -421,7 +421,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\TrivagoOld.png" />
-    <Content Include="Board\NoAlpha.png">
+    <Content Include="Resources\NoAlpha.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Board\YellowField.png">
