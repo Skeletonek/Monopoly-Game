@@ -519,8 +519,7 @@ namespace Monopoly
                 }
                 if (FieldNumber == field + 1)
                 {
-                    //img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Fields)status + @".png"));
-                    img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + @"Resources/" + (Fields)status + @".png"));
+                    img.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/" + MainWindow.currentThemeDir + @"/" + (Fields)status + @".png"));
                     break;
                 }
             }

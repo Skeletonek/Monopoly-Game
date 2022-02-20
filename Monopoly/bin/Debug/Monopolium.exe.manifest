@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopolium.exe" size="8009728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopolium.exe" size="8010752">
       <assemblyIdentity name="Monopolium" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GiAk9hmJAiAj/MnmJCxkakuqUTuUWm9VH54bwMehTcc=</dsig:DigestValue>
+        <dsig:DigestValue>vb8at/wMMNAj1SMtzlQA18VzP9/vnSdSLOK6/vHLml4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -460,6 +460,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>9HNvAScBRSDTw6XLYYjYLS5rfwEXRF/Gq6EGMgwIRS4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Board\NoAlpha.png" size="809">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>X6RIWGZ9pl3W5m8GBpQsME10IxpchO3Np++6S9uZyuU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Board\RedField.png" size="603">

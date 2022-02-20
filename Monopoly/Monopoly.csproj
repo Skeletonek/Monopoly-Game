@@ -233,6 +233,9 @@
     <Content Include="Board\BluePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Board\NoAlpha.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\build.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
