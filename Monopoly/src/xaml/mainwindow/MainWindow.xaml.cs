@@ -70,6 +70,7 @@ namespace Monopoly
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Button_Trade.IsEnabled = true;
             MenuItem_Volume50.IsChecked = true;
             loading.Close();
         }
