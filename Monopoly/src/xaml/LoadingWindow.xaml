@@ -1,0 +1,17 @@
+﻿<Window x:Class="Monopoly.LoadingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly"
+        mc:Ignorable="d"
+        Title="Monopoly" Height="260" Width="325" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="Wait" Topmost="True" WindowStyle="None">
+    <Grid>
+        <Image HorizontalAlignment="Center" Height="134" Margin="93,54,93,43" VerticalAlignment="Center" Width="133" Source="/src/xaml/icon.ico"/>
+        <Label x:Name="Label_Loading" Content="Ładowanie Monopolium..." Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="299" HorizontalContentAlignment="Center"/>
+        <Label Content="Copyright © Skeletonek 2020 - 2021" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" FontStyle="Italic" FontSize="11"/>
+        <Label Content="Beta - 0.7" HorizontalAlignment="Center" Margin="72,26,72,0" VerticalAlignment="Top" Width="175" HorizontalContentAlignment="Center" FontSize="9"/>
+        <Label x:Name="Label_CopyrightHasbro" Content="Część grafik należy do: Hasbro, Inc." HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" FontSize="10" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

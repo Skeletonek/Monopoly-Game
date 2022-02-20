@@ -110,52 +110,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="About.xaml.cs">
+    <Compile Include="src\xaml\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AI.cs" />
-    <Compile Include="Audio.cs" />
-    <Compile Include="BoardData.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="KeyboardManager.xaml.cs">
+    <Compile Include="src\cs\AI.cs" />
+    <Compile Include="src\cs\Audio.cs" />
+    <Compile Include="src\cs\BoardData.cs" />
+    <Compile Include="src\cs\Game.cs" />
+    <Compile Include="src\xaml\KeyboardManager.xaml.cs">
       <DependentUpon>KeyboardManager.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LoadingWindow.xaml.cs">
+    <Compile Include="src\xaml\LoadingWindow.xaml.cs">
       <DependentUpon>LoadingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow_GameClient.cs" />
-    <Compile Include="MainWindow_GameCode.cs" />
-    <Compile Include="MainWindow_ServerCode.cs" />
-    <Compile Include="MainWindow_TradeWindow.cs" />
-    <Compile Include="Reconnecting.xaml.cs">
+    <Compile Include="src\xaml\mainwindow\MainWindow_GameClient.cs" />
+    <Compile Include="src\xaml\mainwindow\MainWindow_GameCode.cs" />
+    <Compile Include="src\xaml\mainwindow\MainWindow_ServerCode.cs" />
+    <Compile Include="src\xaml\mainwindow\MainWindow_TradeWindow.cs" />
+    <Compile Include="src\xaml\Reconnecting.xaml.cs">
       <DependentUpon>Reconnecting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TradePlayer.cs" />
-    <Compile Include="TradeWindow.xaml.cs">
+    <Compile Include="src\xaml\trade\TradePlayer.cs" />
+    <Compile Include="src\xaml\trade\TradeWindow.xaml.cs">
       <DependentUpon>TradeWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="About.xaml">
+    <Page Include="src\xaml\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CheatWindow.xaml">
+    <Page Include="src\xaml\CheatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ConnectionToServer.xaml">
+    <Page Include="src\xaml\ConnectionToServer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KeyboardManager.xaml">
+    <Page Include="src\xaml\KeyboardManager.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="LoadingWindow.xaml">
+    <Page Include="src\xaml\LoadingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="src\xaml\mainwindow\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -163,32 +163,32 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BoardLocations.cs" />
-    <Compile Include="CheatWindow.xaml.cs">
+    <Compile Include="src\cs\BoardLocations.cs" />
+    <Compile Include="src\xaml\CheatWindow.xaml.cs">
       <DependentUpon>CheatWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConnectionToServer.xaml.cs">
+    <Compile Include="src\xaml\ConnectionToServer.xaml.cs">
       <DependentUpon>ConnectionToServer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="src\xaml\mainwindow\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewSingleplayerGame.xaml">
+    <Page Include="src\xaml\NewSingleplayerGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Reconnecting.xaml">
+    <Page Include="src\xaml\Reconnecting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TradeWindow.xaml">
+    <Page Include="src\xaml\trade\TradeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewSingleplayerGame.xaml.cs">
+    <Compile Include="src\xaml\NewSingleplayerGame.xaml.cs">
       <DependentUpon>NewSingleplayerGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -204,6 +204,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="src\xaml\icon.ico" />
+    <Resource Include="src\xaml\mainwindow\dice_1.png" />
+    <Resource Include="src\xaml\mainwindow\FieldStart.jpg" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

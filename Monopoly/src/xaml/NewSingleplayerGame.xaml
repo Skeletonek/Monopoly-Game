@@ -1,0 +1,24 @@
+﻿<Window x:Class="Monopoly.NewSingleplayerGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly"
+        mc:Ignorable="d"
+        Title="Monopoly" Height="215" Width="489" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Topmost="True">
+    <Grid>
+        <Label Content="Nick: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_Player1" HorizontalAlignment="Left" Height="23" Margin="54,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Gracz 1"/>
+        <TextBox x:Name="TextBox_Player2" HorizontalAlignment="Left" Height="23" Margin="54,44,0,0" TextWrapping="Wrap" Text="Gracz 2" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBox_Player3" HorizontalAlignment="Left" Height="23" Margin="54,75,0,0" TextWrapping="Wrap" Text="Gracz 3" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBox_Player4" HorizontalAlignment="Left" Height="23" Margin="54,106,0,0" TextWrapping="Wrap" Text="Gracz 4" VerticalAlignment="Top" Width="120"/>
+        <CheckBox x:Name="CheckBox_AIActive1" Content="Aktywny" HorizontalAlignment="Left" Margin="188,78,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBox_AIActive2" Content="Aktywny" HorizontalAlignment="Left" Margin="188,109,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="ListBox_PlayboardTheme" HorizontalAlignment="Left" Height="100" Margin="293,29,0,0" VerticalAlignment="Top" Width="177" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="ListBox_PlayboardTheme_SelectionChanged"/>
+        <Label Content="Motyw planszy:" HorizontalAlignment="Left" Margin="293,3,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Button_Start" Content="Start!" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="100" Height="30" Click="Button_Start_Click"/>
+        <CheckBox x:Name="CheckBox_AI1" Content="A.I." HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="39"/>
+        <CheckBox x:Name="CheckBox_AI2" Content="A.I." HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="39"/>
+
+    </Grid>
+</Window>
