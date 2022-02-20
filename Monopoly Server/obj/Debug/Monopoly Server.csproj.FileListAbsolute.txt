@@ -79,3 +79,4 @@ C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monop
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.exe
 C:\Users\Skeleton\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.pdb
 C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.AssemblyReference.cache
+C:\Users\skele\Documents\GitHub\Monopoly-Game\Monopoly Server\obj\Debug\Monopoly Server.csproj.SuggestedBindingRedirects.cache

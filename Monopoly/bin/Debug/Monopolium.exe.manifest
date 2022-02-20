@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Monopolium" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="Monopolium" version="0.7.0.14" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Monopolium.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Monopolium.exe" size="8172032">
-      <assemblyIdentity name="Monopolium" version="0.6.1.13" language="neutral" processorArchitecture="amd64" />
+      <assemblyIdentity name="Monopolium" version="0.7.0.14" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CdUsYDZ4ZOm8zwgeX2qNLgG5a92pBSEo47NFg8TzlCo=</dsig:DigestValue>
+        <dsig:DigestValue>DMZ1VptqWh3pUZ7xFm7S4Lh4vwQ8v62IhzIkSK5VR6k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

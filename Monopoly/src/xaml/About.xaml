@@ -12,7 +12,7 @@
         <Label x:Name="Label_Version" Content="Wersja:" HorizontalAlignment="Left" Margin="124,41,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="Label_CompilationDate" Content="Data kompilacji:" HorizontalAlignment="Left" Margin="124,67,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="Label_Author" Content="Autor: " HorizontalAlignment="Left" Margin="124,93,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Copyright © 2020 - 2021" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" FontStyle="Italic" FontSize="11"/>
+        <Label Content="Copyright © 2020 - 2022" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" FontStyle="Italic" FontSize="11"/>
         <TextBlock Margin="0,0,15,50" HorizontalAlignment="Right" VerticalAlignment="Bottom">           
     <Hyperlink NavigateUri="https://github.com/Skeletonek/Monopoly-Game" RequestNavigate="Hyperlink_RequestNavigate">
         GitHub
@@ -23,8 +23,8 @@
         Skeletonek Website
     </Hyperlink>
         </TextBlock>
-        <Label Content="Beta - 0.7" HorizontalAlignment="Left" Margin="175,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="20.09.2021" HorizontalAlignment="Left" Margin="225,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="Beta - 0.7 - Pre3" HorizontalAlignment="Left" Margin="175,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="20.02.2022" HorizontalAlignment="Left" Margin="225,67,0,0" VerticalAlignment="Top"/>
         <Label Content="Skeletonek" HorizontalAlignment="Left" Margin="173,93,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_CopyrightHasbro" Content="Część grafik należy do: Hasbro, Inc." HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" FontSize="10" FontWeight="Bold"/>
 
