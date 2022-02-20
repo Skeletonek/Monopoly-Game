@@ -81,7 +81,7 @@ namespace Monopoly
                 {
                     Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = PlayerTradeTarget; //This is not ideal.
                 }
-                catch(ArgumentNullException e)
+                catch(IndexOutOfRangeException e)
                 {
 
                 }
@@ -92,7 +92,7 @@ namespace Monopoly
                 {
                     Game.fieldOwner[Array.IndexOf(BoardData.fieldName, x)] = Game.turn;
                 }
-                catch(ArgumentNullException e)
+                catch(IndexOutOfRangeException e)
                 {
 
                 }
